@@ -1,0 +1,296 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = drippy_loading_overlay
+  render_custom_elements_behind_vanilla = false
+  last_edited_time = 1757550729359
+  is_enabled = true
+  randommode = false
+  randomgroup = 1
+  randomonlyfirsttime = false
+  layout_index = 0
+  [loading_requirement_container_meta:ec34d7d6-20bb-4187-9fc9-3a943d3faad9-1757550660275] = [groups:][instances:]
+}
+
+customization {
+  action = setscale
+  scale = 5.0
+}
+
+customization {
+  action = autoscale
+  basewidth = 3840
+  baseheight = 2160
+}
+
+menu_background {
+  image_path = [source:local]/config/fancymenu/assets/bg-orange.png
+  slide = false
+  repeat_texture = false
+  parallax = false
+  parallax_intensity = 0.02
+  invert_parallax = false
+  restart_animated_on_menu_load = false
+  instance_identifier = bdb4c03e-8bea-4cff-ab94-77f3ec1b0712-1757397406227
+  background_type = image
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = false
+}
+
+scroll_list_customization {
+  preserve_scroll_list_header_footer_aspect_ratio = true
+  render_scroll_list_header_shadow = true
+  render_scroll_list_footer_shadow = true
+  show_scroll_list_header_footer_preview_in_editor = false
+  repeat_scroll_list_header_texture = false
+  repeat_scroll_list_footer_texture = false
+  show_screen_background_overlay_on_custom_background = false
+  apply_vanilla_background_blur = false
+}
+
+layout_action_executable_blocks {
+}
+
+element {
+  source = [source:local]/config/fancymenu/assets/bandai-logo.png
+  repeat_texture = false
+  nine_slice_texture = false
+  nine_slice_texture_border_x = 5
+  nine_slice_texture_border_y = 5
+  image_tint = #FFFFFF
+  restart_animated_on_menu_load = false
+  element_type = image
+  instance_identifier = d11e1178-3fc7-4e85-aa17-5326cab9a8fb-1757404795940
+  custom_element_layer_name = 万代南梦宫Logo
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = 43
+  y = 166
+  width = 136
+  height = 31
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 12561695-e27d-4e28-827a-ab2323bdb96f-1757404795940
+  [loading_requirement_container_meta:12561695-e27d-4e28-827a-ab2323bdb96f-1757404795940] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
+  source = [source:local]/config/fancymenu/assets/mojang-logo.png
+  repeat_texture = false
+  nine_slice_texture = false
+  nine_slice_texture_border_x = 5
+  nine_slice_texture_border_y = 5
+  image_tint = #FFFFFF
+  restart_animated_on_menu_load = false
+  element_type = image
+  instance_identifier = fb616e06-d763-4e61-ab84-ff6a1245846c-1757403811935
+  custom_element_layer_name = Mojang Logo
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 854
+  auto_sizing_base_screen_height = 480
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = -179
+  y = 166
+  width = 136
+  height = 32
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 04528875-2861-42df-b9dc-9b2b441b8388-1757403811935
+  [loading_requirement_container_meta:04528875-2861-42df-b9dc-9b2b441b8388-1757403811935] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
+  source = [source:local]/config/fancymenu/assets/niijima-railways.png
+  repeat_texture = false
+  nine_slice_texture = false
+  nine_slice_texture_border_x = 5
+  nine_slice_texture_border_y = 5
+  image_tint = #FFFFFF
+  restart_animated_on_menu_load = false
+  element_type = image
+  instance_identifier = 2638388c-90dc-43a6-a433-ed5e2619fdc9-1757404213644
+  custom_element_layer_name = 新岛铁道
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 854
+  auto_sizing_base_screen_height = 480
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = -128
+  y = -123
+  width = 256
+  height = 256
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 64ff0906-0575-49a5-961f-8a73d861310b-1757404213644
+  [loading_requirement_container_meta:64ff0906-0575-49a5-961f-8a73d861310b-1757404213644] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+vanilla_button {
+  button_element_executable_block_identifier = 5cd23666-47ac-4b01-aac0-4f2f2f8c5eb0-1757397218604
+  [executable_block:5cd23666-47ac-4b01-aac0-4f2f2f8c5eb0-1757397218604][type:generic] = [executables:]
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  navigatable = true
+  widget_active_state_requirement_container_identifier = d1a4d130-3ea5-42a2-8841-4ccf57ed0430-1757397218604
+  [loading_requirement_container_meta:d1a4d130-3ea5-42a2-8841-4ccf57ed0430-1757397218604] = [groups:][instances:]
+  is_template = false
+  template_apply_width = false
+  template_apply_height = false
+  template_apply_posx = false
+  template_apply_posy = false
+  template_apply_opacity = false
+  template_apply_visibility = false
+  template_apply_label = false
+  template_share_with = buttons
+  nine_slice_slider_handle = false
+  nine_slice_slider_handle_border_x = 5
+  nine_slice_slider_handle_border_y = 5
+  element_type = vanilla_button
+  instance_identifier = mojang_logo
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = vanilla
+  x = 168
+  y = 162
+  width = 432
+  height = 108
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 40263bc0-1cb3-4834-9a9e-4c01724a47ec-1757397218604
+  [loading_requirement_container_meta:40263bc0-1cb3-4834-9a9e-4c01724a47ec-1757397218604] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+  is_hidden = true
+  automated_button_clicks = 0
+}
+
+vanilla_button {
+  button_element_executable_block_identifier = b3f42b27-dc42-480c-89f4-8069f0039bae-1757397218604
+  [executable_block:b3f42b27-dc42-480c-89f4-8069f0039bae-1757397218604][type:generic] = [executables:]
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  navigatable = true
+  widget_active_state_requirement_container_identifier = cf19ea4e-be16-4fb7-b8e6-f2c36c31b324-1757397218604
+  [loading_requirement_container_meta:cf19ea4e-be16-4fb7-b8e6-f2c36c31b324-1757397218604] = [groups:][instances:]
+  is_template = false
+  template_apply_width = false
+  template_apply_height = false
+  template_apply_posx = false
+  template_apply_posy = false
+  template_apply_opacity = false
+  template_apply_visibility = false
+  template_apply_label = false
+  template_share_with = buttons
+  nine_slice_slider_handle = false
+  nine_slice_slider_handle_border_x = 5
+  nine_slice_slider_handle_border_y = 5
+  element_type = vanilla_button
+  instance_identifier = progress_bar
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 0
+  auto_sizing_base_screen_height = 0
+  sticky_anchor = false
+  anchor_point = vanilla
+  x = 168
+  y = 354
+  width = 432
+  height = 10
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 4daaad4d-d2ff-4626-9e6b-4e57ebc922bf-1757397218604
+  [loading_requirement_container_meta:4daaad4d-d2ff-4626-9e6b-4e57ebc922bf-1757397218604] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+  is_hidden = false
+  automated_button_clicks = 0
+}
+

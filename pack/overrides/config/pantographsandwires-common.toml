@@ -1,0 +1,8 @@
+
+[pantographsandwires_common_config]
+
+	[pantographsandwires_common_config.advanced]
+		#Improves targeting of blocks when the hitbox is outside the actual block area (e.g. large or diagonal hitboxes). However, this requires a bit more computing power because 9 blocks have to be checked instead of 1.
+		#Default: ON
+		block_selection = true
+
