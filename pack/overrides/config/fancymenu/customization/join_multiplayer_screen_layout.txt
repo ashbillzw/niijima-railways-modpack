@@ -201,7 +201,7 @@ element {
   media_volume = 1.0
   element_type = browser
   instance_identifier = 4f4d6466-607d-42d7-b60f-06bc1a2023ba-1757406055805
-  custom_element_layer_name = 铁道线图
+  custom_element_layer_name = 【浏览器】铁道线图
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
   fade_in_v2 = no_fading
