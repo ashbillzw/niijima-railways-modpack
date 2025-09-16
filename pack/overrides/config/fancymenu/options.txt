@@ -26,7 +26,7 @@ B:game_intro_fade_out = 'true';
 B:show_custom_window_icon = 'true';
 S:custom_window_icon_macos = '/config/fancymenu/assets/icon-mac.icns';
 S:custom_window_icon_32 = '/config/fancymenu/assets/icon-32.png';
-S:custom_window_title = '新岛铁道 v1.4.3';
+S:custom_window_title = '新岛铁道 v1.4.3 管理员版';
 S:custom_window_icon_16 = '/config/fancymenu/assets/icon-16.png';
 
 
