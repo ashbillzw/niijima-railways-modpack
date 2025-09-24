@@ -1,0 +1,408 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = random_video
+  render_custom_elements_behind_vanilla = false
+  last_edited_time = 1758616648008
+  is_enabled = true
+  randommode = false
+  randomgroup = 1
+  randomonlyfirsttime = false
+  layout_index = 0
+  [loading_requirement_container_meta:f2c03309-1e28-43c2-a8d3-9a967f0d2abc-1758616632890] = [groups:][instances:]
+}
+
+customization {
+  action = setscale
+  scale = 5.0
+}
+
+customization {
+  action = autoscale
+  basewidth = 3840
+  baseheight = 2160
+}
+
+menu_background {
+  color = #000000FF
+  instance_identifier = 3f741729-e5ad-4234-bacd-24ec2bd6de0c-1758602370527
+  background_type = color_fancymenu
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = false
+}
+
+scroll_list_customization {
+  preserve_scroll_list_header_footer_aspect_ratio = true
+  render_scroll_list_header_shadow = true
+  render_scroll_list_footer_shadow = true
+  show_scroll_list_header_footer_preview_in_editor = false
+  repeat_scroll_list_header_texture = false
+  repeat_scroll_list_footer_texture = false
+  show_screen_background_overlay_on_custom_background = false
+  apply_vanilla_background_blur = false
+}
+
+layout_action_executable_blocks {
+}
+
+element {
+  url = https://mc1.ashbill.com:25572/assets/bg-video-loader.html
+  interactable = false
+  hide_video_controls = false
+  loop_videos = false
+  mute_media = false
+  media_volume = 1.0
+  element_type = browser
+  instance_identifier = 445c6766-05ec-4965-983a-d002c6f7faf2-1758602387422
+  custom_element_layer_name = 【浏览器】随机背景视频
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = 0
+  y = -36
+  width = 250
+  height = 250
+  stretch_x = true
+  stretch_y = true
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = c5a229c9-36cc-4807-b3c7-4dd8c368afce-1758602387422
+  [loading_requirement_container_meta:c5a229c9-36cc-4807-b3c7-4dd8c368afce-1758602387422] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
+  interactable = false
+  source = ！在线视频播放中（源：mc.ashbill.com）！
+  source_mode = direct
+  shadow = true
+  scale = 1.5
+  base_color = #FFFF00FF
+  text_border = 2
+  line_spacing = 2
+  enable_scrolling = false
+  auto_line_wrapping = true
+  remove_html_breaks = true
+  code_block_single_color = #737373FF
+  code_block_multi_color = #565656FF
+  headline_line_color = #A9A9A9FF
+  separation_line_color = #A9A9A9FF
+  hyperlink_color = #0771FCFF
+  quote_color = #818181FF
+  quote_indent = 8.0
+  quote_italic = false
+  bullet_list_dot_color = #A9A9A9FF
+  bullet_list_indent = 8.0
+  bullet_list_spacing = 3.0
+  parse_markdown = true
+  table_show_header = true
+  table_alternate_row_colors = true
+  table_line_color = #787878FF
+  table_header_background_color = #323232FF
+  table_row_background_color = #282828FF
+  table_alternate_row_color = #3C3C3CFF
+  table_line_thickness = 1.0
+  table_cell_padding = 8.0
+  table_margin = 4.0
+  element_type = text_v2
+  instance_identifier = 1e83eb51-78cc-4e57-9661-d8b651e7582e-1758616110508
+  custom_element_layer_name = 【文字】线上视频
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = bottom-left
+  x = 10
+  y = -32
+  width = 275
+  height = 19
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 89b81f54-d4d3-44d6-9a4c-7e5a5d6d322b-1758616110508
+  [loading_requirement_container_meta:89b81f54-d4d3-44d6-9a4c-7e5a5d6d322b-1758616110508] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
+  button_element_executable_block_identifier = 1a5c334a-0b8e-40cf-9362-e07113e9747f-1757399073110
+  [executable_action_instance:75c4d2c0-8dfb-4c33-86d9-7dc7b7db2b7e-1758602939763][action_type:opengui] = join_multiplayer_screen
+  [executable_block:1a5c334a-0b8e-40cf-9362-e07113e9747f-1757399073110][type:generic] = [executables:75c4d2c0-8dfb-4c33-86d9-7dc7b7db2b7e-1758602939763;]
+  backgroundnormal = [source:local]/config/fancymenu/assets/press-anywhere.png
+  backgroundhovered = [source:local]/config/fancymenu/assets/press-anywhere.png
+  background_texture_inactive = [source:local]/config/fancymenu/assets/press-anywhere.png
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  label = 
+  navigatable = true
+  widget_active_state_requirement_container_identifier = f5a084bc-570d-4579-933b-2a8bfb339acc-1757399073110
+  [loading_requirement_container_meta:f5a084bc-570d-4579-933b-2a8bfb339acc-1757399073110] = [groups:][instances:]
+  is_template = false
+  template_apply_width = false
+  template_apply_height = false
+  template_apply_posx = false
+  template_apply_posy = false
+  template_apply_opacity = false
+  template_apply_visibility = false
+  template_apply_label = false
+  template_share_with = buttons
+  nine_slice_slider_handle = false
+  nine_slice_slider_handle_border_x = 5
+  nine_slice_slider_handle_border_y = 5
+  element_type = custom_button
+  instance_identifier = 224c0d8f-c6be-4045-8f3a-da544af6c8f1-1758614412210
+  custom_element_layer_name = 多人游戏按钮（全屏判定）
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = 0
+  y = 0
+  width = 100
+  height = 20
+  stretch_x = true
+  stretch_y = true
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 5518188e-4b9a-4316-82d2-fe060bc19a50-1757399073110
+  [loading_requirement_container_meta:5518188e-4b9a-4316-82d2-fe060bc19a50-1757399073110] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
+  button_element_executable_block_identifier = 7ac8f4cd-e246-446c-a6ed-092644814783-1757402823727
+  [executable_action_instance:31b8dc3e-681c-4185-b287-4ccaa06ac4ca-1758616061391][action_type:reloadmenu] = 
+  [executable_block:7ac8f4cd-e246-446c-a6ed-092644814783-1757402823727][type:generic] = [executables:31b8dc3e-681c-4185-b287-4ccaa06ac4ca-1758616061391;]
+  backgroundnormal = [source:local]/config/fancymenu/assets/shuffle-black.png
+  backgroundhovered = [source:local]/config/fancymenu/assets/shuffle-glow.png
+  background_texture_inactive = [source:local]/config/fancymenu/assets/shuffle-black.png
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  label = 
+  navigatable = true
+  widget_active_state_requirement_container_identifier = 942f2863-57e3-404a-882a-24b4a661b288-1757402823727
+  [loading_requirement_container_meta:942f2863-57e3-404a-882a-24b4a661b288-1757402823727] = [groups:][instances:]
+  is_template = false
+  template_apply_width = false
+  template_apply_height = false
+  template_apply_posx = false
+  template_apply_posy = false
+  template_apply_opacity = false
+  template_apply_visibility = false
+  template_apply_label = false
+  template_share_with = buttons
+  nine_slice_slider_handle = false
+  nine_slice_slider_handle_border_x = 5
+  nine_slice_slider_handle_border_y = 5
+  element_type = custom_button
+  instance_identifier = 38498ba7-ea90-4e5b-8a97-1f9d1a50421f-1758615989766
+  custom_element_layer_name = 女声优按钮
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = top-right
+  advanced_width = 32
+  advanced_height = 32
+  x = -40
+  y = 72
+  width = 50
+  height = 50
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 0ba37a99-3eb0-47bb-8592-a07fce7e1321-1757402823727
+  [loading_requirement_container_meta:0ba37a99-3eb0-47bb-8592-a07fce7e1321-1757402823727] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
+  button_element_executable_block_identifier = 7ac8f4cd-e246-446c-a6ed-092644814783-1757402823727
+  [executable_action_instance:04fc0251-97a1-447b-874d-619942c3296f-1757402997880][action_type:mimicbutton] = title_screen:mc_titlescreen_quit_button
+  [executable_block:7ac8f4cd-e246-446c-a6ed-092644814783-1757402823727][type:generic] = [executables:04fc0251-97a1-447b-874d-619942c3296f-1757402997880;]
+  backgroundnormal = [source:local]/config/fancymenu/assets/cross-dark-red.png
+  backgroundhovered = [source:local]/config/fancymenu/assets/cross-red.png
+  background_texture_inactive = [source:local]/config/fancymenu/assets/cross-dark-red.png
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  label = 
+  navigatable = true
+  widget_active_state_requirement_container_identifier = 942f2863-57e3-404a-882a-24b4a661b288-1757402823727
+  [loading_requirement_container_meta:942f2863-57e3-404a-882a-24b4a661b288-1757402823727] = [groups:][instances:]
+  is_template = false
+  template_apply_width = false
+  template_apply_height = false
+  template_apply_posx = false
+  template_apply_posy = false
+  template_apply_opacity = false
+  template_apply_visibility = false
+  template_apply_label = false
+  template_share_with = buttons
+  nine_slice_slider_handle = false
+  nine_slice_slider_handle_border_x = 5
+  nine_slice_slider_handle_border_y = 5
+  element_type = custom_button
+  instance_identifier = 8ca8f69c-bf00-45ca-9f19-cd25cf83fc7e-1758603008979
+  custom_element_layer_name = 退出按钮
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = top-right
+  advanced_width = 32
+  advanced_height = 32
+  x = -40
+  y = 40
+  width = 50
+  height = 50
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 0ba37a99-3eb0-47bb-8592-a07fce7e1321-1757402823727
+  [loading_requirement_container_meta:0ba37a99-3eb0-47bb-8592-a07fce7e1321-1757402823727] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
+  button_element_executable_block_identifier = 20556c80-95ef-4ca6-8b5b-5bb74e7bd793-1757401344774
+  [executable_action_instance:25b5c74b-5154-403a-98ad-6381bf48831b-1758616024995][action_type:opengui] = options_screen
+  [executable_block:20556c80-95ef-4ca6-8b5b-5bb74e7bd793-1757401344774][type:generic] = [executables:25b5c74b-5154-403a-98ad-6381bf48831b-1758616024995;]
+  backgroundnormal = [source:local]/config/fancymenu/assets/settings.png
+  backgroundhovered = [source:local]/config/fancymenu/assets/settings-orange.png
+  background_texture_inactive = [source:local]/config/fancymenu/assets/settings.png
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  label = 
+  navigatable = true
+  widget_active_state_requirement_container_identifier = 2cfe9bb4-a9ac-43be-98a0-53e66ff54866-1757401344774
+  [loading_requirement_container_meta:2cfe9bb4-a9ac-43be-98a0-53e66ff54866-1757401344774] = [groups:][instances:]
+  is_template = false
+  template_apply_width = false
+  template_apply_height = false
+  template_apply_posx = false
+  template_apply_posy = false
+  template_apply_opacity = false
+  template_apply_visibility = false
+  template_apply_label = false
+  template_share_with = buttons
+  nine_slice_slider_handle = false
+  nine_slice_slider_handle_border_x = 5
+  nine_slice_slider_handle_border_y = 5
+  element_type = custom_button
+  instance_identifier = 4faa5591-7324-4928-9e2b-9ebb26577995-1758602642945
+  custom_element_layer_name = 设置按钮
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = top-right
+  advanced_width = 32
+  advanced_height = 32
+  x = -40
+  y = 8
+  width = 50
+  height = 50
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 66b40f08-d741-433f-bf9d-f9b031ee573c-1757401344774
+  [loading_requirement_container_meta:66b40f08-d741-433f-bf9d-f9b031ee573c-1757401344774] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
