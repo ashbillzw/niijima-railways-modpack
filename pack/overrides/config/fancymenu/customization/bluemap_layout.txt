@@ -1,0 +1,151 @@
+type = fancymenu_layout
+
+layout-meta {
+  identifier = bluemap
+  render_custom_elements_behind_vanilla = false
+  last_edited_time = 1759099505239
+  is_enabled = true
+  randommode = false
+  randomgroup = 1
+  randomonlyfirsttime = false
+  layout_index = 0
+  [loading_requirement_container_meta:f191fdc6-f64d-4ba5-a7fc-03c205128b82-1759099500469] = [groups:][instances:]
+}
+
+customization {
+  action = setscale
+  scale = 5.0
+}
+
+customization {
+  action = autoscale
+  basewidth = 3840
+  baseheight = 2160
+}
+
+menu_background {
+  color = #000000FF
+  instance_identifier = 3f741729-e5ad-4234-bacd-24ec2bd6de0c-1758602370527
+  background_type = color_fancymenu
+}
+
+customization {
+  action = backgroundoptions
+  keepaspectratio = false
+}
+
+scroll_list_customization {
+  preserve_scroll_list_header_footer_aspect_ratio = true
+  render_scroll_list_header_shadow = true
+  render_scroll_list_footer_shadow = true
+  show_scroll_list_header_footer_preview_in_editor = false
+  repeat_scroll_list_header_texture = false
+  repeat_scroll_list_footer_texture = false
+  show_screen_background_overlay_on_custom_background = false
+  apply_vanilla_background_blur = false
+}
+
+layout_action_executable_blocks {
+}
+
+element {
+  url = https://mc1.ashbill.com:25572/bluemap/web
+  interactable = true
+  hide_video_controls = false
+  loop_videos = false
+  mute_media = false
+  media_volume = 1.0
+  element_type = browser
+  instance_identifier = 445c6766-05ec-4965-983a-d002c6f7faf2-1758602387422
+  custom_element_layer_name = 【浏览器】全服大地图
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = mid-centered
+  x = 0
+  y = -36
+  width = 250
+  height = 250
+  stretch_x = true
+  stretch_y = true
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = c5a229c9-36cc-4807-b3c7-4dd8c368afce-1758602387422
+  [loading_requirement_container_meta:c5a229c9-36cc-4807-b3c7-4dd8c368afce-1758602387422] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
+  button_element_executable_block_identifier = 24e18869-fbf6-42c4-82b0-7fcd8270ac26-1759098832755
+  [executable_action_instance:f9f3372e-f1a2-4b77-87ff-c280de535ae2-1759099379432][action_type:closegui] = 
+  [executable_action_instance:ee329d55-3f1f-479b-893c-422af944a735-1759099383003][action_type:opengui] = join_multiplayer_screen
+  [executable_block:24e18869-fbf6-42c4-82b0-7fcd8270ac26-1759098832755][type:generic] = [executables:f9f3372e-f1a2-4b77-87ff-c280de535ae2-1759099379432;ee329d55-3f1f-479b-893c-422af944a735-1759099383003;]
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  hoverlabel = 关闭地图
+  label = 关闭地图
+  navigatable = true
+  widget_active_state_requirement_container_identifier = 08858c45-8cc4-46aa-81de-ed5232c9f352-1759098832755
+  [loading_requirement_container_meta:08858c45-8cc4-46aa-81de-ed5232c9f352-1759098832755] = [groups:][instances:]
+  is_template = false
+  template_apply_width = false
+  template_apply_height = false
+  template_apply_posx = false
+  template_apply_posy = false
+  template_apply_opacity = false
+  template_apply_visibility = false
+  template_apply_label = false
+  template_share_with = buttons
+  nine_slice_slider_handle = false
+  nine_slice_slider_handle_border_x = 5
+  nine_slice_slider_handle_border_y = 5
+  element_type = custom_button
+  instance_identifier = 21961a0d-2c1d-48e1-b1c9-2a4ea811c269-1759098832755
+  custom_element_layer_name = 【按钮】关闭地图
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = bottom-right
+  x = -155
+  y = -54
+  width = 100
+  height = 20
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 95825fcb-367e-41b5-85d3-6d40d497bfe4-1759098832755
+  [loading_requirement_container_meta:95825fcb-367e-41b5-85d3-6d40d497bfe4-1759098832755] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
