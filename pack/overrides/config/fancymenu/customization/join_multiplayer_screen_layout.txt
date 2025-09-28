@@ -542,6 +542,65 @@ element {
   layer_hidden_in_editor = false
 }
 
+element {
+  button_element_executable_block_identifier = 35850d8e-5815-44b9-a66b-fc4c9295daee-1757479329474
+  [executable_action_instance:a7de2884-ddd5-4b87-88b5-e696d9a70d6d-1757479466614][action_type:opengui] = bluemap
+  [executable_block:35850d8e-5815-44b9-a66b-fc4c9295daee-1757479329474][type:generic] = [executables:a7de2884-ddd5-4b87-88b5-e696d9a70d6d-1757479466614;]
+  restartbackgroundanimations = true
+  nine_slice_custom_background = false
+  nine_slice_border_x = 5
+  nine_slice_border_y = 5
+  hoverlabel = 全服大地图
+  label = 全服大地图
+  navigatable = true
+  widget_active_state_requirement_container_identifier = d66e2a5e-1f48-4e95-8cc7-ea35385c9eb3-1757479329474
+  [loading_requirement_container_meta:d66e2a5e-1f48-4e95-8cc7-ea35385c9eb3-1757479329474] = [groups:][instances:]
+  is_template = false
+  template_apply_width = false
+  template_apply_height = false
+  template_apply_posx = false
+  template_apply_posy = false
+  template_apply_opacity = false
+  template_apply_visibility = false
+  template_apply_label = false
+  template_share_with = buttons
+  nine_slice_slider_handle = false
+  nine_slice_slider_handle_border_x = 5
+  nine_slice_slider_handle_border_y = 5
+  element_type = custom_button
+  instance_identifier = d06e3e14-6b2c-4e24-a85b-79c23c601cf2-1759097869909
+  custom_element_layer_name = 【按钮】全服大地图
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = false
+  anchor_point = bottom-right
+  x = -155
+  y = -54
+  width = 100
+  height = 20
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 1e769946-cc32-43d6-b490-99169a8747c2-1757479329474
+  [loading_requirement_container_meta:1e769946-cc32-43d6-b490-99169a8747c2-1757479329474] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
 vanilla_button {
   button_element_executable_block_identifier = b327b207-ca7e-4c65-9f1a-42be83dabdd4-1757406026263
   [executable_block:b327b207-ca7e-4c65-9f1a-42be83dabdd4-1757406026263][type:generic] = [executables:]
