@@ -121,6 +121,18 @@
       "fileSize": 1181413
     },
     {
+      "path": "mods/configured-forge-1.20.1-2.2.3.jar",
+      "hashes": {
+        "sha1": "065c2d287a52f52fc8d33d780192325ee6f4b6ae",
+        "sha512": "f59fe314f321b0a30ff4cdbbcb2bd129ce0d168429b4cd4d05d3416b5e0836d9819219fcc929aae652675d0b62c3a356689e31cc4f39a0a76efcc5103e2039d1"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/5180/900/configured-forge-1.20.1-2.2.3.jar",
+        "https://edge.forgecdn.net/files/5180/900/configured-forge-1.20.1-2.2.3.jar"
+      ],
+      "fileSize": 418929
+    },
+    {
       "path": "mods/Controlling-forge-1.20.1-12.0.2.jar",
       "hashes": {
         "sha1": "f6d3cdd3ec68c5590cf5b2e89c38dbf031824bfd",
