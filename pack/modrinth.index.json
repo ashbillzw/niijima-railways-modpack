@@ -310,6 +310,17 @@
       "fileSize": 478568
     },
     {
+      "path": "mods/firstperson-forge-2.5.0-mc1.20.1.jar",
+      "hashes": {
+        "sha1": "58280ce1c376420ee138d99c5a7c8c5f5de315c3",
+        "sha512": "57f421f4d9ec969218372029798bc0e83aa661fce95744f5608dd03718e5a88a217fc36b7a71a7ab79b21a531a28a1c549e364241d103857afd932eaa0ce1002"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/H5XMjpHi/versions/ub6wk879/firstperson-forge-2.5.0-mc1.20.1.jar"
+      ],
+      "fileSize": 519546
+    },
+    {
       "path": "mods/fancymenu_forge_3.7.0_MC_1.20.1.jar",
       "hashes": {
         "sha1": "f33a40f7d33585e781d90d00d156178e369ae8ed",
@@ -410,6 +421,17 @@
         "https://cdn.modrinth.com/data/RXM1nxge/versions/nEsTLkcQ/inv_view_forge-2.1.0-1.20.1.jar"
       ],
       "fileSize": 85516
+    },
+    {
+      "path": "mods/notenoughanimations-forge-1.10.2-mc1.20.1.jar",
+      "hashes": {
+        "sha1": "b31ffefa9579649de8acbac53ac0792830f71e60",
+        "sha512": "d85b3c70d950e1c705d6ac5771f4d289e30717178b806ac915025297e6e21b74ac58707b1bd022cdf51b8e3f6300ae0d663343b62a39c8a3948fd7b3209cf85d"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/MPCX6s5C/versions/zc852ea9/notenoughanimations-forge-1.10.2-mc1.20.1.jar"
+      ],
+      "fileSize": 845556
     },
     {
       "path": "mods/Jade-1.20.1-Forge-11.13.2.jar",
@@ -818,6 +840,18 @@
         "https://edge.forgecdn.net/files/3930/804/AlwaysEat-5.2.jar"
       ],
       "fileSize": 11372
+    },
+    {
+      "path": "mods/configured-forge-1.20.1-2.2.3.jar",
+      "hashes": {
+        "sha1": "065c2d287a52f52fc8d33d780192325ee6f4b6ae",
+        "sha512": "f59fe314f321b0a30ff4cdbbcb2bd129ce0d168429b4cd4d05d3416b5e0836d9819219fcc929aae652675d0b62c3a356689e31cc4f39a0a76efcc5103e2039d1"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/5180/900/configured-forge-1.20.1-2.2.3.jar",
+        "https://edge.forgecdn.net/files/5180/900/configured-forge-1.20.1-2.2.3.jar"
+      ],
+      "fileSize": 418929
     },
     {
       "path": "mods/Controlling-forge-1.20.1-12.0.2.jar",
