@@ -55,11 +55,13 @@
     "minecraft:ghast",
     "minecraft:ender_dragon",
     "iceandfire:all",
-    "create:all"
+    "create:all",
+    "minecraft:player"
   ],
   "monsterWhitelist": [],
   "tileEntityWhitelist": [
-    "waterframes:all"
+    "waterframes:all",
+    "immersive_paintings:all"
   ],
   "borderlessAttachModeF11": "ATTACH",
   "fastLanguageReload": true,
