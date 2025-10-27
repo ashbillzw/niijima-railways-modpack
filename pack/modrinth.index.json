@@ -818,6 +818,19 @@
       "fileSize": 370524
     },
     {
+      "path": "mods/yuushya-1.20.1-forge-2.2.3.jar",
+      "hashes": {
+        "sha1": "6b0b56d34c8466afd76097a7002f7ab18bd96b1c",
+        "sha512": "fe495638216049d28e25584d94025960eb416ace68457fee367a22d80f3e47dafb952f0dca5e725dcd715e8ff37154ede9beb7c41267154edcb7229e233de135"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/lfVtagkm/versions/3geNR8Br/yuushya-1.20.1-forge-2.2.3.jar",
+        "https://mediafilez.forgecdn.net/files/6393/938/yuushya-1.20.1-forge-2.2.3.jar",
+        "https://edge.forgecdn.net/files/6393/938/yuushya-1.20.1-forge-2.2.3.jar"
+      ],
+      "fileSize": 23411995
+    },
+    {
       "path": "mods/1.20.1-maid_storage_manager-1.13.5.jar",
       "hashes": {
         "sha1": "51165a0a6f26ef72e5f0f8ed5fad51dfe7fcbee7",
@@ -888,6 +901,18 @@
         "https://edge.forgecdn.net/files/6242/383/fruitsdelight-1.0.19.jar"
       ],
       "fileSize": 1877803
+    },
+    {
+      "path": "mods/ftb-chunks-forge-2001.3.6.jar",
+      "hashes": {
+        "sha1": "7fde7917655a3356cab92f17ad2bca34962c4928",
+        "sha512": "36b409f857bc1074025ea015f86aa0d70494901f9be074d86b4a16ab2df113a053b908f5281a87dbb82fc63b9748cb492249d6a0c9e2e05ddafa56ecf1e9525e"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/6431/735/ftb-chunks-forge-2001.3.6.jar",
+        "https://edge.forgecdn.net/files/6431/735/ftb-chunks-forge-2001.3.6.jar"
+      ],
+      "fileSize": 1158842
     },
     {
       "path": "mods/ftb-library-forge-2001.2.10.jar",
