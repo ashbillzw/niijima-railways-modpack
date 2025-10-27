@@ -1,0 +1,9 @@
+{
+	"replace": false,
+	"values": [
+		"create:depot",
+		"numismatics:vendor",
+		"numismatics:andesite_depositor",
+		"numismatics:brass_depositor"
+	]
+}
