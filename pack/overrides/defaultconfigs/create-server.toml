@@ -342,7 +342,7 @@
 	#.
 	#Configure which fluids can be drained infinitely.
 	#Allowed Values: ALLOW_ALL, DENY_ALL, ALLOW_BY_TAG, DENY_BY_TAG
-	bottomlessFluidMode = "ALLOW_BY_TAG"
+	bottomlessFluidMode = "ALLOW_ALL"
 	#.
 	#Whether hose pulleys should be allowed to place fluid sources.
 	fluidFillPlaceFluidSourceBlocks = true
@@ -396,17 +396,17 @@
 	#.
 	#The amount of Schematics a player can upload until previous ones are overwritten.
 	#Range: > 1
-	maxSchematics = 10
+	maxSchematics = 32
 	#.
 	#[in KiloBytes]
 	#The maximum allowed file size of uploaded Schematics.
 	#Range: > 16
-	maxTotalSchematicSize = 256
+	maxTotalSchematicSize = 2048
 	#.
 	#[in Bytes]
 	#The maximum packet size uploaded Schematics are split into.
 	#Range: 256 ~ 32767
-	maxSchematicPacketSize = 1024
+	maxSchematicPacketSize = 2048
 	#.
 	#Amount of game ticks without new packets arriving until an active schematic upload process is discarded.
 	#Range: > 100
@@ -418,11 +418,11 @@
 		#.
 		#Amount of game ticks between shots of the cannon. Higher => Slower
 		#Range: > 1
-		schematicannonDelay = 10
+		schematicannonDelay = 1
 		#.
 		#Amount of blocks a Schematicannon can print per Gunpowder item provided.
 		#Range: > 1
-		schematicannonShotsPerGunpowder = 400
+		schematicannonShotsPerGunpowder = 256
 
 #.
 #Equipment and gadgets added by Create
@@ -467,19 +467,19 @@
 	#.
 	#Maximum length of track that can be placed as one batch or turn.
 	#Range: 16 ~ 128
-	maxTrackPlacementLength = 32
+	maxTrackPlacementLength = 128
 	#.
 	#Maximum length of a Train Stations' assembly track.
 	#Range: > 5
-	maxAssemblyLength = 128
+	maxAssemblyLength = 16384
 	#.
 	#Maximum amount of bogeys assembled as a single Train.
 	#Range: > 1
-	maxBogeyCount = 20
+	maxBogeyCount = 256
 	#.
 	#Relative speed of a manually controlled Train compared to a Scheduled one.
 	#Range: 0.0 ~ 3.4028234663852886E38
-	manualTrainSpeedModifier = 0.75
+	manualTrainSpeedModifier = 1.0
 
 	#.
 	#Standard Trains
@@ -488,17 +488,17 @@
 		#[in Blocks/Second]
 		#The top speed of any assembled Train.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		trainTopSpeed = 28.0
+		trainTopSpeed = 55.56
 		#.
 		#[in Blocks/Second]
 		#The top speed of Trains during a turn.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		trainTurningTopSpeed = 14.0
+		trainTurningTopSpeed = 55.56
 		#.
 		#[in Blocks/Second²]
 		#The acceleration of any assembled Train.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		trainAcceleration = 3.0
+		trainAcceleration = 1.0
 
 	#.
 	#Powered Trains
@@ -507,15 +507,15 @@
 		#[in Blocks/Second]
 		#The top speed of powered Trains.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		poweredTrainTopSpeed = 40.0
+		poweredTrainTopSpeed = 55.56
 		#.
 		#[in Blocks/Second]
 		#The top speed of powered Trains during a turn.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		poweredTrainTurningTopSpeed = 20.0
+		poweredTrainTurningTopSpeed = 55.56
 		#.
 		#[in Blocks/Second²]
 		#The acceleration of powered Trains.
 		#Range: 0.0 ~ 3.4028234663852886E38
-		poweredTrainAcceleration = 3.0
+		poweredTrainAcceleration = 1.0
 
