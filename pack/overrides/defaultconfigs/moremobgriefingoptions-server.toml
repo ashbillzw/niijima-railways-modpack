@@ -90,7 +90,7 @@
 	"minecraft:ender_pearl" = "DEFAULT"
 	#minecraft:enderman mobGriefing
 	#Allowed Values: DEFAULT, TRUE, FALSE
-	"minecraft:enderman" = "DEFAULT"
+	"minecraft:enderman" = "FALSE"
 	#minecraft:endermite mobGriefing
 	#Allowed Values: DEFAULT, TRUE, FALSE
 	"minecraft:endermite" = "DEFAULT"
