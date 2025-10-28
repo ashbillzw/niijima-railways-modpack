@@ -185,7 +185,7 @@ key_create.keyinfo.ponder:key.keyboard.w
 key_key.maid_storage_manager.request_ingredient:key.keyboard.left.alt
 key_key.maid_storage_manager.see_through_mark_box:key.keyboard.left.alt
 key_key.maid_storage_manager.roll_special_mode:key.keyboard.left.alt
-key_key.ftbteams.open_gui:key.keyboard.unknown
+key_key.ftbteams.open_gui:key.keyboard.delete
 key_key.ftbchunks.map:key.keyboard.m
 key_key.ftbchunks.toggle_minimap:key.keyboard.unknown
 key_key.ftbchunks.claim_manager:key.keyboard.unknown
