@@ -360,19 +360,6 @@
       "fileSize": 123034
     },
     {
-      "path": "mods/IMBlocker-5.4.3.1-forge+1.17-1.20.4.jar",
-      "hashes": {
-        "sha1": "ae845b48b59b7bc6ecca7c11ba842ec6ce90b1be",
-        "sha512": "c6651673b81011fb8c7165b7941871060d3217894ac9dcc83c52efe4f99033a53e866abed0c0c9cd43a7f6c60e72b655ebb0e43673175fa126563c20095a39a8"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/WMDesFsZ/versions/vqhzTeuW/IMBlocker-5.4.3.1-forge%2B1.17-1.20.4.jar",
-        "https://mediafilez.forgecdn.net/files/6922/546/IMBlocker-5.4.3.1-forge%2b1.17-1.20.4.jar",
-        "https://edge.forgecdn.net/files/6922/546/IMBlocker-5.4.3.1-forge%2b1.17-1.20.4.jar"
-      ],
-      "fileSize": 161977
-    },
-    {
       "path": "mods/immersive_paintings-0.6.8+1.20.1-forge.jar",
       "hashes": {
         "sha1": "f3a464ae2cb3173c7a7b765b4b9e61591f71833c",
@@ -523,19 +510,6 @@
         "https://edge.forgecdn.net/files/5853/326/kubejs-forge-2001.6.5-build.16.jar"
       ],
       "fileSize": 1654660
-    },
-    {
-      "path": "mods/mcef-forge-2.1.6-1.20.1.jar",
-      "hashes": {
-        "sha1": "6d9fa1433d509be242d1d74282d02a0fbebde110",
-        "sha512": "6df8c8e70ab15b3662404a3a398c18689fb7591e84e1a913d8939bee144f030cd2aeaee4e68f1ed159881a59796a37a7f628dd442e6ba7836005e14ad7b9704d"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/TObQ0HxZ/versions/x91l6OKB/mcef-forge-2.1.6-1.20.1.jar",
-        "https://mediafilez.forgecdn.net/files/5828/187/mcef-forge-2.1.6-1.20.1.jar",
-        "https://edge.forgecdn.net/files/5828/187/mcef-forge-2.1.6-1.20.1.jar"
-      ],
-      "fileSize": 218417
     },
     {
       "path": "mods/melody_forge_1.0.3_MC_1.20.1-1.20.4.jar",
@@ -792,17 +766,6 @@
         "https://edge.forgecdn.net/files/6315/241/watut-forge-1.20.1-1.2.3.jar"
       ],
       "fileSize": 435496
-    },
-    {
-      "path": "mods/yesstevemodel-forge-1.20-2.4.1-release.jar",
-      "hashes": {
-        "sha1": "b652d5b61e986c5eb91feacf100c467977288426",
-        "sha512": "92de3bff0d504ebdc5d99adb0eb28e554adf16db3c61c1c395c99edb346256b49c2c360039dc6ea54b70ce337c6abeb1dde3f042ef527d5c32606a83f2423ae5"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/86xjpqqS/versions/v3OUEvon/yesstevemodel-forge-1.20-2.4.1-release.jar"
-      ],
-      "fileSize": 26585265
     },
     {
       "path": "mods/YungsApi-1.20-Forge-4.0.6.jar",
