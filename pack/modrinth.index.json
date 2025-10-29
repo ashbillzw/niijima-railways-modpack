@@ -577,6 +577,19 @@
       "fileSize": 880557
     },
     {
+      "path": "mods/moonlight-1.20-2.16.15-forge.jar",
+      "hashes": {
+        "sha1": "5b87fafe107c93754765b0490fbf0250df520b6e",
+        "sha512": "9eba41fa2bef4558bfe7a3a31b0b3ae2484eba87a2f6feda6d4e0c18d9074b08bb0a5637446a9df2a87171a27bb84af703a716cfc0f49fab2882da4ffdf2a76c"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/twkfQtEc/versions/q6pVkPDR/moonlight-1.20-2.16.15-forge.jar",
+        "https://mediafilez.forgecdn.net/files/7119/907/moonlight-1.20-2.16.15-forge.jar",
+        "https://edge.forgecdn.net/files/7119/907/moonlight-1.20-2.16.15-forge.jar"
+      ],
+      "fileSize": 1333278
+    },
+    {
       "path": "mods/MoreMobGriefingOptions-1.20.1-2.0.4.jar",
       "hashes": {
         "sha1": "e2f8a81a7220b226720040d3345e08bedb888c96",
@@ -770,6 +783,19 @@
       "fileSize": 9997801
     },
     {
+      "path": "mods/supplementaries-1.20-3.1.18.jar",
+      "hashes": {
+        "sha1": "129c7ba5a3fd16671dedc0c139e987f7b7cfd130",
+        "sha512": "c951776268f3353bfcae995325e143879f6694d8b539557b13446f36ba12a4cef8fdc3d22b18741f2f1f87037c0bdfd25163828806c630b3507c4733e1436bd7"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/fFEIiSDQ/versions/S4IygZ9g/supplementaries-1.20-3.1.18.jar",
+        "https://mediafilez.forgecdn.net/files/6228/530/supplementaries-1.20-3.1.18.jar",
+        "https://edge.forgecdn.net/files/6228/530/supplementaries-1.20-3.1.18.jar"
+      ],
+      "fileSize": 14823869
+    },
+    {
       "path": "mods/touhoulittlemaid-1.4.0-forge+mc1.20.1.jar",
       "hashes": {
         "sha1": "bcce084a900307d9255f1cbed0eedc7cc1224ad7",
@@ -879,6 +905,18 @@
         "https://edge.forgecdn.net/files/3930/804/AlwaysEat-5.2.jar"
       ],
       "fileSize": 11372
+    },
+    {
+      "path": "mods/amendments-1.20-2.2.3.jar",
+      "hashes": {
+        "sha1": "c328e0a49a4e3366b2621d84c64ac87582bafde1",
+        "sha512": "84bc22f81df07538d4cdef5e6463356708128d6f79e8a5469f9b51004d02e2f9673e72911c1c91c7a2492940fe8cc4c71339ac05b60d35767eb9dbaf4ec7608d"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/7049/560/amendments-1.20-2.2.3.jar",
+        "https://edge.forgecdn.net/files/7049/560/amendments-1.20-2.2.3.jar"
+      ],
+      "fileSize": 1293221
     },
     {
       "path": "mods/configured-forge-1.20.1-2.2.3.jar",
