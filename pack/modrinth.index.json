@@ -679,6 +679,19 @@
       "fileSize": 2851119
     },
     {
+      "path": "mods/OELib-forge-0.0.5.jar",
+      "hashes": {
+        "sha1": "70e3175a7bad9f25100ba61b3c043d8a5d955ffb",
+        "sha512": "6521d93a013ab9bb60ad2657f7a095befc62bab19178f1e88fcfe8d5a8889f888777629acfab9704b45a2de2310891d085d31860b48f3600a5bdd284cefd6c30"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/7ODqOXka/versions/ZSvPAczy/OELib-forge-0.0.5.jar",
+        "https://mediafilez.forgecdn.net/files/7060/455/OELib-forge-0.0.5.jar",
+        "https://edge.forgecdn.net/files/7060/455/OELib-forge-0.0.5.jar"
+      ],
+      "fileSize": 851803
+    },
+    {
       "path": "mods/OneEnoughItem-1.0.5-all.jar",
       "hashes": {
         "sha1": "aad9f7de75b22a90f37d2518c16ab892ba29f266",
