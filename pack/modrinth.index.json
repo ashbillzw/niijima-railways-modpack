@@ -45,19 +45,6 @@
       "fileSize": 1054094
     },
     {
-      "path": "mods/automobility-0.4.2+1.20.1-forge.jar.disabled",
-      "hashes": {
-        "sha1": "007f228d2d728ec0ec79ab405d09b05a4ee7bed6",
-        "sha512": "96aec122a35e12891054f246435f0ff27b5e759942545e25839bb6da54e7b3544c81297bbe77d14692b0a31af9d5ab70d7c13de7e92e288b15abf9c7e8832ef4"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/rqIsPf9F/versions/46g3IiWw/automobility-0.4.2%2B1.20.1-forge.jar",
-        "https://mediafilez.forgecdn.net/files/4613/497/automobility-0.4.2%2b1.20.1-forge.jar",
-        "https://edge.forgecdn.net/files/4613/497/automobility-0.4.2%2b1.20.1-forge.jar"
-      ],
-      "fileSize": 1054094
-    },
-    {
       "path": "mods/bellsandwhistles-0.4.3-1.20.x.jar",
       "hashes": {
         "sha1": "7cb1e1dc365c43f08ee7616f1505759e547b11be",
