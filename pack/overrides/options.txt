@@ -206,8 +206,8 @@ key_key.plane_inventory_open.desc:key.keyboard.x
 key_key.plane_drop_payload.desc:key.keyboard.c
 key_key.plane_throttle_up.desc:key.keyboard.up
 key_key.plane_throttle_down.desc:key.keyboard.down
-key_key.plane_pitch_up.desc:key.keyboard.w
-key_key.plane_pitch_down.desc:key.keyboard.s
+key_key.plane_pitch_up.desc:key.keyboard.s
+key_key.plane_pitch_down.desc:key.keyboard.w
 key_key.plane_yaw_right.desc:key.keyboard.right
 key_key.plane_yaw_left.desc:key.keyboard.left
 key_key.touhou_little_maid.stt_chat.desc:key.keyboard.unknown
