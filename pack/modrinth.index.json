@@ -692,17 +692,17 @@
       "fileSize": 851803
     },
     {
-      "path": "mods/OneEnoughItem-1.0.5-all.jar",
+      "path": "mods/OneEnoughItem-1.0.6.jar",
       "hashes": {
-        "sha1": "aad9f7de75b22a90f37d2518c16ab892ba29f266",
-        "sha512": "1a0638e935a210bd0b4b245c4da049ffca3bbc7d97861a669daeec1f6762e77a2f079e5d028a56361f619b3c4b28806ee4e1715aaca05009b563444252950648"
+        "sha1": "6aa72eedf1a6932742c8fb11a8895ecfceeb417c",
+        "sha512": "b1218a2e8f93a96a45922da252acc18c4ae8e3b6c190455964d84441ea4b9dd8dd8b4cd1fcbca752bf19d0943454d99c30439aa185bccd30e4cacbb6046b8ebb"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/7pCNymxz/versions/U6A3JZBT/OneEnoughItem-1.0.5-all.jar",
-        "https://mediafilez.forgecdn.net/files/6926/904/OneEnoughItem-1.0.5-all.jar",
-        "https://edge.forgecdn.net/files/6926/904/OneEnoughItem-1.0.5-all.jar"
+        "https://cdn.modrinth.com/data/7pCNymxz/versions/GXeUOiet/OneEnoughItem-1.0.6.jar",
+        "https://mediafilez.forgecdn.net/files/7099/321/OneEnoughItem-1.0.6.jar",
+        "https://edge.forgecdn.net/files/7099/321/OneEnoughItem-1.0.6.jar"
       ],
-      "fileSize": 1003702
+      "fileSize": 261923
     },
     {
       "path": "mods/packetfixer-3.3.0-1.18-1.20.4-merged.jar",
@@ -718,17 +718,17 @@
       "fileSize": 190422
     },
     {
-      "path": "mods/pantographsandwires-forge-1.20.1-alpha-0.0.4.jar",
+      "path": "mods/pantographsandwires-forge-1.20.1-beta-0.1.1.jar",
       "hashes": {
-        "sha1": "32d31f3c0dc54de10784b83c2e5ef98ed63d5673",
-        "sha512": "f28e13752238f07fed971ac20bf54d5b9b8bb8df0cd17531d43c03c5a4c86b6bb8f6a44d84697c1e01e7742dd598a0186de0a4d1c8a516b3e7ea3a39162f932a"
+        "sha1": "a27602e492a5856a1de32c6d5b33b5de4bb8642c",
+        "sha512": "c94cfeb4662a20a94087a475a26c44e0cdd437176f808493ea180477848ac62825e83fa5448eb0edc7891d067e8f96bf15f67f2ef619be5d765df52fb81e5e8a"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/VzdCnMqW/versions/d4wE4FvU/pantographsandwires-forge-1.20.1-alpha-0.0.4.jar",
-        "https://mediafilez.forgecdn.net/files/6255/630/pantographsandwires-forge-1.20.1-alpha-0.0.4.jar",
-        "https://edge.forgecdn.net/files/6255/630/pantographsandwires-forge-1.20.1-alpha-0.0.4.jar"
+        "https://cdn.modrinth.com/data/VzdCnMqW/versions/NF1ePMRT/pantographsandwires-forge-1.20.1-beta-0.1.1.jar",
+        "https://mediafilez.forgecdn.net/files/7071/524/pantographsandwires-forge-1.20.1-beta-0.1.1.jar",
+        "https://edge.forgecdn.net/files/7071/524/pantographsandwires-forge-1.20.1-beta-0.1.1.jar"
       ],
-      "fileSize": 3889452
+      "fileSize": 3893287
     },
     {
       "path": "mods/Patchouli-1.20.1-84.1-FORGE.jar",
