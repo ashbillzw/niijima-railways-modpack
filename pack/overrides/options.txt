@@ -185,7 +185,7 @@ key_create.keyinfo.ponder:key.keyboard.w
 key_key.maid_storage_manager.request_ingredient:key.keyboard.left.alt
 key_key.maid_storage_manager.see_through_mark_box:key.keyboard.left.alt
 key_key.maid_storage_manager.roll_special_mode:key.keyboard.left.alt
-key_key.ftbteams.open_gui:key.keyboard.unknown
+key_key.ftbteams.open_gui:key.keyboard.delete
 key_key.ftbchunks.map:key.keyboard.m
 key_key.ftbchunks.toggle_minimap:key.keyboard.unknown
 key_key.ftbchunks.claim_manager:key.keyboard.unknown
@@ -201,6 +201,16 @@ key_key.jade.show_uses:key.keyboard.u
 key_key.jade.narrate:key.keyboard.keypad.5
 key_key.jade.show_details:key.keyboard.left.shift
 key_key.createrailwaysnavigator.route_overlay_options:key.keyboard.r
+key_key.move_heli_up.desc:key.keyboard.space
+key_key.plane_inventory_open.desc:key.keyboard.x
+key_key.plane_drop_payload.desc:key.keyboard.c
+key_key.plane_throttle_up.desc:key.keyboard.up
+key_key.plane_throttle_down.desc:key.keyboard.down
+key_key.plane_pitch_up.desc:key.keyboard.w
+key_key.plane_pitch_down.desc:key.keyboard.s
+key_key.plane_yaw_right.desc:key.keyboard.right
+key_key.plane_yaw_left.desc:key.keyboard.left
+key_key.touhou_little_maid.stt_chat.desc:key.keyboard.unknown
 soundCategory_master:1.0
 soundCategory_music:0.0
 soundCategory_record:1.0
