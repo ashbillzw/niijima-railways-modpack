@@ -1,0 +1,14 @@
+[
+  {
+    "matchItems": [
+      "kaleidoscope_cookery:tomato"
+    ],
+    "resultItems": "farmersdelight:tomato"
+  },
+  {
+    "matchItems": [
+      "kaleidoscope_cookery:tomato_seed"
+    ],
+    "resultItems": "farmersdelight:tomato_seeds"
+  }
+]
