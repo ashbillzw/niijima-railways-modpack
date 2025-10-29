@@ -26,7 +26,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "farmersdelight:rice"
+              "name": "kaleidoscope_cookery:wild_rice"
             }
           ]
         }
@@ -78,7 +78,7 @@
                   "condition": "minecraft:survives_explosion"
                 }
               ],
-              "name": "farmersdelight:rice"
+              "name": "kaleidoscope_cookery:wild_rice"
             }
           ]
         }
