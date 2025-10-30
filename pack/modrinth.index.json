@@ -525,6 +525,19 @@
       "fileSize": 7193768
     },
     {
+      "path": "mods/kubejs-create-forge-2001.2.5-build.2.jar",
+      "hashes": {
+        "sha1": "b5548110822245de13c7adf1d10e00ecab9cd633",
+        "sha512": "629756b7d6504fe4d989ce60a5ca785ab2ad17dc018d4766a437d7b2b384db9c5930c257c484874168c8f832f4503d174e13513dce16c4b983e0e141f1b95250"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/T38eAZQC/versions/hei9cDRa/kubejs-create-forge-2001.2.5-build.2.jar",
+        "https://mediafilez.forgecdn.net/files/4884/96/kubejs-create-forge-2001.2.5-build.2.jar",
+        "https://edge.forgecdn.net/files/4884/96/kubejs-create-forge-2001.2.5-build.2.jar"
+      ],
+      "fileSize": 31216
+    },
+    {
       "path": "mods/kubejs-forge-2001.6.5-build.16.jar",
       "hashes": {
         "sha1": "93fcf0eacc5dc08a4f719eaaed1dc93f0dc80f66",
