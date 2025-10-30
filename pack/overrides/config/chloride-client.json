@@ -64,7 +64,8 @@
     ],
     "monsterWhitelist": [],
     "tileEntityWhitelist": [
-        "waterframes:all"
+        "waterframes:all",
+        "minecraft:beacon"
     ],
     "borderlessAttachModeF11": "ATTACH",
     "fastLanguageReload": true,
