@@ -4,4 +4,4 @@ ServerEvents.recipes(event => {
         { id: 'kaleidoscope_cookery:straw_block' },
         { id: 'kaleidoscope_cookery:rice_panicle' }
     ]);
-})
+});

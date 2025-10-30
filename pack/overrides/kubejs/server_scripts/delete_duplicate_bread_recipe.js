@@ -3,4 +3,4 @@ ServerEvents.recipes(event => {
         { id: 'create:smelting/bread' },
         { id: 'create:smoking/bread' }
     ]);
-})
+});

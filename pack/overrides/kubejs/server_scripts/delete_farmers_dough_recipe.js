@@ -3,4 +3,4 @@ ServerEvents.recipes(event => {
         { id: 'farmersdelight:wheat_dough_from_egg' },
         { id: 'farmersdelight:wheat_dough_from_water' }
     ]);
-})
+});
