@@ -96,7 +96,7 @@
 
 [jukebox]
 	#Use the new jukebox model
-	new_model = true
+	new_model = false
 	#Makes jukebox disc spin while playing
 	disc_spin = true
 

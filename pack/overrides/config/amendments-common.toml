@@ -9,7 +9,7 @@
 	#Makes fire & dragon charges have gravity
 	gravity = true
 	#Makes fire charges deflectable by punching
-	deflectable = false
+	deflectable = true
 	#Allows throwing fire & dragon charges
 	fire_charges_throwable = true
 	#Makes dispensers shoot fire charges (the ones with gravity added by the mod) instead of blaze charges. Technically a breaking changes as it could break existing contraptions while allowing for new ones
@@ -20,7 +20,7 @@
 [snowball]
 	#Allows snowballs to freeze entities on hit. Config is for how many ticks it will freeze
 	#Range: 0 ~ 1000
-	freeze_ticks = 35
+	freeze_ticks = 0
 
 [hanging_signs]
 	#Allows placing items on hanging signs
@@ -101,10 +101,10 @@
 	#Mod ids of mods that have lantern block that extend the base lantern class but don't look like one
 	mod_blacklist = ["bbb", "extlights", "betterendforge", "spelunkery", "galosphere", "tconstruct", "enigmaticlegacy", "beautify", "candlelight"]
 	#Ids of blocks that are not detected as lanterns but should be
-	id_whitelist = ["enlightened_end:xenon_lantern"]
+	id_whitelist = ["enlightened_end:xenon_lantern", "yuushya:oriental_lantern", "yuushya:goth_lantern"]
 	#Allows ceiling lanterns to fall if their support is broken.Additionally if they fall from high enough they will break creating a fire where they land
 	#Allowed Values: ON, OFF, NO_FIRE
-	falling_lanterns = "ON"
+	falling_lanterns = "NO_FIRE"
 
 [bell]
 	#Ring a bell by clicking on a chain that's connected to it
@@ -119,11 +119,11 @@
 
 [misc]
 	#Allows dying blocks by right clicking them with dye
-	dye_blocks = false
+	dye_blocks = true
 
 [torch]
 	#Allows torches to set entities on fire
-	torch_fire = true
+	torch_fire = false
 	#Allows torches to set entities on fire when held in offhand given you are attacking with a sword
 	torch_fire_offhand = false
 	#Duration of the on fire effect applied by torches. In seconds
