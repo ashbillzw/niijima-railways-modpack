@@ -299,15 +299,15 @@
       "fileSize": 1320675
     },
     {
-      "path": "mods/entityculling-forge-1.8.2-mc1.20.1.jar",
+      "path": "mods/entityculling-forge-1.9.3-mc1.20.1.jar",
       "hashes": {
-        "sha1": "0a465a4dbbc4b21b3465bb15796635b5c1024cf4",
-        "sha512": "45c54f5f69cc75d0c9c79a716c182d3d9ee59d9883d2333030f191176ee70922ad281ea1b60d2f10bbaf8be96a3454c6d14ef484d1db49c153c97859dbc4ffb5"
+        "sha1": "8faea4818faab6b870ee370b52434b016542b519",
+        "sha512": "62429153a72f509877bae38c6e3e651ff241114c3608fdf6f2e412a6df0acec1da318e50a8dd3a2468fbddcc16c3e412910e0e09b9d1f94d6b0312bfe8b07e9d"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/NNAgCjsB/versions/zinofwiX/entityculling-forge-1.8.2-mc1.20.1.jar"
+        "https://cdn.modrinth.com/data/NNAgCjsB/versions/H7zaVcD6/entityculling-forge-1.9.3-mc1.20.1.jar"
       ],
-      "fileSize": 478568
+      "fileSize": 477884
     },
     {
       "path": "mods/firstperson-forge-2.5.0-mc1.20.1.jar",
@@ -360,17 +360,17 @@
       "fileSize": 123034
     },
     {
-      "path": "mods/IMBlocker-5.4.3.1-forge+1.17-1.20.4.jar",
+      "path": "mods/IMBlocker-5.4.5-forge+1.17-1.20.4.jar",
       "hashes": {
-        "sha1": "ae845b48b59b7bc6ecca7c11ba842ec6ce90b1be",
-        "sha512": "c6651673b81011fb8c7165b7941871060d3217894ac9dcc83c52efe4f99033a53e866abed0c0c9cd43a7f6c60e72b655ebb0e43673175fa126563c20095a39a8"
+        "sha1": "5536f3eea7c824b1c52859b2a2e8ab197781aed2",
+        "sha512": "ca273979f48eed002dc9d4a40db149f16a1f55ff3615605d13f6f32a90d045e81b3aa51d459374543ccae31885d79dbf3e03d191334ca1760c692ceab0085514"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/WMDesFsZ/versions/vqhzTeuW/IMBlocker-5.4.3.1-forge%2B1.17-1.20.4.jar",
-        "https://mediafilez.forgecdn.net/files/6922/546/IMBlocker-5.4.3.1-forge%2b1.17-1.20.4.jar",
-        "https://edge.forgecdn.net/files/6922/546/IMBlocker-5.4.3.1-forge%2b1.17-1.20.4.jar"
+        "https://cdn.modrinth.com/data/WMDesFsZ/versions/Zb8NkBvD/IMBlocker-5.4.5-forge%2B1.17-1.20.4.jar",
+        "https://mediafilez.forgecdn.net/files/7125/727/IMBlocker-5.4.5-forge%2b1.17-1.20.4.jar",
+        "https://edge.forgecdn.net/files/7125/727/IMBlocker-5.4.5-forge%2b1.17-1.20.4.jar"
       ],
-      "fileSize": 161977
+      "fileSize": 170594
     },
     {
       "path": "mods/immersive_paintings-0.6.8+1.20.1-forge.jar",
@@ -423,15 +423,15 @@
       "fileSize": 85516
     },
     {
-      "path": "mods/notenoughanimations-forge-1.10.2-mc1.20.1.jar",
+      "path": "mods/notenoughanimations-forge-1.10.6-mc1.20.1.jar",
       "hashes": {
-        "sha1": "b31ffefa9579649de8acbac53ac0792830f71e60",
-        "sha512": "d85b3c70d950e1c705d6ac5771f4d289e30717178b806ac915025297e6e21b74ac58707b1bd022cdf51b8e3f6300ae0d663343b62a39c8a3948fd7b3209cf85d"
+        "sha1": "408c8497c263c03edfe432549ef08dc48c6230ed",
+        "sha512": "d6c3322b260fdf7ad5e06c5340593b84df601ee638b2195712e31834936c4d8a96b3afb4f9a673163bea20283a01c1ef6c186ebc6b5e3bb83b966bba79945b7a"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/MPCX6s5C/versions/zc852ea9/notenoughanimations-forge-1.10.2-mc1.20.1.jar"
+        "https://cdn.modrinth.com/data/MPCX6s5C/versions/7KhtEU40/notenoughanimations-forge-1.10.6-mc1.20.1.jar"
       ],
-      "fileSize": 845556
+      "fileSize": 843250
     },
     {
       "path": "mods/Jade-1.20.1-Forge-11.13.2.jar",
@@ -460,17 +460,17 @@
       "fileSize": 260612
     },
     {
-      "path": "mods/jei-1.20.1-forge-15.20.0.106.jar",
+      "path": "mods/jei-1.20.1-forge-15.20.0.116.jar",
       "hashes": {
-        "sha1": "77928d15d797663846cba44de8f79e4e4c5fdbb7",
-        "sha512": "c49f6f4fa86a76751fae927e93f6f6a00b955aca97edae6eecc496f2959e581f4e697f80c53e27d2c90e73374171669b3be6bd860b9446aaa521a2553569bfc1"
+        "sha1": "ebb8d9033c29538824281b3ac651c49135aba78e",
+        "sha512": "4a5337e8f8234e7053c8ad9c9f4f4aaf08ee03f66fea8146e9b5b2e357a8b892540b3b1dfefc73b618b9fa485c7c025481f9d17fb9f522a76839e499f8816741"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/u6dRKJwZ/versions/WTWP98yg/jei-1.20.1-forge-15.20.0.106.jar",
-        "https://mediafilez.forgecdn.net/files/6075/247/jei-1.20.1-forge-15.20.0.106.jar",
-        "https://edge.forgecdn.net/files/6075/247/jei-1.20.1-forge-15.20.0.106.jar"
+        "https://cdn.modrinth.com/data/u6dRKJwZ/versions/zzpNSbJZ/jei-1.20.1-forge-15.20.0.116.jar",
+        "https://mediafilez.forgecdn.net/files/7037/120/jei-1.20.1-forge-15.20.0.116.jar",
+        "https://edge.forgecdn.net/files/7037/120/jei-1.20.1-forge-15.20.0.116.jar"
       ],
-      "fileSize": 1379220
+      "fileSize": 1387236
     },
     {
       "path": "mods/Jupiter-2.2.2-forge.jar",
@@ -616,17 +616,17 @@
       "fileSize": 76680
     },
     {
-      "path": "mods/natures_spirit-2.2.4-1.20.1.jar",
+      "path": "mods/natures_spirit-2.2.5-1.20.1.jar",
       "hashes": {
-        "sha1": "eb97a3009ebcc3913724edbb0b068de11df1d7cc",
-        "sha512": "590501dcfa0b6af15a0bf136bc03eae035740db59d9a49e8b0cfb92dc0aef2fde12edeac763d6ee03c72165c51eb68fb6e1bef6d4dd304b752a39b2846d12316"
+        "sha1": "edd4d2ea52eed1ff90b412f10eb29f5e4650c147",
+        "sha512": "0098deac8cd66f8f388c134a7a44504fc9620d9fa0bfd9c0440b1ade2f95ad2bedb5f88519d779c28725c4d3740a3183223727b185100e4111fd8404ef9c9f40"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/WBvnqHfV/versions/1dfe62hj/natures_spirit-2.2.4-1.20.1.jar",
-        "https://mediafilez.forgecdn.net/files/6445/117/natures_spirit-2.2.4-1.20.1.jar",
-        "https://edge.forgecdn.net/files/6445/117/natures_spirit-2.2.4-1.20.1.jar"
+        "https://cdn.modrinth.com/data/WBvnqHfV/versions/ri5j4RHM/natures_spirit-2.2.5-1.20.1.jar",
+        "https://mediafilez.forgecdn.net/files/6962/783/natures_spirit-2.2.5-1.20.1.jar",
+        "https://edge.forgecdn.net/files/6962/783/natures_spirit-2.2.5-1.20.1.jar"
       ],
-      "fileSize": 18970139
+      "fileSize": 18964334
     },
     {
       "path": "mods/netmusic-1.1.8-forge+mc1.20.1.jar",
@@ -859,15 +859,15 @@
       "fileSize": 435496
     },
     {
-      "path": "mods/yesstevemodel-forge-1.20-2.4.1-release.jar",
+      "path": "mods/ysm-2.5.1-forge+mc1.20.1-release.jar",
       "hashes": {
-        "sha1": "b652d5b61e986c5eb91feacf100c467977288426",
-        "sha512": "92de3bff0d504ebdc5d99adb0eb28e554adf16db3c61c1c395c99edb346256b49c2c360039dc6ea54b70ce337c6abeb1dde3f042ef527d5c32606a83f2423ae5"
+        "sha1": "f06e1ce62aabffddd8ab22c05236afec7329e227",
+        "sha512": "c31868eb7ff15ab387d66288c04f964eb13ec71fe3c15b3d9a694ceba5c744c1098482e3de5859be8f2efbfa6102b2f3649fc0c990e09ce26c7d1a844fb72e65"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/86xjpqqS/versions/v3OUEvon/yesstevemodel-forge-1.20-2.4.1-release.jar"
+        "https://cdn.modrinth.com/data/86xjpqqS/versions/4aj1O0iH/ysm-2.5.1-forge%2Bmc1.20.1-release.jar"
       ],
-      "fileSize": 26585265
+      "fileSize": 35979582
     },
     {
       "path": "mods/YungsApi-1.20-Forge-4.0.6.jar",
@@ -896,16 +896,16 @@
       "fileSize": 23411995
     },
     {
-      "path": "mods/1.20.1-maid_storage_manager-1.13.5.jar",
+      "path": "mods/1.20.1-maid_storage_manager-1.13.14.jar",
       "hashes": {
-        "sha1": "51165a0a6f26ef72e5f0f8ed5fad51dfe7fcbee7",
-        "sha512": "462684f190edf1f8fa1342149ed5e211c3eac6c142b74c0fde6a4f53d835a85fa9ab84e93640bfe6c475f8a155b20f87d4c38f6cfb44c0c7be6dc5cba145e3a3"
+        "sha1": "d31dec87c74d44b4cae4c3630ce0ef6feeb36d3d",
+        "sha512": "2c79fa931ba6522b15e90fa85725386aca756ef73bc2d48d16974645599ba9553fde396acb6b3e6b86356fe1397033aeca4d4e58d4c6c12b45b3b9d1e21ba1db"
       },
       "downloads": [
-        "https://mediafilez.forgecdn.net/files/6986/175/1.20.1-maid_storage_manager-1.13.5.jar",
-        "https://edge.forgecdn.net/files/6986/175/1.20.1-maid_storage_manager-1.13.5.jar"
+        "https://mediafilez.forgecdn.net/files/7060/635/1.20.1-maid_storage_manager-1.13.14.jar",
+        "https://edge.forgecdn.net/files/7060/635/1.20.1-maid_storage_manager-1.13.14.jar"
       ],
-      "fileSize": 2289361
+      "fileSize": 2298859
     },
     {
       "path": "mods/AlwaysEat-5.2.jar",
@@ -968,16 +968,16 @@
       "fileSize": 94614
     },
     {
-      "path": "mods/fruitsdelight-1.0.19.jar",
+      "path": "mods/fruitsdelight-1.1.1.jar",
       "hashes": {
-        "sha1": "7a4422aba6df6408ee9629d333acd4079fff290f",
-        "sha512": "18205ec865653aef8ad99ba198c1b15fb2c1d07dd64b03cad5b98345df42184ec8f11f509a33193d47d04d1d6669a0e04c7e0e77b91c847c2bd85c915566d3da"
+        "sha1": "3ecef6a32c36cffd14de39c3be7c5e16463781fd",
+        "sha512": "1b34612808fba015043d35957e5193fc124bea9661c3641b841a63eca81c664f9ca6e9f73176ab199f4f7bce3f8d2a665c1621c8cb2a79676d4ffcfa0ff304f4"
       },
       "downloads": [
-        "https://mediafilez.forgecdn.net/files/6242/383/fruitsdelight-1.0.19.jar",
-        "https://edge.forgecdn.net/files/6242/383/fruitsdelight-1.0.19.jar"
+        "https://mediafilez.forgecdn.net/files/6951/298/fruitsdelight-1.1.1.jar",
+        "https://edge.forgecdn.net/files/6951/298/fruitsdelight-1.1.1.jar"
       ],
-      "fileSize": 1877803
+      "fileSize": 1892593
     },
     {
       "path": "mods/ftb-chunks-forge-2001.3.6.jar",
