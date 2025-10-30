@@ -45,6 +45,19 @@
       "fileSize": 1054094
     },
     {
+      "path": "mods/barbequesdelight-1.0.5.jar",
+      "hashes": {
+        "sha1": "e3fe166ccb3947d3c2cadcf58bdf104cf354bb0a",
+        "sha512": "14414e70b4c71cd79bcb3a05425c227a18e8df217300809f4aae2a720e8148f7b840c5b7b360b35982907e5785df692705a3e5c561d6897b29ded7a716b005ff"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/rtu7uERF/versions/pIDqhAOp/barbequesdelight-1.0.5.jar",
+        "https://mediafilez.forgecdn.net/files/5848/42/barbequesdelight-1.0.5.jar",
+        "https://edge.forgecdn.net/files/5848/42/barbequesdelight-1.0.5.jar"
+      ],
+      "fileSize": 867081
+    },
+    {
       "path": "mods/bellsandwhistles-0.4.3-1.20.x.jar",
       "hashes": {
         "sha1": "7cb1e1dc365c43f08ee7616f1505759e547b11be",
@@ -458,6 +471,19 @@
         "https://edge.forgecdn.net/files/6680/42/jecharacters-1.20.1-forge-4.5.16.jar"
       ],
       "fileSize": 260612
+    },
+    {
+      "path": "mods/jeed-1.20-2.2.5.jar",
+      "hashes": {
+        "sha1": "9f6b1884ad8b81c0e8796daf7871eeb54271f27b",
+        "sha512": "3beac4c40fe032518304689bd5c1e266b4bde753cc5095375def9c4af54d67fa119e683426a9e7e97ebdcc213cca204110cdc553d904e34b65e0d8572b19f2fa"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/EO27GKs1/versions/jHYonbva/jeed-1.20-2.2.5.jar",
+        "https://mediafilez.forgecdn.net/files/6172/935/jeed-1.20-2.2.5.jar",
+        "https://edge.forgecdn.net/files/6172/935/jeed-1.20-2.2.5.jar"
+      ],
+      "fileSize": 159288
     },
     {
       "path": "mods/jei-1.20.1-forge-15.20.0.116.jar",
@@ -956,6 +982,18 @@
       "fileSize": 115280
     },
     {
+      "path": "mods/crushed_obsidian-1.0.1-forge-1.20.1.jar",
+      "hashes": {
+        "sha1": "92a963ca02c344531f49eef677701da50f62ba11",
+        "sha512": "f03b2f0a9962f0005c4bf5efddb5e7fe58c4c944d6d06849e023654b195dedba9d90030d517dd4a694dd59846cffb679315f5ae029399f3744ac3b2387fba759"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/6768/357/crushed_obsidian-1.0.1-forge-1.20.1.jar",
+        "https://edge.forgecdn.net/files/6768/357/crushed_obsidian-1.0.1-forge-1.20.1.jar"
+      ],
+      "fileSize": 37524
+    },
+    {
       "path": "mods/dynamiclightsreforged-1.20.1_v1.6.0.jar",
       "hashes": {
         "sha1": "323498a94ba91e24417c0ae1bc34bb4b461c0a3a",
@@ -1014,6 +1052,18 @@
         "https://edge.forgecdn.net/files/6130/786/ftb-teams-forge-2001.3.1.jar"
       ],
       "fileSize": 248592
+    },
+    {
+      "path": "mods/gravestone-forge-1.20.1-1.0.35.jar",
+      "hashes": {
+        "sha1": "a5592ab84eae317907e5003f590cc4a8ba9cbe49",
+        "sha512": "4787bdb0c92ab6a03f3028f095833977153465bb97dc21147c4edc99ec21ec02fb579ac94d4a51a1109808853c68294b2c66bd43057e3b0870262348c21293d6"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/7099/725/gravestone-forge-1.20.1-1.0.35.jar",
+        "https://edge.forgecdn.net/files/7099/725/gravestone-forge-1.20.1-1.0.35.jar"
+      ],
+      "fileSize": 317181
     },
     {
       "path": "mods/JustEnoughResources-1.20.1-1.4.0.247.jar",
