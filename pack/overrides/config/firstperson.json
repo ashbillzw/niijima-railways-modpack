@@ -2,7 +2,7 @@
   "configVersion": 2,
   "enabledByDefault": true,
   "xOffset": 0,
-  "sneakXOffset": 0,
+  "sneakXOffset": 20,
   "sitXOffset": 0,
   "renderStuckFeatures": true,
   "vanillaHandsMode": "OFF",
