@@ -83,7 +83,7 @@
 		intensity_increment = 0.3
 		#At which graphic settings flags will have a fancy renderer: 0=fast, 1=fancy, 2=fabulous
 		#Allowed Values: FAST, FANCY, FABULOUS
-		fanciness = "FABULOUS"
+		fanciness = "FAST"
 		#Makes flags render as sideways banner. Ignores many of the previously defined configs
 		render_as_banner = false
 
@@ -134,11 +134,11 @@
 	#Disables Optifine warn screen
 	no_optifine_warn_screen = false
 	#Disables Amendments suggestion screen
-	no_amendments_screen = false
+	no_amendments_screen = true
 	#Disable incompatible mods warning screen
 	no_incompatible_mods_screen = false
 	#Enable Quark style config button on main menu. Needs Configured installed to work
-	config_button = false
+	config_button = true
 	#Config button Y offset
 	#Range: -10000 ~ 10000
 	config_button_y_offset = 0
@@ -217,7 +217,7 @@
 		extra_dimension_textures = ["minecraft:the_nether", "minecraft:the_end"]
 		#Increasing this to be more than 1 will result in delth meter display image to be shown in float amounts instead of pixel perfect ones
 		#Range: 1 ~ 10
-		texture_precision_multiplier = 1
+		texture_precision_multiplier = 10
 
 	[items.cannonball]
 		#Render cannonballs as 3D models

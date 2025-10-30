@@ -4,11 +4,11 @@
 	clock_block = true
 	redstone_illuminator = true
 	crank = true
-	cog_block = true
+	cog_block = false
 	gold_door = true
 	gold_trapdoor = true
 	lock_block = true
-	relayer = true
+	relayer = false
 
 	[redstone.speaker_block]
 		enabled = true
@@ -42,7 +42,7 @@
 		range = 5
 
 	[redstone.spring_launcher]
-		enabled = true
+		enabled = false
 		#spring launcher launch speed
 		#Range: 0.0 ~ 16.0
 		velocity = 1.5
@@ -60,14 +60,14 @@
 		work_from_any_side = false
 
 	[redstone.turn_table]
-		enabled = true
+		enabled = false
 		#can rotate entities standing on it?
 		rotate_entities = true
 		#Allows turn table to shuffle containers content when rotated over horizontal axis
 		shuffle_containers = true
 
 	[redstone.pulley_block]
-		enabled = true
+		enabled = false
 		#Chance for a new mineshaft elevator piece to spawn
 		#Range: 0.0 ~ 1.0
 		mineshaft_elevator = 0.035
@@ -78,7 +78,7 @@
 		adjust_projectile_angle = true
 
 	[redstone.faucet]
-		enabled = true
+		enabled = false
 		#Turn off to prevent faucets from dropping items
 		spill_items = true
 		#Allows faucets to fill entities inventories
@@ -253,10 +253,10 @@
 	[building.blackboard]
 		enabled = true
 		#Enable to draw directly on a blackboard using any dye. Gui still only works in black and white
-		colored_blackboard = false
+		colored_blackboard = true
 		#Interaction mode for blackboards
 		#Allowed Values: BOTH, GUI, MANUAL
-		interaction_mode = "BOTH"
+		interaction_mode = "MANUAL"
 
 	[building.gravel_bricks]
 		enabled = true
@@ -436,7 +436,7 @@
 			feather_falling_prevents_breaking = true
 
 	[tools.wrench]
-		enabled = true
+		enabled = false
 		#Allows wrenches to bypass a block interaction action prioritizing their own when on said hand
 		#Allowed Values: MAIN_HAND, OFF_HAND, BOTH, NONE
 		bypass_when_on = "MAIN_HAND"
@@ -546,7 +546,7 @@
 
 	[tweaks.traders_open_doors]
 		#Allows traders to open doors (because they couldn't apparently)
-		enabled = true
+		enabled = false
 
 	[tweaks.dispenser_tweaks]
 		#Allows dispensers to use axes on blocks to strip logs and scrape off copper oxidation and wax
@@ -582,7 +582,7 @@
 
 	[tweaks.bottle_xp]
 		#Allow bottling up xp by using a bottle on an enchanting table
-		enabled = false
+		enabled = true
 		#bottling health cost
 		#Range: 0 ~ 20
 		cost = 2
