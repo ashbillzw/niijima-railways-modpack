@@ -1,0 +1,14 @@
+[
+  {
+    "matchItems": [
+      "kaleidoscope_cookery:raw_lamb_chops"
+    ],
+    "resultItems": "farmersdelight:mutton_chops"
+  },
+  {
+    "matchItems": [
+      "kaleidoscope_cookery:cooked_lamb_chops"
+    ],
+    "resultItems": "farmersdelight:cooked_mutton_chops"
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "matchItems": [
+      "farmersdelight:rice_panicle"
+    ],
+    "resultItems": "kaleidoscope_cookery:rice_panicle"
+  },
+  {
+    "matchItems": [
+      "farmersdelight:rice"
+    ],
+    "resultItems": "kaleidoscope_cookery:rice"
+  },
+  {
+    "matchItems": [
+      "kaleidoscope_cookery:cooked_rice"
+    ],
+    "resultItems": "farmersdelight:cooked_rice"
+  },
+  {
+    "matchItems": [
+      "kaleidoscope_cookery:straw_block"
+    ],
+    "resultItems": "farmersdelight:rice_bale"
+  }
+]
