@@ -262,6 +262,19 @@
       "fileSize": 223428
     },
     {
+      "path": "mods/ctl-forge-1.0.0.jar",
+      "hashes": {
+        "sha1": "8e352daafef988cffd9732824c6661f90ab4bf45",
+        "sha512": "4183bbb3d3ccab21ca01fb0cbd0c66c76165e734047f2910dcbf0ede8f638a15267f2dbd7f45112b46815b591876808d3f32bdfeedaf181cce4072ce269ed749"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/nRC3whhL/versions/5jQFzAVK/ctl-forge-1.0.0.jar",
+        "https://mediafilez.forgecdn.net/files/6832/971/ctl-forge-1.0.0.jar",
+        "https://edge.forgecdn.net/files/6832/971/ctl-forge-1.0.0.jar"
+      ],
+      "fileSize": 622901
+    },
+    {
       "path": "mods/design_decor-0.4.0b-1.20.1.jar",
       "hashes": {
         "sha1": "66a40d00191fcfd8d674d200b94427197503c2c8",
@@ -1006,6 +1019,18 @@
       "fileSize": 94614
     },
     {
+      "path": "mods/extendedbogeys-0.5.14-1.20.1-0.5.1.f-forge.jar",
+      "hashes": {
+        "sha1": "70440daef5e06823b34b820acacc6646b6787a52",
+        "sha512": "abba5eb91127e5164bcba50651933b3c3b22f4ac5f8b6d75a42d5ab3625d8fe66f7eacca146838322a87e87e67babd76b6f143dff58f879d7bcad00ef2eafd72"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/6775/346/extendedbogeys-0.5.14-1.20.1-0.5.1.f-forge.jar",
+        "https://edge.forgecdn.net/files/6775/346/extendedbogeys-0.5.14-1.20.1-0.5.1.f-forge.jar"
+      ],
+      "fileSize": 2156245
+    },
+    {
       "path": "mods/fruitsdelight-1.1.1.jar",
       "hashes": {
         "sha1": "3ecef6a32c36cffd14de39c3be7c5e16463781fd",
@@ -1100,6 +1125,18 @@
         "https://edge.forgecdn.net/files/4844/585/refinedstorage-1.12.4.jar"
       ],
       "fileSize": 3300191
+    },
+    {
+      "path": "mods/rsgauges-1.2.22.jar",
+      "hashes": {
+        "sha1": "7615dc7956b7fe57a1aacc71ae71239421ab574c",
+        "sha512": "a49dcefa81374cb5ef895a5a18ef3c263fdb0294c23215ec8a3eb06fa91522654474b95a2002eb2c23aee54439d287a26985e64a8e8237d3b765837939b03d44"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/5774/742/rsgauges-1.2.22.jar",
+        "https://edge.forgecdn.net/files/5774/742/rsgauges-1.2.22.jar"
+      ],
+      "fileSize": 930758
     },
     {
       "path": "mods/Searchables-forge-1.20.1-1.0.3.jar",
