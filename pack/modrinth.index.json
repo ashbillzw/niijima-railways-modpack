@@ -412,19 +412,6 @@
       "fileSize": 123034
     },
     {
-      "path": "mods/IMBlocker-5.4.5-forge+1.17-1.20.4.jar",
-      "hashes": {
-        "sha1": "5536f3eea7c824b1c52859b2a2e8ab197781aed2",
-        "sha512": "ca273979f48eed002dc9d4a40db149f16a1f55ff3615605d13f6f32a90d045e81b3aa51d459374543ccae31885d79dbf3e03d191334ca1760c692ceab0085514"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/WMDesFsZ/versions/Zb8NkBvD/IMBlocker-5.4.5-forge%2B1.17-1.20.4.jar",
-        "https://mediafilez.forgecdn.net/files/7125/727/IMBlocker-5.4.5-forge%2b1.17-1.20.4.jar",
-        "https://edge.forgecdn.net/files/7125/727/IMBlocker-5.4.5-forge%2b1.17-1.20.4.jar"
-      ],
-      "fileSize": 170594
-    },
-    {
       "path": "mods/immersive_paintings-0.6.8+1.20.1-forge.jar",
       "hashes": {
         "sha1": "f3a464ae2cb3173c7a7b765b4b9e61591f71833c",
@@ -614,19 +601,6 @@
         "https://edge.forgecdn.net/files/5853/326/kubejs-forge-2001.6.5-build.16.jar"
       ],
       "fileSize": 1654660
-    },
-    {
-      "path": "mods/mcef-forge-2.1.6-1.20.1.jar",
-      "hashes": {
-        "sha1": "6d9fa1433d509be242d1d74282d02a0fbebde110",
-        "sha512": "6df8c8e70ab15b3662404a3a398c18689fb7591e84e1a913d8939bee144f030cd2aeaee4e68f1ed159881a59796a37a7f628dd442e6ba7836005e14ad7b9704d"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/TObQ0HxZ/versions/x91l6OKB/mcef-forge-2.1.6-1.20.1.jar",
-        "https://mediafilez.forgecdn.net/files/5828/187/mcef-forge-2.1.6-1.20.1.jar",
-        "https://edge.forgecdn.net/files/5828/187/mcef-forge-2.1.6-1.20.1.jar"
-      ],
-      "fileSize": 218417
     },
     {
       "path": "mods/melody_forge_1.0.3_MC_1.20.1-1.20.4.jar",
@@ -935,17 +909,6 @@
         "https://edge.forgecdn.net/files/6315/241/watut-forge-1.20.1-1.2.3.jar"
       ],
       "fileSize": 435496
-    },
-    {
-      "path": "mods/ysm-2.5.1-forge+mc1.20.1-release.jar",
-      "hashes": {
-        "sha1": "f06e1ce62aabffddd8ab22c05236afec7329e227",
-        "sha512": "c31868eb7ff15ab387d66288c04f964eb13ec71fe3c15b3d9a694ceba5c744c1098482e3de5859be8f2efbfa6102b2f3649fc0c990e09ce26c7d1a844fb72e65"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/86xjpqqS/versions/4aj1O0iH/ysm-2.5.1-forge%2Bmc1.20.1-release.jar"
-      ],
-      "fileSize": 35979582
     },
     {
       "path": "mods/YungsApi-1.20-Forge-4.0.6.jar",
