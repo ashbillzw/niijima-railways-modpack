@@ -1,0 +1,12 @@
+#618 minecraft:basalt_deltas
+#570 minecraft:crimson_forest
+#3A0 minecraft:frozen_river
+#4CF natures_spirit:golden_wilds
+#154 minecraft:ice_spikes
+#70D natures_spirit:maple_woodlands
+#653 minecraft:nether_wastes
+#3DC minecraft:plains
+#4E5 minecraft:snowy_plains
+#340 minecraft:snowy_taiga
+#721 minecraft:soul_sand_valley
+#628 minecraft:warped_forest

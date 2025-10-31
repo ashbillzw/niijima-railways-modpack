@@ -1,8 +1,10 @@
 #556 minecraft:beach
 #47F minecraft:birch_forest
 #654 natures_spirit:blooming_sugi_forest
+#114 natures_spirit:chaparral
 #460 minecraft:cherry_grove
 #3D6 minecraft:cold_ocean
+#570 minecraft:crimson_forest
 #4F9 minecraft:dark_forest
 #109 minecraft:deep_cold_ocean
 #2DC minecraft:deep_dark
@@ -15,12 +17,15 @@
 #508 minecraft:frozen_peaks
 #3A0 minecraft:frozen_river
 #286 minecraft:grove
+#154 minecraft:ice_spikes
 #51E minecraft:jagged_peaks
 #4B0 minecraft:jungle
 #79A minecraft:lukewarm_ocean
 #498 minecraft:lush_caves
 #2D6 minecraft:meadow
 #073 minecraft:mushroom_fields
+#653 minecraft:nether_wastes
+#2BE natures_spirit:oak_savanna
 #4F1 minecraft:ocean
 #1DF minecraft:old_growth_birch_forest
 #73A minecraft:old_growth_pine_taiga

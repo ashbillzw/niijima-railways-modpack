@@ -2,11 +2,14 @@
 #618 minecraft:basalt_deltas
 #556 minecraft:beach
 #47F minecraft:birch_forest
+#114 natures_spirit:chaparral
+#460 minecraft:cherry_grove
 #3D6 minecraft:cold_ocean
 #570 minecraft:crimson_forest
 #747 natures_spirit:cypress_fields
 #4F9 minecraft:dark_forest
 #34D minecraft:deep_lukewarm_ocean
+#3DE minecraft:deep_ocean
 #65A minecraft:end_barrens
 #515 minecraft:end_highlands
 #577 minecraft:end_midlands
@@ -14,7 +17,9 @@
 #010 minecraft:forest
 #4B0 minecraft:jungle
 #79A minecraft:lukewarm_ocean
+#498 minecraft:lush_caves
 #28D minecraft:mangrove_swamp
+#1CF natures_spirit:marsh
 #653 minecraft:nether_wastes
 #4F1 minecraft:ocean
 #1DF minecraft:old_growth_birch_forest
