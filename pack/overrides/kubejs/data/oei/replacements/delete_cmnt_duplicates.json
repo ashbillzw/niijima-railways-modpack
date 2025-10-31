@@ -1,0 +1,10 @@
+[
+  {
+    "matchItems": [
+      "create_things_and_misc:train_stop",
+      "create_things_and_misc:sticky_launcher",
+      "create_things_and_misc:brass_sticky_launcher"
+    ],
+    "resultItems": "minecraft:air"
+  }
+]

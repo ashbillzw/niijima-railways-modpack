@@ -1,0 +1,31 @@
+{
+  "configVersion": 2,
+  "enabledByDefault": true,
+  "xOffset": 0,
+  "sneakXOffset": 20,
+  "sitXOffset": 0,
+  "renderStuckFeatures": true,
+  "vanillaHandsMode": "OFF",
+  "dynamicMode": true,
+  "vanillaHandsSkipSwimming": true,
+  "autoVanillaHands": [
+    "create:potato_cannon",
+    "create:handheld_worldshaper",
+    "twilightforest:filled_ore_map",
+    "map_atlases:atlas",
+    "twilightforest:filled_magic_map",
+    "twilightforest:filled_maze_map",
+    "antiqueatlas:antique_atlas",
+    "create:extendo_grip",
+    "supplementaries:slingshot",
+    "supplementaries:flute",
+    "create_things_and_misc:spout_gun_water",
+    "create_things_and_misc:spout_gun_lava",
+    "create_things_and_misc:spout_gun_chocolate",
+    "create_things_and_misc:spout_gun_honey",
+    "create_things_and_misc:spout_gun_slime"
+  ],
+  "autoToggleModItems": [
+    "exposure:camera"
+  ]
+}
