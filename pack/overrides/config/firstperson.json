@@ -18,7 +18,12 @@
     "antiqueatlas:antique_atlas",
     "create:extendo_grip",
     "supplementaries:slingshot",
-    "supplementaries:flute"
+    "supplementaries:flute",
+    "create_things_and_misc:spout_gun_water",
+    "create_things_and_misc:spout_gun_lava",
+    "create_things_and_misc:spout_gun_chocolate",
+    "create_things_and_misc:spout_gun_honey",
+    "create_things_and_misc:spout_gun_slime"
   ],
   "autoToggleModItems": [
     "exposure:camera"
