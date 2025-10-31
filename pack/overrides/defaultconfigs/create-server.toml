@@ -101,7 +101,7 @@
 	#.
 	#Max Distance in blocks a Weighted Ejector can throw
 	#Range: > 0
-	maxEjectorDistance = 32
+	maxEjectorDistance = 512
 	#.
 	#Time in ticks until the next item launched by an ejector scans blocks for potential collisions
 	#Range: > 10
@@ -145,7 +145,7 @@
 		#Maximum amount of data a contraption can have before it can't be synced with players.
 		#Un-synced contraptions will not be visible and will not have collision.
 		#Range: > 0
-		maxDataSize = 2000000
+		maxDataSize = 0
 		#.
 		#Maximum value of a chassis attachment range.
 		#Range: > 1
