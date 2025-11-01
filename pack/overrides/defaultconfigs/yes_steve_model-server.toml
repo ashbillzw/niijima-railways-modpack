@@ -1,5 +1,5 @@
 #The default model ID when a player first enters the game
-DefaultModelId = "wine_fox/01_taisho_maid"
+DefaultModelId = "kitasan_black"
 #The default model texture when a player first enters the game
 DefaultModelTexture = "default"
 #Whether or not players are allowed to switch models
