@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "simpleplanes:plane",
+    "simpleplanes:large_plane",
+    "simpleplanes:cargo_plane",
+    "simpleplanes:helicopter",
+    "automobility:automobile"
+  ]
+}
