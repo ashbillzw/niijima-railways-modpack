@@ -23,7 +23,9 @@
     "create_things_and_misc:spout_gun_lava",
     "create_things_and_misc:spout_gun_chocolate",
     "create_things_and_misc:spout_gun_honey",
-    "create_things_and_misc:spout_gun_slime"
+    "create_things_and_misc:spout_gun_slime",
+    "minecraft:filled_map",
+    "createrailwaysnavigator:navigator"
   ],
   "autoToggleModItems": [
     "exposure:camera"
