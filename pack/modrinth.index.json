@@ -900,6 +900,17 @@
       "fileSize": 284399
     },
     {
+      "path": "mods/trainresync-1.6.0.b-all.jar",
+      "hashes": {
+        "sha1": "15817fe51bd7d59f844519d6afd088acedaee190",
+        "sha512": "fd1d59e8e7aafb686aada79d29dd60e1ba64093de15320e7dc9673717a974e4a52e0652607211e54f35ab9ee90626a24efe66b36d9bc01d3aeb1a11a38617e3f"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/6tVUzKA6/versions/fnMOAsWr/trainresync-1.6.0.b-all.jar"
+      ],
+      "fileSize": 657823
+    },
+    {
       "path": "mods/trainutilities-forge-3.0.0.jar",
       "hashes": {
         "sha1": "9bf401a501d7ce699576cf91f45c509cc5f9f5ca",
