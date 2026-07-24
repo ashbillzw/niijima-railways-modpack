@@ -6,16 +6,17 @@
   "summary": "正式版 1.20.1, Forge 47.4.6",
   "files": [
     {
-      "path": "mods/1.20.1-maid_storage_manager-1.13.14.jar",
+      "path": "mods/1.20.1-maid_storage_manager-1.15.6.jar",
       "hashes": {
-        "sha1": "d31dec87c74d44b4cae4c3630ce0ef6feeb36d3d",
-        "sha512": "2c79fa931ba6522b15e90fa85725386aca756ef73bc2d48d16974645599ba9553fde396acb6b3e6b86356fe1397033aeca4d4e58d4c6c12b45b3b9d1e21ba1db"
+        "sha1": "bc1d147663446679735728f77c7b1179eccf2837",
+        "sha512": "589c1a48e99b5a7b43eba135603e8b3f4f728467a80b8f1c2ebc523da6fa7e8f309ff3f9d91f4a46e0c4fe45a2fbc35cb5fb06a077cd28b9afece76dd915be70"
       },
       "downloads": [
-        "https://mediafilez.forgecdn.net/files/7060/635/1.20.1-maid_storage_manager-1.13.14.jar",
-        "https://edge.forgecdn.net/files/7060/635/1.20.1-maid_storage_manager-1.13.14.jar"
+        "https://mediafilez.forgecdn.net/files/7976/861/1.20.1-maid_storage_manager-1.15.6.jar",
+        "https://edge.forgecdn.net/files/7976/861/1.20.1-maid_storage_manager-1.15.6.jar",
+        "https://cdn.modrinth.com/data/5sIJPqAj/versions/xTNPlwGP/1.20.1-maid_storage_manager-1.15.6.jar"
       ],
-      "fileSize": 2298859
+      "fileSize": 2502526
     },
     {
       "path": "mods/AlwaysEat-5.2.jar",
@@ -414,19 +415,6 @@
       "fileSize": 3628603
     },
     {
-      "path": "mods/FarmersDelight-1.20.1-1.2.9.jar",
-      "hashes": {
-        "sha1": "ca9417c369e75d38dacdac59937223e5f6adcc18",
-        "sha512": "b628f9818301788dfba535615dde964e1727b8b3b22884f26df1f8a2b5a11a063f3803de00bc6eb8d148440286d43a29b98352afb33bd447b847c21b870442cb"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/6917/255/FarmersDelight-1.20.1-1.2.9.jar",
-        "https://edge.forgecdn.net/files/6917/255/FarmersDelight-1.20.1-1.2.9.jar",
-        "https://cdn.modrinth.com/data/R2OftAxM/versions/8rPF1pFi/FarmersDelight-1.20.1-1.2.9.jar"
-      ],
-      "fileSize": 2978080
-    },
-    {
       "path": "mods/ferritecore-6.0.1-forge.jar",
       "hashes": {
         "sha1": "417fb6ce8f52abf40bd9d0390371790f9576f8ba",
@@ -438,18 +426,6 @@
         "https://cdn.modrinth.com/data/uXXizFIs/versions/DG5Fn9Sz/ferritecore-6.0.1-forge.jar"
       ],
       "fileSize": 123034
-    },
-    {
-      "path": "mods/fruitsdelight-1.1.1.jar",
-      "hashes": {
-        "sha1": "3ecef6a32c36cffd14de39c3be7c5e16463781fd",
-        "sha512": "1b34612808fba015043d35957e5193fc124bea9661c3641b841a63eca81c664f9ca6e9f73176ab199f4f7bce3f8d2a665c1621c8cb2a79676d4ffcfa0ff304f4"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/6951/298/fruitsdelight-1.1.1.jar",
-        "https://edge.forgecdn.net/files/6951/298/fruitsdelight-1.1.1.jar"
-      ],
-      "fileSize": 1892593
     },
     {
       "path": "mods/ftb-chunks-forge-2001.3.6.jar",
@@ -616,17 +592,17 @@
       "fileSize": 276231
     },
     {
-      "path": "mods/kaleidoscopecookery-1.1.0-forge+mc1.20.1.jar",
+      "path": "mods/kaleidoscopecookery-1.4.1-forge+mc1.20.1.jar",
       "hashes": {
-        "sha1": "d8b7432df3fc0d22c2dbbce8564994b8cb10f548",
-        "sha512": "d85c87f7fd5558610d975f149a1e14f8b9acca6d143c61cd3a2575370a322ff4082637a3161148236828f92e2e0d5823f6aacac4bd77596357a08997b490516a"
+        "sha1": "21dbbe0e97966b38bbfd5a45287d7f463dfe0436",
+        "sha512": "da3e83a7c579e87c93926e95775f7dd8997d68f0875955e28a1103bc0d4c050b431789b89ca35449daf026b9adc50624849a59351befe5ecd3f1495bb7769bd8"
       },
       "downloads": [
-        "https://mediafilez.forgecdn.net/files/7057/531/kaleidoscopecookery-1.1.0-forge%2bmc1.20.1.jar",
-        "https://edge.forgecdn.net/files/7057/531/kaleidoscopecookery-1.1.0-forge%2bmc1.20.1.jar",
-        "https://cdn.modrinth.com/data/v17FatAc/versions/2C7nEL7N/kaleidoscopecookery-1.1.0-forge%2Bmc1.20.1.jar"
+        "https://mediafilez.forgecdn.net/files/8266/769/kaleidoscopecookery-1.4.1-forge%2bmc1.20.1.jar",
+        "https://edge.forgecdn.net/files/8266/769/kaleidoscopecookery-1.4.1-forge%2bmc1.20.1.jar",
+        "https://cdn.modrinth.com/data/v17FatAc/versions/NXvhd04p/kaleidoscopecookery-1.4.1-forge%2Bmc1.20.1.jar"
       ],
-      "fileSize": 2191008
+      "fileSize": 5184400
     },
     {
       "path": "mods/konkrete_forge_1.8.0_MC_1.20-1.20.1.jar",
@@ -771,17 +747,17 @@
       "fileSize": 18964334
     },
     {
-      "path": "mods/netmusic-1.1.8-forge+mc1.20.1.jar",
+      "path": "mods/netmusic-1.5.1-forge+mc1.20.1.jar",
       "hashes": {
-        "sha1": "7c0e1bea36825b43b21afb3781b1da9d8b06232c",
-        "sha512": "55be13bacc7c507b9166fc6f85d512186c334416a87e9881a1c7cd89dd23e0c2586e92b93989b6b38b57526e024b8c1ec03c5a101482fbb07859b83cd15816a4"
+        "sha1": "3eb61632187ab7d798252396958b4ee1c4783257",
+        "sha512": "176153c7ff4886350ebbf852820495e157e56ef56d813d0457c393b8b6e2689412df7486219510878f821a18b0c30ddb4c92bfa3b435227d9f7fd9dc9edd290f"
       },
       "downloads": [
-        "https://mediafilez.forgecdn.net/files/6838/602/netmusic-1.1.8-forge%2bmc1.20.1.jar",
-        "https://edge.forgecdn.net/files/6838/602/netmusic-1.1.8-forge%2bmc1.20.1.jar",
-        "https://cdn.modrinth.com/data/gKNuqaQq/versions/ZjuB3pc7/netmusic-1.1.8-forge%2Bmc1.20.1.jar"
+        "https://mediafilez.forgecdn.net/files/8043/427/netmusic-1.5.1-forge%2bmc1.20.1.jar",
+        "https://edge.forgecdn.net/files/8043/427/netmusic-1.5.1-forge%2bmc1.20.1.jar",
+        "https://cdn.modrinth.com/data/gKNuqaQq/versions/PDAxPE1Z/netmusic-1.5.1-forge%2Bmc1.20.1.jar"
       ],
-      "fileSize": 638697
+      "fileSize": 1472028
     },
     {
       "path": "mods/NoChatReports-FORGE-1.20.1-v2.2.2.jar",
@@ -988,17 +964,17 @@
       "fileSize": 107532
     },
     {
-      "path": "mods/touhoulittlemaid-1.4.0-forge+mc1.20.1.jar",
+      "path": "mods/touhoulittlemaid-1.5.3-forge+mc1.20.1.jar",
       "hashes": {
-        "sha1": "bcce084a900307d9255f1cbed0eedc7cc1224ad7",
-        "sha512": "42d274d47191ab0ed3605cd042bd9dafa2f90effda7487b7d5ca8ddc5a46270fa1f8bd0e67554b787336b53386197844c329dc34a139d00bdf4c9a50ebe278d0"
+        "sha1": "9097a2a57e7ed639bca072dd62e4a9257e86db89",
+        "sha512": "12f29c14e806bf3aeb4f8399ac02199b419426905a27c3b9c7e019ef9daace09bc40d9b2c5c41ee730ce4b67eda5d0e93e8a8f32879b96b70e6003952c651716"
       },
       "downloads": [
-        "https://mediafilez.forgecdn.net/files/6979/39/touhoulittlemaid-1.4.0-forge%2bmc1.20.1.jar",
-        "https://edge.forgecdn.net/files/6979/39/touhoulittlemaid-1.4.0-forge%2bmc1.20.1.jar",
-        "https://cdn.modrinth.com/data/R0bDWFAW/versions/Ji0Bz3hv/touhoulittlemaid-1.4.0-forge%2Bmc1.20.1.jar"
+        "https://mediafilez.forgecdn.net/files/8061/847/touhoulittlemaid-1.5.3-forge%2bmc1.20.1.jar",
+        "https://edge.forgecdn.net/files/8061/847/touhoulittlemaid-1.5.3-forge%2bmc1.20.1.jar",
+        "https://cdn.modrinth.com/data/R0bDWFAW/versions/g1SKoGQJ/touhoulittlemaid-1.5.3-forge%2Bmc1.20.1.jar"
       ],
-      "fileSize": 20883938
+      "fileSize": 24413134
     },
     {
       "path": "mods/trading_floor-1.1.9+forge-1.20.1.jar",
@@ -1105,6 +1081,19 @@
       "fileSize": 223967
     },
     {
+      "path": "mods/[农夫乐事] FarmersDelight-1.20.1-1.2.9.jar",
+      "hashes": {
+        "sha1": "ca9417c369e75d38dacdac59937223e5f6adcc18",
+        "sha512": "b628f9818301788dfba535615dde964e1727b8b3b22884f26df1f8a2b5a11a063f3803de00bc6eb8d148440286d43a29b98352afb33bd447b847c21b870442cb"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/6917/255/FarmersDelight-1.20.1-1.2.9.jar",
+        "https://edge.forgecdn.net/files/6917/255/FarmersDelight-1.20.1-1.2.9.jar",
+        "https://cdn.modrinth.com/data/R2OftAxM/versions/8rPF1pFi/FarmersDelight-1.20.1-1.2.9.jar"
+      ],
+      "fileSize": 2978080
+    },
+    {
       "path": "mods/[机械动力：懒惰刻] CreateLazyTick-2.4.9-0.5.1.j-forge-1.20.1.jar",
       "hashes": {
         "sha1": "f297c18fe41b70a53d6fb684a8c05cdcdbbfe291",
@@ -1129,6 +1118,31 @@
         "https://cdn.modrinth.com/data/LyOBYG8Q/versions/VEzrohhm/escalated-1.1.0%2Bcreate.0.5.1.j-mc.1.20.1-forge.jar"
       ],
       "fileSize": 517257
+    },
+    {
+      "path": "mods/[果园乐事] fruitsdelight-1.0.19.jar",
+      "hashes": {
+        "sha1": "7a4422aba6df6408ee9629d333acd4079fff290f",
+        "sha512": "18205ec865653aef8ad99ba198c1b15fb2c1d07dd64b03cad5b98345df42184ec8f11f509a33193d47d04d1d6669a0e04c7e0e77b91c847c2bd85c915566d3da"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/6242/383/fruitsdelight-1.0.19.jar",
+        "https://edge.forgecdn.net/files/6242/383/fruitsdelight-1.0.19.jar"
+      ],
+      "fileSize": 1877803
+    },
+    {
+      "path": "mods/[流畅加载重置版] smoothboot(reloaded)-mc1.20.1-0.0.4.jar",
+      "hashes": {
+        "sha1": "3fd79132dba444bd109b5de4ad75dee06a48e130",
+        "sha512": "1cf706491339f3efae0d48d0dd596f27a74fcfa8e94008d7ef55e18be8c6f3c437bb74020e48910e1cc724ad35894bffce94788fe8f765c37048d4cc532ba261"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/5016/280/smoothboot(reloaded)-mc1.20.1-0.0.4.jar",
+        "https://edge.forgecdn.net/files/5016/280/smoothboot(reloaded)-mc1.20.1-0.0.4.jar",
+        "https://cdn.modrinth.com/data/z53V2L4P/versions/HkfL3iGO/smoothboot%28reloaded%29-mc1.20.1-0.0.4.jar"
+      ],
+      "fileSize": 41044
     },
     {
       "path": "mods/[清洁女仆] sweeper_maid-1.1.1.jar",
