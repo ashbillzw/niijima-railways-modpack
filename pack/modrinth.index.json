@@ -108,6 +108,32 @@
       "fileSize": 196447
     },
     {
+      "path": "mods/berry_good-1.20.1-7.0.0.jar",
+      "hashes": {
+        "sha1": "ae052f061baeffac6d7e79a570fe7341081d83cd",
+        "sha512": "e7fa84113308a39104c90f2311d432694e7c6702107849bcd475f2c84c102f6ab9641fcee6c81b2bfebda24a4340b0cbb4e6aa9db76004623fd2f8a649bfe7cb"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/5228/437/berry_good-1.20.1-7.0.0.jar",
+        "https://edge.forgecdn.net/files/5228/437/berry_good-1.20.1-7.0.0.jar",
+        "https://cdn.modrinth.com/data/2WZWaKCl/versions/a8xhP8dI/berry_good-1.20.1-7.0.0.jar"
+      ],
+      "fileSize": 3058543
+    },
+    {
+      "path": "mods/blueprint-1.20.1-7.1.4.jar",
+      "hashes": {
+        "sha1": "10ee193ad755b03eceb0791a6f5257755feebcfe",
+        "sha512": "54e72a95caea98ddc01270fd765a05b82809dce760c5d9b8bdcf2c5c0ed9f4ef64e701fd70fc9146be2f030c085b29b21843ecd592beea4f331bdcf05545178b"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/8048/579/blueprint-1.20.1-7.1.4.jar",
+        "https://edge.forgecdn.net/files/8048/579/blueprint-1.20.1-7.1.4.jar",
+        "https://cdn.modrinth.com/data/VsM5EDoI/versions/AiaPEN6q/blueprint-1.20.1-7.1.4.jar"
+      ],
+      "fileSize": 1165189
+    },
+    {
       "path": "mods/carryon-forge-1.20.1-2.1.2.7.jar",
       "hashes": {
         "sha1": "9999714ca3dd2f2401f0396ca44f3b27c3784c4f",
@@ -476,6 +502,19 @@
       "fileSize": 317181
     },
     {
+      "path": "mods/happy_ghast_legacy-1.8-1.20.1-forge.jar.disabled",
+      "hashes": {
+        "sha1": "077c0b25c96d5738a63948a392810ea684320871",
+        "sha512": "31c8c7e965b4792fead992f8c90514d446d7500896144ba6a9dcd3b43cafafb03f01e67f15ccc41303345851390b0a381a4dc1f2a7a95902978701650f22ff1e"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/6699/999/happy_ghast_legacy-1.8-1.20.1-forge.jar",
+        "https://edge.forgecdn.net/files/6699/999/happy_ghast_legacy-1.8-1.20.1-forge.jar",
+        "https://cdn.modrinth.com/data/zi5opIfD/versions/YJ4zC804/happy_ghast_legacy-1.8-1.20.1-forge.jar"
+      ],
+      "fileSize": 3224753
+    },
+    {
       "path": "mods/immersive_paintings-0.6.8+1.20.1-forge.jar",
       "hashes": {
         "sha1": "f3a464ae2cb3173c7a7b765b4b9e61591f71833c",
@@ -655,6 +694,32 @@
         "https://cdn.modrinth.com/data/umyGl7zF/versions/g5igndAv/kubejs-forge-2001.6.5-build.16.jar"
       ],
       "fileSize": 1654660
+    },
+    {
+      "path": "mods/leashall-forge-1.2.3-1.20.1.jar",
+      "hashes": {
+        "sha1": "ae7542c3f9bf0f27b4d38cf00c86d43f2506e941",
+        "sha512": "9f28cd2070b0d0c152ca672c736c0765cf480ef6d49248732f1fe52816b4b97b7d89e57ffc07c011ecdb5c8cc93d499551bfd9a2244fbe4eced980024445230e"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/7800/606/leashall-forge-1.2.3-1.20.1.jar",
+        "https://edge.forgecdn.net/files/7800/606/leashall-forge-1.2.3-1.20.1.jar",
+        "https://cdn.modrinth.com/data/oKERV1Bi/versions/Vz87II0V/leashall-forge-1.2.3-1.20.1.jar"
+      ],
+      "fileSize": 27214
+    },
+    {
+      "path": "mods/leashall-forge-1.20.1-1.3.4-1.20.1.jar.disabled",
+      "hashes": {
+        "sha1": "38dfd49f45689ad5d8b1d29e45274823f8c03053",
+        "sha512": "e1b0c4d660136e327f3292505636ff697192980cceeaf093af82118eb6ceb234bb0702e748f9fd093bfa5990b53ee633a305b491b75383d0e7bbab81cdff702b"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/8292/379/leashall-forge-1.20.1-1.3.4-1.20.1.jar",
+        "https://edge.forgecdn.net/files/8292/379/leashall-forge-1.20.1-1.3.4-1.20.1.jar",
+        "https://cdn.modrinth.com/data/oKERV1Bi/versions/XCCGcwt1/leashall-forge-1.20.1-1.3.4-1.20.1.jar"
+      ],
+      "fileSize": 63241
     },
     {
       "path": "mods/maidaddition-1.1.4-beta-all.jar",
@@ -864,6 +929,19 @@
       "fileSize": 642711
     },
     {
+      "path": "mods/Platform-forge-1.20.1-1.3.4.jar.disabled",
+      "hashes": {
+        "sha1": "066cc06802107183d6a1028a5e358a2bfd505402",
+        "sha512": "ee1b435217e6f8b936b2e0280f7a6283b6dfff86df6c6d6c67282739ce8e25eb2884f0b96cf2873274ccd713f6c71eae34b3f3a63bcbe512a1f686df42b3e692"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/8214/829/Platform-forge-1.20.1-1.3.4.jar",
+        "https://edge.forgecdn.net/files/8214/829/Platform-forge-1.20.1-1.3.4.jar",
+        "https://cdn.modrinth.com/data/i6fiqm5y/versions/aWxR0Ksa/Platform-forge-1.20.1-1.3.4.jar"
+      ],
+      "fileSize": 512461
+    },
+    {
       "path": "mods/rhino-forge-2001.2.3-build.10.jar",
       "hashes": {
         "sha1": "c83c9b719a6bab33fbd2b3f2f680eb3adbfc1aa1",
@@ -1016,6 +1094,19 @@
       "fileSize": 228191
     },
     {
+      "path": "mods/VanillaBackport-forge-1.20.1-1.1.7.9.jar.disabled",
+      "hashes": {
+        "sha1": "8e62e99a4b760be898e652f4295f05cb32809f1b",
+        "sha512": "2612ea34bad9f333a8dde228e643c141db1a8c1ca2c9b173165721b97b86577a32fdce56abbb1bea446afa5216120e8d361b6108eec41f80e6f3b340cb42f197"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/8225/491/VanillaBackport-forge-1.20.1-1.1.7.9.jar",
+        "https://edge.forgecdn.net/files/8225/491/VanillaBackport-forge-1.20.1-1.1.7.9.jar",
+        "https://cdn.modrinth.com/data/6xwxDTgf/versions/CrPxEDJo/VanillaBackport-forge-1.20.1-1.1.7.9.jar"
+      ],
+      "fileSize": 56054096
+    },
+    {
       "path": "mods/watut-forge-1.20.1-1.2.3.jar",
       "hashes": {
         "sha1": "d376debf1f96f37dbedf56919baeb7da2dcef9ab",
@@ -1055,17 +1146,17 @@
       "fileSize": 370524
     },
     {
-      "path": "mods/yuushya-1.20.1-forge-2.2.3.jar",
+      "path": "mods/yuushya-1.20.1-forge-2.3.0.jar",
       "hashes": {
-        "sha1": "6b0b56d34c8466afd76097a7002f7ab18bd96b1c",
-        "sha512": "fe495638216049d28e25584d94025960eb416ace68457fee367a22d80f3e47dafb952f0dca5e725dcd715e8ff37154ede9beb7c41267154edcb7229e233de135"
+        "sha1": "4ac64e0368ea02a2271326bc41f421a31e6604a3",
+        "sha512": "1f19e57df426f725f0491ef2591b86abbf09b36b97f18d18318eeb7c3cd1a398b5a84fc1b195ebbf0a089d5814dc4d15c090f57effb9d2a97b2b5a317031a44f"
       },
       "downloads": [
-        "https://mediafilez.forgecdn.net/files/6393/938/yuushya-1.20.1-forge-2.2.3.jar",
-        "https://edge.forgecdn.net/files/6393/938/yuushya-1.20.1-forge-2.2.3.jar",
-        "https://cdn.modrinth.com/data/lfVtagkm/versions/3geNR8Br/yuushya-1.20.1-forge-2.2.3.jar"
+        "https://mediafilez.forgecdn.net/files/7976/641/yuushya-1.20.1-forge-2.3.0.jar",
+        "https://edge.forgecdn.net/files/7976/641/yuushya-1.20.1-forge-2.3.0.jar",
+        "https://cdn.modrinth.com/data/lfVtagkm/versions/4fDihvYF/yuushya-1.20.1-forge-2.3.0.jar"
       ],
-      "fileSize": 23411995
+      "fileSize": 28166084
     },
     {
       "path": "mods/[Minecraft Chromium 嵌入式框架] mcef-fabric-2.1.4-1.20.1.jar",
@@ -1092,6 +1183,32 @@
         "https://cdn.modrinth.com/data/R2OftAxM/versions/8rPF1pFi/FarmersDelight-1.20.1-1.2.9.jar"
       ],
       "fileSize": 2978080
+    },
+    {
+      "path": "mods/[悠然一派] atmospheric-1.20.1-6.1.1.jar",
+      "hashes": {
+        "sha1": "9a655ae0953d0205c10315560466779228c08b18",
+        "sha512": "ea74aaf7bbabc0745e31a01570db5c94f59004d8254641bb90cd599f639c354722108481663a479dd8d024581ca9cb890ab024ef8143e082c0711c2b6fa538fc"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/6393/127/atmospheric-1.20.1-6.1.1.jar",
+        "https://edge.forgecdn.net/files/6393/127/atmospheric-1.20.1-6.1.1.jar",
+        "https://cdn.modrinth.com/data/U9sJOFmJ/versions/B9fN8ZSq/atmospheric-1.20.1-6.1.1.jar"
+      ],
+      "fileSize": 5213524
+    },
+    {
+      "path": "mods/[拴绳增强] MoreLeads-forge-1.20.1-1.3.0.jar",
+      "hashes": {
+        "sha1": "a0025cfee6c65363687fb131ddc530ea42c59d76",
+        "sha512": "3a17e599c98baf80da8fdc9eaac6e33b70650ac5a5e39ebac507695dd8a4c9586fe69ce1c63aac58ecf62468f35913eec68abb7e55a703ea9e3388524e1341db"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/6469/385/MoreLeads-forge-1.20.1-1.3.0.jar",
+        "https://edge.forgecdn.net/files/6469/385/MoreLeads-forge-1.20.1-1.3.0.jar",
+        "https://cdn.modrinth.com/data/htaRjgnu/versions/Se0qQtZw/MoreLeads-forge-1.20.1-1.3.0.jar"
+      ],
+      "fileSize": 150844
     },
     {
       "path": "mods/[机械动力：懒惰刻] CreateLazyTick-2.4.9-0.5.1.j-forge-1.20.1.jar",
