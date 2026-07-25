@@ -364,19 +364,6 @@
       "fileSize": 223428
     },
     {
-      "path": "mods/CreativeCore_FORGE_v2.12.39_mc1.20.1.jar.disabled",
-      "hashes": {
-        "sha1": "aef9a8ebdf0be50b6bd8da8ab4153f5085f71a80",
-        "sha512": "6eb47ce94e00d2321deed8c646b81f0463b8a42e628fdfb07f3792c4bcb15fa7638ad3e52e332a0819c14a1346d71b6496dda64094f6b626a2dbfba0fba2d021"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/8304/882/CreativeCore_FORGE_v2.12.39_mc1.20.1.jar",
-        "https://edge.forgecdn.net/files/8304/882/CreativeCore_FORGE_v2.12.39_mc1.20.1.jar",
-        "https://cdn.modrinth.com/data/OsZiaDHq/versions/m9VEcxwz/CreativeCore_FORGE_v2.12.39_mc1.20.1.jar"
-      ],
-      "fileSize": 1144128
-    },
-    {
       "path": "mods/curios-forge-5.14.1+1.20.1.jar",
       "hashes": {
         "sha1": "452175b95ad3db6ff58bb8968f6bf7a9d1e0f480",
@@ -399,19 +386,6 @@
         "https://cdn.modrinth.com/data/x49wilh8/versions/JtCSM1oV/design_decor-0.4.0b-1.20.1.jar"
       ],
       "fileSize": 2439693
-    },
-    {
-      "path": "mods/DistantHorizons-2.3.4-b-1.20.1-fabric-forge.jar.disabled",
-      "hashes": {
-        "sha1": "fcbb4a39846af6d5cd41bc98405031f2010eef90",
-        "sha512": "85bb5245abb723cee7c10ae471e811266a66e5f78bd4a09a35bf45e64d463d244989c6e4d301c2b97b896e7513d75fc8000460148554a245f6e630bdf9a68c45"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/6791/186/DistantHorizons-2.3.4-b-1.20.1-fabric-forge.jar",
-        "https://edge.forgecdn.net/files/6791/186/DistantHorizons-2.3.4-b-1.20.1-fabric-forge.jar",
-        "https://cdn.modrinth.com/data/uCdwusMi/versions/MhxUKxWI/DistantHorizons-2.3.4-b-1.20.1-fabric-forge.jar"
-      ],
-      "fileSize": 17926585
     },
     {
       "path": "mods/drippyloadingscreen_forge_3.0.12_MC_1.20.1.jar",
@@ -549,19 +523,6 @@
         "https://cdn.modrinth.com/data/Ck4E7v7R/versions/i7Tp1AHw/guideme-20.1.15.jar"
       ],
       "fileSize": 9414827
-    },
-    {
-      "path": "mods/happy_ghast_legacy-1.8-1.20.1-forge.jar.disabled",
-      "hashes": {
-        "sha1": "077c0b25c96d5738a63948a392810ea684320871",
-        "sha512": "31c8c7e965b4792fead992f8c90514d446d7500896144ba6a9dcd3b43cafafb03f01e67f15ccc41303345851390b0a381a4dc1f2a7a95902978701650f22ff1e"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/6699/999/happy_ghast_legacy-1.8-1.20.1-forge.jar",
-        "https://edge.forgecdn.net/files/6699/999/happy_ghast_legacy-1.8-1.20.1-forge.jar",
-        "https://cdn.modrinth.com/data/zi5opIfD/versions/YJ4zC804/happy_ghast_legacy-1.8-1.20.1-forge.jar"
-      ],
-      "fileSize": 3224753
     },
     {
       "path": "mods/ImmediatelyFast-Forge-1.5.5+1.20.4.jar",
@@ -809,19 +770,6 @@
       "fileSize": 521709
     },
     {
-      "path": "mods/mcef-forge-2.1.6-1.20.1.jar.disabled",
-      "hashes": {
-        "sha1": "6d9fa1433d509be242d1d74282d02a0fbebde110",
-        "sha512": "6df8c8e70ab15b3662404a3a398c18689fb7591e84e1a913d8939bee144f030cd2aeaee4e68f1ed159881a59796a37a7f628dd442e6ba7836005e14ad7b9704d"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/5828/187/mcef-forge-2.1.6-1.20.1.jar",
-        "https://edge.forgecdn.net/files/5828/187/mcef-forge-2.1.6-1.20.1.jar",
-        "https://cdn.modrinth.com/data/TObQ0HxZ/versions/x91l6OKB/mcef-forge-2.1.6-1.20.1.jar"
-      ],
-      "fileSize": 218417
-    },
-    {
       "path": "mods/melody_forge_1.0.3_MC_1.20.1-1.20.4.jar",
       "hashes": {
         "sha1": "e0942d396a70c09038e6c2e5e1da6505178249b8",
@@ -1000,17 +948,17 @@
       "fileSize": 261923
     },
     {
-      "path": "mods/packetfixer-3.3.0-1.18-1.20.4-merged.jar",
+      "path": "mods/packetfixer-3.3.2-1.18-1.20.4-merged.jar",
       "hashes": {
-        "sha1": "e07b58008aeae90d61c5324c740cbbd66bbb34e3",
-        "sha512": "0f86b9b03672e67e5eac23146bfc56a536f8985daecaec3bf089ee489240b5afec1571c733fc058c335fdd9e8ace94796c257e4c59a33be7cf1dcba32009c2a1"
+        "sha1": "79ebc5e66a5ee3ce92afb340e693d506e97361a0",
+        "sha512": "916501acefab2a33f7b5438375dec0c3d523975d82c807c98496227c107c1efd57c95d9e1501d657513324a9ad617eb8ef7e963921263389af896da55dc707a9"
       },
       "downloads": [
-        "https://mediafilez.forgecdn.net/files/6940/439/packetfixer-3.3.0-1.18-1.20.4-merged.jar",
-        "https://edge.forgecdn.net/files/6940/439/packetfixer-3.3.0-1.18-1.20.4-merged.jar",
-        "https://cdn.modrinth.com/data/c7m1mi73/versions/Jt7R7s5s/packetfixer-3.3.0-1.18-1.20.4-merged.jar"
+        "https://mediafilez.forgecdn.net/files/7872/374/packetfixer-3.3.2-1.18-1.20.4-merged.jar",
+        "https://edge.forgecdn.net/files/7872/374/packetfixer-3.3.2-1.18-1.20.4-merged.jar",
+        "https://cdn.modrinth.com/data/c7m1mi73/versions/9F4NGhGR/packetfixer-3.3.2-1.18-1.20.4-merged.jar"
       ],
-      "fileSize": 190422
+      "fileSize": 188661
     },
     {
       "path": "mods/pantographsandwires-forge-1.20.1-beta-0.1.1.jar",
@@ -1295,19 +1243,6 @@
       "fileSize": 223967
     },
     {
-      "path": "mods/[RS 无限范围增幅卡] RSInfinityBooster-1.20.1-1.0+41.jar.disabled",
-      "hashes": {
-        "sha1": "fa5d1ae8a115998067e6805c9748cbce64ab960a",
-        "sha512": "17f76c74072c04caa37ab0ef0daace46d858166b7de8ef4030092e2becb65e63ceba3b6aaefb2e00c35e863a3a6adb2f923edfa4f5104c3c7dd250f02e07df04"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/5814/102/RSInfinityBooster-1.20.1-1.0%2b41.jar",
-        "https://edge.forgecdn.net/files/5814/102/RSInfinityBooster-1.20.1-1.0%2b41.jar",
-        "https://cdn.modrinth.com/data/Sjzdj2cy/versions/UkT7CCGr/RSInfinityBooster-1.20.1-1.0%2B41.jar"
-      ],
-      "fileSize": 33622
-    },
-    {
       "path": "mods/[内存泄漏修复] memoryleakfix-forge-1.17+-1.1.5.jar",
       "hashes": {
         "sha1": "9f60142dd94631800386a16a4ad70ad9e84cd78a",
@@ -1540,6 +1475,19 @@
       "fileSize": 1557463
     },
     {
+      "path": "mods/[机械动力：赛博护目镜] create_cyber_goggles-1.20.1-1.5.0+Forge.jar",
+      "hashes": {
+        "sha1": "318318a9c2d08951e043e00301b52ed7a3111998",
+        "sha512": "497bdaa8c1f499b9199ec2e68a2138f9a39a8202d2465752cec55c981d4baf6e618dff6e4095eb76d81af88bb5bf32bce7573539a3826082bab73a1102ac3830"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/7080/892/create_cyber_goggles-1.20.1-1.5.0%2bForge.jar",
+        "https://edge.forgecdn.net/files/7080/892/create_cyber_goggles-1.20.1-1.5.0%2bForge.jar",
+        "https://cdn.modrinth.com/data/TlQAWQCY/versions/HjWvxBYS/create_cyber_goggles-1.20.1-1.5.0%2BForge.jar"
+      ],
+      "fileSize": 140103
+    },
+    {
       "path": "mods/[机械动力：附魔工业] create_enchantment_industry-1.20.1-for-create-0.5.1.f-1.2.9.d.jar",
       "hashes": {
         "sha1": "eec891067ec8c72fdaeb97bece103eed5e10e719",
@@ -1701,30 +1649,6 @@
         "https://cdn.modrinth.com/data/9X0318ev/versions/EYjcGdw1/FastFurnace-1.20.1-8.0.2.jar"
       ],
       "fileSize": 6170
-    },
-    {
-      "path": "mods/[物品物理掉落] ItemPhysic_FORGE_v1.8.13_mc1.20.1.jar.disabled",
-      "hashes": {
-        "sha1": "237b611a44d3397a514825945e7137f153916237",
-        "sha512": "b93f7045d80e53bf5e5608d967b5447cc0e0ab3b9b95654cb9f78126e3e503be1a73390c303f2fcfcb6d5e74b94b75d6f7e09663756ff6593505f7b2eaf0b720"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/8126/877/ItemPhysic_FORGE_v1.8.13_mc1.20.1.jar",
-        "https://edge.forgecdn.net/files/8126/877/ItemPhysic_FORGE_v1.8.13_mc1.20.1.jar",
-        "https://cdn.modrinth.com/data/aT8BzaOj/versions/SEfbysti/ItemPhysic_FORGE_v1.8.13_mc1.20.1.jar"
-      ],
-      "fileSize": 55792
-    },
-    {
-      "path": "mods/[跨越] kuayue-1.20.1-1.20.1-1.0.2.jar",
-      "hashes": {
-        "sha1": "e7ea6bec9b12e4824d1f98a85805d7fd66c3c5f5",
-        "sha512": "69c044deefd9fb63a65d3afc5c08dcb2129613d473e67b60bf25e0bdb0fb64ffbc329089ea8ca8ffb8bdbf8fb55db125b50ff4005add21695a54e30496a28cd3"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/iErPoO30/versions/bBldWEUu/kuayue-1.20.1-1.20.1-1.0.2.jar"
-      ],
-      "fileSize": 14383650
     },
     {
       "path": "mods/[轻松建造] effortless-1.20.1-3.4.0.jar",
@@ -2149,6 +2073,18 @@
       "fileSize": 2970488
     },
     {
+      "path": "mods/[XL数据包] xlpackets-1.18.2-2.1.jar",
+      "hashes": {
+        "sha1": "f24208aa29e04b26366589061806d07d77d30034",
+        "sha512": "c29a7efa69cd7dbd6d62daf33280eadcb3a7003bd138a47d5ceb19082e2cd232561efe55a9b1eaa465bb5576abbdebb7767c2ae01b2c5f30c876916d5daec994"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/4426/828/xlpackets-1.18.2-2.1.jar",
+        "https://edge.forgecdn.net/files/4426/828/xlpackets-1.18.2-2.1.jar"
+      ],
+      "fileSize": 4786
+    },
+    {
       "path": "mods/[刷怪塔实用设备] mob_grinding_utils-1.20.1-1.1.0.jar",
       "hashes": {
         "sha1": "58991a3a94e1f982d0e558bed7b60226a097ae49",
@@ -2219,18 +2155,6 @@
         "https://edge.forgecdn.net/files/6242/383/fruitsdelight-1.0.19.jar"
       ],
       "fileSize": 1877803
-    },
-    {
-      "path": "mods/[精致存储] refinedstorage-1.12.4.jar.disabled",
-      "hashes": {
-        "sha1": "ff9e83c81344d0bfe9e0bb53c6df00c7e0a39cf5",
-        "sha512": "c5567666f7337c2c260bd8de96fafd8ebeddd33b0df61b76cb70f7b3940dafb5f40c082b0d897677aa47264f06c800ee24890db9e02382e9c55039e9d1248ef6"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/4844/585/refinedstorage-1.12.4.jar",
-        "https://edge.forgecdn.net/files/4844/585/refinedstorage-1.12.4.jar"
-      ],
-      "fileSize": 3300191
     },
     {
       "path": "mods/[远物停载：土豆版] doespotatotick-1.20.1-5.6.3.jar",
