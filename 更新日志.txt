@@ -1,0 +1,84 @@
+若是新增mod没说是哪个端，默认都需要装
+
+1.更新mod
+MCEF 2.1.6->2.1.4
+
+森罗物语：厨房 1.1.0->1.4.1
+网络音乐机 1.1.8->1.5.1
+车万女仆 1.4.0->1.5.3
+女仆仓管 1.13.14->1.15.6
+
+方块小镇 2.2.3->2.3.0
+
+实体渲染机制优化
+
+升级Packet Fixer（减小无效玩家数据概率）
+
+2.新增mod
+鼠标手势  仅客户端
+机械动力：懒惰刻  
+清洁女仆  
+输入法冲突修复 仅客户端
+Create: Escalated 
+
+流畅加载重置版 仅客户端
+
+LeashAll
+More Leads
+Berry Good
+Buleprint（Atmospheric的支持库）
+Atmospheric
+
+kasuga
+跨越
+机械动力：甜食
+机械动力：装食
+机械动力：咖啡馆
+
+森罗物语：酒馆
+森罗物语：末地
+森罗物语：下界
+森罗物语：次元酒窖
+森罗物语：国味
+森罗物语：乐此不疲
+森罗酒馆：血酒
+森罗物语：自动化
+
+刷怪塔实用设备
+机械动力：附魔工业
+机械动力：矿石开掘
+
+Botarium 电气时代前置
+机械动力：电气时代
+TACZ
+trade cycling
+创意传动
+赛博护目镜
+轻松建造
+library ferret（更好的村庄前置）
+更好的村庄
+Butchery
+机械动力雷达
+
+鞘翅槽位
+caelus API（鞘翅槽位前置）
+安全工艺
+
+原子核动
+
+通量网络
+staaaaaaaaaaaack
+
+赛博护目镜
+
+3.修改文件
+config\sweeper_maid-common.toml
+
+config\ae2\common.json
+
+kubeJS\more_useful_junk.js
+kubeJS\dragon_breath.js
+kubejs\no_boom.js
+kubejs\experience_block.js
+kubejs\ore.js
+kubejs\gunpowder.js
