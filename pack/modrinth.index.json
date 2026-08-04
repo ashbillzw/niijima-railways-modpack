@@ -1,8 +1,8 @@
 {
   "game": "minecraft",
   "formatVersion": 1,
-  "versionId": "1.5.1.ab",
-  "name": "新岛铁道 v1.5.1 AshBill版",
+  "versionId": "1.6.0.ab",
+  "name": "新岛铁道 v1.6.0 AshBill版",
   "summary": "1.20.1, Forge 47.4.6",
   "files": [
     {
@@ -900,6 +900,17 @@
       "fileSize": 284399
     },
     {
+      "path": "mods/trainresync-1.6.0.b-all.jar",
+      "hashes": {
+        "sha1": "15817fe51bd7d59f844519d6afd088acedaee190",
+        "sha512": "fd1d59e8e7aafb686aada79d29dd60e1ba64093de15320e7dc9673717a974e4a52e0652607211e54f35ab9ee90626a24efe66b36d9bc01d3aeb1a11a38617e3f"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/6tVUzKA6/versions/fnMOAsWr/trainresync-1.6.0.b-all.jar"
+      ],
+      "fileSize": 657823
+    },
+    {
       "path": "mods/trainutilities-forge-3.0.0.jar",
       "hashes": {
         "sha1": "9bf401a501d7ce699576cf91f45c509cc5f9f5ca",
@@ -1152,18 +1163,6 @@
         "https://edge.forgecdn.net/files/6825/169/maidaddition-1.1.4-beta-all.jar"
       ],
       "fileSize": 1958494
-    },
-    {
-      "path": "mods/refinedstorage-1.12.4.jar.disabled",
-      "hashes": {
-        "sha1": "ff9e83c81344d0bfe9e0bb53c6df00c7e0a39cf5",
-        "sha512": "c5567666f7337c2c260bd8de96fafd8ebeddd33b0df61b76cb70f7b3940dafb5f40c082b0d897677aa47264f06c800ee24890db9e02382e9c55039e9d1248ef6"
-      },
-      "downloads": [
-        "https://mediafilez.forgecdn.net/files/4844/585/refinedstorage-1.12.4.jar",
-        "https://edge.forgecdn.net/files/4844/585/refinedstorage-1.12.4.jar"
-      ],
-      "fileSize": 3300191
     },
     {
       "path": "mods/rsgauges-1.2.22.jar",

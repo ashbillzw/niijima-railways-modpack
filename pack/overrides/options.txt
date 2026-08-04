@@ -127,7 +127,7 @@ key_key.carry.desc:key.keyboard.left.alt
 key_key.touhou_little_maid.stt_chat.desc:key.keyboard.x
 key_key.touhou_little_maid.dismount.desc:key.keyboard.c
 key_iris.keybind.reload:key.keyboard.r:ALT
-key_iris.keybind.toggleShaders:key.keyboard.k
+key_iris.keybind.toggleShaders:key.keyboard.unknown
 key_iris.keybind.shaderPackSelection:key.keyboard.o
 key_key.jetpack.toggle_active.description:key.keyboard.g
 key_key.jetpack.toggle_hover.description:key.keyboard.h
