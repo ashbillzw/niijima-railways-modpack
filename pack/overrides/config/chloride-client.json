@@ -60,12 +60,17 @@
         "immersive_paintings:painting",
         "immersive_paintings:glow_painting",
         "immersive_paintings:graffiti",
-        "immersive_paintings:glow_graffiti"
+        "immersive_paintings:glow_graffiti",
+        "simpleplanes:plane",
+        "simpleplanes:large_plane",
+        "simpleplanes:cargo_plane",
+        "simpleplanes:helicopter"
     ],
     "monsterWhitelist": [],
     "tileEntityWhitelist": [
         "waterframes:all",
-        "minecraft:beacon"
+        "minecraft:beacon",
+        "create:elevator_pulley"
     ],
     "borderlessAttachModeF11": "ATTACH",
     "fastLanguageReload": true,
