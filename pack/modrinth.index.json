@@ -362,17 +362,6 @@
       "fileSize": 477884
     },
     {
-      "path": "mods/firstperson-forge-2.5.0-mc1.20.1.jar",
-      "hashes": {
-        "sha1": "58280ce1c376420ee138d99c5a7c8c5f5de315c3",
-        "sha512": "57f421f4d9ec969218372029798bc0e83aa661fce95744f5608dd03718e5a88a217fc36b7a71a7ab79b21a531a28a1c549e364241d103857afd932eaa0ce1002"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/H5XMjpHi/versions/ub6wk879/firstperson-forge-2.5.0-mc1.20.1.jar"
-      ],
-      "fileSize": 519546
-    },
-    {
       "path": "mods/fancymenu_forge_3.7.0_MC_1.20.1.jar",
       "hashes": {
         "sha1": "f33a40f7d33585e781d90d00d156178e369ae8ed",
@@ -410,6 +399,17 @@
         "https://edge.forgecdn.net/files/4810/975/ferritecore-6.0.1-forge.jar"
       ],
       "fileSize": 123034
+    },
+    {
+      "path": "mods/firstperson-forge-2.5.0-mc1.20.1.jar",
+      "hashes": {
+        "sha1": "58280ce1c376420ee138d99c5a7c8c5f5de315c3",
+        "sha512": "57f421f4d9ec969218372029798bc0e83aa661fce95744f5608dd03718e5a88a217fc36b7a71a7ab79b21a531a28a1c549e364241d103857afd932eaa0ce1002"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/H5XMjpHi/versions/ub6wk879/firstperson-forge-2.5.0-mc1.20.1.jar"
+      ],
+      "fileSize": 519546
     },
     {
       "path": "mods/IMBlocker-5.4.5-forge+1.17-1.20.4.jar",
@@ -473,17 +473,6 @@
         "https://cdn.modrinth.com/data/RXM1nxge/versions/nEsTLkcQ/inv_view_forge-2.1.0-1.20.1.jar"
       ],
       "fileSize": 85516
-    },
-    {
-      "path": "mods/notenoughanimations-forge-1.10.6-mc1.20.1.jar",
-      "hashes": {
-        "sha1": "408c8497c263c03edfe432549ef08dc48c6230ed",
-        "sha512": "d6c3322b260fdf7ad5e06c5340593b84df601ee638b2195712e31834936c4d8a96b3afb4f9a673163bea20283a01c1ef6c186ebc6b5e3bb83b966bba79945b7a"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/MPCX6s5C/versions/7KhtEU40/notenoughanimations-forge-1.10.6-mc1.20.1.jar"
-      ],
-      "fileSize": 843250
     },
     {
       "path": "mods/Jade-1.20.1-Forge-11.13.2.jar",
@@ -718,6 +707,17 @@
         "https://edge.forgecdn.net/files/4610/474/NoChatReports-FORGE-1.20.1-v2.2.2.jar"
       ],
       "fileSize": 272740
+    },
+    {
+      "path": "mods/notenoughanimations-forge-1.10.6-mc1.20.1.jar",
+      "hashes": {
+        "sha1": "408c8497c263c03edfe432549ef08dc48c6230ed",
+        "sha512": "d6c3322b260fdf7ad5e06c5340593b84df601ee638b2195712e31834936c4d8a96b3afb4f9a673163bea20283a01c1ef6c186ebc6b5e3bb83b966bba79945b7a"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/MPCX6s5C/versions/7KhtEU40/notenoughanimations-forge-1.10.6-mc1.20.1.jar"
+      ],
+      "fileSize": 843250
     },
     {
       "path": "mods/ns-cr-rc-0.0.0.jar",
