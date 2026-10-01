@@ -1,1 +1,6 @@
-@cd /d "%~dp0pack" && (if not exist "..\output" mkdir "..\output") && (if exist "..\output\pack.zip" del /q "..\output\pack.zip") && 7z a -tzip "..\output\pack.zip" ".\*"
+@echo off
+cd /d "%~dp0"
+python build.py
+set "build_exit=%errorlevel%"
+if not "%build_exit%"=="0" pause
+exit /b %build_exit%
