@@ -900,15 +900,15 @@
       "fileSize": 284399
     },
     {
-      "path": "mods/trainresync-1.6.0.d-all.jar",
+      "path": "mods/trainresync-1.6.0.e-all.jar",
       "hashes": {
-        "sha1": "56479fe8cd118cce0ccf7b9a1489aab738b1f9ed",
-        "sha512": "a300f2aa9226c362b9785bdcf0ac2857c8c4e29796705eb750402bdad5245fdbd580828fcad124789207904165be3dd89cd604a2729fef4968b22e4d1af9f893"
+        "sha1": "31baa4c6357234b271bb4247718930ed4395b398",
+        "sha512": "c54cef589fd171b519201c3bf3ab2107160087f1030abf106c14348d35b7fc9a39d0fd3184ad0abe48aace12ded804cc8ac8ff55e25f15c1c496faa047edb90a"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/6tVUzKA6/versions/OLvWgquE/trainresync-1.6.0.d-all.jar"
+        "https://cdn.modrinth.com/data/6tVUzKA6/versions/iwz8yz27/trainresync-1.6.0.e-all.jar"
       ],
-      "fileSize": 667640
+      "fileSize": 667948
     },
     {
       "path": "mods/trainutilities-forge-3.0.0.jar",
@@ -1235,6 +1235,17 @@
         "https://edge.forgecdn.net/files/6904/447/Sildur%27s%20Vibrant%20Shaders%20v1.541%20Extreme-VL.zip"
       ],
       "fileSize": 148474
+    },
+    {
+      "path": "AshBill/免下载MCEF/mcef-libraries.zip",
+      "hashes": {
+        "sha1": "e6f31ae4f4af00aec6f95f2157d39f2d719536af",
+        "sha512": "3c8a8984c937686a83da1efab6c4e189219ca739c7f8e82999d2e9460a9ea1d365b2f6186b65e96640c0377a0d5b2d0eb74e01de95ffdc79ec813c362eeaa1f8"
+      },
+      "downloads": [
+        "https://mc1.ashbill.com:25572/assets/mcef-libraries.zip"
+      ],
+      "fileSize": 120435924
     }
   ],
   "dependencies": {
