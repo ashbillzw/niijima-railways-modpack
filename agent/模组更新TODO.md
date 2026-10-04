@@ -2,21 +2,22 @@
 
 ## 重点测试：17、19、24（用户指定）
 
-以下汇总旧版之后、清单目标版本以内的 Forge 1.20.1 官方更新说明，查阅于 2026-10-04。不包含目标版本之后的更新，也不将日志中仅限 Fabric 或 1.21.1 的变化计入。三个目标目前均为**未入包、未确认测试**。测试清单是针对本整合包的建议，不代表这些问题当前必然存在。
+以下汇总旧版之后、清单目标版本以内的 Forge 1.20.1 官方更新说明，查阅于 2026-10-04。不包含目标版本之后的更新，也不将日志中仅限 Fabric 或 1.21.1 的变化计入。三个目标目前均为**已入包、待重新测试**；森罗厨房目标已更新至 1.6.0，下文补充该版本变更。测试清单是针对本整合包的建议，不代表这些问题当前必然存在。
 
-### 17. Kaleidoscope Cookery：1.1.0 → 1.5.1
+### 17. Kaleidoscope Cookery：1.1.0 → 1.6.0
 
 **重点：配方与物品变更会影响现有厨房、库存和 KJS 脚本。**
 
 - **1.1.1–1.2.1**：重做磨盘的投料、出料和配方，取消配方容器参数；小麦产面粉、种子产油。扩展油罐自动化，调整饭袋效果及消耗机制，新增镰刀和多种菜肴；改善农夫乐事食材、热源兼容，加入机械动力 Ponder 教程。期间修复饭袋与精妙背包刷物品、蒸笼取物和热源检测等问题。[1.1.1](https://modrinth.com/mod/v17FatAc/version/5TvWnxSE)、[1.2.0](https://modrinth.com/mod/v17FatAc/version/WrRGy5Ni)、[1.2.1](https://modrinth.com/mod/v17FatAc/version/Fxxe8gvO)
 - **1.3.0–1.4.1**：新增茶壶、茶饮、垃圾桶和食物效果；炒锅、汤锅引入“严格配方优先、灵活配方兜底”，食材数量影响品质、饥饿值和效果。新增拼盘机制，磨盘支持概率副产物及机械动力粉碎轮配方。**移除一批旧食物**，包括驴肉及驴肉汤、部分盖饭、烤鸡串和旧水果拼盘；生煎馒头由方块食物改为物品食物。1.4.1 修复破坏竹筒饭导致服务器崩溃和碗返还问题。[1.3.0](https://modrinth.com/mod/v17FatAc/version/lpJLHWk4)、[1.4.0](https://modrinth.com/mod/v17FatAc/version/oMHbtVQz)、[1.4.1](https://modrinth.com/mod/v17FatAc/version/NXvhd04p)
 - **1.5.0–1.5.1**：新增种茶、制茶、竹筛干湿加工，以及八仙桌、长凳等；茶包改用干茶叶，茶壶支持更多自动化和奶茶。修复磨盘与机械动力溜槽、KJS 配方 `carrier` 为空的问题；移除旧版资源包。目标版进一步修复八仙桌与机械动力兼容、茶壶潜在复制漏洞和茶杯崩溃。[1.5.0](https://modrinth.com/mod/v17FatAc/version/i9viz9oI)、[1.5.1](https://modrinth.com/mod/v17FatAc/version/oR27Hgav)
+- **1.6.0（本轮补充）**：砧板支持发射器放料及持刀切割，配方支持多输出；新增快刀附魔，调整切割产量及鸡肉/兔肉产物。磨盘驱动实体由白名单改为黑名单，受伤后会脱离；调整镰刀附魔/耐久、草帽护甲和厨刀伤害。饭袋配方改用紫水晶碎片，扩为 24 格，按顺序进食、饱食后停止，并支持按顺序使用存储的药水。[1.6.0](https://modrinth.com/mod/v17FatAc/version/Ghp0qCKY)
 
 建议认真测试：
 
 - [ ] 用旧存档副本核对厨房、容器和玩家库存，检查被删除或改形态的食物如何处理；官方日志未在上述条目说明完整迁移方案。
 - [ ] 检查 KJS 自定义配方、物品 ID/标签引用及 JEI 展示，实际制作严格配方、灵活配方并检查产量、品质、容器返还。
-- [ ] 实测磨盘、油罐、茶壶、竹筛与漏斗/溜槽等自动化，检查是否丢物或复制物品。
+- [ ] 实测磨盘、油罐、茶壶、竹筛与漏斗/溜槽等自动化，检查是否丢物或复制物品；补测砧板发射器、多输出配方、磨盘实体受伤脱离及饭袋药水/进食顺序。
 - [ ] 测试多人操作厨房、八仙桌/茶杯及女仆取食联动；核对饭袋、饱食护盾和新增效果是否符合服务器玩法。
 
 ### 19. Net Music：1.1.8 → 1.5.2
@@ -56,75 +57,75 @@
 ## 范围与状态
 
 - 按 2026-09-30 更新讨论及 2026-10-01 最终确认结果整理：25 项确认更新，35 项确认不更新。
-- 本文目标为当时选定的版本，不表示现在的最新版。逐项实施前重新核对版本、依赖和兼容性；更换目标需记录原因。
+- 2026-10-04 按用户要求重新查询这 25 项的 Minecraft 1.20.1 / Forge 最新版本并实施，包含三个重点模组；35 项历史不更新决策保持不变。最新版本只表示本次查询结果，不表示整包运行兼容性已通过。
 - **未入包**：目标版本尚未写入当前索引或加入包内。旧版本已经存在不算完成。
 - **已入包**：目标版本已写入索引或加入包内，游戏内功能测试尚未确认完成。
 - **已测试正常**：已入包，并经用户在游戏内检查相关功能正常；应填写测试版本、日期和结果。能启动、静态检查通过或已经 commit 都不能代替此步骤。
 - 每项先勾选“已入包”，再勾选“已测试正常”，并同步更新状态和备注。
 
-当前核对结果：22 项未入包，3 项已入包，0 项有明确的游戏内功能测试通过记录。测试状态待用户补充。
+当前核对结果（2026-10-04）：25 项已入包，0 项未入包，0 项确认游戏内功能测试正常。本轮补上三个重点模组，并进一步更新 IMBlocker、ModernFix；纳入本轮提交，等待用户重新测试。
 
 ## 确认更新（25 项）
 
 ### 1. Maid Storage Manager
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/1.20.1-maid_storage_manager-1.13.14.jar`
 - 目标文件：`mods/1.20.1-maid_storage_manager-1.15.6.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/5sIJPqAj/version/xTNPlwGP)；PCL。
-- 依赖记录：该 PCL 目标文件的依赖尚未获取。
-- 测试记录：待填写。
-- 备注：待补充。
+- 依赖记录：JAR 虽声明 Touhou Little Maid >=1.3.7，但 1.15.6 实际引用旧版 TLM 1.4.0 缺失的 ITool；本轮改搭 TLM 1.5.3，已核对该接口存在，运行兼容性待复测。
+- 测试记录：2026-10-04 15:47:33，1.15.6 + TLM 1.4.0 进入单人世界时因 ITool 缺失崩溃（TickServer.onTick）；本轮 TLM 1.5.3 组合尚待复测。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。官方标记为 beta，沿用此前明确选定的版本。
 
 ### 2. Barbeque's Delight [Forge/NeoForge]
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/barbequesdelight-1.0.5.jar`
 - 目标文件：`mods/barbequesdelight-1.0.6.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/rtu7uERF/version/LsvcmS2n)；PCL。
 - 依赖记录：必需: Farmer's Delight; 可选: Jade 🔍。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 3. Distant Horizons
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/DistantHorizons-2.3.4-b-1.20.1-fabric-forge.jar.disabled`
 - 目标文件：`mods/DistantHorizons-3.3.3-1.20.1-fabric-forge.jar.disabled`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/uCdwusMi/version/6UnEfsRQ)；PCL。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：保持 .disabled 状态；入索引不代表启用，功能测试需另行确认测试方式。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：保持 .disabled 状态；入索引不代表启用，功能测试需另行确认测试方式。2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 4. Entity Culling
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/entityculling-forge-1.9.3-mc1.20.1.jar`
 - 目标文件：`mods/entityculling-forge-1.11.2-mc1.20.1.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/NNAgCjsB/version/HPDH6g5B)；PCL。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 5. Farmer's Delight
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/FarmersDelight-1.20.1-1.2.9.jar`
 - 目标文件：`mods/FarmersDelight-1.20.1-1.3.4.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/R2OftAxM/version/SiIpcZzM)；PCL。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 6. First-person Model
 
@@ -140,175 +141,178 @@
 
 ### 7. Fruit's Delight
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/fruitsdelight-1.1.1.jar`
 - 目标文件：`mods/fruitsdelight-1.1.3.jar`
-- 目标版本来源：[版本页面]()；PCL。
-- 依赖记录：该 PCL 目标文件的依赖尚未获取。
-- 测试记录：待填写。
-- 备注：待补充。
+- 目标版本来源：[版本页面](https://www.curseforge.com/minecraft/mc-mods/fruits-delight/files/8304691)；PCL。
+- 依赖记录：必需: Farmer's Delight >=1.20.1-1.2.2；L2Harvester >=0.1.2 已内置于目标 JAR。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。两种哈希、大小及依赖已从本地参考 JAR 核对；后续已从官方文件列表确认 1.1.3 为当前最新 Forge 1.20.1 版本。
 
 ### 8. FTB Chunks
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/ftb-chunks-forge-2001.3.6.jar`
 - 目标文件：`mods/ftb-chunks-forge-2001.3.8.jar`
-- 目标版本来源：[版本页面]()；PCL。
-- 依赖记录：该 PCL 目标文件的依赖尚未获取。
-- 测试记录：待填写。
-- 备注：待补充。
+- 目标版本来源：[版本页面](https://www.curseforge.com/minecraft/mc-mods/ftb-chunks-forge/files/8216874)；PCL。
+- 依赖记录：必需: Forge >=47.1.47、Architectury >=9.1.12、FTB Library >=2001.2.9、FTB Teams >=2001.3.1；本包及本轮目标满足声明范围。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 9. FTB Library
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/ftb-library-forge-2001.2.10.jar`
 - 目标文件：`mods/ftb-library-forge-2001.2.13.jar`
-- 目标版本来源：[版本页面]()；PCL。
-- 依赖记录：该 PCL 目标文件的依赖尚未获取。
-- 测试记录：待填写。
-- 备注：待补充。
+- 目标版本来源：[版本页面](https://www.curseforge.com/minecraft/mc-mods/ftb-library-forge/files/8226927)；PCL。
+- 依赖记录：必需: Forge >=47.3、Architectury >=9.0.8；本包满足声明范围。可选 FTB Quests >=2001.4.8（当前未安装）。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 10. FTB Teams
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/ftb-teams-forge-2001.3.1.jar`
 - 目标文件：`mods/ftb-teams-forge-2001.3.2.jar`
-- 目标版本来源：[版本页面]()；PCL。
-- 依赖记录：该 PCL 目标文件的依赖尚未获取。
-- 测试记录：待填写。
-- 备注：待补充。
+- 目标版本来源：[版本页面](https://www.curseforge.com/minecraft/mc-mods/ftb-teams-forge/files/7499810)；PCL。
+- 依赖记录：必需: Forge >=47.1.47、Architectury >=9.1.12、FTB Library >=2001.2.0；本包及本轮目标满足声明范围。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 11. IMBlocker
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户重新测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/IMBlocker-5.4.5-forge+1.17-1.20.4.jar`
-- 目标文件：`mods/IMBlocker-5.6.1-forge+1.17-1.20.4.jar`
-- 目标版本来源：[版本页面](https://modrinth.com/mod/WMDesFsZ/version/hXYtiMlY)；PCL。
+- 目标文件：`mods/IMBlocker-5.6.2.1-forge+1.17-1.20.4.jar`
+- 目标版本来源：[版本页面](https://modrinth.com/mod/WMDesFsZ/version/nRLlzGpB)；2026-10-04 Modrinth API 最新匹配版本。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 索引静态检查通过；本轮组合的启动、入服与功能测试待用户执行。
+- 备注：2026-10-04 按用户要求更新到最新匹配版本，纳入本轮提交。
 
 ### 12. Immersive Paintings
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/immersive_paintings-0.6.8+1.20.1-forge.jar`
 - 目标文件：`mods/immersive_paintings-0.6.13+1.20.1-forge.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/6txNkua3/version/DYpJU8lA)；PCL。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 13. Jade 🔍
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/Jade-1.20.1-Forge-11.13.2.jar`
 - 目标文件：`mods/Jade-1.20.1-Forge-11.13.3.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/nvQzSEkH/version/xJQHCmWJ)；PCL。
 - 依赖记录：可选: Just Enough Items (JEI)。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 14. Just Enough Effect Descriptions (JEED)
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/jeed-1.20-2.2.5.jar`
 - 目标文件：`mods/jeed-1.20-2.2.6.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/EO27GKs1/version/6zbEptBe)；PCL。
 - 依赖记录：可选: Stylish Effects; 可选: Roughly Enough Items (REI); 可选: EMI; 可选: Just Enough Items (JEI)。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 15. Just Enough Items (JEI)
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
-- [ ] 已测试正常（游戏内检查功能）
+- 状态：从故障目标 15.62.0.217 回退至 15.56.0.205，已写入 index，待用户测试。
+- [x] 已入包（或已写入 index）
+- [ ] 已测试正常：森罗油脂及普通物品的 R/U 查询、普通配方填充、仓管 JEI 材料请求。
 - 讨论时原文件：`mods/jei-1.20.1-forge-15.20.0.116.jar`
-- 目标文件：`mods/jei-1.20.1-forge-15.62.0.217.jar`
-- 目标版本来源：[版本页面](https://modrinth.com/mod/u6dRKJwZ/version/HcUiurg6)；PCL。
-- 依赖记录：必需: MezzConfig; 可选: BOHUKqOz。
-- 测试记录：待填写。
-- 备注：待补充。
+- 当前文件：`mods/jei-1.20.1-forge-15.56.0.205.jar`
+- 当前版本来源：[Modrinth 15.56.0.205](https://modrinth.com/mod/jei/version/9jqubC9n)；2026-10-04 官方 API 查询记录，Forge 1.20.1，release。
+- 依赖记录：该版本 API 元数据未列出依赖；本轮不新增 MezzConfig 或 MezzConfigGUI，不修改顶层 dependencies。
+- 失败记录：2026-10-04 使用 JEI 15.62.0.217 + 仓管 1.15.6，对森罗油脂按 R 时崩溃。首个异常为 JEIRecipeTransferHook 找不到 RecipeTransferButton.onClose，随后发生渲染空指针。[同类报告 #52](https://github.com/zxy19/maid_storage_manager/issues/52)。
+- 回退依据：15.57.0.207 的[固定书签配方填充变更](https://github.com/mezz/JustEnoughItems/commit/60690aa03f113cb555ecca05d382359620bdfed6)将 onClose 改为 onSuccessfulTransfer，并增加 update 重载；205 对应源码仍保留仓管依赖的字段、旧 UserInput 路径和方法签名。此为源码检查结论，尚非游戏验证。
+- 决策记录：217 崩溃后曾暂时恢复 116；用户现决定尝试故障边界之前的 205。
+- [ ] **未来升级 JEI 前检查仓管是否已修复此兼容问题**：跟进上述 #52、仓管发行日志和修复代码，确认 onClose、UserInput 路径及 update 注入签名已适配，并确认修复已进入所用 Forge 1.20.1 发布 JAR；修复版仓管与拟升级 JEI 通过上述游戏测试后，再解除 15.56.0.205 暂定版本限制。
+- 验证记录：2026-10-04 索引静态检查通过，只有 JEI 条目变化，其余 98 条不变，无新增排序错位；未下载 JAR、未修改测试实例；该回退现纳入本轮提交。
 
 ### 16. JustEnoughCharacters
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/jecharacters-1.20.1-forge-4.5.16.jar`
 - 目标文件：`mods/jecharacters-1.20.1-forge-4.6.11.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/I7k4B65h/version/oUqz8dp4)；PCL。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 17. Kaleidoscope Cookery
 
 **重点测试：见本文顶部更新总结与测试清单。**
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户重新测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/kaleidoscopecookery-1.1.0-forge+mc1.20.1.jar`
-- 目标文件：`mods/kaleidoscopecookery-1.5.1-forge+mc1.20.1.jar`
-- 目标版本来源：[版本页面](https://modrinth.com/mod/v17FatAc/version/oR27Hgav)；PCL。
+- 目标文件：`mods/kaleidoscopecookery-1.6.0-forge+mc1.20.1.jar`
+- 目标版本来源：[版本页面](https://modrinth.com/mod/v17FatAc/version/Ghp0qCKY)；2026-10-04 Modrinth API 最新匹配版本。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 索引静态检查通过；本轮组合的启动、入服与功能测试待用户执行。
+- 备注：2026-10-04 按用户要求更新到最新匹配版本，纳入本轮提交。
 
 ### 18. ModernFix
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户重新测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/modernfix-forge-5.24.4+mc1.20.1.jar`
-- 目标文件：`mods/modernfix-forge-5.27.83+mc1.20.1.jar`
-- 目标版本来源：[版本页面](https://modrinth.com/mod/nmDcB62a/version/jAZ7Ge3d)；PCL。
+- 目标文件：`mods/modernfix-forge-5.27.85+mc1.20.1.jar`
+- 目标版本来源：[版本页面](https://modrinth.com/mod/nmDcB62a/version/hHwYTQwa)；2026-10-04 Modrinth API 最新匹配版本。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 索引静态检查通过；本轮组合的启动、入服与功能测试待用户执行。
+- 备注：2026-10-04 按用户要求更新到最新匹配版本，纳入本轮提交。
 
 ### 19. Net Music
 
 **重点测试：见本文顶部更新总结与测试清单。**
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户重新测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/netmusic-1.1.8-forge+mc1.20.1.jar`
 - 目标文件：`mods/netmusic-1.5.2-forge+mc1.20.1.jar`
-- 目标版本来源：[版本页面](https://modrinth.com/mod/gKNuqaQq/version/QbkPicTz)；PCL。
-- 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 目标版本来源：[版本页面](https://modrinth.com/mod/gKNuqaQq/version/QbkPicTz)；2026-10-04 Modrinth API 最新匹配版本。
+- 依赖记录：API 未声明；本地 JAR 声明可选 Touhou Little Maid >=1.5.2，当前目标 1.5.3 满足范围。
+- 测试记录：2026-10-04 索引静态检查通过；本轮组合的启动、入服与功能测试待用户执行。
+- 备注：2026-10-04 按用户要求更新到最新匹配版本，纳入本轮提交。
 
 ### 20. No Chat Reports
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/NoChatReports-FORGE-1.20.1-v2.2.2.jar`
 - 目标文件：`mods/NoChatReports-FORGE-1.20.1-v2.2.3.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/qQyHxfxd/version/2XUIKIAa)；Modrinth API。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 21. Not Enough Animations
 
@@ -324,41 +328,41 @@
 
 ### 22. Packet Fixer
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/packetfixer-3.3.0-1.18-1.20.4-merged.jar`
 - 目标文件：`mods/packetfixer-3.3.2-1.18-1.20.4-merged.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/c7m1mi73/version/9F4NGhGR)；PCL。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 23. Patchouli
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/Patchouli-1.20.1-84.1-FORGE.jar`
 - 目标文件：`mods/Patchouli-1.20.1-85-FORGE.jar`
 - 目标版本来源：[版本页面](https://modrinth.com/mod/nU0bVIaL/version/94dtOLgZ)；PCL。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 已完成索引静态检查；游戏内功能测试待用户执行。
+- 备注：2026-10-04 按本清单固定目标写入 index，纳入本轮提交。
 
 ### 24. Touhou Little Maid
 
 **重点测试：见本文顶部更新总结与测试清单。**
 
-- 状态：未入包。
-- [ ] 已入包（或已写入 index）
+- 状态：已入包，待用户重新测试。
+- [x] 已入包（或已写入 index）
 - [ ] 已测试正常（游戏内检查功能）
 - 讨论时原文件：`mods/touhoulittlemaid-1.4.0-forge+mc1.20.1.jar`
 - 目标文件：`mods/touhoulittlemaid-1.5.3-forge+mc1.20.1.jar`
-- 目标版本来源：[版本页面](https://modrinth.com/mod/R0bDWFAW/version/g1SKoGQJ)；PCL。
+- 目标版本来源：[版本页面](https://modrinth.com/mod/R0bDWFAW/version/g1SKoGQJ)；2026-10-04 Modrinth API 最新匹配版本。
 - 依赖记录：API 未声明（不等于无依赖）。
-- 测试记录：待填写。
-- 备注：待补充。
+- 测试记录：2026-10-04 索引静态检查通过；本轮组合的启动、入服与功能测试待用户执行。
+- 备注：2026-10-04 按用户要求写入 1.5.3，纳入本轮提交。本地目标 JAR 两种哈希和大小核对通过，并确认包含 ITool；用于解决女仆仓储 1.15.6 + TLM 1.4.0 的缺类根因，是否完整恢复需复测。
 
 ### 25. Yes Steve Model
 
