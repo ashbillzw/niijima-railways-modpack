@@ -1,0 +1,784 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-05",
+  "source": "D:\\mydata\\Agents\\Minecraft相关\\本地资源\\用户导入文件\\MC新岛服v1.6准备列表.xlsx",
+  "scope": "原表第39行之前；不执行安装，不修改index。仅服务端模组可只在远端，缺席客户端index不判为遗漏。",
+  "candidates": [
+    {
+      "id": "add-01",
+      "name": "鞘翅槽位 / Elytra Slot",
+      "status": "候选",
+      "notes": "原称 Curious Elytra；以原表 elytra-slot 项目链接定位。",
+      "source_row": 3,
+      "source_text": [
+        "鞘翅槽位（Curious Elytra）",
+        "https://www.mcmod.cn/class/3923.html",
+        "https://www.curseforge.com/minecraft/mc-mods/elytra-slot"
+      ],
+      "links": [
+        "https://www.mcmod.cn/class/3923.html",
+        "https://www.curseforge.com/minecraft/mc-mods/elytra-slot"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-02",
+      "name": "No More Piglin Portal Spawning",
+      "status": "候选",
+      "notes": "",
+      "source_row": 4,
+      "source_text": [
+        "No More Piglin Portal Spawning",
+        null,
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-03",
+      "name": "Vanilla Backport",
+      "status": "候选",
+      "notes": "与 More Leads 的功能重叠需测试。",
+      "source_row": 7,
+      "source_text": [
+        "Vanilla Backport",
+        null,
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-04",
+      "name": "More Leads",
+      "status": "备选",
+      "notes": "原表认为可能被 Vanilla Backport 覆盖；测试后再决定是否加入。",
+      "source_row": 8,
+      "source_text": [
+        "More Leads （可能用不着？Backport现在应该包含这个功能了，待测试）",
+        "https://modrinth.com/mod/moreleads",
+        null
+      ],
+      "links": [
+        "https://modrinth.com/mod/moreleads"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-05",
+      "name": "Xaero's Minimap（小地图）",
+      "status": "待确认",
+      "notes": "由原“Xaero’s maps”拆出；需确认是否同时需要小地图和世界地图。",
+      "source_row": 10,
+      "source_text": [
+        "Xaero's maps",
+        null,
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-06",
+      "name": "Xaero's World Map（世界地图）",
+      "status": "待确认",
+      "notes": "由原“Xaero’s maps”拆出；需确认是否同时需要小地图和世界地图。",
+      "source_row": 10,
+      "source_text": [
+        "Xaero's maps",
+        null,
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-07",
+      "name": "森罗酒馆",
+      "status": "候选",
+      "notes": "",
+      "source_row": 15,
+      "source_text": [
+        "森罗酒馆",
+        null,
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-08",
+      "name": "独特风味",
+      "status": "候选",
+      "notes": "",
+      "source_row": 16,
+      "source_text": [
+        "独特风味",
+        "https://www.mcmod.cn/class/4653.html",
+        null
+      ],
+      "links": [
+        "https://www.mcmod.cn/class/4653.html"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-09",
+      "name": "悠然一派",
+      "status": "候选",
+      "notes": "",
+      "source_row": 17,
+      "source_text": [
+        "悠然一派",
+        "https://www.mcmod.cn/class/3208.html",
+        null
+      ],
+      "links": [
+        "https://www.mcmod.cn/class/3208.html"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-10",
+      "name": "那不勒斯风味",
+      "status": "候选",
+      "notes": "",
+      "source_row": 18,
+      "source_text": [
+        "那不勒斯风味",
+        "https://www.mcmod.cn/class/3212.html",
+        null
+      ],
+      "links": [
+        "https://www.mcmod.cn/class/3212.html"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-11",
+      "name": "机械动力：甜食",
+      "status": "候选",
+      "notes": "后续核对当前 Create 版本兼容性。",
+      "source_row": 20,
+      "source_text": [
+        "机械动力：甜食",
+        "https://www.mcmod.cn/class/4871.html",
+        null
+      ],
+      "links": [
+        "https://www.mcmod.cn/class/4871.html"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-12",
+      "name": "机械动力：咖啡馆",
+      "status": "候选",
+      "notes": "后续核对当前 Create 版本兼容性。",
+      "source_row": 21,
+      "source_text": [
+        "机械动力：咖啡馆",
+        "https://www.mcmod.cn/class/6016.html",
+        null
+      ],
+      "links": [
+        "https://www.mcmod.cn/class/6016.html"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-13",
+      "name": "Create: Escalated",
+      "status": "候选",
+      "notes": "后续核对当前 Create 版本兼容性。",
+      "source_row": 22,
+      "source_text": [
+        "Create: Escalated",
+        "https://www.mcmod.cn/class/19651.html",
+        null
+      ],
+      "links": [
+        "https://www.mcmod.cn/class/19651.html"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-14",
+      "name": "机械动力：雷达",
+      "status": "候选",
+      "notes": "后续核对当前 Create 版本兼容性。",
+      "source_row": 23,
+      "source_text": [
+        "机械动力：雷达",
+        "https://www.mcmod.cn/class/17880.html",
+        null
+      ],
+      "links": [
+        "https://www.mcmod.cn/class/17880.html"
+      ],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-15",
+      "name": "信雅互联",
+      "status": "候选",
+      "notes": "去除原文感叹语“我去”；具体项目待核实。",
+      "source_row": 26,
+      "source_text": [
+        "我去 信雅互联",
+        null,
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-16",
+      "name": "公理",
+      "status": "候选",
+      "notes": "沿用原名；具体项目及 Forge 支持待核实。",
+      "source_row": 27,
+      "source_text": [
+        "公理",
+        null,
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-17",
+      "name": "PictureSign",
+      "status": "候选",
+      "notes": "",
+      "source_row": 28,
+      "source_text": [
+        "PictureSign",
+        null,
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-18",
+      "name": "serverwarashi",
+      "status": "待确认",
+      "notes": "仅在 Observable 的替代方案备注中提及；是否新增及具体项目待确认。",
+      "source_row": 32,
+      "source_text": [
+        "Observable",
+        "（不加了，要被xaeros+serverwarashi代替了）",
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    },
+    {
+      "id": "add-19",
+      "name": "女仆餐厅",
+      "status": "备选",
+      "notes": "原表考虑替代女仆厨房；原英文“Maid Resterant”疑有拼写错误，项目正式名称待核实。",
+      "source_row": 34,
+      "source_text": [
+        "女仆厨房？",
+        "（这个先不加，考虑换成加女仆餐厅（Maid Resterant）",
+        null
+      ],
+      "links": [],
+      "target_version": null,
+      "dependencies": null,
+      "compatibility": "未核验",
+      "decision": null
+    }
+  ],
+  "held": [
+    {
+      "name": "语音",
+      "status": "待选型",
+      "notes": "原表仅写“语音？”；尚未指定模组，不猜填具体项目。",
+      "source_row": 5
+    },
+    {
+      "name": "TPS HUD",
+      "status": "待选型",
+      "notes": "原表带问号，无项目链接；需确认具体项目。",
+      "source_row": 29
+    },
+    {
+      "name": "Observable",
+      "status": "不加入",
+      "notes": "原表已划除；备注计划以 Xaero + serverwarashi 替代。",
+      "source_row": 32
+    },
+    {
+      "name": "Create: Threaded Trains",
+      "status": "暂缓",
+      "notes": "原表明确“先不加”。",
+      "source_row": 33
+    },
+    {
+      "name": "女仆厨房",
+      "status": "暂缓",
+      "notes": "原表明确先不加；女仆餐厅已单独列为备选。",
+      "source_row": 34
+    }
+  ],
+  "excluded": {
+    "from_row": 39,
+    "reason": "原表明确要求忽略以下旧计划，机械动力6.0更新推迟至至少整合包1.7。"
+  },
+  "source_rows": [
+    {
+      "row": 1,
+      "values": [
+        "v1.6征集中",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 3,
+      "values": [
+        "鞘翅槽位（Curious Elytra）",
+        "https://www.mcmod.cn/class/3923.html",
+        "https://www.curseforge.com/minecraft/mc-mods/elytra-slot"
+      ],
+      "links": [
+        null,
+        "https://www.mcmod.cn/class/3923.html",
+        "https://www.curseforge.com/minecraft/mc-mods/elytra-slot"
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 4,
+      "values": [
+        "No More Piglin Portal Spawning",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 5,
+      "values": [
+        "语音？",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 7,
+      "values": [
+        "Vanilla Backport",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 8,
+      "values": [
+        "More Leads （可能用不着？Backport现在应该包含这个功能了，待测试）",
+        "https://modrinth.com/mod/moreleads",
+        null
+      ],
+      "links": [
+        null,
+        "https://modrinth.com/mod/moreleads",
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 10,
+      "values": [
+        "Xaero's maps",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 15,
+      "values": [
+        "森罗酒馆",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 16,
+      "values": [
+        "独特风味",
+        "https://www.mcmod.cn/class/4653.html",
+        null
+      ],
+      "links": [
+        null,
+        "https://www.mcmod.cn/class/4653.html",
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 17,
+      "values": [
+        "悠然一派",
+        "https://www.mcmod.cn/class/3208.html",
+        null
+      ],
+      "links": [
+        null,
+        "https://www.mcmod.cn/class/3208.html",
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 18,
+      "values": [
+        "那不勒斯风味",
+        "https://www.mcmod.cn/class/3212.html",
+        null
+      ],
+      "links": [
+        null,
+        "https://www.mcmod.cn/class/3212.html",
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 20,
+      "values": [
+        "机械动力：甜食",
+        "https://www.mcmod.cn/class/4871.html",
+        null
+      ],
+      "links": [
+        null,
+        "https://www.mcmod.cn/class/4871.html",
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 21,
+      "values": [
+        "机械动力：咖啡馆",
+        "https://www.mcmod.cn/class/6016.html",
+        null
+      ],
+      "links": [
+        null,
+        "https://www.mcmod.cn/class/6016.html",
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 22,
+      "values": [
+        "Create: Escalated",
+        "https://www.mcmod.cn/class/19651.html",
+        null
+      ],
+      "links": [
+        null,
+        "https://www.mcmod.cn/class/19651.html",
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 23,
+      "values": [
+        "机械动力：雷达",
+        "https://www.mcmod.cn/class/17880.html",
+        null
+      ],
+      "links": [
+        null,
+        "https://www.mcmod.cn/class/17880.html",
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 26,
+      "values": [
+        "我去 信雅互联",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 27,
+      "values": [
+        "公理",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 28,
+      "values": [
+        "PictureSign",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 29,
+      "values": [
+        "TPS HUD?",
+        null,
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 32,
+      "values": [
+        "Observable",
+        "（不加了，要被xaeros+serverwarashi代替了）",
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        true,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 33,
+      "values": [
+        "Create: Threaded Trains",
+        "（先不加",
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "row": 34,
+      "values": [
+        "女仆厨房？",
+        "（这个先不加，考虑换成加女仆餐厅（Maid Resterant）",
+        null
+      ],
+      "links": [
+        null,
+        null,
+        null
+      ],
+      "strike": [
+        false,
+        false,
+        false
+      ]
+    }
+  ]
+}
