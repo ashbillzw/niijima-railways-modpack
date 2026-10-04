@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>bg-video-loader</title>
+  <style>
+    html,body { margin:0; height:100%; background:#000; }
+    body { background: #000 url('./bg-loading.gif') center / cover no-repeat; }
+    #v { width:100vw; height:100vh; object-fit:cover; opacity:0; }
+  </style>
+</head>
+<body>
+  <video id="v" autoplay></video>
+  <script>
+    fetch('/bg-video-album')
+      .then(res => res.text())
+        .then(html => {
+          const links = html.match(/(?<=href=")[^"]+\.mp4/gi) || [];
+          const v = document.getElementById('v')
+          v.onplaying = () => { v.style.opacity = '1'; };
+          const pick = () => {
+            v.style.opacity = '0';
+            v.src = "/bg-video-album/" + links[Math.floor(Math.random() * links.length)];
+            v.play()
+          }
+          v.onended = pick;
+          pick();
+    })
+  </script>
+</body>
+</html>

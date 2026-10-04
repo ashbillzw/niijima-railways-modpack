@@ -57,45 +57,6 @@ layout_action_executable_blocks {
 }
 
 element {
-  source = [source:local]config/fancymenu/assets/bg-video.mp4
-  loop = true
-  volume = 1.0
-  sound_source = master
-  element_type = video_mcef
-  instance_identifier = 099e64fb-84c9-4679-834f-c0f6aeef0e0a-1757398343288
-  custom_element_layer_name = 背景视频
-  appearance_delay = no_delay
-  appearance_delay_seconds = 1.0
-  fade_in_v2 = no_fading
-  fade_in_speed = 1.0
-  fade_out = no_fading
-  fade_out_speed = 1.0
-  base_opacity = 1.0
-  auto_sizing = false
-  auto_sizing_base_screen_width = 3840
-  auto_sizing_base_screen_height = 2160
-  sticky_anchor = false
-  anchor_point = mid-centered
-  x = -535
-  y = -38
-  width = 400
-  height = 200
-  stretch_x = true
-  stretch_y = true
-  stay_on_screen = true
-  element_loading_requirement_container_identifier = ebf181d0-2768-4dcd-8d19-5e0340fa743c-1757398343288
-  [loading_requirement_container_meta:ebf181d0-2768-4dcd-8d19-5e0340fa743c-1757398343288] = [groups:][instances:]
-  enable_parallax = false
-  parallax_intensity_v2 = 0.5
-  invert_parallax = false
-  animated_offset_x = 0
-  animated_offset_y = 0
-  load_once_per_session = false
-  in_editor_color = #FFC800FF
-  layer_hidden_in_editor = false
-}
-
-element {
   interactable = false
   source = [source:local]/config/fancymenu/assets/copyright.txt
   source_mode = resource
@@ -1159,3 +1120,18 @@ vanilla_button {
   automated_button_clicks = 0
 }
 
+
+element {
+  element_type = fancymenu_customization_item_ticker
+  instance_identifier = fda2da65-84ab-4512-9e28-d9b42ec6ba62-1791144193434
+  custom_element_layer_name = 等待 MCEF 就绪后打开在线视频
+  tick_mode = on_menu_load
+  tick_delay = 0
+  is_async = false
+  ticker_element_executable_block_identifier = c9ccb40a-b0a4-47b5-a9e2-0a1899a4dfd5-1791144193434
+  [executable_action_instance:7a50b28e-8443-41cd-ad30-2e938a2fd5c5-1791144193434][action_type:opengui] = random_video
+  [executable_block:c9ccb40a-b0a4-47b5-a9e2-0a1899a4dfd5-1791144193434][type:generic] = [executables:7a50b28e-8443-41cd-ad30-2e938a2fd5c5-1791144193434;]
+  element_loading_requirement_container_identifier = 8f090840-a5b4-415f-bb72-8fe9c2055435-1791144193434
+  [loading_requirement_container_meta:8f090840-a5b4-415f-bb72-8fe9c2055435-1791144193434] = [groups:][instances:cfe35b13-479a-4cdd-a87c-bc6dbd271980-1791144193434;]
+  [loading_requirement:is_mcef_loaded][requirement_mode:if][req_id:cfe35b13-479a-4cdd-a87c-bc6dbd271980-1791144193434] =
+}
