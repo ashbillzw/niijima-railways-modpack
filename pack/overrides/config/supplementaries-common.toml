@@ -42,7 +42,7 @@
 		range = 5
 
 	[redstone.spring_launcher]
-		enabled = true
+		enabled = false
 		#spring launcher launch speed
 		#Range: 0.0 ~ 16.0
 		velocity = 1.5
