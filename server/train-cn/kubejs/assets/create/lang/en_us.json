@@ -1,0 +1,5 @@
+{
+    "create.train.status.has_electricity": "[AshBill] Train entering electrified section.",
+    "create.train.status.no_electricity": "[AshBill] Train leaving electrified section.",
+    "create.train.status.has_pantograph": "[AshBill] Registered electrified train with %d pantograph(s)."
+}

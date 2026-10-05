@@ -1,0 +1,14 @@
+[
+  {
+    "matchItems": [
+      "pantographsandwires:steel_wire"
+    ],
+    "resultItems": "createaddition:iron_wire"
+  },
+  {
+    "matchItems": [
+      "pantographsandwires:copper_wire"
+    ],
+    "resultItems": "createaddition:copper_wire"
+  }
+]

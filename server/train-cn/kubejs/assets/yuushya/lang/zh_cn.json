@@ -1,0 +1,6 @@
+{
+  "block.yuushya.electrician_gift_box.line1": "\u00A79[礼物盒:破坏获得8个电器和灯具建材] | [AshBill:修改为1个]",
+  "block.yuushya.businessman_gift_box.line1": "\u00A79[礼物盒:破坏获得10个经营建材] | [AshBill:修改为3个]",
+  "block.yuushya.cook_gift_box.line1": "\u00A79[礼物盒:破坏获得10个餐饮建材] | [AshBill:修改为3个]",
+  "block.yuushya.gardener_gift_box.line1": "\u00A79[礼物盒:破坏获得10个植物或盆栽] | [AshBill:修改为3个]"
+}

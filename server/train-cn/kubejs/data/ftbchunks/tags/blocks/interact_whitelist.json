@@ -1,0 +1,11 @@
+{
+	"replace": false,
+	"values": [
+		"create:depot",
+		"create:hand_crank",
+		"numismatics:vendor",
+		"numismatics:andesite_depositor",
+		"numismatics:brass_depositor",
+		"gravestone:gravestone"
+	]
+}

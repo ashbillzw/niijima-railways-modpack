@@ -1,0 +1,29 @@
+#Profiler auto-stop duration in seconds when no command duration is supplied.
+#Range: 1 ~ 86400
+perf_auto_stop_seconds = 900
+#Profiler sampling interval in microseconds.
+#Range: 1000 ~ 100000
+perf_sample_interval_us = 1000
+#Maximum nearby entity and block-entity hotspots sent to each player.
+#Range: 256 ~ 16384
+perf_world_hotspot_limit = 2048
+#Allow non-operator players to subscribe to performance reports.
+perf_allow_non_op_subscriptions = false
+#Enable automatic protection against exceptionally large entity chunk loads.
+entity_load_guard_enabled = true
+#Entity count that a single chunk load must exceed before protection runs.
+#Range: 100 ~ 1000000
+entity_load_guard_batch_threshold = 5000
+#Maximum number of the most common entity or item types reduced by protection.
+#Range: 1 ~ 64
+entity_load_guard_top_type_limit = 3
+#Number of entities retained for each type selected by protection.
+#Range: 1 ~ 1000000
+entity_load_guard_retain_per_type = 100
+#Broadcast entity load protection removals to all online players.
+entity_load_guard_broadcast = true
+#Enable background scans for entity-dense weak-loaded chunks.
+weak_chunk_scan_enabled = true
+#Append ServerWarashi ticket ownership diagnostics to watchdog crash reports.
+watchdog_ticket_report_enabled = true
+

@@ -1,0 +1,5 @@
+{
+    "create.train.status.has_electricity": "[AshBill] 列車進入電化區間",
+    "create.train.status.no_electricity": "[AshBill] 列車離開電化區間",
+    "create.train.status.has_pantograph": "[AshBill] 已註冊電氣化列車（%d受電弓）"
+}
