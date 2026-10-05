@@ -124,6 +124,7 @@ key_key.oneenoughitem.open_editor:key.keyboard.r
 key_railways.keyinfo.bogey_menu:key.keyboard.left.alt
 key_railways.keyinfo.cycle_menu:key.keyboard.left.alt
 key_key.carry.desc:key.keyboard.left.alt
+key_key.curios.open.desc:key.keyboard.unknown
 key_key.touhou_little_maid.stt_chat.desc:key.keyboard.x
 key_key.touhou_little_maid.dismount.desc:key.keyboard.c
 key_iris.keybind.reload:key.keyboard.r:ALT
