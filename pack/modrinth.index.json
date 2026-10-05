@@ -82,6 +82,17 @@
       "fileSize": 196447
     },
     {
+      "path": "mods/caelus-forge-3.2.0+1.20.1.jar",
+      "hashes": {
+        "sha1": "d14e8ee892d4d8764f523ad0e89bdcfc061fb007",
+        "sha512": "906baad404c33288d8daf8937bc6a85d3bcc03db67a4a68395b8f01eea57f773420ff97919aadb08a7618b62b0c6c3db72270f9c3af836b822385464f509cf78"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/40FYwb4z/versions/mRry0DgY/caelus-forge-3.2.0%2B1.20.1.jar"
+      ],
+      "fileSize": 40125
+    },
+    {
       "path": "mods/carryon-forge-1.20.1-2.1.2.7.jar",
       "hashes": {
         "sha1": "9999714ca3dd2f2401f0396ca44f3b27c3784c4f",
@@ -312,6 +323,17 @@
       "fileSize": 622901
     },
     {
+      "path": "mods/curios-forge-5.14.1+1.20.1.jar",
+      "hashes": {
+        "sha1": "452175b95ad3db6ff58bb8968f6bf7a9d1e0f480",
+        "sha512": "1373f95fd111c977db2f6adcef8e4eb486a2d926a3e17374692dee4ac3d65857de6446c16922b531aa5ace2c23c666a7fcc28c720b2917c1e04808d15648ba87"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/vvuO3ImH/versions/IPQlZkz1/curios-forge-5.14.1%2B1.20.1.jar"
+      ],
+      "fileSize": 398066
+    },
+    {
       "path": "mods/design_decor-0.4.0b-1.20.1.jar",
       "hashes": {
         "sha1": "66a40d00191fcfd8d674d200b94427197503c2c8",
@@ -347,6 +369,17 @@
         "https://edge.forgecdn.net/files/6412/211/drippyloadingscreen_forge_3.0.12_MC_1.20.1.jar"
       ],
       "fileSize": 239365
+    },
+    {
+      "path": "mods/elytraslot-forge-6.4.4+1.20.1.jar",
+      "hashes": {
+        "sha1": "f11443ef3371fa790eb33cba1a517638a3afcb07",
+        "sha512": "0fc4adb7e3b7469eb925ebde8e9364524595187f9b15791ac6ff009d07d44d562b17c58d6e3b0a40fe3c40fdbd57b64343a8fe942d4b6c7022aa9cd34f7a8cef"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/mSQF1NpT/versions/k6lA080t/elytraslot-forge-6.4.4%2B1.20.1.jar"
+      ],
+      "fileSize": 100660
     },
     {
       "path": "mods/embeddium-0.3.31+mc1.20.1.jar",
