@@ -10,5 +10,5 @@
 - [ ] 线上部署时删除三个 YSM 模型：`sirofetz.ysm`、`Dumrnheint_PWKMKI.ysm`、`plaaf-j20s.ysm`。
 - [ ] 在其他分支处理已备份的月村手毬模型。
 - [ ] 加入更多启动画面视频，并修改启动画面实现方式，默认播放在线视频。
-- [ ] 上传 TrainResync 1.6.0.f 至 Modrinth，并将整合包索引更新为该版本。
+- [ ] 发布最新 TrainResync（当前目标 `1.6.0.g`）：构建包含管理员驯服修复的发行 JAR、测试并上传 Modrinth，再更新包索引和两服模组。2026-10-05 用户要求暂不构建，仅记录待办；当前主服仍为 `1.6.0.d`、创造服为 `1.6.0.a`、包索引为 `1.6.0.e`，不视为已同步。
 - [ ] 需要验证：TrainResync 1.6.0.f 的切石机配方编号修复（构建通过、需要游戏内验证、需要上传 Modrinth）。在多人服务器检查 Yuushya stairs_straw_mat_a / stairs_straw_mat_b、stairs_white_concrete 及 block_blueprint 靠后的配方，确认产物、模板消耗和切换选择正常；修复支持索引 0～255。
