@@ -791,30 +791,15 @@
       "fileSize": 2851119
     },
     {
-      "path": "mods/OELib-forge-0.0.5.jar",
+      "path": "mods/OneEnoughItem-Forge-1.0.5.1.jar",
       "hashes": {
-        "sha1": "70e3175a7bad9f25100ba61b3c043d8a5d955ffb",
-        "sha512": "6521d93a013ab9bb60ad2657f7a095befc62bab19178f1e88fcfe8d5a8889f888777629acfab9704b45a2de2310891d085d31860b48f3600a5bdd284cefd6c30"
+        "sha1": "60d10a2158f2523fcda7209f70affbea83e68101",
+        "sha512": "e0add0503159bf3f0412275293b229d7891709e0c754855989abbbb1e15782c0aba3aed524d7cf86f4aa7d47eb303417d005053c5c39812f586d87e1acafdce7"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/7ODqOXka/versions/ZSvPAczy/OELib-forge-0.0.5.jar",
-        "https://mediafilez.forgecdn.net/files/7060/455/OELib-forge-0.0.5.jar",
-        "https://edge.forgecdn.net/files/7060/455/OELib-forge-0.0.5.jar"
+        "https://cdn.modrinth.com/data/7pCNymxz/versions/TkHRus8b/OneEnoughItem-Forge-1.0.5.1.jar"
       ],
-      "fileSize": 851803
-    },
-    {
-      "path": "mods/OneEnoughItem-1.0.6.jar",
-      "hashes": {
-        "sha1": "6aa72eedf1a6932742c8fb11a8895ecfceeb417c",
-        "sha512": "b1218a2e8f93a96a45922da252acc18c4ae8e3b6c190455964d84441ea4b9dd8dd8b4cd1fcbca752bf19d0943454d99c30439aa185bccd30e4cacbb6046b8ebb"
-      },
-      "downloads": [
-        "https://cdn.modrinth.com/data/7pCNymxz/versions/GXeUOiet/OneEnoughItem-1.0.6.jar",
-        "https://mediafilez.forgecdn.net/files/7099/321/OneEnoughItem-1.0.6.jar",
-        "https://edge.forgecdn.net/files/7099/321/OneEnoughItem-1.0.6.jar"
-      ],
-      "fileSize": 261923
+      "fileSize": 301862
     },
     {
       "path": "mods/packetfixer-3.3.2-1.18-1.20.4-merged.jar",
