@@ -1,0 +1,2 @@
+# Keep one head slot, one belt slot, and one back slot.
+slots = ["id=head;size=1;operation=SET", "id=belt;size=1;operation=SET", "id=back;size=1;operation=SET"]
