@@ -794,6 +794,15 @@
         "3c21860",
         "pack/modrinth.index.json"
       ]
-    }
+    },
+{
+    "date":  "2026-10-10",
+    "source":  "本对话用户反馈",
+    "historical_status_obsolete":  true,
+    "current_status":  "Elytra Slot 及前置 Curios、Caelus 已入包并进入两服本地目录；用户确认没有发现明显问题",
+    "scope":  "替代 add-01 历史候选状态及 2026-10-09 待游戏测试结论；其他候选不变，专项测试与远端部署不由此认定完成",
+    "current_document":  "模组管理.md",
+    "subject_id":  "add-01"
+}
   ]
 }

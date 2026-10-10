@@ -15014,6 +15014,14 @@
         "40e7866",
         "3c21860"
       ]
-    }
+    },
+{
+    "date":  "2026-10-10",
+    "source":  "本对话用户反馈",
+    "historical_status_obsolete":  true,
+    "current_status":  "已更新的 25 个 Mod 已测试，没有发现明显问题；Elytra Slot、Curios、Caelus 没有发现明显问题",
+    "scope":  "原始字段及既有 status_updates 保留历史值；本次仅更新总体测试结论，不声称所有专项场景、远端部署或专用服务器测试已完成",
+    "current_document":  "模组管理.md"
+}
   ]
 }
