@@ -803,6 +803,34 @@
     "scope":  "替代 add-01 历史候选状态及 2026-10-09 待游戏测试结论；其他候选不变，专项测试与远端部署不由此认定完成",
     "current_document":  "模组管理.md",
     "subject_id":  "add-01"
+},
+{
+  "date": "2026-10-11",
+  "source": "用户说明",
+  "current_document": "模组管理.md",
+  "scope": "更新候选取舍解释；原 held、excluded、candidates 和既有状态记录保留；不表示已安装、卸载或完成功能等价验证",
+  "changes": [
+    {
+      "historical_status_obsolete": true,
+      "reason": "用户认为功能可由 serverwarashi 平替",
+      "subject": "Observable",
+      "current_status": "倾向不加入",
+      "historical_status": "不加入"
+    },
+    {
+      "subject": "女仆厨房 / 女仆餐厅",
+      "current_status": "倾向由女仆餐厅替换女仆厨房，尚未实施",
+      "historical_status": "女仆厨房暂缓；女仆餐厅备选"
+    },
+    {
+      "current_status": "暂缓，未放弃，之后再评估",
+      "subject": "Create: Threaded Trains"
+    },
+    {
+      "current_status": "先忽略，不纳入本轮；历史记录保留",
+      "subject": "原表第39行之后的旧计划"
+    }
+  ]
 }
   ]
 }
