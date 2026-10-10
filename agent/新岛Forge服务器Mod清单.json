@@ -14977,5 +14977,43 @@
     "date": "2026-10-04",
     "source": "用户说明",
     "description": "用户已确认：本表同时登记客户端与服务器模组。仅服务器需装的模组可能只存在于远端，不在 index 中属于正常情况，不据此判为遗漏或要求补入。"
-  }
+  },
+  "status_updates": [
+    {
+      "date": "2026-10-09",
+      "scope": "本地仓库静态核对；不代表远端部署或游戏验收",
+      "historical_snapshot_status": "部分过时；原 mods、findings、index_snapshot 字段均保留历史值，当前状态见本条更新",
+      "current_index_counts": {
+        "file_count": 101,
+        "mod_count": 99,
+        "non_mod_count": 2
+      },
+      "changes": [
+        {
+          "subject": "One Enough Item",
+          "old_status": "1.0.6，保留独立 OELib",
+          "old_status_obsolete": true,
+          "current_status": "包与两服使用 1.0.5.1；独立 OELib 0.0.5 已移除，仍含内嵌库"
+        },
+        {
+          "subject": "Curios / Caelus / Elytra Slot",
+          "old_status": "索引未收录",
+          "old_status_obsolete": true,
+          "current_status": "包及两服已加入 5.14.1+1.20.1 / 3.2.0+1.20.1 / 6.4.4+1.20.1；待游戏测试"
+        },
+        {
+          "subject": "TrainResync",
+          "current_status": "包 e、主服 d、创造服 a；源码 g 待构建、测试、发布及包服换版"
+        }
+      ],
+      "evidence": [
+        "pack/modrinth.index.json",
+        "server/create-cn/mods",
+        "server/train-cn/mods",
+        "0372110",
+        "40e7866",
+        "3c21860"
+      ]
+    }
+  ]
 }

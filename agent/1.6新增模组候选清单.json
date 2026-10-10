@@ -780,5 +780,20 @@
         false
       ]
     }
+  ],
+  "status_updates": [
+    {
+      "date": "2026-10-09",
+      "subject_id": "add-01",
+      "historical_status": "候选；版本、依赖及决定待确认",
+      "historical_status_obsolete": true,
+      "current_status": "Elytra Slot 6.4.4+1.20.1 与 Curios 5.14.1+1.20.1、Caelus 3.2.0+1.20.1 已入包并进入两服本地目录，待游戏测试",
+      "scope": "原 candidates 字段保留历史候选快照；其他候选及暂缓项无新决策证据，状态不变",
+      "evidence": [
+        "0372110",
+        "3c21860",
+        "pack/modrinth.index.json"
+      ]
+    }
   ]
 }
