@@ -1,0 +1,9 @@
+{
+  "shared": [
+    "mods",
+    "kubejs",
+    "config/yes_steve_model/custom"
+  ],
+  "create-cn": [],
+  "train-cn": []
+}

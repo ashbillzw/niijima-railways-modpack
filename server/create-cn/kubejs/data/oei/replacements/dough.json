@@ -1,9 +1,0 @@
-[
-  {
-    "matchItems": [
-      "create:dough",
-      "farmersdelight:wheat_dough"
-    ],
-    "resultItems": "kaleidoscope_cookery:raw_dough"
-  }
-]
