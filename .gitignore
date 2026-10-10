@@ -1,2 +1,4 @@
 /output/
+/updater/*
+!/updater/update.py
 # /pack/overrides/AshBill/免下载MCEF/mcef-libraries/
