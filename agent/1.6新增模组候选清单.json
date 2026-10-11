@@ -850,6 +850,42 @@
           "current_status": "1.1.7.10 及必需前置 Platform 1.3.4 已加入索引和 shared ablink；静态检查通过，待用户测试，未部署"
         }
       ]
-    }
+    },
+    {
+      "date": "2026-10-12",
+      "source": "用户本轮明确授权",
+      "historical_status_obsolete": true,
+      "current_document": "模组管理.md",
+      "changes": [
+        {
+          "subject": "More Leads",
+          "subject_id": "add-04",
+          "current_status": "1.3.0 已加入索引与 shared，待用户测试和 Backport 兼容验证"
+        },
+        {
+          "subject": "Xaero's Minimap",
+          "subject_id": "add-05",
+          "current_status": "先忽略，不加入"
+        },
+        {
+          "subject": "Xaero's World Map",
+          "subject_id": "add-06",
+          "current_status": "1.47.0 已加入索引与 shared，默认 Ctrl+M，待用户测试"
+        },
+        {
+          "subject": "ServerWarashi",
+          "subject_id": "add-18",
+          "current_status": "2.1.1.3 Beta 已加入索引与 shared；用户授权单文件下载补齐哈希，静态检查通过，待用户测试，未部署"
+        }
+      ]
+    },
+{
+  "date": "2026-10-12",
+  "subject_id": "add-04",
+  "subject": "More Leads",
+  "historical_status_obsolete": true,
+  "current_status": "用户决定放弃加入；已撤回索引与 shared 引用，五条绳反馈保留；转向评估 TrainResync 最小村民可拴实现，尚未实施",
+  "current_document": "模组管理.md"
+}
   ]
 }
