@@ -1,4 +1,4 @@
 {
-    "fluid": "createaddition:bioethanol",
-    "burn_time_per_mb": 20
+  "fluid": "createaddition:bioethanol",
+  "burn_time_per_mb": 20
 }

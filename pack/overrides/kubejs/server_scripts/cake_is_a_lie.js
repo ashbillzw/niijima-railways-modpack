@@ -1,5 +1,3 @@
 ServerEvents.recipes(event => {
-    event.remove(
-        { id: 'minecraft:cake' }
-    );
+    event.remove({ id: 'minecraft:cake' });
 });

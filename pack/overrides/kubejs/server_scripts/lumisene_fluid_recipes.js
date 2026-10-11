@@ -5,7 +5,7 @@ ServerEvents.recipes(event => {
             'minecraft:bucket'
         ],
         'supplementaries:lumisene_bucket'
-    ).id('kubejs:limusene_bucket_emptying');
+    ).id('kubejs:lumisene_bucket_emptying');
 
     event.recipes.create.emptying(
         [
@@ -13,7 +13,7 @@ ServerEvents.recipes(event => {
             'minecraft:glass_bottle'
         ],
         'supplementaries:lumisene_bottle'
-    ).id('kubejs:limusene_bottle_emptying');
+    ).id('kubejs:lumisene_bottle_emptying');
 
     event.recipes.create.filling(
         'supplementaries:lumisene_bottle',
@@ -21,7 +21,7 @@ ServerEvents.recipes(event => {
             Fluid.of('supplementaries:lumisene', FluidAmounts.BOTTLE),
             'minecraft:glass_bottle'
         ]
-    ).id('kubejs:limusene_bottle_filling');
+    ).id('kubejs:lumisene_bottle_filling');
 
     event.recipes.create.mixing(
         [
@@ -31,5 +31,5 @@ ServerEvents.recipes(event => {
             Fluid.of('minecraft:water', FluidAmounts.BUCKET),
             Item.of('minecraft:glow_berries', 8)
         ]
-    ).id('kubejs:limusene_mixing');
+    ).id('kubejs:lumisene_mixing');
 });

@@ -4,13 +4,19 @@
     {
       "rolls": 1,
       "entries": [
-        { "type": "minecraft:item", "name": "yuushya:form_trans_item" }
+        {
+          "type": "minecraft:item",
+          "name": "yuushya:form_trans_item"
+        }
       ]
     },
     {
       "rolls": 1,
       "entries": [
-        { "type": "minecraft:item", "name": "yuushya:blockstate_update_item" }
+        {
+          "type": "minecraft:item",
+          "name": "yuushya:blockstate_update_item"
+        }
       ]
     }
   ]
