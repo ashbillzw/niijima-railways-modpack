@@ -989,6 +989,17 @@
       "fileSize": 435496
     },
     {
+      "path": "mods/xaeroworldmap-forge-1.20.1-1.47.0.jar",
+      "hashes": {
+        "sha1": "6715c1d3758a3805589d82c41dc581537fe185cd",
+        "sha512": "a8c775ad1645cd3dc922072955fff65f7874bd6a1c99e6a61d370e7a9a5880e450ba61dafa6c719ad8f719fcff3b17ec6124b7f47288009547b4b136d81e5657"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/NcUtCpym/versions/KtEupJvB/xaeroworldmap-forge-1.20.1-1.47.0.jar"
+      ],
+      "fileSize": 1429424
+    },
+    {
       "path": "mods/ysm-2.6.5-forge+mc1.20.1-release.jar",
       "hashes": {
         "sha1": "151ac7b24da8beeca1a20864565743cfd77af286",
@@ -1227,6 +1238,17 @@
         "https://edge.forgecdn.net/files/5284/15/Searchables-forge-1.20.1-1.0.3.jar"
       ],
       "fileSize": 77732
+    },
+    {
+      "path": "mods/serverwarashi-1.20.1-2.1.1.3-all.jar",
+      "hashes": {
+        "sha1": "bc852f5e7417f718824f9fc43b71065ee5a881c4",
+        "sha512": "396ec547a2517d6c3df17fae91524641aee56c2aceeb0b7e944f2c19700723f3312b3b296707426bdb7ad38c95c2249b753ccb4c5e67b40b836f495690b3ecf0"
+      },
+      "downloads": [
+        "https://mediafilez.forgecdn.net/files/9028/822/serverwarashi-1.20.1-2.1.1.3-all.jar"
+      ],
+      "fileSize": 1895538
     },
     {
       "path": "mods/simpleplanes-1.20.1-5.3.3.jar",
