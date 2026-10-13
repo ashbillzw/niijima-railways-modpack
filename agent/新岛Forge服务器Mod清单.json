@@ -15022,6 +15022,179 @@
     "current_status":  "已更新的 25 个 Mod 已测试，没有发现明显问题；Elytra Slot、Curios、Caelus 没有发现明显问题",
     "scope":  "原始字段及既有 status_updates 保留历史值；本次仅更新总体测试结论，不声称所有专项场景、远端部署或专用服务器测试已完成",
     "current_document":  "模组管理.md"
-}
+},
+    {
+      "date": "2026-10-13",
+      "source": "用户明确授权；官方 Modrinth API 元数据及本轮本地维护",
+      "current_document": "模组管理.md",
+      "scope": "加入食物与生活五项及必需前置 Blueprint；旧快照不改，其他候选不变；静态完成不代表游戏验收或部署",
+      "changes": [
+        {
+          "subject": "森罗酒馆",
+          "current_status": "已加入包索引与两服 shared，待游戏测试",
+          "project_id": "r9RZvhiJ",
+          "version_id": "mUnU2u9e",
+          "version": "1.2.0-forge+mc1.20.1",
+          "entry": {
+            "path": "mods/kaleidoscopetavern-1.2.0-forge+mc1.20.1.jar",
+            "hashes": {
+              "sha512": "485bcee9241e97856bb4bdf52d9752911a12c68d770048bbbb8400a8043ba02b312df94aa98d240abe03a94dc2ad0b627327a0029dd2dfa209d82cd1a6677865",
+              "sha1": "2e8f6370fb4acae9796705b6e84716c4a398b9c5"
+            },
+            "downloads": [
+              "https://cdn.modrinth.com/data/r9RZvhiJ/versions/mUnU2u9e/kaleidoscopetavern-1.2.0-forge%2Bmc1.20.1.jar"
+            ],
+            "fileSize": 1749797
+          },
+          "declared_dependencies": [],
+          "subject_id": "add-07"
+        },
+        {
+          "subject": "独特风味",
+          "current_status": "已加入包索引与两服 shared，待游戏测试",
+          "project_id": "B73HVoud",
+          "version_id": "XNtg9FzA",
+          "version": "5.0.0",
+          "entry": {
+            "path": "mods/peculiars-1.20.1-5.0.0.jar",
+            "hashes": {
+              "sha1": "7b3eacef89638c2a4900f8baa67d4cae80c8ce2f",
+              "sha512": "b9382e5ef0810107167992462a0028e5a8988d1696a2c8597768f1a1ee9f2edf35b59460364c952a3c4e6dab7754c6dd0ff500d1277e112f3f7a6efd9260c805"
+            },
+            "downloads": [
+              "https://cdn.modrinth.com/data/B73HVoud/versions/XNtg9FzA/peculiars-1.20.1-5.0.0.jar"
+            ],
+            "fileSize": 90515
+          },
+          "declared_dependencies": [
+            {
+              "version_id": null,
+              "project_id": "VsM5EDoI",
+              "file_name": null,
+              "dependency_type": "required"
+            },
+            {
+              "version_id": null,
+              "project_id": "InYMuiQt",
+              "file_name": null,
+              "dependency_type": "required"
+            },
+            {
+              "version_id": null,
+              "project_id": "U9sJOFmJ",
+              "file_name": null,
+              "dependency_type": "required"
+            }
+          ],
+          "subject_id": "add-08"
+        },
+        {
+          "subject": "悠然一派",
+          "current_status": "已加入包索引与两服 shared，待游戏测试",
+          "project_id": "U9sJOFmJ",
+          "version_id": "B9fN8ZSq",
+          "version": "6.1.1",
+          "entry": {
+            "path": "mods/atmospheric-1.20.1-6.1.1.jar",
+            "hashes": {
+              "sha1": "9a655ae0953d0205c10315560466779228c08b18",
+              "sha512": "ea74aaf7bbabc0745e31a01570db5c94f59004d8254641bb90cd599f639c354722108481663a479dd8d024581ca9cb890ab024ef8143e082c0711c2b6fa538fc"
+            },
+            "downloads": [
+              "https://cdn.modrinth.com/data/U9sJOFmJ/versions/B9fN8ZSq/atmospheric-1.20.1-6.1.1.jar"
+            ],
+            "fileSize": 5213524
+          },
+          "declared_dependencies": [
+            {
+              "version_id": null,
+              "project_id": "VsM5EDoI",
+              "file_name": null,
+              "dependency_type": "required"
+            }
+          ],
+          "subject_id": "add-09"
+        },
+        {
+          "subject": "那不勒斯风味",
+          "current_status": "已加入包索引与两服 shared，待游戏测试",
+          "project_id": "InYMuiQt",
+          "version_id": "AC9UEwPQ",
+          "version": "5.1.0",
+          "entry": {
+            "path": "mods/neapolitan-1.20.1-5.1.0.jar",
+            "hashes": {
+              "sha1": "6b18edd438c0ec10d47f6c2d66026948d39e2bda",
+              "sha512": "490fd228c449922e71d942b3886473a0873b131e4cbe4525819196aa5d453231bf2521f55ecf12630130bf5011e17a5d9cf60829128062d9841cc1f3a48c0afb"
+            },
+            "downloads": [
+              "https://cdn.modrinth.com/data/InYMuiQt/versions/AC9UEwPQ/neapolitan-1.20.1-5.1.0.jar"
+            ],
+            "fileSize": 4797150
+          },
+          "declared_dependencies": [
+            {
+              "version_id": null,
+              "project_id": "VsM5EDoI",
+              "file_name": null,
+              "dependency_type": "required"
+            }
+          ],
+          "subject_id": "add-10"
+        },
+        {
+          "subject": "女仆餐厅",
+          "current_status": "已加入包索引与两服 shared，待游戏测试",
+          "project_id": "RTiyYo0U",
+          "version_id": "jweBDmoH",
+          "version": "0.2.9",
+          "entry": {
+            "path": "mods/maid_restaurant-0.2.9.jar",
+            "hashes": {
+              "sha1": "ee7fffe6047b43eb1a1f4a9522b2073ad1f0acc6",
+              "sha512": "0e557030773865c28ec046bfb61e27ced21c03ee1e739b5cbbff4d12f8b0a840245598c16e18ef5b23760aeee8ab43971c858b9f4f78fa32e3cc8c0115110e2d"
+            },
+            "downloads": [
+              "https://cdn.modrinth.com/data/RTiyYo0U/versions/jweBDmoH/maid_restaurant-0.2.9.jar"
+            ],
+            "fileSize": 408314
+          },
+          "declared_dependencies": [
+            {
+              "version_id": "tuOQjuRE",
+              "project_id": "R0bDWFAW",
+              "file_name": null,
+              "dependency_type": "required"
+            },
+            {
+              "version_id": null,
+              "project_id": "v17FatAc",
+              "file_name": null,
+              "dependency_type": "required"
+            }
+          ],
+          "subject_id": "add-19"
+        },
+        {
+          "subject": "Blueprint 前置库",
+          "current_status": "已加入包索引与两服 shared，待游戏测试",
+          "project_id": "VsM5EDoI",
+          "version_id": "ZQKDh6gd",
+          "version": "7.1.5",
+          "entry": {
+            "path": "mods/blueprint-1.20.1-7.1.5.jar",
+            "hashes": {
+              "sha1": "78d5ce605ee1c19396fa59c45f541b99e1086768",
+              "sha512": "124ec4edbb11f26a49aaa7a60cafeddefef64a0e3641dc6957656f7237ae1f2af848359ffb9c043d20703c35051067cbb285ecf75114ead1688a979b4d302f70"
+            },
+            "downloads": [
+              "https://cdn.modrinth.com/data/VsM5EDoI/versions/ZQKDh6gd/blueprint-1.20.1-7.1.5.jar"
+            ],
+            "fileSize": 1160817
+          },
+          "declared_dependencies": []
+        }
+      ]
+    }
   ]
 }
