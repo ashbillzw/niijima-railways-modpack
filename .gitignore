@@ -1,3 +1,4 @@
+/build/
 /output/
 /updater/*
 !/updater/update.py
