@@ -65,3 +65,9 @@
 - 合并后在独立可见 PowerShell 窗口运行原仓库 build.bat，实际命令保持 7z a -tzip -uq0 output\pack.zip .\pack\*。退出码 0，7z 输出 Everything is Ok；产物 C:\mydata\Repositories\niijima-railways-modpack\output\pack.zip，131,358,654 字节。该包对应此轮合并后的 pack 内容；确认后仅更新交接文档并创建合并提交，没有再次修改 pack 或重复打包。
 - 遵循新合入的常规 7z 打包规则，以退出码和成功输出验收，没有额外 ZIP 完整性测试、解压比对或逐文件哈希检查。合并 diff 空白检查及冲突标记扫描通过；没有将打包成功当作游戏验证或已部署。
 - 本机日志：C:\mydata\Agents\Codex-CreateTrainResync\pack-build-merge-20261016.log；退出状态：同目录 pack-build-merge-20261016-result.json。
+
+## 2026-10-16 遗留构建清单清理与文件位置检查
+
+- 按用户要求删除根目录 mcef-runtime.json：由 c7de2fd 引入，原供 build.py 下载和校验 MCEF 运行库；e52d514 已删除该脚本，清单成为遗留文件。删除前全文搜索未发现当前受跟踪文件引用它；当前 build.bat 仅打包 pack。
+- 检查受跟踪路径、根目录、维护文档／脚本／归档及常见日志、备份、临时文件命名，并检查未跟踪与忽略文件。未发现其他明确放错位置的文件；agent 内历史表格和 HTML 参考保留，模组配置附带 README、FancyMenu TXT 与模型 ZIP 不作为临时文件处理。output/pack.zip 已被忽略。
+- .gitignore 中旧 MCEF 目录规则已注释，不生效，本次保留。此检查是文件位置与遗留文件检查，不代表逐项验证所有模组配置及资源是否仍被运行时使用。未修改 pack，不需重新构建；2026-10-16 按用户要求将清理与本记录一并提交，未 push。
