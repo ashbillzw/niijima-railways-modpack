@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从 GitHub 更新服务器副本；用法见 agent/服务端更新器.md。"""
+"""从 GitHub 更新服务器副本；用法见 agent/服务端/服务端更新器.md。"""
 
 import argparse
 from http.client import HTTPException

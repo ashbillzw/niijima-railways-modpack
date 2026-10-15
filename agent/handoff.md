@@ -35,28 +35,43 @@
 ## 共用维护约定
 
 - 维护说明和任务记录统一放在 `agent/`。
-- 修改共用 KJS／YSM 时，以包内资源为维护入口，同时检查 server/shared 的 .ablink 来源及两服展开结果，不再维护三处重复实体副本。共用模组更新 shared/mods 的引用或实际文件，单服差异保留在各服目录；实例及世界配置仍按适用范围同步。分支引用尚未合入目标分支时，不视为远端可用。具体路径、同步规则和验证要求见 [服务端配置差异](<YSM统计（旧 服务端配置差异）.md>)。
+- 修改共用 KJS／YSM 时，以包内资源为维护入口，同时检查 server/shared 的 .ablink 来源及两服展开结果，不再维护三处重复实体副本。共用模组更新 shared/mods 的引用或实际文件，单服差异保留在各服目录；实例及世界配置仍按适用范围同步。分支引用尚未合入目标分支时，不视为远端可用。具体路径、同步规则和验证要求见 [服务端配置差异](<服务端/YSM模型与包服差异.md>)。
 - 区分“本地处理完成”“验证通过”和“已部署上线”；没有上传或部署证据时，不把本地完成写成线上完成。
 - 下载、压制等进程启动后不等于任务完成。交接时注明进程状态、输出位置和剩余检查；结束一轮回复不代表后台任务已经成功，也不代表会自动持续监控。
 
 ## 接手入口
 
+### 文档目录（2026-10-16 整理）
+
+顶层只保留五份常用入口：`AGENTS.md`（规则）、`handoff.md`（交接）、`todo-list.md`（当前待办）、`整合包更新流程.md`（操作流程）、`整合包自定义功能.md`（脚本与 OEI 台账）。专题按下表查找；旧日期、决策和验证边界继续保留在专题内。
+
+| 子目录 | 内容 |
+| --- | --- |
+| `模组管理/` | [已加入模组](模组管理/已加入模组.md)、[待新增模组](模组管理/待新增模组.md)；四份历史 JSON／Excel 放 `历史资料/`，不作为实时安装状态 |
+| `服务端/` | [服务端更新器](服务端/服务端更新器.md)、[YSM 模型与包服差异](服务端/YSM模型与包服差异.md) |
+| `视频资料/` | [背景视频维护](视频资料/背景视频维护.md)（制作记录与企划分类已合并）、[1.6 更新视频稿](视频资料/1.6更新视频-change-list.md)、播放器 HTML 参考 |
+| `玩法与配置/` | [货币与创作奖励构想](玩法与配置/货币获取与创作奖励构想.md)、[默认键位冲突清单](玩法与配置/默认键位冲突清单.md) |
+| `物品整合/` | [巧克力整合](物品整合/巧克力链整合计划.md)、[全包初筛](物品整合/重复物品语义初筛-20261016.md)、[完整 ID 清单](物品整合/全包物品ID清单-20261016.md) |
+| `tools/` | 可复用维护工具，如只读物品 ID 提取脚本 |
+
+背景视频原“参数分析与压制建议”和“企划分类清单”合并后，制作完成需更新同一文档中的交付记录及分类章节，不再维护两个文件。已加入与待新增模组的业务状态不同，仍按此前约定分开。服务端更新器执行规则与 YSM／包服差异各有用途，也继续分开。
+
 | 内容 | 文档 |
 | --- | --- |
 | 通用规则、本项目规则及视频交付规则 | [AGENTS.md](AGENTS.md) |
 | 模组索引 API、下载、排序及验证流程 | [整合包更新流程](整合包更新流程.md) |
-| 服务端引用、删除表及更新器执行 | [服务端更新器](服务端更新器.md) |
+| 服务端引用、删除表及更新器执行 | [服务端更新器](服务端/服务端更新器.md) |
 | 当前进度、待办与其他专题入口 | [todo-list.md](todo-list.md) |
-| 已加入模组总表、版本、测试与兼容记录 | [模组管理](模组管理.md) |
-| 待新增模组表格、选型与暂缓决定 | [待新增模组](待新增模组.md) |
-| 包服同步、服务器结构与配置差异 | [服务端配置差异](<YSM统计（旧 服务端配置差异）.md>) |
-| 背景视频下载、压制和响度统一 | [远端背景视频参数分析与压制建议](远端背景视频参数分析与压制建议.md) |
+| 已加入模组总表、版本、测试与兼容记录 | [模组管理](模组管理/已加入模组.md) |
+| 待新增模组表格、选型与暂缓决定 | [待新增模组](模组管理/待新增模组.md) |
+| 包服同步、服务器结构与配置差异 | [服务端配置差异](<服务端/YSM模型与包服差异.md>) |
+| 背景视频下载、压制和响度统一 | [远端背景视频参数分析与压制建议](视频资料/背景视频维护.md#制作规范与交付记录) |
 
 2026-10-10 视频任务的可复用交接已写入上述视频专题：YouTube 只返回 360p 时经验证有效的 `web_safari` HLS 下载方法、26 个视频的完整响度统计、约 -17 LUFS 的制作基准，以及本次两份成品的验收记录。后续相关工作应先读取该专题的最新章节，避免沿用其历史默认不调音量的命令。
 
 ## 2026-10-13 模组文档入口整理
 
-模组管理分成两份 Markdown：[待新增模组](待新增模组.md) 与 [已加入模组](模组管理.md)。两页均保持备注在顶部、当前表格紧随其后，日志和历史记录置后。按本次本地收录核对为 14 项候选、2 项待选型需求、118 个已纳入分发源的模组，数量随维护重算，不固化。当前文件范围覆盖索引、overrides 和两服共享／差异源；不代表实时部署。旧 Excel／JSON 仍是历史证据，不据其旧状态把 More Leads 重新列为已加入。Observable 的选型意向与 shared 引用并存，后续需讨论是否移除；本轮仅如实登记。
+模组管理分成两份 Markdown：[待新增模组](模组管理/待新增模组.md) 与 [已加入模组](模组管理/已加入模组.md)。两页均保持备注在顶部、当前表格紧随其后，日志和历史记录置后。按本次本地收录核对为 14 项候选、2 项待选型需求、118 个已纳入分发源的模组，数量随维护重算，不固化。当前文件范围覆盖索引、overrides 和两服共享／差异源；不代表实时部署。旧 Excel／JSON 仍是历史证据，不据其旧状态把 More Leads 重新列为已加入。Observable 的选型意向与 shared 引用并存，后续需讨论是否移除；本轮仅如实登记。
 
 ## 2026-10-16 同步与打包记录（已获用户确认）
 
@@ -104,3 +119,91 @@
 - 已完成的女仆餐厅赠书配置、教程盘点与相关既有分析先独立提交 a8a6118；本轮后续提交覆盖物品初筛、巧克力实施及交接文档。用户已授权本地提交，不执行 push。
 
 打包结果（2026-10-16）：已执行仓库 build.bat，7z 输出 Everything is Ok，退出码 0；产物 output/pack.zip 为 130,627,609 字节。按约定未追加 ZIP 完整性／解压比对；未游戏验证、未部署。
+
+## 世界内切换光影崩溃调查（2026-10-16）
+
+用户报告：世界内更换光影直接崩溃，单人／多人均发生；退出主菜单再切换可以工作。输入证据为本机 `C:\Users\AshBill\Desktop\错误报告-10-16-2026_2.58.56_AM.zip`，含 debug.log、latest.log、hs_err_pid2388.log 等。本轮仅只读检查归档、本机 JAR 字节码及上游 issue，未更改模组、配置、存档或搭建测试实例；未上传日志。
+
+### 已确认的现场
+
+- JVM 为 Microsoft OpenJDK 21.0.7+6；02:58:51 Render thread 发生 `EXCEPTION_ACCESS_VIOLATION (0xc0000005)`，故障帧为 LWJGL `MemoryUtil.memGetFloat(J)F`，读取地址 `0x000002342ea61000`。这是堆外内存读取导致的 JVM 致命崩溃，不是普通可捕获 Java 异常；报告未给出可完整归因的 Java 调用链。
+- hs_err 寄存器对象现场出现 `top.leonx.irisflw.vertex.block.ExtendedBlockVertex`；同一时刻 JIT 事件包含 `IrisBlockVertexReaderImpl`、`IrisBlockVertexListUnsafe$Shaded` 和 `ExtendedBlockWriterUnsafe`。这是定位兼容层的强线索，但不能单凭寄存器对象证明具体责任代码行。
+- 日志确认加载 Oculus/Flywheel Compat 1.1.4；本机相关组合为 Create 0.5.1.j、Oculus 1.8.0、Embeddium 0.3.31。本机 flywheel-client.toml 为 INSTANCING；它是调查时本机值，不当作归档内配置快照。
+- 02:58:50.538 销毁旧 overworld pipeline；50.858 加载 `Sildur's Vibrant Shaders v1.541 Extreme-VL.zip` 并创建新 pipeline；51.631–51.643 区块工作线程重启，随后 JVM 崩溃。
+- `BIOME_SWAMP_HILLS` 未知变量是此前的光影 uniform 警告，之后日志仍继续创建／处理渲染资源；不能将它直接认定为这次致命崩溃原因。当前故障帧也不是显卡驱动 DLL，不能仅凭本报告优先归咎显存、驱动或 Java 版本。
+
+### 代码与上游证据
+
+当前兼容模组 `IrisBlockVertexReaderImpl` 以 `base + index * vertexSize + offset` 计算地址，再直接调用 `MemoryUtil.memGetFloat`；vertexSize 来自 Iris TERRAIN 格式。`MixinBlockModel` 根据是否使用扩展顶点格式处理 DrawState 的格式。结合热切换时序，首要假设是旧缓冲／缓存与新格式或资源生命周期不同步，导致无效地址读取；尚未区分越界、释放后访问、格式步长不一致等具体机制，没有证明某个缓存遗漏清理。
+
+相关上游报告：[#188](https://github.com/leon-o/iris-flw-compat/issues/188) 描述带光影进世界正常、在 Create 结构附近开关光影崩溃，并提及 vertex；该报告基于 Fabric，不是当前 Forge 组合的完整同案证明。[#185](https://github.com/leon-o/iris-flw-compat/issues/185) 报告 Oculus 1.8.0 与兼容模组启用光影时崩溃。查询时均 open，未确认当前组合已有可直接应用的修复版本。
+
+### 结论与最小验证
+
+高优先级嫌疑为 Oculus/Flywheel 兼容层在世界仍加载时进行光影热切换的顶点内存问题，具体根因待对照复现确认。退出主菜单会卸载世界渲染状态、重新进入再生成数据，这与用户绕过方法吻合；多人也由本机渲染，故无需服务端发生故障即可触发。此解释为基于证据的推断。
+
+下一步建议只在客户端临时停用 `oculus-flywheel-compat-forge1.20.1+1.1.4.jar` 并重启，保留 Create／Oculus／Embeddium／同一光影，在相同位置测试开关及更换光影；记录原光影和目标光影。未自动执行停用，未改索引。若对照不再崩溃，再决定保留主菜单切换的绕过方法、接受取消兼容层可能带来的 Create 光影渲染性能变化，或进一步定位补丁；若仍崩溃，应收集新的 hs_err 比较，不能坚持单一归因。首轮不同时更换 Java、驱动或多个渲染模组。
+
+### 光影重载代码追踪补充（2026-10-16，保留全部模组）
+
+**取代上节的下一步建议：** 用户要求保留全部模组，先定位缓存清理与重建逻辑；上节“临时停用兼容模组”仅保留为历史方案，本轮不采用。没有修改运行配置、索引或 JAR，没有编译或启动测试实例。
+
+依据实际安装 JAR 的 javap 字节码，检查 Oculus 1.8.0、Oculus/Flywheel Compat 1.1.4、Create 0.5.1.j 及其内嵌 Flywheel 0.6.11-13。仓库外分析副本和字节码文本位于 `C:\mydata\Agents\Codex-CreateTrainResync\shader-audit`；Flywheel JAR 从已有 Create JAR 的 META-INF/jarjar 提取，没有下载新 JAR。未修改 sourceref 目录；Create 参考源码仅辅助阅读，关键路径用安装 JAR 核对。
+
+#### 重载确实存在，不能笼统称为没有清理
+
+1. Oculus `Iris.reload()`：initialize config → destroyEverything → loadShaderpack → 世界非空时 preparePipeline。
+2. `destroyEverything()` 先清 currentPack，再销毁旧 pipeline；`PipelineManager.preparePipeline()` 在 WorldRenderingSettings.isReloadRequired() 为 true 时调用 `LevelRenderer.allChanged()`，随后清除该请求标志。
+3. Flywheel `LevelRendererMixin` 注入 allChanged，调用 Backend.refresh 并发布 ReloadRenderersEvent。
+4. `InstancedRenderDispatcher.onReloadRenderers` 在 backend 开启且世界非空时 resetInstanceWorld；替换 InstanceWorld 并 loadEntities。旧 InstanceWorld.delete 会删除 engine、解除光照监听。
+5. Create 的 `ContraptionRenderDispatcher.onRendererReload` 也调用 reset 清理并重建其世界级渲染状态。
+
+以上是静态调用链，不是本次崩溃的完整动态调用追踪；但已足以修正“热切换没有重建 Flywheel”的泛化推断。
+
+#### 更具体的缺陷候选：复用构建器的强制格式标记不复位
+
+- Flywheel `ModelUtil` 使用静态 ThreadLocal<ThreadLocalObjects>，其中 shadedBuilder/unshadedBuilder 是复用 BufferBuilder。ThreadLocalObjects.begin 的顺序为：两个 builder.begin(QUADS, BLOCK)，然后 wrapper.prepare(builder1, builder2)。end 调用 wrapper.clear 再 endAndCombine；wrapper.clear 只清 consumer 引用。
+- Compat `MixinShadeSeparatingVertexConsumer.irisflw$prepare` 仅在 `!isUsingExtendedVertexFormat()` 时，对两个 builder 调用 `irisflw$setForceBlockFormat(true)`。开启光影分支没有对称地写 false。
+- Compat `MixinBufferBuilder` 中字段 `irisFlw$forceBlockFormat` 仅由上述 setter 写入；检查兼容 JAR 的全部 class 字符串引用，只命中 accessor、该 mixin 和 ShadeSeparating mixin，没有找到重置调用。它的 begin HEAD ModifyVariable（mixin priority 1010）在 forceBlockFormat && isShaderPackInUse 时将 extending 置 false，并返回普通 BLOCK 格式。
+- 读取端 `ExtendedBlockVertex.createReader(ByteBuffer, count, unshadedStart)` 只检查当前光影状态。开启时无条件创建 IrisBlockVertexListUnsafe.Shaded，其内部 IrisBlockVertexReaderImpl 以 Iris TERRAIN 的 vertexSize 计算地址，调用 memGetFloat；没有根据该缓冲实际 DrawState 格式选择 reader。
+- `BlockModel` 构造器先允许普通 BLOCK 格式，再将缓冲交给全局 Formats.BLOCK.createReader；兼容层替换了 Formats.BLOCK。由此存在“普通格式写入、扩展格式读取”的具体可达风险。模型清理不等于线程局部构建器的自定义标记复位。
+
+归档 latest.log 新补证据：00:34:52 明确 Shaders are disabled；直到 02:58:50 首次出现 Using shaderpack Sildur's。因此这份样本至少是无光影运行后启用光影，恰好符合该残留标记的触发条件；不能直接把该解释推广成任意光影 A→B 都必然同因。
+
+**证据边界：** 单向置 true 且无复位、构建器复用、reader 按全局状态选择，这些均已在安装字节码确认；但没有实际变换后的 BufferBuilder 类和运行时格式日志，Oculus 自身也在 begin HEAD 注入扩展格式，故合并后的实际执行顺序、这次读取对象和容量仍需验证。当前是比“泛泛缓存问题”更具体、更强的根因候选，不宣称已复现或完全确诊。线程局部对象可能跨退世界继续存活，所以不能把“退主菜单就能换”全部解释成这一标记自动清除；也不能排除其他缓存路径共同参与。
+
+#### 修复决策前建议
+
+优先在保留所有模组的前提下，给切换后首次相关模型构建增加小范围诊断：记录实际 DrawState 格式／stride、vertexCount、ByteBuffer.limit、光影状态及 forceBlockFormat，并在进入 unsafe reader 前检查读取格式是否匹配。日志不得逐顶点刷屏；不要故意读越界地址复现 JVM 崩溃。
+
+如果证实该候选，再修正构建器标记更新时机和 reader 格式一致性。**不能只在 wrapper.prepare 加 else=false**：它发生在 builder.begin 之后，对第一次构建可能太迟。也不建议先用全局清缓存掩盖格式错误。补丁注入点、普通／扩展格式策略及失败处理须在实际变换顺序核对后确定。此阶段只记录方案，未加入诊断或修复代码；用户下一步决定是否实施。
+
+## 2026-10-16 agent 文档归类与视频专题合并
+
+- 用户要求去重与减少顶层文件：顶层从 19 个文件整理为 5 个常用入口；目录导航见本页“文档目录”。模组、服务端、视频、玩法专题及历史 JSON／Excel 归入相应子目录，物品整合与 tools 保持原分类。
+- 背景视频制作与企划分类合并到 `视频资料/背景视频维护.md`，两份原文正文保留，统一当前维护入口。已加入／待新增模组、服务端更新器／YSM 差异职责不同，保持独立；不因内容相关而混合状态。
+- 已重算迁移文件内部及其他文档的相对链接，更新仓库与本机规则副本、更新流程本机副本中的路径；更新器仅修改文件头文档路径，没有改执行逻辑。来源 14 个文件均有迁移／合并归宿，JSON、Excel 与 HTML 字节不变；本轮相对文件链接检查为 0 个失效目标，diff 空白检查通过。
+- 操作前完整文档备份：`C:\mydata\Agents\Codex-CreateTrainResync\agent-docs-before-20261016`。保留开工前已有光影调查、规则与菜单配置改动，以及同期其他任务新增的构建相关改动；不回滚或代为提交。本轮未打包、未提交、未 push。
+
+### 临时光影诊断 mod 已构建并入测试包（2026-10-16）
+
+用户授权制作独立、仅日志的诊断 mod；整个工程留在仓库外，仅产出 JAR 临时入包，不上传 Modrinth，不放入 TrainResync。此前“尚未加入诊断”的段落为历史状态，修复代码仍未实施。
+
+- 独立工程：`C:\mydata\Agents\Codex-CreateTrainResync\shader-switch-debug`，含源码、Gradle wrapper、本机编译依赖副本、测试与构建日志；不在整合包仓库内。
+- 临时 JAR：`pack/overrides/mods/shader-switch-debug-0.1.0.jar`（11,284 字节）。复制后 SHA-256 与构建产物一致；哈希见本节末尾。不改索引，不提供 shared/两服引用：这是客户端诊断，非服务端功能。
+- 针对 Minecraft 1.20.1、Oculus 1.8.0、IrisFlw 1.1.4、Flywheel 0.6.11 系列。Mixin 只列在 client 数组，使用已核对的实际方法名，不需要 MC 重映射；compileOnly 依赖从现有本机库复制，没下载 JAR。独立 Gradle Java 工程使用 `gradlew.bat build`，未添加命令行选项；Java 编译配置禁用注解处理器，因为使用明确 runtime target 且 remap=false，不生成 refmap。
+- 记录点：Iris.reload HEAD/RETURN；Flywheel onReloadRenderers HEAD/RETURN；ModelUtil.ThreadLocalObjects.begin 前后（后者已完成 prepare）；BlockModel 两种直接构造器 RETURN。最后一点发生在 reader 对象创建之后、调用方开始读取顶点之前，并非拦截或替换每次 memGetFloat。构造阶段自身异常不保证有该行。
+- 内容：光影状态、重载代数、线程、构建器 identity 与 forceBlockFormat、实际格式与 stride、预期 reader 格式、实际 reader 类、vertexCount、unshadedStart、ByteBuffer position/limit/capacity/direct、预期读取字节数；格式错配时附有限调用栈。以 `FORMAT_MISMATCH_BEFORE_VERTEX_READ` 搜索关键结果；`DIAGNOSTIC_ERROR` 表示反射观测失败，不能当成格式正常。
+- 日志同时进入实例 `logs/latest.log`（前缀 ShaderSwitchDebug）和独立 `logs/shader-switch-debug.log`。独立文件每行 flush，每次客户端启动保留上次文件为 `shader-switch-debug.previous.log`。每代普通模型最多 12 行、异常模型 20 行、异常栈 3 行，构建前后各 12 行，整个会话最多 1,800 行；达到上限输出 LIMIT 后停止，不逐顶点刷屏。
+- 没有 setter 修改、事件取消、缓存清理、格式替换或异常吞掉原渲染调用；诊断自身的反射／写日志失败会被记录。格式错配仍继续原调用，原生崩溃仍可能发生；同步日志可能影响时序，不能把一次未崩溃直接当作修复成功。
+
+验证：可见 PowerShell 中构建成功（最终退出码 0）。纯 Java 诊断自检通过：普通/扩展格式识别、错配判定、SRG 字段/方法别名、缓冲内容和 position/limit 不变、force 标记不变、反射错误记录、每代与全会话限流及日志 flush。自检使用模拟元数据，不证明游戏 Mixin 实际注入；自检日志中 log4j-core 缺失仅触发测试环境 SimpleLogger 回退，运行游戏使用其既有 Log4j。检查 JAR 仅含本 mod 类、mods.toml、mixin 配置和 manifest，不含测试模拟类或编译依赖。
+
+已按当前新 build.bat 流程后台打包：退出码 0，7z 显示 Everything is Ok；产物 `C:\mydata\Repositories\niijima-railways-modpack\build\pack.zip`（130,637,786 字节）。构建前旧 output/ 不存在；未额外解压或执行 ZIP 测试。未在游戏加载验证，未 commit、未 push、未部署服务器，未修改现有本机游戏实例。
+
+用户下一步：安装本轮包（或仅将上述 JAR 加入原实例 mods），完整重启客户端；沿原来的世界内切换步骤复现。收集独立诊断 log、latest.log 和若产生的新 hs_err。若启动失败，也保留启动日志检查注入点。首次测试关注无光影→启用，再区分已启用光影 A→B；无需移除任何原有模组。
+
+清理：测试完成后移除包 overrides 及实际测试实例里的这一个诊断 JAR，再重新打包；不改 TrainResync 或其他模组。不得将临时诊断 JAR 随正式包发布。
+产物 SHA-256：`C28305907542D8A234068D01336131977F3C982BF5961B972951EF5EA891EF44`。
+
+补充（2026-10-16）：用户要求执行 build-test.bat，并要求此次首次展开下载在可见 shell 中监督。已在独立 PowerShell 窗口运行成功，退出码 0，7z Everything is Ok；产物 build/pack-test.zip，589,035,846 字节，包含当前 overrides 的临时诊断 JAR。索引文件已由测试构建展开，原项目索引未改；缓存位于 build/cache。未额外测试或解压 ZIP，未游戏验证。首次后台尝试因子 Windows PowerShell 找不到 Get-FileHash 失败；为本次启动设置 Windows PowerShell 的 PSModulePath 后恢复正常，未改系统环境或仓库构建脚本。可见运行脚本、日志和退出码记录位于独立工作目录的 build-test-visible.ps1 / build-test-visible.log / build-test-visible.exit；窗口结束后保留供用户查看。
