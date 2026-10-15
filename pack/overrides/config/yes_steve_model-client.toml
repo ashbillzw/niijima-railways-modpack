@@ -1,0 +1,3 @@
+[general]
+	# Prefer model IDs in the model selection screen.
+	ShowModelIdFirst = true
