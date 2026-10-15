@@ -91,10 +91,10 @@ element {
 
 element {
   interactable = false
-  source = ！在线视频播放中（源：mc.ashbill.com）！
+  source = ！在线视频播放中！（串流：mc.ashbill.com；搬运源：见水印）
   source_mode = direct
   shadow = true
-  scale = 1.5
+  scale = 0.75
   base_color = #FFFF00FF
   text_border = 2
   line_spacing = 2
@@ -131,7 +131,7 @@ element {
   fade_in_speed = 1.0
   fade_out = no_fading
   fade_out_speed = 1.0
-  base_opacity = 1.0
+  base_opacity = 0.75
   auto_sizing = false
   auto_sizing_base_screen_width = 3840
   auto_sizing_base_screen_height = 2160
