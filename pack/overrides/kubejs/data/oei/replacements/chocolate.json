@@ -1,0 +1,14 @@
+[
+  {
+    "matchItems": [
+      "neapolitan:chocolate_bar"
+    ],
+    "resultItems": "create:bar_of_chocolate"
+  },
+  {
+    "matchItems": [
+      "neapolitan:chocolate_cake"
+    ],
+    "resultItems": "createaddition:chocolate_cake"
+  }
+]
