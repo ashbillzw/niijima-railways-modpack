@@ -193,6 +193,7 @@ def apply(target, deletions, items, stage):
             answer = input(f"删除 {path}？[y/n] ").strip().lower()
         if answer == "n":
             raise SystemExit(f"已取消更新：{path}")
+        path = checked(ROOT, path.relative_to(ROOT).as_posix())
         if path.is_dir():
             shutil.rmtree(path)
         elif path.exists():
