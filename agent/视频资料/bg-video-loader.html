@@ -12,20 +12,37 @@
 <body>
   <video id="v" autoplay></video>
   <script>
+    const key = 'ashbill_bg_video_history_v1';
+    const v = document.getElementById('v');
+    v.onplaying = () => { v.style.opacity = '1'; };
     fetch('/bg-video-album')
-      .then(res => res.text())
-        .then(html => {
-          const links = html.match(/(?<=href=")[^"]+\.mp4/gi) || [];
-          const v = document.getElementById('v')
-          v.onplaying = () => { v.style.opacity = '1'; };
-          const pick = () => {
+      .then(res => {
+        if (!res.ok) throw new Error('视频列表 HTTP ' + res.status);
+        return res.text();
+      })
+      .then(html => {
+        const links = [...new Set(html.match(/(?<=href=")[^"]+\.mp4/gi) || [])];
+        const limit = Math.floor(links.length / 2);
+        const pick = () => {
+          try {
+            if (!links.length) throw new Error('视频列表为空');
+            let history = JSON.parse(localStorage.getItem(key) || '[]');
+            history = limit ? history.filter(link => links.includes(link)).slice(-limit) : [];
+            const candidates = links.filter(link => !history.includes(link));
+            const current = candidates[Math.floor(Math.random() * candidates.length)];
+            history = limit ? [...history, current].slice(-limit) : [];
+            localStorage.setItem(key, JSON.stringify(history));
             v.style.opacity = '0';
-            v.src = "/bg-video-album/" + links[Math.floor(Math.random() * links.length)];
-            v.play()
+            v.src = '/bg-video-album/' + current;
+            v.play();
+          } catch (error) {
+            console.error('选片失败：', error);
           }
-          v.onended = pick;
-          pick();
-    })
+        };
+        v.onended = pick;
+        pick();
+      })
+      .catch(error => { console.error('读取列表失败：', error); });
   </script>
 </body>
 </html>
