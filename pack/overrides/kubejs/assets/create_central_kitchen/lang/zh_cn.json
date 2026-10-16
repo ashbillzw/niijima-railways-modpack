@@ -1,0 +1,17 @@
+{
+  "fluid.create_central_kitchen.vanilla_ice_cream": "香草冰淇淋",
+  "fluid.create_central_kitchen.chocolate_ice_cream": "巧克力冰淇淋",
+  "fluid.create_central_kitchen.strawberry_ice_cream": "草莓冰淇淋",
+  "fluid.create_central_kitchen.banana_ice_cream": "香蕉冰淇淋",
+  "fluid.create_central_kitchen.mint_ice_cream": "薄荷冰淇淋",
+  "fluid.create_central_kitchen.adzuki_ice_cream": "红豆冰淇淋",
+  "fluid.create_central_kitchen.yucca_ice_cream": "丝兰冰淇淋",
+  "fluid.create_central_kitchen.aloe_ice_cream": "芦荟冰淇淋",
+  "fluid.create_central_kitchen.passion_fruit_ice_cream": "百香果冰淇淋",
+  "fluid.create_central_kitchen.lime_ice_cream": "青柠冰淇淋",
+  "fluid.create_central_kitchen.pomegranate_ice_cream": "石榴冰淇淋",
+  "fluid.create_central_kitchen.pumpkin_ice_cream": "南瓜冰淇淋",
+  "fluid.create_central_kitchen.sweet_berry_ice_cream": "甜浆果冰淇淋",
+  "item.create_central_kitchen.incomplete_neapolitan_ice_cream_chocolate": "未完成的那不勒斯风味冰淇淋",
+  "item.create_central_kitchen.incomplete_neapolitan_ice_cream_strawberry": "未完成的那不勒斯风味冰淇淋"
+}
