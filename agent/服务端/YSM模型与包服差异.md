@@ -233,7 +233,7 @@
 
 ## 现有统计的分类依据与维护
 
-- 2026-10-13 只读核对 `霞沢ミユ.ysm` 内 `main.json` 的 `minecraft:geometry[0].description.ysm_extra_info`：`authors` 为“模型作者:伊洛是哥斯拉嘛_Gesila”和“动画修改:星屑海螺”，`license` 声明为 `CC BY-NC-SA 4.0`，`tips` 注明免费分享、请勿商用。文件 SHA-256 为 `c67a48b994e7be09afd01752d04bbab7b9d7b6c3b54965fde520386cc41504f4`，检查未修改模型。此前 [1.6 更新视频文案](../视频资料/1.6更新视频-change-list.md) 第 7 节“可选展示”的误写已同步更正。
+- 2026-10-13 只读核对 `霞沢ミユ.ysm` 内 `main.json` 的 `minecraft:geometry[0].description.ysm_extra_info`：`authors` 为“模型作者:伊洛是哥斯拉嘛_Gesila”和“动画修改:星屑海螺”，`license` 声明为 `CC BY-NC-SA 4.0`，`tips` 注明免费分享、请勿商用。文件 SHA-256 为 `c67a48b994e7be09afd01752d04bbab7b9d7b6c3b54965fde520386cc41504f4`，检查未修改模型。此前 [1.6 更新视频文案](../版本发布/1.6-trailer策划.md) 第 7 节“可选展示”的误写已同步更正。
 - 当前文件与启停状态直接核对包内目录和 `server/shared/`；不包含仓库外备份、待导入及已移除模型。维护时按实际文件重算数量。
 - 角色出处和命名沿用 2026-10-02 本机 `本地资源/YSM模型/命名整理-2026-10-02/outputs/ysm-review/已应用原名对照.json`、`补入记录.json` 及同目录上两级的 `待办.md`。早期 CSV 中的“待确认”状态由后续已应用记录与用户确认更新；旧待办中“J-20S 不导入”已由 2026-10-05 恢复启用决定替代。当前清单与关键差异已完整收录在本表，未来无需依赖本机文件才能接手。
 - 森亜るるか的作品归属见 [东映官方第 15 集剧情页](https://www.toei-anim.co.jp/tv/precure/episode/15/)；梦限大角色参考 [武士道官方资料](https://bushiroad.co.jp/media/afa78959fa824001)；丛雨参考 [柚子社官方角色曲视频](https://www.youtube.com/watch?v=oPZsyVc7l58)。这些来源支持角色归属，不代替模型文件的外观验收。
