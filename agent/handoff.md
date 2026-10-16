@@ -4,6 +4,10 @@
 
 本文件记录跨任务通用要求和 general handoff 信息，是新 agent 接手时的入口。当前任务进度与剩余事项维护在 [todo-list.md](todo-list.md)，专题事实、命令与测量数据维护在对应专题文档。
 
+## 下次对话首先展示（2026-10-16 用户指定）
+
+用户已于 2026-10-16 恢复工作并开始游戏测试，恢复对话时已展示优先清单。后续继续推进时，**主动展示 [todo-list.md 顶部的 Immediate-todo](todo-list.md#immediate-todo下次对话优先展示2026-10-16-用户指定)，并优先于其他待办**：进游戏测试 → 原版炼药锅交互适配（包括滴水石锥）→ 考虑部分基岩版交互 → 调整奶昔工作台产量 → 画整合流程图。奶昔锅最终产量仍待讨论，四瓶只是测试默认值。不要在用户休息期间自行推进这些事项；这不是定时提醒或后台任务。具体清单以 todo 为单一维护位置。
+
 ## 新机器首次接手与规则加载
 
 1. 定位实际仓库与独立工作目录，先读 [AGENTS.md](AGENTS.md)、本文件和 [todo-list.md](todo-list.md)。旧 Windows 绝对路径仅是上一台机器的位置，不要求新机器照搬。
@@ -207,3 +211,63 @@
 产物 SHA-256：`C28305907542D8A234068D01336131977F3C982BF5961B972951EF5EA891EF44`。
 
 补充（2026-10-16）：用户要求执行 build-test.bat，并要求此次首次展开下载在可见 shell 中监督。已在独立 PowerShell 窗口运行成功，退出码 0，7z Everything is Ok；产物 build/pack-test.zip，589,035,846 字节，包含当前 overrides 的临时诊断 JAR。索引文件已由测试构建展开，原项目索引未改；缓存位于 build/cache。未额外测试或解压 ZIP，未游戏验证。首次后台尝试因子 Windows PowerShell 找不到 Get-FileHash 失败；为本次启动设置 Windows PowerShell 的 PSModulePath 后恢复正常，未改系统环境或仓库构建脚本。可见运行脚本、日志和退出码记录位于独立工作目录的 build-test-visible.ps1 / build-test-visible.log / build-test-visible.exit；窗口结束后保留供用户查看。
+
+补充（2026-10-16，资源元数据修正）：用户启动截图出现 shader-switch-debug 无有效 ResourcePackInfo 警告。独立工程原先缺少 pack.mcmeta，现补齐 pack_format=15 的资源元数据；诊断逻辑不变。同名 0.1.0 JAR 已重建成功（build 退出码 0），并确认 JAR 内实际包含 pack.mcmeta，已替换包 overrides。上方旧 JAR 大小、SHA-256 和包大小仅适用于修正前产物，现已过时。游戏启动警告消失与诊断注入仍待用户实测。
+
+### 光影崩溃运行时证据（2026-10-16 04:36，Asia/Shanghai）
+
+用户观察：刚进世界切光影成功，放下矿车和动力辊压机之后切换崩溃。直接读取 PCL2 实例“新岛铁道 v1.6.0”的日志；证据副本保存在仓库外 C:\mydata\Agents\Codex-CreateTrainResync\shader-audit\runtime-20261016-043606，包含 shader-switch-debug.log、latest.log、hs_err_pid18380.log。
+
+- 04:35:24 无光影→开启，04:35:29 开启→关闭，两轮均正常返回，期间诊断未捕获 BlockModel 构建。
+- 04:35:56 出现 create:mechanical_press 与 create:shaft 模型；关闭光影时实际/reader stride 都为 32，容量分别为 3712（116 顶点）、768（24 顶点），匹配。
+- 04:36:05–06 再次无光影→开启，Flywheel 重建与 Iris reload 均返回；随后两模型触发 FORMAT_MISMATCH_BEFORE_VERTEX_READ。实际仍是普通 BLOCK（stride=32），reader 已为 IrisBlockVertexListUnsafe$Shaded，预期 TERRAIN（stride=52）。辊压机只有 3712 字节，读取布局需要 6032；杆只有 768 字节，读取布局需要 1248。构造完成后、顶点消费前已抓到错配。
+- 同秒 JVM Render thread 在 MemoryUtil.memGetFloat 抛原生 EXCEPTION_ACCESS_VIOLATION；hs_err 可见 ExtendedBlockVertex 与 IrisBlockVertexReaderImpl/ExtendedBlockWriterUnsafe 相关证据。运行时格式错配现在已确认，是本次越界崩溃的强证据，替代此前“尚无运行时格式证据”的限定。
+- 诊断存在局部缺陷：builders 分支出现 NoSuchMethodException: getVertexSize,m_86020_，因此未取得完整的后续 forceBlockFormat 轨迹。模型分支独立读取 DrawState 成功，不影响上面的错配证据；“force 标记残留导致错配”仍是待验证的上游机制，不能称完全证实。
+- 解释用户观察：无相关模型时不触发此读写路径；添加 Create 模型后触发。当前调用栈明确包含 PressInstance 和 SingleRotatingInstance，不能断言矿车必需或它完全无关，也不推广为任何光影 A→B 都同因。
+- 下一步建议：先修正 builders 诊断，再在独立测试补丁中验证 builder.begin 前按当前光影状态更新强制格式标记，使写入格式与读取布局一致；不得只在发生于 begin 之后的 prepare 中重置。尚未实施行为修复，未替换用户实例文件。
+
+补充（2026-10-16，诊断 0.1.1）：用户授权进一步诊断。builders 不再把第一个名为 format 的字段直接当作 MC VertexFormat；分别遍历类层级中的 f_85658_ / format，记录声明类、声明类型、实际类型和格式读取结果。单字段解析失败会标注 formatUnavailable，仍输出 forceBlock 和两个 builder，避免整条诊断丢失。用于确认是否同名非 VertexFormat 字段干扰反射，并补齐切换前后强制标记轨迹；尚未有新运行日志，不宣称该原因已确认。模拟非格式字段与真实格式并存的回归自检通过，可见 gradlew.bat build 退出 0；pack.mcmeta 已包含。包 overrides 用 0.1.1 替换 0.1.0，仍仅日志、无行为修复，未改用户实际实例。用户需完整重启加载新版后按原步骤复现，查看 START 0.1.1 及 BUILDERS_BEFORE_BEGIN / BUILDERS_AFTER_BEGIN_AND_PREPARE。旧版本记录保留为历史。
+补充（2026-10-16）：用户授权直接更换 PCL2 新岛铁道 v1.6.0 实例中的诊断 helper，现已放入 0.1.1 并移除实例中的 0.1.0；旧 JAR 已备份至独立工程 shader-switch-debug/instance-backup-0.1.0。需完整重启后复现，尚无新版运行验证。helper 后续允许后台 build，规则已同步本机及仓库。
+
+### 0.1.1 复测：强制格式标记残留已观测（2026-10-16 04:49，Asia/Shanghai）
+
+本次 START=0.1.1；证据备份为独立工作目录 shader-audit/runtime-20261016-044913，含诊断日志、latest.log、hs_err_pid29704.log。
+- 初始开光影构建成功：shaded builder identity=689940033，unshaded=1603874265；forceBlock=false，实际与 reader stride 均为 52。
+- 04:49:11 关闭光影：同两个 builder 在 begin 前 forceBlock=false，begin+prepare 后变 true，实际与 reader stride 均为 32，正常。
+- 04:49:13 再开启：同两个 builder 在 begin 前、begin+prepare 后 forceBlock 均残留 true；实际格式仍为 32，reader 却切到 52。辊压机 3712/6032 字节、杆 768/1248 字节的容量/读取需求错配再次出现，随后 Render thread 在 memGetFloat 原生访问违规崩溃。
+- 结合既有兼容层字节码，标记跨切换残留→强制普通格式写入→扩展格式读取的机制现有运行时链条支持，替代此前“尚未观测强制标记轨迹”的限定。无需继续为这条路径增加纯诊断轮次，可进入最小修复实验：在这两个 Flywheel 专用 builder.begin 之前按当前扩展格式状态同步 forceBlock，保留日志对照；修复有效性尚未测试，未实施。
+- 0.1.0 反射失败原因也确认：BufferBuilder 同时含 MC f_85658_（VertexFormat）与渲染层 format（Sodium VertexFormatDescription）。后者没有 getVertexSize；0.1.1 的 formatUnavailable 仅针对这个旁支字段，真实格式和 forceBlock 已正常记录，不是新的游戏异常。
+- 本轮只读取/归档日志并记录结论，未改实例、未构建、未提交。
+
+### helper 0.1.2 最小修复实验（2026-10-16）
+
+用户授权先修 helper，实测确认有效后再整合 TrainResync。此前“仅日志”说明仅适用于 0.1.0/0.1.1；0.1.2 已包含行为修复。复用已在游戏验证的 ModelBuildersMixin、ThreadLocalObjects.begin()V HEAD 注入（remap=false，require=1，allow=1），先记录原状态，再在原方法执行两个 BufferBuilder.begin 之前，按 !IrisFlw.isUsingExtendedVertexFormat() 调用两个构建器现有 irisflw$setForceBlockFormat(boolean) setter。通过反射访问已核对的第三方字段/方法，无新增 shadow；既有 client-only mixin 清单与 manifest MixinConfigs 保持一致，无 refmap 需求。两个 setter 先全部解析再修改；反射失败记录 FIX_FAILED 并抛 Java 异常，不静默继续潜在 unsafe 读取。每代限量记录 FIX_BEFORE_BUFFER_BEGIN，实际模型格式日志保留。
+
+验证：后台 gradlew.bat build 成功（退出 0）；自检覆盖两个标记开/关/开及重复状态同步、不直接修改格式对象、失败不静默，以及原诊断测试。成品 JAR 的 manifest、client mixin 清单、目标 class、pack.mcmeta、0.1.2 元数据均检查通过。尚未游戏验证修复，等待反复开关光影及光影 A/B 切换，检查模型外观与 FORMAT_MISMATCH 是否消失。
+
+用户因实例运行中暂停替换，随后明确告知可以操作，现已将包 overrides 与 PCL2“新岛铁道 v1.6.0”实例中的 0.1.1 替换为 0.1.2（12,518 字节）。实例旧版备份在独立工程 shader-switch-debug/instance-backup-0.1.1。未修改 TrainResync。启动应见 START 0.1.2; pre-begin format fix enabled。临时 helper 不随正式包发布；后续整合 TrainResync 时须移除 helper，避免重复注入。等待用户实测，不宣称修复验证通过。
+本轮 build.bat 成功（退出 0），build/pack.zip 已包含 helper 0.1.2；未重跑 build-test，build/pack-test.zip 仍是旧产物。未提交。
+
+### 光影修复迁入 TrainResync，恢复 K（2026-10-16）
+
+用户反馈开关光影不再崩溃，授权日志确认后迁入 TrainResync。实际此次运行 helper 为另一任务加入牛奶探针的 0.1.3；日志四次 reload（两轮关→开），两次开启均明确记录同对 builder forceBlock=true→false，随后辊压机和杆模型实际/reader stride=52；关闭时 false→true 且 stride=32。FORMAT_MISMATCH 与 FIX_FAILED 均为 0。用户无崩溃反馈与状态转换证据相符，修复已在 helper 场景实测；证据副本 shader-audit/runtime-20261016-fixed。
+
+已整合到实际仓库 C:\mydata\Repositories\Create-Train-Resync（main），而非独立工作区的旧源码副本。TrainResync 测试版 1.6.0.h：client.FlywheelShaderReloadMixin 使用已验证的 ThreadLocalObjects.begin()V HEAD、remap=false、require=1、allow=1；@Pseudo 用于可选第三方编译目标。只在 client 清单，插件检查 oculus/irisflw/flywheel 三者存在才应用，不添加硬依赖。FlywheelShaderFormats 通过原 compat setter 同步两 builder，解析两个 setter 后才写入；不改变格式对象、顶点内容或缓存。不复制 helper 的高频诊断。反射失败抛明确异常，避免默默继续原生越界。适用证据仍为 MC1.20.1/Create0.5.1.j/Flywheel0.6.11/Oculus1.8.0/IrisFlw1.1.4，未验证其他组合。
+
+用户确认保留牛奶探针：helper 0.1.4 保留牛奶探针和光影观测，ModelBuildersMixin 不再调用 synchronizeBuilderFormats；START 明示 shader fix delegated to TrainResync。因此生效的修复只有 TrainResync 一处。此前“移除整个 helper”不适用于当前牛奶测试，未来正式发行仍要清理临时 helper。
+
+构建：TrainResync 在可见 PowerShell 中只执行 gradlew.bat build，退出 0；helper 后台同指令退出 0，诊断和牛奶探针自检通过。直接编译生产桥接类的独立自检验证反复状态同步、先解析双方再写入、失败不静默；无 Minecraft 运行环境。成品 -all JAR 检查新 mixin/桥接 class、manifest、mixin 清单、refmap 与 jarjar 元数据均在。TrainResync 集成版尚待游戏复测，不能把 helper 实测自动视为集成 Mixin 已验证。
+
+确认实例未运行后，包 overrides 与 PCL2 新岛铁道 v1.6.0 实例均已换为 trainresync-1.6.0.h-all.jar（673350 字节）和 shader-switch-debug-0.1.4.jar（19489 字节），旧 g/0.1.3 已移出；实例旧 JAR、options.txt 备份在独立工作目录 shader-audit/before-trainresync-h。检查服务器来源只有 train-cn 仍引用旧 a 版，保持已知包服差异；这是客户端光影修复，未升级服务端来源或部署服务器。发布 Modrinth 后改回索引获取的既有待办仍保留。
+
+用户要求恢复 K 光影切换：包与实例 options.txt 的 iris.keybind.toggleShaders 从 unknown 改为 k。修改前两份保存配置均无其他 K 或 Ctrl+K 条目；不覆盖未保存默认键/硬编码输入。保留其他个人设置。build.bat 已成功生成 build/pack.zip（130647299 字节），未运行 build-test，旧 pack-test.zip 不适用于这轮集成测试。源码和包变更未提交，等待用户启动实测 K 开关、多轮切换和牛奶探针。
+
+### TrainResync Mixin 目录整理（2026-10-16）
+
+用户授权应用结构优化。实际 TrainResync 仓库 main 的 mixin 根目录仅保留 TrainResyncMixinPlugin；20 个 Mixin 按 vanilla、create、pantographs、trainlights、simpleplanes、shaders、maid、mcef 分组。迁移 13 个类；PantographBlockEntityAccessor 随受电弓功能放入 pantographs，旧 accessor/client 空目录移除。Mixin JSON 同步新路径并按包/类排序，仍使用一个配置，光影和 MCEF 保持 client-only。
+
+加载插件改为完整功能包前缀匹配与 hasMods 辅助方法，保持现有依赖条件：Create 两项、受电弓五项、女仆六项、车灯 ctl、飞机 simpleplanes+supplementaries、光影 oculus+irisflw+flywheel，以及 MCEF 的 Windows 条件；原版与未知分组保持原 true 回退。包名现在代表功能依赖，新增不同依赖的 Mixin 应使用独立分组。
+
+验证：20 个源码与配置一一对应；与 Git HEAD 比对所有 Mixin 源码，除 package/Accessor import 外实现完全一致，注入方法/优先级/remap 未改。可见 shell 执行原始 gradlew.bat build 成功（退出 0），最终 -all JAR 包含全部 20 个新路径类，无旧路径 Mixin 类残留，vanilla 新路径 refmap 已生成。尚未游戏启动验证。版本仍为 1.6.0.h（仅结构重整）；包 overrides 的同名测试 JAR 已更新，重整前副本位于独立工作目录 shader-audit/trainresync-h-before-reorganization.jar。未替换运行实例，未修改其他任务的 helper 0.1.7 等资源，未提交本轮结构调整。
+本轮结构整理后 build.bat 退出 0，build/pack.zip 已更新；build-test 未运行。包按当前工作树构建，包含其他任务既有修改。
+补充（2026-10-16）：用户授权将整理版换入实例并提交。确认 PCL2 新岛铁道 v1.6.0 未运行后，实例 trainresync-1.6.0.h-all.jar 已替换为结构整理后的构建，与构建源哈希一致；旧实例 JAR 备份在独立工作目录 shader-audit/instance-before-mixin-reorganization。此前“未替换实例、未提交”仅为上一轮状态。TrainResync 提交 f792c5a（Organize mixins by feature and simplify dependency gates），工作区干净，收尾 fetch 后 main 领先 origin/main 1、落后 0，未 push。游戏复测仍待用户；包及 pack.zip 已在上轮更新，本轮未重复打包。
