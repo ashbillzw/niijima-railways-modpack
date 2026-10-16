@@ -38,6 +38,9 @@
 
 ### 游戏验证与配套修正
 
+- [ ] **实现【鼓风机吹泡泡】兼容**（2026-10-17 用户要求）：待实现与测试。
+
+
 - [ ] **验证世界内切换光影崩溃的归因**：2026-10-16 错误报告显示 Render thread 在 LWJGL memGetFloat 访问无效内存，现场指向 Oculus/Flywheel Compat 1.1.4 的扩展顶点读取。用户要求保留全部模组；原停用对照方案暂不采用。已确认重载会通知 Flywheel 重建，并发现复用 BufferBuilder 的 forceBlockFormat 只置 true、不复位，而 reader 按当前光影状态选格式的具体缺陷候选；用户已授权独立日志 mod；shader-switch-debug 0.1.0 已构建并临时放入包 overrides，build/pack.zip 已更新。仅诊断无修复，等待游戏内复现与 shader-switch-debug.log / latest.log / hs_err；未改索引。测试结束须移除包和实例内临时 JAR，避免正式发布携带。证据、上游 issue 与假设边界见 handoff 的同日调查章节。
 
 
