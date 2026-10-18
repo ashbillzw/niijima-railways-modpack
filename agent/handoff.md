@@ -285,3 +285,16 @@
 - helper源码在仓库外milk-integration-helper的本地Git，最新提交75fdb61；没有远端。整合包Git只保存测试JAR，另一台机器需额外携带本机 C:/mydata/Agents/Codex-CreateTrainResync/跨机交接-20261018/ 中的bundle和辅助资料。用 git clone milk-integration-helper.bundle milk-integration-helper 恢复源码历史；libs与SRG等编译依赖、Java17和build.gradle中的绝对路径须按新机器核对，不能仅clone后假定可直接编译。
 - 辅助资料包保存现有helper libs、ST049/ST050草稿与核对证据；不含凭据、游戏存档或整个Gradle缓存。bundle不通过Git push上传，需手动复制交接目录。
 - 测试包默认音乐10%、FOV110、灵敏度50%，世界启动时关闭昼夜/天气循环并设day/clear；只作用于build-test副本，具体规则见整合包更新流程。现有测试世界规则会保存。另一台机器重新构建，build产物和缓存不随Git。
+
+## 2026-10-19 TrainResync 1.6.0.i接触网汉化
+
+已按用户要求把四条PAW硬编码玩家文本接入语言JSON，编译并更新pack/overrides/mods，build/pack.zip打包成功。用户明确选择实例稍后替换；当前本机测试实例仍为h版，未游戏验证。两仓库改动均未提交。实现、成品哈希、备份及待测步骤见[ST003报告](模组管理/汉化/逐模组报告/ST003-Pantographs-and-Wires.md)的2026-10-19章节。其他硬编码模组尚未获此轮实现授权。
+
+
+## 2026-10-19 收尾交接状态更新
+
+上文“未提交／实例仍为h版”是当时记录，当前状态如下：TrainResync main 的语言修订已在 8739df2，工作区干净且与 origin/main 同步；包内和测试实例已使用1.6.0.i。包内JAR与TrainResync构建产物SHA-256均为 DDA9721124C0ECBDBEE4C4FAD75ACA7A8109CB84CDAA059104878BC27DD57FA4。语言功能仍待游戏验证。
+
+本轮剩余汉化资源、客户端tooltip脚本、配置提示和逐模组报告以WIP保存，未完成的审校／代码层残留继续按汉化报告处理。40个新增或修改JSON的解析与重复键检查、tooltip脚本语法检查通过，不代表游戏内排版及行为验收通过。此次仅整理提交，未重新构建或启动游戏；此前0.1.27的build和build-test均成功。
+
+炼药锅接续[测试反馈mini todo](物品整合/炼药锅测试反馈-20261019.md)：01–04已修待复测，05起继续讨论。helper独立本地仓库为64bf716，无远端；最新完整历史已导出并验证至 `C:/mydata/Agents/Codex-CreateTrainResync/跨机交接-20261019/milk-integration-helper.bundle`。跨机需单独携带该文件；20261018旧bundle不含最新源码。编译依赖、缓存、测试实例和日志不纳入Git，仍按旧交接说明另行准备。
