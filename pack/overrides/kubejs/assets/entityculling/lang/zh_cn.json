@@ -1,0 +1,5 @@
+{
+  "key.entityculling.toggleBoxes": "显示剔除包围盒",
+  "text.entityculling.tab.tick_culling": "跳过 Tick 剔除",
+  "text.entityculling.tab.tick_culling.tooltip": "此选项卡中选中的实体即使被剔除，也不会跳过其 Tick 更新。这适用于船等依赖持续更新来正常工作的实体。"
+}

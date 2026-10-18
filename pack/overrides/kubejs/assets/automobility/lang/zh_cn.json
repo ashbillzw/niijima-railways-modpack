@@ -1,0 +1,17 @@
+{
+  "tooltip.block.automobility.dash_panel": "可放置在斜坡上",
+  "container.automobility.banner_post": "旗帜",
+  "attachment.rear.automobility.saddled_barrel": "带鞍木桶",
+  "attachment.rear.automobility.banner_post": "旗杆",
+  "attachment.rear.automobility.backhoe": "反铲",
+  "attachment.rear.automobility.paver": "铺路器",
+  "stat.automobility.automobile.handling": "操控性",
+  "prefab.automobility.amethyst_rickshaw": "紫水晶篷车",
+  "prefab.automobility.quartz_rickshaw": "石英篷车",
+  "prefab.automobility.prismarine_rickshaw": "海晶石篷车",
+  "prefab.automobility.echo_rickshaw": "回响篷车",
+  "frame.automobility.amethyst_rickshaw": "紫水晶篷车",
+  "frame.automobility.quartz_rickshaw": "石英篷车",
+  "frame.automobility.prismarine_rickshaw": "海晶石篷车",
+  "frame.automobility.echo_rickshaw": "回响篷车"
+}

@@ -1,0 +1,5 @@
+{
+  "item.patchouli.guide_book": "指南书",
+  "patchouli.gui.lexicon.button.toggle_mock_header": "切换测试用页头",
+  "item.patchouli:intro_book.landing": "安装 $(item)Patchouli$() 后，模组和整合包作者可以制作易于阅读、通过进度解锁内容的$(thing)书籍$()了！"
+}

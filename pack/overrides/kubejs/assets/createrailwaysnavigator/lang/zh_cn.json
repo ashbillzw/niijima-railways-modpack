@@ -150,5 +150,10 @@
   "enum.createrailwaysnavigator.train_filter.info.same_line": "只涵盖相同线路的列车。",
   "createrailwaysnavigator.schedule.instruction.travel_section.train_line": " -设定列车线路：",
   "gui.createrailwaysnavigator.global_settings.train_line.title": "列车线路",
-  "gui.createrailwaysnavigator.global_settings.train_line.description": "创建列车线路以便将不同列车分组，覆盖其显示名称并调整各线路的其他设置。（仅适用于已在调度中的列车）"
+  "gui.createrailwaysnavigator.global_settings.train_line.description": "创建列车线路以便将不同列车分组，覆盖其显示名称并调整各线路的其他设置。（仅适用于已在调度中的列车）",
+  "gui.createrailwaysnavigator.section_settings.usable": "可导航",
+  "createrailwaysnavigator.schedule.instruction.travel_section.usable": " - 可导航：",
+  "gui.createrailwaysnavigator.route_overview.transfers": "%s次换乘",
+  "block.createrailwaysnavigator.advanced_display.ber.delayed": "延误约%s",
+  "gui.createrailwaysnavigator.train_status.unknown_delay": "运行延误"
 }

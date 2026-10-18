@@ -1,0 +1,19 @@
+{
+  "gui.nochatreports.verified_server": "§a§l安全的服务器§r\n我们可以确定此服务器安装了No Chat Reports，或者以其他已知方式阻止聊天举报。你可以安全地聊天。",
+  "gui.nochatreports.encryption_config.key_desc": "§l加密密钥§r\n用于加密和解密消息的密钥。它的格式取决于算法；对于AES，它将是128位的Base64编码二进制数据。",
+  "gui.nochatreports.encryption_config.passphrase_desc": "§l加密密码短语§r\n你可以通过自己选择的密码短语推导出密钥，替代随机生成的密钥。如果使用此功能，请选择强度足够的密码短语。并非所有算法都支持密码短语。",
+  "gui.nochatreports.encryption_tooltip": "§l加密：§r%1$s\n右击以配置。\n\n启用加密时，你可以在发送消息时按住%2$s，使本条消息不加密。",
+  "gui.nochatreports.secure_chat": "此选项无法与No Chat Reports一起使用，因为没有可供验证的签名。",
+  "modmenu.descriptionTranslation.nochatreports": "从玩家消息中剥离加密签名，使其无法被追踪并关联到你的Mojang/Microsoft账户，也无法用于玩家聊天举报功能。",
+  "gui.nochatreports.safety_status.singleplayer": "在单人模式及自己开放的局域网世界中，你始终可以安全地聊天。",
+  "gui.nochatreports.safety_status.unintrusive": "此服务器允许你发送无法举报给Mojang的未签名消息。除非服务器安装了阻止聊天举报的插件，否则原版客户端仍会发送带签名的消息，将未签名消息标记为“未验证”，并在聊天选项中启用“仅显示安全的聊天”时将其隐藏。",
+  "gui.nochatreports.safety_status.insecure": "此服务器目前要求所有聊天消息都带有签名。所有带签名的消息都是潜在的罪证，可能在聊天举报中对你不利。",
+  "gui.nochatreports.encryption_warning.contents": "你可以使用密钥加密消息，只有知道此密钥的人才能解密它们。当提供合适的密钥并启用该功能时，No Chat Reports将自动解密所有加密消息。\n然而，请注意，加密不是万能的解决方案。第三方服务器的管理员可能因为你发送了在他们看来是乱码的聊天消息而将你禁言或封禁。此外，建议你生成自定义加密密钥，并仅通过安全通道将其传递给其他人。单击“了解更多”以了解应当如何以及何时使用加密。",
+  "algorithm.nochatreports.caesar": "§lCaesar§r\n玩梗用的密码。用上它，你基本上是在指望别人连尝试解密都懒得做就直接放弃。很多时候这也许确实会发生，所以它是否可用取决于你的威胁模型。\n密钥应为1到1024之间的整数。移位按字符编码而不是字母顺序进行，以兼容任何语言。",
+  "algorithm.nochatreports.aes_gcm_base64": "§lAES/GCM+Base64R§r\n以大幅增加消息长度换取更高的安全性（初始化向量占12字节，身份验证标签占12字节，还要再进行Base64编码）。如果你把安全放在首位，就选择此项。",
+  "option.NoChatReports.showEncryptionIndicators.tooltip": "切换加密消息指示符的显示：聊天消息左侧会显示紫色条，将鼠标悬停在消息上时，右侧会显示§5§l(§r§5ȯ§5§l)§r。",
+  "option.NoChatReports.hideInsecureMessageIndicators.tooltip": "阻止客户端在聊天消息左侧以灰色条的形式显示未验证的消息指示符。",
+  "option.NoChatReports.hideModifiedMessageIndicators.tooltip": "阻止客户端显示已修改消息的指示符：聊天消息左侧的灰色条，以及悬停时显示在右侧的§7§l(§r§7?§7§l)§r。",
+  "option.NoChatReports.hideWarningToast.tooltip": "删除在加入禁用§oenforce-secure-profile§r的服务器时显示的警告提示。",
+  "option.NoChatReports.demandOnClientMessage.tooltip": "当未安装No Chat Reports的客户端尝试加入服务器时，向该客户端显示的消息。"
+}

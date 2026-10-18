@@ -73,3 +73,26 @@
 P-ST003-01：是否把模组标题统一译成“机械动力：受电弓与接触网”？本轮两个标题保留英文品牌名，未自行采用。
 
 P-ST003-02：是否给上游同名的V／U形绝缘子和腕臂增加颜色区分？本轮未增加；这属于额外命名偏好，不是明确笔误。未确认为长期规则。
+
+## 2026-10-18 硬编码文字可达性复核
+
+核对当前缓存JAR字节码，修正此前仅列两条HUD的范围：
+
+- 两条高度差文字：ModClientEvents.init注册RENDER_HUD，回调遍历双手IWireItemBase并调用createHudInfoText；MultiWireItem转发到已注册的CatenaryHeadspanWireItem。软横跨设置进入相应阶段时显示，无开发环境门槛。属于正常架线操作可见文字，不是已证实的未使用内容。
+- `Type:`以及动态拼接`Amount: <数值>m`：MultiWireItem的物品悬浮说明直接添加。该类注册为ModItems.WIRE（wire_coil），进入主创造标签；普通线轴物品可见。Amount值来自getRemainingWire，可拟译“剩余长度：<数值>米”。此前遗漏这两条，不能称整个模组仅有两条硬编码玩家文本。
+- `Debug Wire Data`、`Nodes (by block)`、`Edges (by node)`、`Players Watching Chunks`等统计：ModClientEvents的DEBUG_TEXT_LEFT回调首先检查PantographsAndWires.useAdvancedLogging；当前实现直接返回Platform.isDevelopmentEnvironment()。因此正常发布环境不在F3显示，开发环境才可见，不计普通玩家缺译；不是整个代码库绝对无用的死代码。
+
+证据来自本机lang-audit/st003-path.txt对应JAR的javap：ModClientEvents、PantographsAndWires、ModItems、ModWireRegistry、MultiWireItem（含-v拼接模板）及CatenaryHeadspanWireItem。属于静态调用与注册检查，未在游戏实测；未声称穷尽全模组硬编码。补丁实现选择仍待用户决定，本轮未制作补丁。
+
+## 2026-10-19 TrainResync四条接触网文本补丁已构建
+
+用户授权将四条正常玩家可见文字放入TrainResync，而非新增独立模组。仅本次四条获准，KubeJS等其他硬编码处理方案仍待讨论。
+
+- TrainResync版本1.6.0.i；新增客户端Mixin CatenaryHeadspanWireItemMixin与MultiWireItemMixin，沿用现有pantographs模组存在性门控。前者仅将两个精确匹配的高度差标签改为Component.translatable，其他TextUtils.text调用转交原实现；后者替换线轴tooltip中的Type:与Amount:，剩余长度直接取原getRemainingWire数值，不解析显示字符串。未修改架线、计算、配方或调试统计。
+- 四个语言键位于TrainResync的assets/trainresync/lang/{zh_cn,en_us}.json：trainresync.paw.upper_tension_height_difference、top_support_height_difference、wire_type、remaining_length。中文为上部张力线高度差、顶部支撑线高度差、类型：、剩余长度：%s米。调整译文可用同namespace语言资源覆盖。新增代码补丁语言4键单列，本阶段此前4117条资源补译统计尚未合并这4键。
+- 在可见PowerShell中执行`.\gradlew.bat build`，退出0，BUILD SUCCESSFUL in 36s。成品`C:/mydata/Repositories/Create-Train-Resync/TrainResync/build/libs/trainresync-1.6.0.i-all.jar`已复制到pack/overrides/mods，旧h版已移出并备份到`C:/mydata/Agents/Codex-CreateTrainResync/lang-audit/before-trainresync-i/pack-trainresync-1.6.0.h-all.jar`。
+- 编译依赖PAW与此次审查缓存JAR的SHA256相同。检查成品包含两Mixin、客户端注册、中英文4键及占位符一致；MultiWireItemMixin的appendHoverText已生成m_7373_映射。构建源与包内副本SHA256均为f0f95c9fb4014ca97fd0ca66f9eb408a2db9d03b4385ce885c9569cee96400fc。以上是构建与静态验证，不等于Mixin运行时应用或游戏效果通过。
+- 按约定运行整合包build.bat，退出0，7z Everything is Ok，产物build/pack.zip，130875605字节。打包包含当前pack内其他未提交汉化资源，未额外做ZIP完整性测试。构建前output目录不存在。
+- 实例`C:/mydata/Program Files/Games/Minecraft/PCL2/.minecraft/versions/新岛铁道 v1.6.0`仍在运行，用户选择“先完成包内更新，实例稍后替换”。因此实例仍为原h版，本次未改实例或存档、未进游戏验证、未修改服务端来源、未提交或部署。
+
+后续：用户退出游戏并要求替换后，先核对无对应游戏进程，备份实例实际旧JAR（与包内旧版可能不同），只替换TrainResync，再启动验证：线轴tooltip类型及剩余长度、中英文切换、软横跨两阶段高度差HUD与原数值一致；检查日志是否有Mixin注入失败。不得将“已打包”记为“实例已安装”。

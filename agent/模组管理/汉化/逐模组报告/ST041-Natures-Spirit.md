@@ -64,3 +64,9 @@
 | `pack.natures_spirit.modified_flower_forest` | Modified Flower Forests | 改版繁花森林 |
 
 JSON、键覆盖、占位符静态检查通过。未全类扫描硬编码，未游戏验证、复制实例、打包或部署。
+
+## C17 用户复审确认（2026-10-18）
+
+用户确认保留“白垩岩→黑色白垩岩”：当前版本具有16色白垩岩系列；原中文中 black_chalk_slab、black_chalk_stairs 及 architecture_extensions.grouped_block.natures_spirit.black_chalk 分别已为“黑色白垩岩台阶”“黑色白垩岩楼梯”“黑色白垩岩”，只有完整方块漏掉颜色。此处依据为同一材质及系列命名一致性，不是认定贴图必须呈深黑色，也不推广为按英文颜色词一律改名的通用偏好。
+
+已核对当前JAR方块状态→模型→贴图引用：black_chalk 使用 cube_all，六面均为 natures_spirit:block/black_chalk，原图16×16，外观偏暖中灰。本机提取图为 C:/mydata/Agents/Codex-CreateTrainResync/lang-audit/c17-black-chalk.png；预览 c17-black-chalk-preview.png 仅最近邻放大、未调色。此次仅补充确认依据，未再次修改译文或增加修正计数。

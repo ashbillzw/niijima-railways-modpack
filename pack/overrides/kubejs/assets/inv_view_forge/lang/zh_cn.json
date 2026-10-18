@@ -1,0 +1,5 @@
+{
+  "inv_view_forge.command.error.inventory_in_use": "错误：此物品栏正在被另一名玩家使用！",
+  "inv_view_forge.command.error.dependency_not_found": "错误：未找到所需依赖！",
+  "inv_view_forge.command.error.player_without_backpack": "错误：该玩家目前未装备背包！"
+}

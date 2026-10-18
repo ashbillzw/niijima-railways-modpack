@@ -1,0 +1,7 @@
+{
+  "embeddium.search_bar_empty": "搜索选项…",
+  "embeddium.options.added_by_mod_string": "由模组添加：%s",
+  "embeddium.options.fullscreen.resolution.tooltip": "设置游戏全屏时的分辨率。",
+  "embeddium.options.use_quad_normals_for_lighting.name": "精确面着色",
+  "embeddium.options.use_quad_normals_for_lighting.tooltip": "启用后，Embeddium 会根据非原版方块表面的实际朝向进行明暗着色，而不是使用与坐标轴对齐的朝向。关闭 Forge 实验性光照管线时，这可以改善光照质量（为获得最佳性能，建议关闭该管线）。\n\n启用实验性光照管线时，此选项无效。"
+}

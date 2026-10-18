@@ -1,0 +1,20 @@
+{
+  "block.rsgauges.glass_interval_timer.help": "§6一种小型玻璃设备，能发出自定义高值和低值时间的方波红石信号。§r\n自定义的时间能用正面的按钮配置，范围在0.1秒(2 ticks) 到600秒(10分钟)之间。配置时当前时间值越大，按一次改变的步长也越大，反之亦然。 利用按钮还能配置输出信号强度和倾斜值， 倾斜值能改变红石信号改变的速度。 §e设备被放置时默认是待机模式。右击表面按钮可 设置为运行模式。§r 信号会输出到设备放置的方块上。输出信号切换时不会发出声音。 ${rsgauges.switch.feature.outputconfig.help} 作为开关连接的目标时会将设备在两种模式间切换。",
+  "block.rsgauges.industrial_interval_timer.help": "§6一种小型设备，能发出自定义高值和低值时间的方波红石信号。§r\n自定义的时间能用正面的按钮配置，范围在0.1秒(2 ticks) 到600秒(10分钟)之间。配置时当前时间值越大，按一次改变的步长也越大，反之亦然。 利用按钮还能配置输出信号强度和倾斜值， 倾斜值能改变红石信号改变的速度。 §e设备被放置时默认是待机模式。右击表面按钮可 设置为运行模式。§r 信号会输出到设备放置的方块上。 ${rsgauges.switch.feature.outputconfig.help} 作为开关连接的目标时会将设备在两种模式间切换。",
+  "block.rsgauges.industrial_lightning_sensor.help": "§6一种小型壁挂式设备，当在空气中探测到较高的电位时，也就是雷暴时 会发出红石信号。§r\n正面的按钮能设置输出信号的强度。 信号会输出到设备放置的方块上。 ${rsgauges.switch.feature.outputconfig.help} ${rsgauges.switch.feature.linksource.help}",
+  "block.rsgauges.industrial_switchlink_cased_receiver.help": "§6一个用完整方块包装的小型工业式双稳态开关设备，专为作为开关连接目标优化。 §r\n内部的继电器是消音的，因此非常安静。 也能像拉杆一样手动开关。 ${rsgauges.switch.feature.outputconfig.help} ${rsgauges.switch.feature.linktarget.help} ${rsgauges.switch.feature.linksource.help}",
+  "block.rsgauges.industrial_switchlink_receiver.help": "§6一个小型工业式双稳态开关设备，专为作为开关连接目标优化。 §r\n内部的继电器是消音的，因此非常安静。 也能像拉杆一样手动开关。 ${rsgauges.switch.feature.outputconfig.help} ${rsgauges.switch.feature.linktarget.help} ${rsgauges.switch.feature.linksource.help}",
+  "block.rsgauges.red_power_plant.help": "§6人造的红色花，看上去非常像虞美人。 当被实体触碰时会向上方方块和底部方块发出红石信号。 §r\n${rsgauges.switch.feature.outputconfig.help} ${rsgauges.switch.feature.contactmat.offdelay.help} ${rsgauges.switch.feature.linksource.help}",
+  "rsgauges.switch.feature.typebistable.help": "§6一种像拉杆一样手动调节状态的开关。\n",
+  "rsgauges.switchlinking.switchlink_pearl.use.targetgone": "目标开关已被破坏或变更位置",
+  "block.rsgauges.elevator_button": "脉冲红石开关（电梯按钮）",
+  "block.rsgauges.industrial_switchlink_receiver_analog": "开关连接模拟接收器 (工业式)",
+  "block.rsgauges.industrial_switchlink_receiver_analog.help": "一种小型设备，将收到的开关连接信号转换为模拟红石信号输出。可与模拟连接中继器、比较器开关或可调开关配合使用。\n${rsgauges.switch.feature.linktarget.help}",
+  "block.rsgauges.industrial_switchlink_relay_analog": "开关连接模拟中继器 (工业式)",
+  "block.rsgauges.industrial_switchlink_relay_analog.help": "一种小型设备，将检测到的红石信号强度无线传输至开关连接目标，自身不能输出红石信号。\n${rsgauges.switch.feature.linksource.help}",
+  "rsgauges.switch.feature.pulsetime.help": "手持一组红石左键可将脉冲持续时间固定在0.1秒(1)到6.4秒(64)之间。",
+  "rsgauges.switchconfig.blocksensor.filter.material_clay": "黏土／陶瓷",
+  "rsgauges.switchconfig.blocksensor.filter.material_water": "水／冰",
+  "rsgauges.switch.feature.linksource.help": "用开关连接珍珠左键此开关来使其成为连接源。",
+  "rsgauges.switch.feature.linktarget.help": "用末影珍珠左键此开关来得到与其连接的开关连接珍珠。"
+}

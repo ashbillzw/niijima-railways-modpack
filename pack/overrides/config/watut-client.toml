@@ -41,9 +41,9 @@
 	#Range: > -2147483648
 	screenTypingCharacterLimit = 50
 	#String to use when too many people are typing determined by screenTypingCharacterLimit
-	screenTypingMultiplePlayersText = "Several people are typing"
+	screenTypingMultiplePlayersText = "多人正在输入"
 	#String to use next to the typing player(s) name
-	screenTypingText = " is typing"
+	screenTypingText = " 正在输入"
 	#Plays a sound when a player opens some Guis
 	playScreenOpenSounds = true
 	#Plays a sutble sound when a player clicks their mouse in a Gui

@@ -1,0 +1,6 @@
+{
+  "immersive_paintings.error.image_load_failed": "无法载入图像，请检查日志！",
+  "immersive_paintings.error.no_permission": "没有权限！",
+  "immersive_paintings.material.jungle": "丛林木",
+  "immersive_paintings.confirm_deletion": "是否确认删除？删除一幅画会让所有已有的这幅画变为空白。你可以稍后用相同的画名替换这些已有的画。"
+}

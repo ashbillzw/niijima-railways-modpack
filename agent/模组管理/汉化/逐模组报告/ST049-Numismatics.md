@@ -19,3 +19,34 @@
 ## 2026-10-18 跨机保留
 
 102键草稿已复制到仓库[未应用草稿](../草稿/ST049-Numismatics-未应用.json)，仅作为待审校资料，不在pack中，不包含六种待定币名。本机生成脚本及字节码证据另外保存在跨机交接资料包；旧本机路径仅供追溯。
+
+## 2026-10-18 非币名文本已应用
+
+在用户继续全部翻译授权下，102条非币名草稿已经逐项对照当前英文并应用到pack/overrides/kubejs/assets/numismatics/lang/zh_cn.json。上文“尚未应用”仅指此前状态；六种币名仍未应用，不改变面额、配方或经济逻辑。占位符、强调标记和键名检查通过；未游戏验证。币制选项尚待回复，不能视为用户已选保留比例或十进制。
+
+仓库旧草稿保留作历史参考，实际生效文件以pack内覆盖为准。初筛仍不计完成。
+
+十条代表性译文：
+
+| 键 | 中文 |
+|---|---|
+| `advancement.numismatics.is_this_legal` | 这合法吗？ |
+| `advancement.numismatics.questionable_investment.desc` | 以高于面值的价格购买硬币<br>§7（隐藏进度） |
+| `block.numismatics.andesite_depositor` | 安山投币器 |
+| `block.numismatics.bank_terminal.tooltip.summary` | 用于访问自己的银行账户，或你_获得授权_的账户。 |
+| `block.numismatics.blaze_banker.tooltip.summary` | 以银行家的名义开设账户，方便多人共用。将_银行卡_放入对应槽位，即可绑定此银行家。 |
+| `block.numismatics.creative_vendor.tooltip.summary` | 售货机的_创造模式_版本，设置后永远不会装满或售罄。 |
+| `command.numismatics.arguments.enum.invalid` | 错误：无效的枚举值“%s”。有效值：%s |
+| `gui.numismatics.vendor.full.named` | 售货机已满，请联系%s清空 |
+| `item.numismatics.id_card.tooltip.summary` | _右击_绑定，_潜行点击_清除绑定。放入货币模组方块的_授权菜单_，即可允许绑定的玩家使用该方块。 |
+| `item.numismatics.blue_card` | 蓝色银行卡 |
+
+## 2026-10-18 币制决定：保留原兑换比例
+
+用户明确确认“肯定是保留原本的兑换比例”。仅讨论中文显示名称与面额标注，不改币值、兑换配方或经济机制。具体面额名称尚待确认，不将保留比例解释为已选定某枚币等于1元。
+
+已核对当前1.0.11 JAR的`dev.ithundxr.createnumismatics.content.backend.Coin`静态初始化与value字段：Spur=1、Bevel=8、Sprocket=16、Cog=64、Crown=512、Sun=4096（以Spur为基础单位）。字节码证据：本机工作目录`lang-audit/st049-Coin.txt`。若Spur命名为1元币，则依次为1、8、16、64、512、4096元币；这是待确认建议，尚未应用六个币名。
+
+## 2026-10-18 六种币名确认并应用
+
+用户确认最小币Spur为1元，采用1元币、8元币、16元币、64元币、512元币、4096元币，分别对应Spur、Bevel、Sprocket、Cog、Crown、Sun。保留原币值与兑换比例，仅修改六个中文显示名称，不修改配方、配置或代码。本次新增6键，ST049累计108键，覆盖当前108个英文键。JSON解析与键集合检查通过；未游戏验证、打包或提交。此前币名待定记录被本节替代。

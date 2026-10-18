@@ -1,0 +1,7 @@
+{
+  "text.cloth-config.disabled_tooltip": "已禁用（未满足条件）",
+  "text.cloth-config.save_and_done": "保存并退出",
+  "text.cloth-config.error.color.invalid_red": "不是有效值！（红色通道）",
+  "text.cloth-config.error.color.invalid_green": "不是有效值！（绿色通道）",
+  "text.cloth-config.error.color.invalid_blue": "不是有效值！（蓝色通道）"
+}

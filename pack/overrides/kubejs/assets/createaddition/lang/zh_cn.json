@@ -1,0 +1,23 @@
+{
+  "item.createaddition.diamond_grit_sandpaper.tooltip.summary": "用来_打磨_物品的砂纸。可以用机械手来实现自动化。",
+  "item.createaddition.diamond_grit_sandpaper.tooltip.condition1": "使用时",
+  "item.createaddition.diamond_grit_sandpaper.tooltip.behaviour1": "打磨_副手_中的物品，或_准星所指_的_地面_物品。",
+  "item.createaddition.spool.tooltip.condition1": "右击两个已连接的连接器时",
+  "item.createaddition.spool.tooltip.behaviour1": "解除它们之间的线缆连接，并返还对应的_线轴_。",
+  "itemGroup.createaddition.main": "机械动力：创想附加",
+  "createaddition.subtitle.loud_zap": "特斯拉线圈：电击",
+  "createaddition.subtitle.little_zap": "特斯拉线圈：迸出火花",
+  "item.createaddition.electrum_amulet.tooltip": "琥珀金护身符",
+  "statusbar.createaddition.wire.connect": "已选择线缆连接器",
+  "block.createaddition.accumulator.tooltip.summary": "存储电力。_已被弃用，可能会从未来版本中移除_。",
+  "item.createaddition.gold_goblet.tooltip.summary": "用这个_高脚杯_喝水好像比用普通瓶子喝水更舒服。",
+  "item.createaddition.gold_goblet.tooltip": "奢华高脚杯",
+  "item.createaddition.copper_spool.tooltip.summary": "用于存储线缆。",
+  "item.createaddition.festive_spool.tooltip.summary": "用于存储线缆。",
+  "item.createaddition.gold_spool.tooltip.summary": "用于存储线缆。",
+  "item.createaddition.electrum_spool.tooltip.summary": "用于存储线缆。",
+  "item.createaddition.spool.tooltip.summary": "用于存储线缆。",
+  "block.createaddition.large_connector.tooltip.behaviour2": "手持_金线轴_或_琥珀金线轴_时，可与最多 6 个其他_大型连接器_建立_线缆连接_。",
+  "createaddition.ponder.electric_motor.text_2": "在背面上滚动鼠标滚轮可改变电动马达的转速输出",
+  "block.createaddition.digital_adapter.tooltip.summary": "一种_计算机外围设备_，提供了控制_翻牌显示器_、_转速表_、_应力表_、_绳索滑轮_、_软管滑轮_，_升降机滑轮_，_动力活塞_、_动力轴承_和_转速控制器_的接口。"
+}

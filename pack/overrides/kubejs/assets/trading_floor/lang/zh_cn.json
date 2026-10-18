@@ -1,0 +1,5 @@
+{
+  "block.trading_floor.trading_depot.tooltip.summary": "与村民交易；注意村民_只会在白天正常的工作时间内交易_。",
+  "trading_floor.display_source.trade_completed_count": "已完成的交易计数",
+  "trading_floor.display_source.trade_product_sum": "交易物品总数"
+}
