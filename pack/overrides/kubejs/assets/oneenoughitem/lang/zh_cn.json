@@ -1,0 +1,4 @@
+{
+  "oneenoughitem.webeditor.open_browser": "Web编辑器已在 %s 启动，正在尝试通过系统命令打开浏览器",
+  "oneenoughitem.webeditor.open_browser_manual": "Web编辑器已在 %s 启动，请手动用浏览器访问"
+}

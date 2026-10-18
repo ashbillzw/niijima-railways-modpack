@@ -1,0 +1,16 @@
+{
+  "block.ctl.grid_ilb": "网格车内灯",
+  "block.ctl.sloped_ilb": "斜面车内灯",
+  "block.ctl.panel_ilb": "车内灯面板",
+  "block.ctl.halfpanel_ilb": "半幅车内灯面板",
+  "block.ctl.vertical_halfpanel_ilb": "竖向半幅车内灯面板",
+  "block.ctl.quarter_ilb": "四分之一车内灯",
+  "block.ctl.panel_htlb": "头尾灯面板",
+  "block.ctl.halfpanel_htlb": "半幅头尾灯面板",
+  "block.ctl.vertical_halfpanel_htlb": "竖向半幅头尾灯面板",
+  "block.ctl.quarter_htlb": "四分之一头尾灯",
+  "block.ctl.ilb_block": "车内灯方块",
+  "block.ctl.htlb_block": "头尾灯方块",
+  "item.ctl.ic_htlb_block": "头尾灯（半成品）",
+  "item.ctl.ic_ilb_block": "车内灯（半成品）"
+}

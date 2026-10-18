@@ -1,0 +1,12 @@
+{
+  "commands.curios.drop.success": "已丢出 %2$s 的 %1$s 栏位中的物品",
+  "commands.curios.dropAll.success": "已丢出 %s 的所有栏位中的物品",
+  "commands.curios.replace.success": "已将 %2$s 的 %1$s 栏位中的物品替换为 %3$s",
+  "gui.curios.toggle.cosmetics": "切换装饰品栏",
+  "gui.curios.page": "第 %d / %d 页",
+  "commands.curios.set.success": "已为 %3$s 将 %1$s 类型的栏位数量设为 %2$d",
+  "commands.curios.add.success": "已为 %3$s 添加 %1$d 个 %2$s 类型的栏位",
+  "commands.curios.remove.success": "已为 %3$s 移除 %1$d 个 %2$s 类型的栏位",
+  "curios.identifier.head": "头饰",
+  "curios.modifiers.head": "佩戴头饰时："
+}

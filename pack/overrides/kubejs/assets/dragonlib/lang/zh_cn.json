@@ -59,5 +59,11 @@
   "gui.dragonlib.scrollbar.step_down": "向下滚动",
   "compat.dragonlib.click_to_open_modpage": "点击打开模组页面",
   "compat.dragonlib.sodium_warn": "您正在使用%s。为避免彩色方块出现显示异常，请同时安装%s。",
-  "block.dragonlib.dragon": "龙"
+  "block.dragonlib.dragon": "龙",
+  "gui.dragonlib.scrollbar.left": "左侧",
+  "gui.dragonlib.scrollbar.right": "右侧",
+  "gui.dragonlib.scrollbar.page_left": "向左翻页",
+  "gui.dragonlib.scrollbar.page_right": "向右翻页",
+  "gui.dragonlib.scrollbar.step_left": "向左滚动",
+  "gui.dragonlib.scrollbar.step_right": "向右滚动"
 }

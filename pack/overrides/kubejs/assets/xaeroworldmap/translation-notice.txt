@@ -1,0 +1,7 @@
+Xaero World Map Chinese translation adaptation, 2026-10-17.
+Contains adaptations of the Simplified Chinese translations by CFPAOrg / Minecraft-Mod-Language-Package contributors.
+Source: https://github.com/CFPAOrg/Minecraft-Mod-Language-Package/blob/4e2d9d0859d34e7d92f74f2884cd086cd526aa7d/projects/1.18/assets/xaeros-world-map/xaeroworldmap/lang/zh_cn.json
+License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+https://creativecommons.org/licenses/by-nc-sa/4.0/
+Changes: adapted to Xaero World Map 1.47.0, corrected outdated descriptions and action labels, and added missing translations.
+The adapted xaeroworldmap/lang/zh_cn.json is distributed under the same license. No endorsement is implied.

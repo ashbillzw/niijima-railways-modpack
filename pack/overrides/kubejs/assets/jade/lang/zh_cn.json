@@ -1,0 +1,13 @@
+{
+  "config.jade.boss_bar_overlap_hide_tooltip": "隐藏提示框",
+  "config.jade.plugin_minecraft.harvest_tool.creative": "在创造模式中显示",
+  "config.jade.plugin_minecraft.harvest_tool.creative_desc": "在创造模式或旁观模式下也显示采掘信息",
+  "config.jade.edit_blocklist": "在文件中编辑屏蔽列表…",
+  "config.jade.display_item": "图标位置",
+  "config.jade.flip_main_hand": "随主手设置镜像提示框位置",
+  "config.jade.plugin_minecraft.tnt_stability_desc": "提示玩家此类特殊TNT被击打时会点燃。",
+  "jade.llamaStrength": "力量：%s",
+  "config.jade.plugin_minecraft.energy_storage.detailed_desc": "仅在按下[显示细节]键时显示能量信息。",
+  "config.jade.plugin_minecraft.fluid_storage.detailed_desc": "仅在按下[显示细节]键时显示流体信息。",
+  "config.jade.plugin_minecraft.item_storage.show_name_amount_desc": "显示物品名称（而不只显示图标）时允许的最大物品数量。"
+}

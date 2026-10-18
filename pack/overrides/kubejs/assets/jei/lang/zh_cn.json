@@ -1,0 +1,20 @@
+{
+  "key.jei.recipeForward": "下一配方",
+  "jei.config.client.advanced.recipeSyncWarningEnabled": "配方同步警告",
+  "jei.config.client.advanced.recipeSyncWarningEnabled.description": "服务器未向JEI提供同步配方时，在聊天栏显示警告（例如原版服务器或未安装JEI的服务器）。",
+  "jei.config.client.ingredientList.buttonNavigationVisibility": "翻页按钮可见性",
+  "jei.config.client.ingredientList.buttonNavigationVisibility.description": "顶部翻页按钮的可见性。设为AUTO_HIDE时，仅在有多页内容时显示。",
+  "jei.config.client.bookmarkList.buttonNavigationVisibility": "翻页按钮可见性",
+  "jei.config.client.bookmarkList.buttonNavigationVisibility.description": "顶部翻页按钮的可见性。设为AUTO_HIDE时，仅在有多页内容时显示。",
+  "jei.config.debug.debug.crashingTestItemsEnabled": "启用崩溃测试物品",
+  "jei.config.debug.debug.crashingTestItemsEnabled.description": "向JEI添加会故意触发崩溃的原料，用于调试JEI。",
+  "jei.message.missing.recipes.from.server": "JEI缺少配方。请在服务器上安装JEI，将配方同步到客户端。",
+  "jei.tooltip.cheat.mode.how.to.disable.hover.config.button.hotkey": "在此处按“%s”以切换。",
+  "jei.config.client.tooltips.holdShiftToShowBookmarkTooltipFeatures": "显示书签提示框的按键",
+  "jei.config.client.tooltips.holdShiftToShowBookmarkTooltipFeatures.description": "按住设置的按键以显示书签提示框功能。",
+  "jei.config.client.cheating.showTagRecipesEnabled.description": "显示物品标签、方块标签等原料标签的配方。",
+  "jei.config.client.ingredientList.navigationVisibility.description": "翻页按钮、滚动条等导航控件的可见性。设为AUTO_HIDE时，仅在列表内容超出显示区域时显示。",
+  "jei.config.client.bookmarkList.navigationVisibility.description": "翻页按钮、滚动条等导航控件的可见性。设为AUTO_HIDE时，仅在列表内容超出显示区域时显示。",
+  "jei.config.client.advanced.maxColumns.description": "原料列表和书签列表叠加层的最大宽度。",
+  "jei.config.debug.debug.logSuffixTreeStats": "记录搜索树统计信息"
+}

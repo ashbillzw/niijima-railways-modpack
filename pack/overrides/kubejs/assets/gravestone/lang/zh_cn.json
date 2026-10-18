@@ -1,0 +1,6 @@
+{
+  "config.jade.plugin_gravestone.grave": "墓碑",
+  "message.gravestone.died": "%s 死于 %s",
+  "message.gravestone.create_grave_failed": "无法放置墓碑",
+  "message.gravestone.death_not_found": "未找到死亡记录"
+}

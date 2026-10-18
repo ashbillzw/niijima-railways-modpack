@@ -142,5 +142,13 @@
   "gui.createrailwaysnavigator.route_overview.notification.transfer": "换乘%s→%s",
   "enum.createrailwaysnavigator.time_display.abs": "绝对时间",
   "gui.createrailwaysnavigator.saved_routes.in_days": "%s天后",
-  "gui.createrailwaysnavigator.saved_routes.in_the_past": "过去"
+  "gui.createrailwaysnavigator.saved_routes.in_the_past": "过去",
+  "gui.createrailwaysnavigator.line": "线路",
+  "gui.createrailwaysnavigator.advanced_display_settings.show_line_color": "显示列车线路颜色",
+  "gui.createrailwaysnavigator.advanced_display_settings.show_line_color.description": "使用当前列车线路的颜色高亮显示列车名称文本。",
+  "enum.createrailwaysnavigator.train_filter.same_line": "相同线路",
+  "enum.createrailwaysnavigator.train_filter.info.same_line": "只涵盖相同线路的列车。",
+  "createrailwaysnavigator.schedule.instruction.travel_section.train_line": " -设定列车线路：",
+  "gui.createrailwaysnavigator.global_settings.train_line.title": "列车线路",
+  "gui.createrailwaysnavigator.global_settings.train_line.description": "创建列车线路以便将不同列车分组，覆盖其显示名称并调整各线路的其他设置。（仅适用于已在调度中的列车）"
 }

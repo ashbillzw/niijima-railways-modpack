@@ -1,0 +1,9 @@
+{
+  "effect.fruitsdelight.brightening.description": "免疫失明和黑暗",
+  "effect.fruitsdelight.appetizing.description": "饱食度满时仍然可以吃东西和饮用饮品",
+  "effect.fruitsdelight.lozenge.description": "吃东西和饮用饮品更快",
+  "effect.fruitsdelight.heal_aura.description": "对周围的生物施加瞬间治疗",
+  "effect.fruitsdelight.sweetening.description": "免疫缓慢",
+  "fruitsdelight.tooltip.allow_jelly": "获得作为原料的果酱的效果",
+  "item.fruitsdelight.pineapple_marinated_pork": "菠萝咕噜肉"
+}

@@ -1,0 +1,11 @@
+{
+  "effect.minecraft.absorption.description": "给予不会自然恢复的伤害吸收生命值，用于承受伤害；等级越高，获得的伤害吸收生命值越多。",
+  "effect.minecraft.hero_of_the_village.description": "在与村民交易时获得折扣，并让村民根据自己的职业赠送物品。",
+  "effect.minecraft.speed.description": "提高移动速度；等级越高，玩家速度越快，视野越宽阔。",
+  "effect.minecraft.strength.description": "增加近战伤害；等级越高，伤害增幅越大。",
+  "effect.minecraft.weakness.description": "降低近战伤害；等级越高，伤害降幅越大。",
+  "effect.buzzier_bees.sunny.description": "模拟阳光。幻翼不会攻击拥有该效果的生物，蜜蜂拥有该效果时不会睡觉，亡灵生物拥有该效果时会燃烧。",
+  "effect.tetra.exhausted.description": "暂无效果说明",
+  "effect.tetra.steeled.description": "暂无效果说明",
+  "effect.xreliquary.pacification": "安抚"
+}
