@@ -83,6 +83,38 @@ function Expand-Index($Pack, $Index, [bool]$AllFiles) {
     Write-Index $Pack $Index
 }
 
+function Set-TestOptions($Pack) {
+    $path = Join-Path $Pack 'overrides/options.txt'
+    $lines = if (Test-Path -LiteralPath $path) { @([IO.File]::ReadAllLines($path)) } else { @() }
+    # Minecraft 1.20.1: sensitivity displays value * 200%; FOV stores (degrees - 70) / 40.
+    $settings = [ordered]@{ soundCategory_music = '0.1'; fov = '1.0'; mouseSensitivity = '0.25' }
+    foreach ($key in $settings.Keys) {
+        $lines = @($lines | Where-Object { -not $_.StartsWith($key + ':', [StringComparison]::Ordinal) })
+        $lines += $key + ':' + $settings[$key]
+    }
+    New-Item -ItemType Directory -Path (Split-Path $path -Parent) -Force | Out-Null
+    [IO.File]::WriteAllLines($path, [string[]]$lines, $Utf8)
+    Write-Host 'Test defaults: music 10%, FOV 110 degrees, mouse sensitivity 50%.'
+}
+
+function Set-TestWorldRules($Pack) {
+    $path = Join-Path $Pack 'overrides/kubejs/server_scripts/test_world_defaults.js'
+    if (Test-Path -LiteralPath $path) { throw "Reserved test script already exists: $path" }
+    $script = @'
+// Generated only for build-test. Applied on every local/server world startup.
+ServerEvents.loaded(event => {
+    event.server.runCommandSilent('gamerule doDaylightCycle false')
+    event.server.runCommandSilent('gamerule doWeatherCycle false')
+    event.server.runCommandSilent('time set day')
+    event.server.runCommandSilent('weather clear')
+})
+'@
+    New-Item -ItemType Directory -Path (Split-Path $path -Parent) -Force | Out-Null
+    [IO.File]::WriteAllText($path, $script, $Utf8)
+    Write-Host 'Test world defaults: daylight/weather cycles disabled, day, clear.'
+}
+
+
 function Compress-Pack($Pack, $Name, $Work) {
     $archive = Join-Path $Work 'pack.zip'
     Push-Location -LiteralPath $Pack
@@ -119,6 +151,10 @@ function Build-Pack($Branch, $Suffix, $Label, [string]$Kind) {
             $name = if ($Kind -eq 'test') { 'pack-test.zip' } else { 'pack.zip' }
         }
         if ($Kind -in @('test', 'modrinth')) { Expand-Index $pack $index ($Kind -eq 'test') }
+        if ($Kind -eq 'test') {
+            Set-TestOptions $pack
+            Set-TestWorldRules $pack
+        }
         Compress-Pack $pack $name $work
     } finally {
         # Only remove the unique staging directory created by this invocation.
