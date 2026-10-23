@@ -1,5 +1,7 @@
 # Agent 交接与通用维护要求
 
+> **待办维护位置更新（2026-10-24）：** 本文的待办／下一步／候选清单保留为历史与技术依据，不再独立维护状态；有效任务统一见[总 todo](todo-list.md)，炼药锅 mini todo 为例外。功能台账、测试步骤及来源证据仍在本文维护；旧“待实现／待决定”不覆盖总表及mini的最新结论。
+
 更新日期：2026-10-11。
 
 本文件记录跨任务通用要求和 general handoff 信息，是新 agent 接手时的入口。当前任务进度与剩余事项维护在 [todo-list.md](todo-list.md)，专题事实、命令与测量数据维护在对应专题文档。
@@ -298,3 +300,12 @@
 本轮剩余汉化资源、客户端tooltip脚本、配置提示和逐模组报告以WIP保存，未完成的审校／代码层残留继续按汉化报告处理。40个新增或修改JSON的解析与重复键检查、tooltip脚本语法检查通过，不代表游戏内排版及行为验收通过。此次仅整理提交，未重新构建或启动游戏；此前0.1.27的build和build-test均成功。
 
 炼药锅接续[测试反馈mini todo](物品整合/炼药锅测试反馈-20261019.md)：01–04已修待复测，05起继续讨论。helper独立本地仓库为64bf716，无远端；最新完整历史已导出并验证至 `C:/mydata/Agents/Codex-CreateTrainResync/跨机交接-20261019/milk-integration-helper.bundle`。跨机需单独携带该文件；20261018旧bundle不含最新源码。编译依赖、缓存、测试实例和日志不纳入Git，仍按旧交接说明另行准备。
+
+
+## 2026-10-24 收尾：炼药锅 mini todo 与集中待办
+
+本轮mini todo讨论与实现已完成，01–06、09待用户游戏复测；14留到未来helper迁入TrainResync时精简重构。新版helper 0.1.29已在包内与原PCL测试实例，编译／现有自检及56项Mixin静态检查通过，未宣称游戏验收。最后build.bat成功；build-test未重跑，旧pack-test.zip不能代表0.1.29。
+
+测试HTML按共用路径由149项精简为125项，入口差异和边界分支保留，移出映射及旧记录见全模组兼容排查。149项备份在独立工作区cauldron-test-page/backup-149-before-compact-20261024；旧进度可导入，评论保留，改动步骤重置状态。下次从HTML开始复测。总todo已汇集分散待办，专题旧队列标历史，禁止按旧段落重新实施已完成工作。
+
+helper独立Git main已提交59bfbaa（无远端），完整bundle已导出并verify至 C:/mydata/Agents/Codex-CreateTrainResync/跨机交接-20261024/milk-integration-helper.bundle。此前20261019 bundle已过时，不含0.1.28／0.1.29。TrainResync main无本轮改动。
