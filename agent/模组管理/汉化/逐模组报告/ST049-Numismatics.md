@@ -1,5 +1,7 @@
 # ST049 Create: Numismatics — 阶段记录
 
+> **待办维护位置更新（2026-10-24）：** 本文的待办／下一步／候选清单保留为历史与技术依据，不再独立维护状态；有效任务统一见[总 todo](../../../todo-list.md)，炼药锅 mini todo 为例外。功能台账、测试步骤及来源证据仍在本文维护；旧“待实现／待决定”不覆盖总表及mini的最新结论。
+
 日期：2026-10-17。状态：待讨论，尚未应用；不计入完成项或补译数量。
 
 当前 CreateNumismatics-1.0.11+forge-mc1.20.1.jar 有 108 个英文键、无中文。官方 Layers-of-Railways/CreateNumismatics 的 1.20.1/1.0.x（18b06ac5f2c49603ff436002e57b3b24b374a718）及 1.21.1/1.0.x（f1e990607169bd7e1dda541091a4b176882bd951）所查 common/src/main/resources/assets/numismatics/lang/zh_cn.json 均为空对象；不是已有完整中文可直接复用。

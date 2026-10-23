@@ -1,5 +1,7 @@
 # ST069 Configured 筛查报告
 
+> **待办维护位置更新（2026-10-24）：** 本文的待办／下一步／候选清单保留为历史与技术依据，不再独立维护状态；有效任务统一见[总 todo](../../../todo-list.md)，炼药锅 mini todo 为例外。功能台账、测试步骤及来源证据仍在本文维护；旧“待实现／待决定”不覆盖总表及mini的最新结论。
+
 日期：2026-10-18。
 
 英文62键，无自带中文；61个文本键补译，Configured品牌保留。官方仓库 https://github.com/MrCrayfish/Configured ，当前分支dd579a8d4f01b4ce71c20a15e7a8780058d636c0的common/src/main/resources/assets/configured/lang/en_us.json确认存在且62键，同目录中文404；新版3f03e0d70663a8ddf22b00bfb283db4c912b56f0中文亦404。未证明其他目录或PR无译文。保留Client/Common/Server分别为客户端／通用／服务端，区分重新加载世界与重启游戏；开发者身份是模组的授权机制，不擅自等同OP权限。
