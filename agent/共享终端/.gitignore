@@ -1,0 +1,6 @@
+session*.json
+__pycache__/
+*.py[cod]
+.venv/
+vendor/
+*.log
