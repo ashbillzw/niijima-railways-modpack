@@ -7,7 +7,7 @@ ServerEvents.recipes(event => {
         'design_decor:tinted_framed_glass_from_glass_tinted_stonecutting',
         'design_decor:horizontal_tinted_framed_glass_from_glass_tinted_stonecutting',
         'design_decor:vertical_tinted_framed_glass_from_glass_tinted_stonecutting',
-        // Existing OEI rules; these IDs simply do not match when the mod is absent.
+        // Confirmed in the installed Create: Misc & Things 4.0A recipe resources.
         'create_things_and_misc:train_stop_craft',
         'create_things_and_misc:copper_sticky_launcher_craft',
         'create_things_and_misc:brass_sticky_launcher_craft'
