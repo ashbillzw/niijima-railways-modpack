@@ -141,3 +141,20 @@ systemd 启动因上述 217/USER 失败，Python 未执行，两个 archive/ 仍
 随后只读确认 timer enabled、active/waiting、Persistent=yes，下一计划触发为 2026-10-25 09:00 UTC（北京时间 17:00）。mc-create-cn-r2、mc-train-cn-r2、mc-watchdog-r2 均 active。正式工作范围只有两服 automatic/ 和新 archive/，不包含上层原有手动备份。
 
 这次已验证手动触发的正式模式和timer配置，尚未等待首个整点触发，也未等待模组生成新备份/自然轮换，因此不能宣称这些未来事件已实测。未设置聊天监控或额外通知服务。开机后由 systemd 恢复日历任务，错过的触发补执行一次。
+
+## 2026-10-25 网页入口部署及验收
+
+用户审阅方案后明确指定两服同步使用以下文案。已修改 `/var/www/minecraft-backup/备份.html`，每服只更正一处旧链接文案并新增一行归档入口，其他 HTML（包括原有手动备份链接）保持不变：
+
+| 分区 | 文案 | 相对链接 |
+| --- | --- | --- |
+| create-cn | 全自动短期备份列表（原“全自动频繁备份列表”） | /create-cn-simple-backups |
+| create-cn | 全自动长期备份列表（新增） | /create-cn-archive/ |
+| train-cn | 全自动短期备份列表（原“全自动频繁备份列表”） | /train-cn-simple-backups |
+| train-cn | 全自动长期备份列表（新增） | /train-cn-archive/ |
+
+在 `/etc/nginx/conf.d/minecraft-backup.conf` 的 HTTPS 25572 server 中新增两服 archive 路由：`location ^~ /各服-archive/` 映射 `/synology/MCShare/minecraft/simplebackups/各服/archive/`，启用 autoindex，autoindex_exact_size off；精确匹配不带末尾斜线的入口并 301 到带斜线版本。原短期路由不变，25443 HTTP server 未增加路由。适用域名为现有 server_name 中的 mc1.ashbill.com 和 mc.yake.wang。
+
+部署前核对两份原文件 SHA-256，防止覆盖同期编辑；写入前后 `nginx -t` 均通过，平滑 reload 成功，未重启 Minecraft。这两份远端文件是现有站点文件，仓库仅保留本节的入口说明和验收结论，不收录一次性审阅 diff、整个站点或无关 Nginx 配置。
+
+验收：服务器经 127.0.0.1、正确域名/SNI 和证书校验，对两个域名的四个目录均检查入口重定向、列表、所有 ZIP 的 HEAD 大小与 Range 0–63 内容。create-cn 短期/长期各 4 份，train-cn 各 6 份，全部通过。网页 HTTP 内容哈希与本地审阅候选完全一致。另从本机访问公网 mc1.ashbill.com:25572 的备份页面及四个列表，全部返回 HTTPS 200，短期/长期文案各出现两次。未整份下载 ZIP，也未修改归档内容。
