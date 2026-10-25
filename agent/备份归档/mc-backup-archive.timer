@@ -1,0 +1,10 @@
+[Unit]
+Description=Hourly Minecraft backup archive
+
+[Timer]
+OnCalendar=hourly
+Persistent=true
+Unit=mc-backup-archive.service
+
+[Install]
+WantedBy=timers.target

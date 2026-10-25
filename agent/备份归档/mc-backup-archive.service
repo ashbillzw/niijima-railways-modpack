@@ -1,0 +1,18 @@
+[Unit]
+Description=Minecraft backup archive
+After=network-online.target
+Wants=network-online.target
+RequiresMountsFor=/synology/MCShare
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+ExecStart=/usr/bin/setpriv --reuid=1024 --regid=100 --clear-groups /usr/bin/python3 /usr/local/libexec/mc-backup-archive.py --config /etc/mc-backup-archive.json --mode dry-run
+TimeoutStartSec=15min
+KillMode=control-group
+UMask=0027
+NoNewPrivileges=true
+ProtectSystem=full
+ProtectHome=read-only
+PrivateTmp=true

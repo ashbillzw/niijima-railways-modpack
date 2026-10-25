@@ -1,0 +1,26 @@
+{
+  "completion_contract_verified": false,
+  "timezone": "UTC",
+  "minimum_age_seconds": 3600,
+  "mount": {
+    "target": "/synology/MCShare",
+    "source": "192.168.1.252:/volume1/MCShare"
+  },
+  "policy": {"min_days": 7, "ratio": 0.3, "max_days": 180},
+  "jobs": [
+    {
+      "name": "create-cn",
+      "logs": "/home/ashbill/minecraft-server/create-cn/logs",
+      "prefix": "create-cn_world_",
+      "source": "/synology/MCShare/minecraft/simplebackups/create-cn/automatic",
+      "archive": "/synology/MCShare/minecraft/simplebackups/create-cn/archive"
+    },
+    {
+      "name": "train-cn",
+      "logs": "/home/ashbill/minecraft-server/train-cn/logs",
+      "prefix": "train-cn_world_",
+      "source": "/synology/MCShare/minecraft/simplebackups/train-cn/automatic",
+      "archive": "/synology/MCShare/minecraft/simplebackups/train-cn/archive"
+    }
+  ]
+}
