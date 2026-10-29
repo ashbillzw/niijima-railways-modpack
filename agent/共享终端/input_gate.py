@@ -1,5 +1,32 @@
 import secrets
 import re
+import time
+
+
+class UiLease:
+    """UI heartbeat grants temporary presence, never permanent approval."""
+    def __init__(self, timeout=15, clock=time.monotonic):
+        self.timeout = timeout
+        self.clock = clock
+        self.last_seen = None
+        self.enabled = False
+
+    def expire(self):
+        if self.last_seen is None or self.clock() - self.last_seen >= self.timeout:
+            self.enabled = False
+        return self.enabled
+
+    def heartbeat(self):
+        self.expire()  # A returning page must not resurrect expired approval.
+        self.last_seen = self.clock()
+
+    def set_enabled(self, enabled):
+        self.heartbeat()
+        self.enabled = enabled
+
+    def disconnect(self):
+        self.enabled = False
+        self.last_seen = None
 
 # Device/status reports and focus notifications are terminal protocol traffic.
 # Keep forwarding them to the PTY, but never treat them as an edited command.

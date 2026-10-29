@@ -13,7 +13,7 @@ from urllib.parse import urlsplit
 ROOT = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / 'vendor'))
 from winpty import PtyProcess
-from input_gate import InputGate
+from input_gate import InputGate, UiLease
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--session-file', default='session.json')
@@ -24,7 +24,7 @@ ui_token, agent_token = secrets.token_urlsafe(32), secrets.token_urlsafe(32)
 lock = threading.RLock()
 chunks = collections.deque(maxlen=2048)
 sequence = 0
-allow_all = False
+approval = UiLease()
 gate = InputGate()
 terminal_env = dict(os.environ, TERM='xterm-256color', COLORTERM='truecolor')
 proc = PtyProcess.spawn(['cmd.exe', '/Q'], cwd=str(ROOT), env=terminal_env, dimensions=(32, 110))
@@ -41,6 +41,13 @@ def reader():
                 chunks.append((sequence, value, False))
     except (EOFError, OSError):
         pass
+
+def expire_approval():
+    while not closing.wait(1):
+        with lock:
+            approval.expire()
+
+closing = threading.Event()
 
 class Handler(BaseHTTPRequestHandler):
     def log_message(self, *_):
@@ -72,7 +79,6 @@ class Handler(BaseHTTPRequestHandler):
         self.reply(200, (ROOT / item[0]).read_bytes(), item[1])
 
     def do_POST(self):
-        global allow_all
         origin = f'http://127.0.0.1:{self.server.server_port}'
         if not self.valid_host() or self.headers.get('Origin', origin) != origin:
             return self.reply(403, {})
@@ -87,21 +93,29 @@ class Handler(BaseHTTPRequestHandler):
         try:
             data = json.loads(self.rfile.read(size))
             with lock:
+                approval.expire()
+                if closing.is_set():
+                    return self.reply(409, {'error': 'Terminal is stopping'})
                 if self.path == '/state':
+                    if is_ui:
+                        approval.heartbeat()
                     after = int(data.get('after', 0))
                     output = ''.join(t for n, t, hidden in chunks if n > after)
-                    return self.reply(200, {'version': 5, 'cursor': sequence, 'output': output, 'allow_all': allow_all, 'alive': proc.isalive(), 'user_input_active': gate.dirty, 'pending': gate.pending})
+                    return self.reply(200, {'version': 6, 'cursor': sequence, 'output': output, 'allow_all': approval.enabled, 'alive': proc.isalive(), 'user_input_active': gate.dirty, 'pending': gate.pending})
+                if self.path == '/ui-disconnect' and is_ui:
+                    approval.disconnect()
+                    return self.reply(200, {'ok': True})
                 if self.path == '/allow-all' and is_ui:
-                    allow_all = bool(data['enabled'])
-                    if allow_all and gate.pending is not None and not gate.dirty:
+                    approval.set_enabled(bool(data['enabled']))
+                    if approval.enabled and gate.pending is not None and not gate.dirty:
                         proc.write(gate.confirm(gate.pending['id']))
-                    return self.reply(200, {'allow_all': allow_all})
+                    return self.reply(200, {'allow_all': approval.enabled})
                 if self.path == '/input':
                     text = data['text']
                     if not isinstance(text, str):
                         raise ValueError('text must be a string')
                     if is_agent:
-                        result = gate.offer(text, require_confirmation=not allow_all)
+                        result = gate.offer(text, require_confirmation=not approval.enabled)
                         if result['status'] != 'sent':
                             return self.reply(409 if result['status'] == 'busy' else 202, result)
                     else:
@@ -119,9 +133,19 @@ class Handler(BaseHTTPRequestHandler):
                     gate.reject(data['id'])
                     return self.reply(200, {'status': 'discarded'})
                 if self.path == '/stop' and is_ui:
-                    proc.close(force=True)
-                    threading.Thread(target=self.server.shutdown, daemon=True).start()
-                    return self.reply(200, {'ok': True})
+                    approval.disconnect()
+                    try:
+                        proc.close(force=True)
+                        if proc.isalive():
+                            raise OSError('Terminal process is still alive')
+                    except Exception as exc:
+                        print('Terminal close failed: ' + repr(exc), file=sys.stderr, flush=True)
+                        return self.reply(500, {'error': 'Failed to close terminal'})
+                    closing.set()
+                    try:
+                        return self.reply(200, {'ok': True})
+                    finally:
+                        threading.Thread(target=self.server.shutdown, daemon=True).start()
             self.reply(404, {})
         except (ValueError, KeyError, TypeError):
             self.reply(400, {'error': 'Invalid request'})
@@ -130,9 +154,14 @@ server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
 session = {'url': f'http://127.0.0.1:{server.server_port}', 'ui_token': ui_token, 'agent_token': agent_token}
 session_file.write_text(json.dumps(session), encoding='utf-8')
 threading.Thread(target=reader, daemon=True).start()
+threading.Thread(target=expire_approval, daemon=True).start()
 print('Shared terminal ready at ' + session['url'], flush=True)
 try:
     server.serve_forever()
 finally:
-    proc.close(force=True)
-    session_file.unlink(missing_ok=True)
+    closing.set()
+    try:
+        proc.close(force=True)
+    finally:
+        server.server_close()
+        session_file.unlink(missing_ok=True)
