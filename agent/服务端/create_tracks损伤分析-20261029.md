@@ -2,6 +2,12 @@
 
 ## 结论
 
+**当前状态（北京时间2026-10-30 01:14，提交记录随后补充）：create-cn已使用27日原始DAT恢复运行，两服均出现本次启动Done且端口监听，看门狗随后启动，三项服务active/running；未进行入服及逐列车验收。TrainResync 1.6.0.j补丁已在独立仓库提交为 `80a91bc`，用户决定留待下次更新部署。以下停服和未实施描述保留为各调查阶段的历史。**
+
+**根因调查更新（2026-10-30）：远端崩溃栈、旧DAT修改时间及随后启动日志，高置信度支持“SavedData直接覆盖写盘期间，Minecraft内置ServerWatchdog因单tick超过60秒触发强制退出，留下截断文件”。第一次ZLIB EOF发生于北京时间10月29日03:04，早于08:06备份。堆内存接近耗尽可能促成卡顿，但没有GC日志可锁定具体慢因或泄漏模组。见文末根因调查；本次调查保持停服，没有修改远端。**
+
+**最新实施状态（北京时间2026-10-30 00:00）：用户最终选择27日原文件直接回退，不编辑列车。已将 create-cn 正式 DAT 改名为同目录 `create_tracks.dat.old7`，并从27日原始ZIP提取 DAT 到正式位置。两服与看门狗保持停止，未做游戏加载验证。此决定取代下文拼接及删除 kiha25 的讨论方案，详情见文末。**
+
 **当日补充：已对比 10 月 25、27、29 日备份及未带日期原件。25、27 日两份的 Gzip／NBT 结构完整；29 日备份已经截断，且与未带日期原件逐字节相同。最近确认结构完整的备份为 27 日，详见文末“备份时间线对比”。以下局部恢复结论仅针对损坏原件本身，不代表目前已无完整旧备份。**
 
 本次桌面副本发生尾部截断：Gzip 流未正常结束，且解压后的 NBT 在列车记录内部中断，并非只缺压缩文件尾。可以保留全部已完整解析的轨道网络、信号分组、维度表和 146 列列车；不能仅凭此文件无损恢复全部 151 列列车。
@@ -138,3 +144,115 @@ Minecraft 需要先把压缩 NBT 读成完整结构，Create 才能从 `RailGrap
 这一方向能让保留下来的列车使用同一快照的车厢、位置和运行状态，避免只让部分列车回到27日。但27日原有151列，删除 kiha25 后是150列；29日完整前缀中独有的两节“未命名列车”（UUID `221d3c5b-0e6b-4a76-9cd4-7191ea40ff73`）不会恢复，尾部如另有新增／重组列车也不会恢复。
 
 数量不能唯一证明尾部4列的身份：删除另一列旧车、同时新增一列新车仍可维持151列。统一回退也没有消除这一不确定性。只回退 DAT 时，世界中的轨道、车站、拆解后的方块和外部库存仍处在当前状态，旧轨道网络可能不匹配，旧列车／库存也可能重新出现。因此该方案提供列车快照内部的一致性，不等同整个世界的一致回档，也不能据此保证零复制风险。后续若决定制作，应先明确接受范围，再针对当前轨道与旧列车落点检查，不自动补入29日新增列车。
+
+## 远端原样回退已执行（北京时间2026-10-30 00:00）
+
+用户明确选择“27日原文件直接替换，暂不编辑列车”，随后通过选项批准改名及原样回退。通过共享终端的 `custom-sz-cn` SSH 会话执行；未修改列车NBT，kiha25仍在27日原始记录中。
+
+- 正式路径：`/home/ashbill/minecraft-server/create-cn/create-cn_world/data/create_tracks.dat`。
+- 原损坏文件已改名为同目录 `create_tracks.dat.old7`，4,683,103字节；沿用已有 `.old`、`.old2` 至 `.old6` 命名，不覆盖已有文件。
+- 来源：`/synology/MCShare/minecraft/simplebackups/create-cn/automatic/create-cn_world_2026-10-27_00-06-00.zip` 中的 `create-cn_world/data/create_tracks.dat`。此前单独提取的远端DAT已不存在，因此使用原始ZIP直接提取该成员，未解压整个世界或改动ZIP。
+- 新正式文件4,717,984字节；新旧两份权限均为664，属主均为 `ashbill:ashbill`。
+- 执行前检查两服及看门狗 `MainPID=0`，无Java进程；目标不是符号链接，`.old7`不存在。命令在任一步失败时停止。改名后以禁止覆盖方式执行 `unzip -p`，恢复原权限，检查预期大小并输出 `RESTORE_OK`。
+- 完成时两服仍为此前留下的 `failed` 状态、`MainPID=0`，看门狗 `inactive`、`MainPID=0`。本次没有启动服务、清除失败标记、修改train-cn世界或执行其他修复。
+- 验证止于提取成功、文件大小／权限／属主和服务停止状态。27日原件的Gzip／NBT完整性已在此前本地分析确认，本次未重复哈希或全量解析，未完成实际游戏加载验证。
+
+执行命令留在仓库外 `临时工作区/shared-terminal/tracks-restore-approved-command.txt`，阶段耗时见 `日志/任务耗时/track-dat远端回退-20261029-235210.jsonl`。后续接手先核对实时服务状态，不把本记录当作以后仍停服的证明。
+
+## 根因调查：保存过程被内置看门狗中断（2026-10-30）
+
+用户要求不重启，远端检查全为只读；两服及外部 `mc-watchdog-r2` 均保持停止。本地 TrainResync 源码按用户要求假设与服务器一致。以下结论区分直接破坏机制和更上游的性能诱因。
+
+### 时间线证据
+
+服务器日志与文件时间为UTC，下表统一换算为北京时间（UTC+8），均为2026年10月29日。
+
+| 北京时间 | 证据 |
+|---|---|
+| 02:58:22.413 | `2026-10-28-2.log.gz:708`：Server Watchdog报告单tick 61.05秒；下一行明确宣布强制关闭。`server.properties`实际为 `max-tick-time=60000`。日志中的0.05秒是目标tick时长，不是本服触发看门狗的阈值。 |
+| 02:58:32 | 崩溃文件 `crash-2026-10-28_18.58.32-server.txt`，类型 `Watching Server`；采样主线程处于NBT序列化／压缩写盘调用链。 |
+| 02:58:35.857 | 同一运行日志2491行确认崩溃报告已保存；35.859出现其他模组shutdown hook关闭日志。 |
+| 02:58:45.180809069 | 损坏原件（现 `.old7`）mtime，4,683,103字节。此时间接近报告保存后10秒强制退出窗口末尾；改名只更新ctime，没有把mtime变成回退时间。 |
+| 03:04:34.267 | 重启后的 `2026-10-28-1.log.gz:770`：`Error loading saved data: create_tracks`；820行原因是 `EOFException: Unexpected end of ZLIB input stream`，下方栈处于 `readDouble`。与本地定位到double中途截断相符。不要混淆344行网络SSL产生的另一条EOF。 |
+| 08:06:00.268–08:10:54.340 | `latest.log:4–5`：SimpleBackups开始并完成29日备份。文件在此前启动时已经损坏，排除“只有备份副本因并发复制而截断”的解释。 |
+
+崩溃栈关键调用链为 `MinecraftServer` 保存 → `ServerLevel` → `DimensionDataStorage` → `SavedData.save` → `NbtIo.writeCompressed` → `CompoundTag/ListTag.write`。线程状态RUNNABLE。栈没有携带当前文件名，结合DAT最后写入时间、随后针对create_tracks的EOF及原始截断形态，构成高置信度因果判断；不是逐次文件写入系统调用追踪。
+
+### 源码解释
+
+本机 `Create` checkout实际为MC1.21.1／Create6.0.10，不能直接当作本服0.5.1.j源码。此处使用此前核对的0.5.1.j `RailwaySavedData` 字节码、TrainResync本地源码，以及MC1.20.1源码，并用本机Forge47.4.6映射JAR再次核对写入和退出实现；崩溃报告显示服务器Forge47.4.6、Java21.0.5。
+
+1. Create的 `RailwaySavedData` 生成NBT并使用Minecraft `SavedData` 持久化；`SavedData.save(File)` 调用 `NbtIo.writeCompressed`。
+2. `NbtIo.writeCompressed(CompoundTag, File)` 直接 `new FileOutputStream(file)` 打开正式文件，旧内容先被截掉，再通过Gzip流写入新NBT。该路径没有“写完临时文件后再替换正式文件”的步骤。
+3. 内置 `ServerWatchdog` 超时后生成报告，调用 `System.exit(1)`，并安排10秒后 `Runtime.halt(1)` 兜底。进程强制结束时，正在其他线程进行的写入不能依靠try-with-resources保证补完NBT／Gzip尾部。
+4. 因而正式文件可停留在已写出的前缀。当前样本同时缺NBT后续内容和Gzip结束标记，正符合这一失败模式。mtime与退出窗口吻合，但不能仅凭mtime断言最后一刻一定走了halt而不是其他退出分支。
+
+导致损坏的机制是**非原子覆盖写入与强制退出相遇**。本次明确记录的退出触发者是Minecraft内置 `ServerWatchdog`；它与外部systemd服务 `mc-watchdog-r2` 是两个不同机制。此前手动停服及screen退出码1发生在损坏后，不能解释这次首次截断。
+
+### 上游卡顿原因及限制
+
+- 崩溃报告的Java堆为16,384 MiB，空闲仅约54 MiB（57,203,192字节），使用率约99.7%；参数 `-Xmx16G -Xms4G`。这是显著内存压力证据，GC压力是合理候选，但快照空闲量不等同GC后的存活对象量，也不能单凭它证明内存泄漏。
+- 已查对应运行的普通／debug日志，未找到 `OutOfMemoryError`、`GC overhead`、`Could not save data`、`No space left` 或 `Input/output error`。没有这些消息不能排除GC停顿或主机级I/O问题。
+- 前一分钟已有多次2–3秒落后警告。采样时处在写盘路径，不意味着整个61.05秒都耗在这一份DAT上；缺少当时的GC／性能记录，不能把全部耗时归给序列化、压缩或磁盘中的某一项。
+- 正式DAT位于本机NVMe的ext4文件系统；NAS存放备份。当前磁盘仍有86GiB可用，但当前余量不能当作事故时历史余量。
+- 实例目录两层内未找到GC日志或堆转储；已有两份hs_err分别来自4月及7月，不能当作本次证据。系统／内核journal普通用户不可读，`sudo -n`提示需要密码，所以本轮未取得相关系统日志，也不能声称已排除内核OOM或硬件错误。
+- TrainResync相关 `CarriageMixin` 写入的是额外旋转及受电弓NBT字段，没有接管文件输出或执行截断；没有证据表明本次由其主动截断。未做堆剖析，不能据此排除任何模组对总体内存压力的间接影响。
+
+### 后续修复方向（未实施）
+
+防止再次损坏应优先考虑该SavedData保存路径的临时文件写入与同文件系统原子替换：完整写成并关闭后再替换正式文件，保存被中断时保留上一份正式内容。另行调查高内存压力及保存卡顿。单纯提高或关闭看门狗阈值只能改变超时触发条件，不能解决非原子写入风险；本轮不修改阈值、源码、服务或任何远端文件。
+
+原始摘录和本地源码证据均在仓库外 `临时分析/create-tracks-20261029/`：`rootcause-remote-crash-excerpt.txt`、`rootcause-remote-timeline.txt`、`rootcause-memory-evidence.txt`、`rootcause-final-evidence.txt`、`SavedData.java`、`NbtIo.java`、`ServerWatchdog.java`、`save-watchdog-47.4.6.javap.txt`。报告中的源码结论优先于上方此前“未取得服务端堆栈”的历史限制。
+
+## TrainResync原子保存Mixin评估（2026-10-30，未实施）
+
+用户仅要求评估，保持停服。TrainResync仓库 `main` 在检查时干净，现有Mixin／MixinExtras依赖齐全；本轮没有修改其代码、构建、部署或操作远端。
+
+- **可行，改动可控**：建议1个Mixin、1个小型文件写入辅助类、Mixin JSON增加1项；发布时再改版本号和说明。现有插件已能按 `create.*` 分组检查Create是否存在，无需新增依赖或服务。
+- **注入位置**：文件保存方法实际继承自Minecraft的 `SavedData.save(File)`，应在此方法针对 `RailwaySavedData` 实例及 `create_tracks.dat` 定向处理，其他SavedData走原流程。可采用带范围判断的可取消HEAD注入，无需全局替换 `NbtIo` 或 `@Overwrite`。继续调用原有铁路NBT生成逻辑，保留 `data` 包装与DataVersion，不改列车UUID、数据结构、位置或运行图。
+- **流程**：生成NBT → 正式文件同目录创建本次临时文件 → 使用既有NBT/Gzip写法完整写入并关闭 → 原子替换正式DAT → 清除dirty标记。原文件在替换成功前保持完整，不每次另增 `.oldN`。
+- **失败语义不可漏掉**：原版SavedData在捕获IOException后仍执行 `setDirty(false)`；因此不能只替换一个写入调用就宣称完成。补丁需仅在提交成功后清dirty，失败记录错误并保留dirty供后续正常保存重试；不静默退回非原子覆盖。异常退出残留的临时文件不能被当作正式存档自动加载。
+- **文件系统边界**：临时文件必须同目录，不能放系统临时目录或NAS。现服目标为本机ext4，适合此方案，但Java原子替换既有目标的行为仍需在目标Linux/JVM环境验证。Java规范说明 `ATOMIC_MOVE` 下其他选项被忽略，既有目标能否替换取决于实现，不可声称加上 `REPLACE_EXISTING` 就保证所有平台成功；不支持时应保留旧文件并报错。依据：[Java17 Files.move](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Files.html#move(java.nio.file.Path,java.nio.file.Path,java.nio.file.CopyOption...))。
+- **风险与成本**：正常路径仍只生成、压缩一次NBT，额外成本主要是创建临时文件、属性处理和rename，峰值多占一份压缩DAT（当前约4.7MB），不需要在内存中再复制整份压缩数据。要保留现有属主／组／权限，避免临时文件默认权限改变正式文件可访问性；其他模组如同样接管SavedData保存，也需要确认注入兼容性。
+- **保护范围**：针对JVM被watchdog／强制终止时，正式文件保持上一份完整内容或新完整内容；可能损失尚未成功提交的进度，不解决内存压力、卡顿或所有世界文件的一致快照。原子可见性不等于断电持久性，后者涉及文件与目录同步，不能无条件承诺。
+- **验证重点**：隔离目录中的正常写入与替换、写入／替换失败保留旧文件及dirty、写入过程中结束独立测试子进程、下次重试、权限保持；再在隔离Forge实例验证Mixin命中与其他SavedData不受影响。开发机Windows通过不能代替Linux原子替换验证。当前仅评估，未执行这些测试。
+
+结论：这是小型补丁，范围风险较低；因接触正式存档持久化，验证要求高于普通显示或交互修复。建议优先限制到铁路DAT，故障保护验证通过后再讨论部署，不顺带扩大到所有世界文件或引入异步保存。
+
+### 用户后续决定与当前保存间隔（2026-10-30）
+
+用户决定暂不实施原子保存Mixin，优先调查导致保存卡顿的根本问题。该Mixin仍只是评估方案，没有开发或部署。
+
+只读核对远端 `/home/ashbill/minecraft-server/create-cn/config/servercore/config.yml`：`features.autosave-interval: 6000`，配置说明为 `/save-on` 有效时两次自动保存之间的tick数。正常20 TPS对应300秒，即约5分钟；TPS降低时实际墙钟间隔延长，不能理解为固定每5分钟成功落盘。
+
+本机Create0.5.1.j字节码确认 `Train.tick(Level)` 首先调用 `Create.RAILWAYS.markTracksDirty()`，后者在已有savedData时调用 `setDirty()`。这是内存中的待保存标记；由世界保存流程进入 `SavedData.save(File)` 后，dirty数据才进行完整NBT／Gzip文件重写，并非每tick写盘或增量追加。正常停服和显式保存也属于额外保存触发；6000tick与SimpleBackups每两天生成ZIP的间隔是不同机制。
+
+本轮状态检查两服 `MainPID=0`，外部看门狗inactive；未改配置或启动服务。新增字节码取证位于仓库外 `临时分析/create-tracks-20261029/GlobalRailwayManager.javap.txt`，列车tick证据仍见同目录 `Train.javap.txt`。
+
+### 后续讨论：原子保存与启动阻断配合（2026-10-30，未实施）
+
+用户提出重新考虑原子保存，并要求保存被打断或正式DAT损坏时直接阻止服务器启动，避免玩家在异常铁路状态下继续游玩；随后明确为同时检查正式DAT和临时DAT是否存在。本次仍为方案讨论，没有修改代码或部署。
+
+- 临时文件本身可作未完成保存标记，无需另设标记文件。应在开始本次铁路保存前创建，完整写入并关闭后原子替换正式DAT；提交成功时临时路径随rename消失。
+- 启动时发现临时文件，即按上次保存未完成／未提交处理，阻止启动并保留现场；即便临时文件能解析，也不自动提升为正式文件。不应在失败处理或下次启动时自动清理它来绕过阻断。这项要求优先于仅保留dirty并后台继续重试的早期方案，运行期间明确保存失败后的停服策略仍需一并设计。
+- 无临时文件时，检查正式文件完整Gzip流（包括尾部校验）、NBT结构及必要的铁路字段／身份引用。已管理世界正式DAT缺失也应阻断；合法新世界初始化需区分处理。结构验证无法识别所有仍能解析的逻辑错误或合法旧版本替换，更不能单独证明DAT与世界区块完全一致。
+- 本地MC1.20.1源码及Forge47.4.6字节码确认：`DimensionDataStorage.readSavedData`捕获Exception、记录错误并返回null；`computeIfAbsent`随后可创建新数据。因此致命启动失败不能被该通用catch吞掉，也不能先创建空铁路数据再停服。应在允许玩家进入及Create接受异常数据之前阻断，并确保退出过程不把空数据写回。
+- 正常20TPS且每轮保存成功时，丢失进度大致为一个保存周期加上当次保存耗时；6000tick并非严格5分钟墙钟上限。低TPS、长保存或此前连续失败都会扩大间隔。启动阻断限制故障后的继续游玩，不是多文件事务回滚。
+- 外部看门狗／自动重启需要识别这种明确的数据故障，避免反复重启掩盖问题；仅评估，未修改当前服务配置。
+
+新增证据：仓库外 `临时分析/create-tracks-20261029/DimensionDataStorage-47.4.6.javap.txt`。服务器本轮未操作，继续沿用停服要求。
+
+## TrainResync实现完成，尚未部署（2026-10-30）
+
+用户随后明确授权实现原子保存及异常启动阻断，取代此前“暂不开发”的决定。代码位于 `D:\mydata\Repositories\Create-Train-Resync` 的 `main` 分支，版本1.6.0.j；随后已提交为 `80a91bc`，尚未部署。
+
+- 新增 `create.RailwaySavedDataMixin`、`create.RailwayDataStorageMixin`，分别定向接管铁路DAT保存和严格读取；其他SavedData保持原路径。
+- `AtomicRailwayFile` 在生成NBT前创建同目录 `create_tracks.dat.trainresync.tmp`，保留文件访问属性、完整写入关闭并同步文件后执行原子替换，不降级为普通覆盖。失败保留临时文件；仅成功后清dirty。
+- `RailwayDataGuard` 检查启动文件状态，验证完整Gzip及必要NBT／身份引用，解码异常不再被原版吞掉并回退为空铁路数据。运行时明确保存失败会请求正常停服，并阻止退出期间再次覆盖铁路DAT。不会自动恢复、删除临时文件或生成连续.old备份。
+- 通过启动前的世界目录状态识别新世界；已有level.dat、level.dat_old、region、data或维度目录不能借缺失DAT自动初始化。专用服可在AboutToStart阶段拦截明显文件状态异常；集成服等到进度监听器建立后由严格读取入口拦截，避免过早失败卡住客户端等待过程。真实Forge启动效果尚未实测。
+- 构建命令：`gradlew --offline build railwaySafetyTest -PtracksFixture=<27日DAT> -PdamagedTracksFixture=<29日DAT>`。最后一轮28项隔离检查全部通过，涵盖正常原子替换、写入／提交失败、强制终止测试子进程、临时文件和缺失DAT阻断、新世界边界、Gzip尾部／校验错误、必要NBT字段及重复身份／悬空轨道引用。真实27日健康样本通过，29日损坏样本被拒绝；输入原件全程只读。
+- 首轮真实样本测试发现维度表实际为Compound列表，已按Create0.5.1.j格式修正并回归通过。当前仍有原有两条Pantographs Mixin目标写法警告，无新增编译错误。
+- 分发产物：`TrainResync/build/libs/trainresync-1.6.0.j-all.jar`，691,049字节；包含MixinExtras0.5.0。新增Mixin及生产refmap已核对。普通不带all的JAR不是本次推荐交付件。
+- **验证范围**：Windows／Java17辅助类及文件系统隔离测试、编译／重混淆／打包检查完成；没有启动Minecraft实例验证实际Mixin应用，没有Linux运行验证。远端服务器、看门狗、模组文件和配置本轮均未操作，仍要求保持停止。未修改外部看门狗的重试策略。
+
+补丁仍不解决内存／卡顿根因，也不提供整个世界的一致事务或无条件断电保证。若磁盘已不可写，可能连临时标记也无法创建；此时会报错并请求停服，但不能承诺故障标记已经持久化。详细恢复步骤与测试入口见TrainResync仓库README。

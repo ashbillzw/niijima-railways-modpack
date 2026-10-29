@@ -8,6 +8,12 @@
 
 ## 远端停服交接（2026-10-29）
 
+- **恢复运行（北京时间2026-10-30 01:14）**：用户决定暂缓 TrainResync 1.6.0.j 部署至下次更新，并批准恢复两服及看门狗。两服于01:12:59启动，train-cn 01:13:18、create-cn 01:13:23记录本次 `Done`，25590／25591监听；本次日志检查未见 create_tracks 读取错误。随后01:14:06启动 `mc-watchdog-r2`，三项服务均为 `active/running`。create-cn 使用此前原样回退的27日DAT，未编辑列车；未部署新补丁。以下“保持停止”记录为此前阶段状态，已由本条替代。未进行客户端入服或逐列车验收。
+
+- **本地保护补丁（2026-10-30）**：TrainResync 1.6.0.j已实现铁路DAT原子保存、临时文件／损坏正式DAT启动阻断；Windows隔离28项检查与离线构建通过，Forge实际加载及Linux运行验证未做。产物在 `D:\mydata\Repositories\Create-Train-Resync\TrainResync\build\libs\trainresync-1.6.0.j-all.jar`。已提交至TrainResync `main` 的 `80a91bc`，未部署，留待下次服务器更新；两服及看门狗已按上一条恢复运行。详情见下方DAT专题。外部看门狗重试策略未改。
+
+- **最新修复状态（北京时间2026-10-30 00:00）**：用户批准将 create-cn 的 `create-cn_world/data/create_tracks.dat` 改名为同目录 `.old7`，并从27日原始ZIP原样恢复DAT；已完成，未删除 kiha25 或编辑其他列车。两服 `MainPID=0`、仍保留此前failed状态，看门狗inactive；未启动或进行游戏加载验证。来源、路径和验收见 [DAT损伤分析](服务端/create_tracks损伤分析-20261029.md)。下方“尚未执行修复”是较早停服时的历史状态。
+
 - 用户为准备修复，已批准在 `custom-sz-cn` 先停止 `mc-watchdog-r2`，再停止 `mc-create-cn-r2`、`mc-train-cn-r2`。三项服务于北京时间 17:41:20–17:41:24 停止；本次保持停服，尚未执行修复或重新启动。
 - 两服 `logs/latest.log` 均记录 `All dimensions are saved`；17:43 核查无残留 Java 进程。看门狗为 `inactive (dead)`；两服因 screen 主进程退出码 1 标记为 `failed`。train-cn 停止时另有 JLine／stty 输入输出异常，create-cn 有 DH 线程池关闭警告；日志随后均确认存档完成，异常原因尚未诊断。
 - 本轮通过共享终端操作。接手先只读核对实时状态；上述记录是本次停服证据，不代表以后仍停服。远端修改继续遵守用户要求的命令说明及选项框审批。
