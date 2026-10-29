@@ -20,6 +20,29 @@ function Write-Index($Pack, $Index) {
     [IO.File]::WriteAllText((Join-Path $Pack 'modrinth.index.json'), ($Index | ConvertTo-Json -Depth 100), $Utf8)
 }
 
+function Sync-PackVersion($Pack, $Index) {
+    $title = [string]$Index.name
+    if (-not $title -or $title -match "['\r\n]") { throw 'Invalid pack display name.' }
+    $targets = @(
+        @{ Path = 'overrides/config/fancymenu/options.txt'; Pattern = "(?m)^([ \t]*S:custom_window_title[ \t]*=[ \t]*')[^'\r\n]*('[ \t]*;[ \t]*\r?)$" },
+        @{ Path = 'overrides/config/fancymenu/assets/copyright.txt'; Pattern = '(?m)^([ \t]*)新岛铁道[ \t]+v[^\r\n]*?([ \t]*\r?)$' }
+    )
+    $updates = foreach ($target in $targets) {
+        $path = Join-Path $Pack $target.Path
+        $text = [IO.File]::ReadAllText($path)
+        $pattern = [regex]$target.Pattern
+        if ($pattern.Matches($text).Count -ne 1) { throw "Expected one pack version entry: $path" }
+        $updated = $pattern.Replace($text, [System.Text.RegularExpressions.MatchEvaluator]{
+            param($match)
+            $match.Groups[1].Value + $title + $match.Groups[2].Value
+        })
+        @{ Path = $path; Text = $updated }
+    }
+    # Only touch the staging copy; never replace version-like text throughout the pack.
+    Write-Index $Pack $Index
+    foreach ($update in $updates) { [IO.File]::WriteAllText($update.Path, $update.Text, $Utf8) }
+}
+
 function Test-CachedFile($Path, $Entry) {
     if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) { return $false }
     if ((Get-Item -LiteralPath $Path).Length -ne $Entry.fileSize) { return $false }
@@ -146,10 +169,11 @@ function Build-Pack($Branch, $Suffix, $Label, [string]$Kind) {
             $extension = if ($Kind -eq 'modrinth') { 'mrpack' } else { 'zip' }
             $name = "$($index.name).$extension"
             if ($name.IndexOfAny([IO.Path]::GetInvalidFileNameChars()) -ge 0) { throw "Invalid output name: $name" }
-            Write-Index $pack $index
         } else {
             $name = if ($Kind -eq 'test') { 'pack-test.zip' } else { 'pack.zip' }
         }
+        # Shared by all variants; a future full release must keep this step too.
+        Sync-PackVersion $pack $index
         if ($Kind -in @('test', 'modrinth')) { Expand-Index $pack $index ($Kind -eq 'test') }
         if ($Kind -eq 'test') {
             Set-TestOptions $pack
