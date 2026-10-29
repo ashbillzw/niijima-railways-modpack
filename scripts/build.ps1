@@ -172,6 +172,14 @@ function Build-Pack($Branch, $Suffix, $Label, [string]$Kind) {
         } else {
             $name = if ($Kind -eq 'test') { 'pack-test.zip' } else { 'pack.zip' }
         }
+        if ($Kind -eq 'test') {
+            if ([string]$index.versionId -notmatch '^(\d+\.\d+)') { throw 'Invalid base version for test build.' }
+            $baseVersion = $Matches[1]
+            $sequencePath = Join-Path $Build "test-sequence-$baseVersion.txt"
+            $sequence = if (Test-Path -LiteralPath $sequencePath) { [int](Get-Content -LiteralPath $sequencePath -Raw) + 1 } else { 1 }
+            $index.versionId = '{0}.test{1:D4}' -f $baseVersion, $sequence
+            $index.name = "新岛铁道 v$($index.versionId)"
+        }
         # Shared by all variants; a future full release must keep this step too.
         Sync-PackVersion $pack $index
         if ($Kind -in @('test', 'modrinth')) { Expand-Index $pack $index ($Kind -eq 'test') }
@@ -180,6 +188,7 @@ function Build-Pack($Branch, $Suffix, $Label, [string]$Kind) {
             Set-TestWorldRules $pack
         }
         Compress-Pack $pack $name $work
+        if ($Kind -eq 'test') { [IO.File]::WriteAllText($sequencePath, [string]$sequence, $Utf8) }
     } finally {
         # Only remove the unique staging directory created by this invocation.
         $resolved = [IO.Path]::GetFullPath($work)
