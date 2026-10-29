@@ -172,10 +172,8 @@ def success_intervals(log_dir, backups, timezone):
 
 def logged_success(backup, intervals):
     # Backup filename is generated after save-all, between start and completion.
-    # mtime should precede completion (capacity cleanup can delay its log line).
-    mtime = backup.signature[3] / 1_000_000_000
-    return any(start <= backup.timestamp <= end and
-               backup.timestamp <= mtime <= end + 2 for start, end in intervals)
+    # NAS mtime and JVM log timestamps need not share a synchronized clock.
+    return any(start <= backup.timestamp <= end for start, end in intervals)
 
 
 def run_job(config, job, mode, now):

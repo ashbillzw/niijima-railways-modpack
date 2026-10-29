@@ -172,6 +172,24 @@ class FilesystemTests(unittest.TestCase):
             self.run_mode('prune')
         self.assertEqual(list(self.archive.iterdir()), [])
 
+    def test_success_log_accepts_nas_clock_skew(self):
+        for day, offset in ((1, 33.45), (2, -120)):
+            with self.subTest(offset=offset):
+                src = self.make(day)
+                stamp = datetime(2025, 1, day, tzinfo=timezone.utc).timestamp()
+                mtime = stamp + 61 + offset
+                os.utime(src, (mtime, mtime))
+                self.run_mode('link-only')
+                self.assertTrue(os.path.samefile(src, self.archive/src.name))
+
+    def test_unrelated_success_interval_blocks_archive(self):
+        self.make(1)
+        log = self.logs/'latest.log'
+        log.write_text(log.read_text().replace('01Jan2025', '02Jan2025'))
+        with self.assertRaisesRegex(ValueError, 'No matching successful'):
+            self.run_mode('link-only')
+        self.assertEqual(list(self.archive.iterdir()), [])
+
     def test_failed_backup_log_blocks_archive(self):
         self.make(1)
         p = self.logs/'latest.log'
