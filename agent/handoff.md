@@ -6,6 +6,17 @@
 
 本文件记录跨任务通用要求和 general handoff 信息，是新 agent 接手时的入口。当前任务进度与剩余事项维护在 [todo-list.md](todo-list.md)，专题事实、命令与测量数据维护在对应专题文档。
 
+## 远端停服交接（2026-10-29）
+
+- 用户为准备修复，已批准在 `custom-sz-cn` 先停止 `mc-watchdog-r2`，再停止 `mc-create-cn-r2`、`mc-train-cn-r2`。三项服务于北京时间 17:41:20–17:41:24 停止；本次保持停服，尚未执行修复或重新启动。
+- 两服 `logs/latest.log` 均记录 `All dimensions are saved`；17:43 核查无残留 Java 进程。看门狗为 `inactive (dead)`；两服因 screen 主进程退出码 1 标记为 `failed`。train-cn 停止时另有 JLine／stty 输入输出异常，create-cn 有 DH 线程池关闭警告；日志随后均确认存档完成，异常原因尚未诊断。
+- 本轮通过共享终端操作。接手先只读核对实时状态；上述记录是本次停服证据，不代表以后仍停服。远端修改继续遵守用户要求的命令说明及选项框审批。
+- 同日退出码只读诊断：两服单元均为 `Type=forking`，主进程是 GNU screen 4.09.00；启动脚本仅调用 Java，没有主动 `exit 1`。`ExecStop` 直接使用 Bash 写法 `$'stop\n'`，但 systemd 不经 Bash，`systemctl show` 中参数显示为 `$stop` 加换行；该写法需修正。此外 `screen -X stuff` 只发送输入便返回，没有等待服务退出；实际 `KillMode=control-group`、`KillSignal=15`，按 [systemd ExecStop 文档](https://www.freedesktop.org/software/systemd/man/latest/systemd.service.html#ExecStop=) 会立即向残留进程发送终止信号。journal 显示两服 screen 均在 09:41:20 UTC 以 1 退出，而 Minecraft 至 09:41:23–24 才保存完成，因此 screen 的 1 不能解释为 Java 退出码；与上述停止时序问题一致。建议正确发送 stop 并同步等待退出，不仅用 `SuccessExitStatus=1` 隐藏状态。尚未修改单元或做启动／停止复测，仍保持停服。
+
+- Screen 退出码补充核实（同日）：[GNU Screen 4.9.0 源码（Debian Sources）](https://sources.debian.org/src/screen/4.9.0-4/screen.c/) 将 `SIGTERM` 注册到 `FinitHandler`，该处理函数直接调用 `Finit(1)`，最终 `exit(1)`；不是根据 Minecraft 保存进度或 Java 退出码决定的。当前 systemd 发送 SIGTERM 后 screen 返回 1 符合这条既有代码路径。不能仅凭这个 1 认定 Minecraft 崩溃或必须改造停服流程；本次两服保存完成另有日志证据。没有修改远端。
+
+- 后续决定与实施（同日北京时间 18:11）：用户仅批准接受 screen 退出码 1，不改造启停流程；此决定取代上方此前的改造建议。本轮在 `/etc/systemd/system/mc-create-cn-r2.service`、`/etc/systemd/system/mc-train-cn-r2.service` 的 `[Service]` 中各新增 `SuccessExitStatus=1`，执行 `systemctl daemon-reload`。`systemctl show` 已确认两服加载值为 1（默认 0 仍为成功）；两服及看门狗 `MainPID=0`，保持停止。未重启服务、未做运行复测、未清除历史 failed 标记。此设置会接受 screen 的所有退出码 1，并非仅 SIGTERM 所致的 1。
+
 ## 下次对话首先展示（2026-10-16 用户指定）
 
 用户已于 2026-10-16 恢复工作并开始游戏测试，恢复对话时已展示优先清单。后续继续推进时，**主动展示 [todo-list.md 顶部的 Immediate-todo](todo-list.md#immediate-todo下次对话优先展示2026-10-16-用户指定)，并优先于其他待办**：进游戏测试 → 原版炼药锅交互适配（包括滴水石锥）→ 考虑部分基岩版交互 → 调整奶昔工作台产量 → 画整合流程图。奶昔锅最终产量仍待讨论，四瓶只是测试默认值。不要在用户休息期间自行推进这些事项；这不是定时提醒或后台任务。具体清单以 todo 为单一维护位置。
