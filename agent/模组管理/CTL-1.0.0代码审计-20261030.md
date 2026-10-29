@@ -138,3 +138,54 @@ Create0.5.1.j的 `SlidingDoorMovementBehaviour.tickOpen` 有变化判断，正�
 若同时完整落实“CTL纯灯状态变化不要求碰撞重算”，预计额外2个小Mixin（客户端接包过滤、内饰灯服务端失效过滤；头尾灯的服务端失效过滤可放已有Mixin），合计约7文件、250–380行生产Java。纯灯过滤放trainlights可选分组，避免通用Create Mixin硬依赖CTL；沿用现有插件按模组存在性启用，不新增依赖或改Gradle。具体注入匹配可能使估算调整，不是已实现的diff统计。必要的少量调度验证另算，不为压行数省略异常或卸载处理。
 
 最简洁边界：调度状态附着Contraption，不建立全局车厢Map或通用调度框架；沿用现有executor，不新增线程池／定时器／网络协议；将后台任务输入限制为主线程取得的碰撞形状快照，后台只运行原合并／optimize算法。仅浅拷贝blocks Map不足以阻止形状计算访问可变世界。快照采集会将一部分原后台工作移到主线程，这是小范围并发正确性代价，实际耗时须在实现后的针对性验证中确认。本轮只估算，未修改TrainResync代码或执行构建、测试、部署。
+
+## 源码与实际JAR的方案核查（2026-10-30）
+
+用户要求实现前sanity check。本轮未修改运行代码、未构建、未启动游戏、未操作服务器。结论：核心缺陷与串行补算方案有直接字节码依据；此前注入点／完整覆盖范围有遗漏，按下文纠正，不能把前述行数估计视作最终实现清单。
+
+### 基线与方法
+
+- 本地Create checkout实际为mc1.21.1/dev、`ef00481fd`，不能作为0.5.1.j实现依据；只读检查，未切换分支或动其未跟踪.vscode。
+- TrainResync/libs与仓库外服务端引用备份中的Create0.5.1.j均为SHA-1 `fab2ae7fcf685b3875ca20022bfecf0d4fdafbf7`，CTL1.0.0均为`8e352daafef988cffd9732824c6661f90ab4bf45`；与当前pack/modrinth.index.json一致。服务端Create .ablink指向对应Modrinth文件。本轮未重新读取远端实际JAR，不将本机哈希一致扩展为线上验收。
+- 官方源码取`mc1.20.1/0.5.1`分支固定提交`d39f89983a6c36dcacda6635c2094c826703ed49`，作为可读参考；没有找到并冒认0.5.1.j发布标签。涉及的方法逐项对照实际JAR的javap字节码，以JAR为最终依据，不宣称整个分支与发布JAR完全相同。
+- 仓库外证据：`临时分析/ctl-audit-20261030/sanity/`，含14个Create相关类、3个CTL关键类的本轮javap结果，及official-0.5.1下12份官方Java源文件。沿用已确认同哈希JAR的其他CTL反编译文件。未重新运行此前取消语义测试。
+
+### 确认成立
+
+1. Contraption.invalidateColliders确实先清空Optional缓存再立即gather；gather保存的是supplyAsync(...).thenAccept(...)的后继future，下一次cancel(false)和卸载取消都只作用于该后继。supplier实际遍历实时blocks Map，读取ContraptionWorld，依次joinUnoptimized，最后optimize/toAabbs；thenAccept直接写回缓存，没有主线程发布步骤。
+2. CTL方向更新16个分支为互斥调用点；没有相同状态判断，且不在服务端判断内。实际虚调用进入CarriageContraptionEntity.setBlock，写入各已存在维度实体的方块Map并发包；这个方法自身不调用invalidateColliders。客户端handleBlockChange无条件invalidate，渲染失效另有状态差异判断。因此“每个setBlock在服务端自动重算”是不准确的，服务端来自行为自身显式失效。
+3. 门实际变化才更新；一次toggleDoor写上下两半，完整门路径再显式invalidate一次。客户端每个半门包各自invalidate。合并应限制碰撞任务，不吞掉真实方块状态更新。
+4. 普通非传送门情况下，ContraptionCollider有缓存就用，否则走实体局部扫描。保留上一份成功结果无需换碰撞算法；严格串行、在主线程poll完成结果后才提交下一份，按用户要求可以采用落后于最新状态的完成结果，不需版本丢弃。但这是新策略：原版失效时清空缓存，不能说保留旧缓存完全不改变行为。
+5. 新任务期间只设dirty是足够的待更新表达；开始任务时清dirty，后续变化重新置true。后台不能直接读变化中的Map／世界，复制Map本身也不够：ContraptionWorld.getBlockState仍读原Contraption.getBlocks。主线程取得形状，后台只做原合并算法的边界有必要。
+
+### 必须修正／补齐
+
+- **保留传送门特殊处理。** CarriageContraption.getSimplifiedEntityColliders在notInPortal时才返回父类缓存，处于传送门时强制Optional.empty；isHiddenInPortal过滤裁剪区域。不得为了“始终使用旧结果”绕过这个getter、直接把缓存喂给碰撞器。用户旧结果策略应适用于原本使用缓存的普通车厢路径；传送门继续按原生实时局部查询。
+- **不能只在父类tickStorage注入。** CarriageContraption覆盖tickStorage且不调用super；且实体tick先tickStorage再tickContraption/tickActors。父类storage注入会漏掉目标车厢，在其调用之前提交也收集不到本tick随后产生的门变化。
+- **更合适的统一调度位置。** 实际JAR的CommonEvents.onWorldTick在服务端LevelTick END调用ContraptionHandler.tick；ClientEvents.onTick在ClientTick END调用同一入口。ContraptionHandler遍历每世界按entity ID保存的存活Contraption实体，并调用ContraptionCollider.collideEntities。可在这个调用前仅对CarriageContraption收取完成结果、至多启动一次任务；复用既有每tick遍历，不新增全局扫描／事件总线注册。不会拦截门和网络的实际更新，其他类型装置不改。此为静态确认的候选注入点，Mixin匹配仍需实现后验证。
+- **初始化不只走invalidate。** fromNBT、onEntityCreated直接调用私有gatherBBsOffThread；必须也改为置dirty，否则原任务和新任务可能并存。fromNBT可发生在entity尚未绑定时，不能在那里无条件取entity.level。既有ContraptionWorld初始化需保留；任务延迟到实例可用的统一调度点。
+- **卸载不能照抄取消语义。** onEntityRemoved原逻辑cancel(false)不代表实际计算退出。新的后台任务只持有计算输入、没有写车厢缓存的回调；卸载后不要发布到其他实例。每Contraption实例至多一个任务不等于全服只有一个任务，也不能承诺取消已在执行的旧算法。恢复实体通过NBT创建的路径已核查，不能按逻辑Carriage把不同维度实体共用一个状态。
+- **上一轮完整CTL过滤清单漏了手动交互。** HeadTailLightMovingInteraction和InteriorLightMovingInteraction都覆盖updateColliders返回true；父类SimpleBlockMovingInteraction在状态改变后调用该方法决定是否invalidate。只过滤movement与客户端包仍会漏掉手点灯路径。可用一个针对这两个同签名方法的Mixin返回false，或各自一个小Mixin；不要在通用父类全局禁用交互碰撞更新。它不改变灯本身状态同步。
+- **跨维度失效传播不能凭空假设。** Carriage.setBlock更新多个实体，但行为显式invalidate的是发起实例；修改时需保留原路径，并核查其他实例在需要缓存时的dirty来源，不能宣称每个setBlock已自动标脏所有维度。传送门实时回退并不等于所有后续缓存都自动更新。本轮未扩展成新的跨维度修复实现。
+
+### 对规模估算的修订
+
+核心调度与CTL去重仍是约5文件量级；tick桥接可改为ContraptionHandler的碰撞调用前注入。若完整包含纯灯状态过滤，应补手动交互入口，估算改为约8文件（交互拆开则9）、约280–430行生产Java；不是保证上限，跨维度dirty传播若需要补充将另计。前一节“完整7文件”的估算漏项，已由本节修正。仍优先保留原算法、避免通用调度框架；不为维持原估算而漏掉入口。
+
+静态证据确认的是缺陷和方案边界，不是玩家现场FPS／服务器60秒tick的已确认归因。具体Mixin是否命中及实际游戏性能仍未验证。
+
+## 核查后的最精简方案（2026-10-30，当前讨论稿）
+
+本节收敛前述候选，作为当前方案。2026-10-30用户已明确安排下次执行，今天停止；任务已登记总todo，当前未实现、未部署。目标固定为Create0.5.1.j／CTL1.0.0，保留原形状合并算法，仅限制车厢碰撞任务及修正CTL更新，不改网络协议或其他类型装置。
+
+1. **状态**：每个CarriageContraption实例一个dirty和一个pending计算future，继续使用Create原缓存。不同客户端／服务端／维度副本各自计算，不按逻辑Carriage共用缓存。任务成功即采用，即便期间有新变化；之后按dirty补算。初始化没有缓存时仍使用原回退。
+2. **请求入口**：车厢invalidateColliders只标脏，不清缓存、不提交任务；私有gatherBBsOffThread也拦成只标脏，覆盖fromNBT／onEntityCreated。非车厢保持原版。保留世界与实例初始化，不在尚未绑定实体时取entity.level。
+3. **跨维度最小补齐**：车厢显式invalidate时，将同一Carriage各已存在维度实例标脏；通过窄接口直接设置标记，不递归调用invalidate。无Carriage绑定时至少标自身；初始化gather只标自身。不全局改变setBlock含义，也不为此新增跨维度网络同步。此为拟议的小范围传播修正，不是原版已有行为；用于弥补setBlock写多个副本、失效请求只来自发起实例的落差。
+4. **唯一调度点**：ContraptionHandler.tick内，调用ContraptionCollider.collideEntities之前，对车厢运行一次维护。主线程先检查已完成future，成功则发布结果并清pending；然后仅在dirty且无pending时取得形状快照、启动任务。后台只做原joinUnoptimized／optimize／toAabbs，使用原有默认执行器。没有while循环、完成回调再提交、新线程池或独立定时器。每实例每次原生tick遍历至多提交一次；只读取isDone后的结果，不阻塞等待。
+5. **生命周期**：卸载后不再调度／发布；后台不捕获实体或世界，不主动取消并立刻启动替代任务。重新载入按原创建路径重新标脏。不得将cancel返回或future取消标记当作实际计算已经终止。失败保留最后成功结果、释放任务占用并明确记录，不能每tick无条件自动重试。
+6. **原生碰撞语义边界**：不改CarriageContraption.getSimplifiedEntityColliders，传送门中继续返回空并走实时局部裁剪。保留旧结果只影响原本使用整车缓存的普通路径；允许门视觉与碰撞短暂不同步。主线程取形状的成本仍需后续有针对性确认。
+7. **CTL**：在已有头尾灯Mixin增加服务端执行限制、基于车厢Map现状态的setBlock去重，保留原方向算法与静音。头尾／内饰灯movement的纯LIT失效调用跳过；两种手动交互的updateColliders返回false；客户端接包仅在同一灯方块且只变LIT／LIGHT_MODE时跳过碰撞失效，其他属性／方块变化照常。灯状态、渲染和发包的真实变化保留。
+
+文件组织约8个：Contraption碰撞Mixin、窄接口、ContraptionHandler调度Mixin、现有头尾灯Mixin、内饰灯movement Mixin、两种灯交互共用Mixin、CTL客户端包过滤Mixin、Mixin JSON。共用交互Mixin若目标校验要求拆开则9个。加上跨维度标脏补齐，正常格式生产Java约300–450行的估算，不含测试文档；不是硬性行数预算。CTL相关注入继续放trainlights可选分组，无新增Gradle依赖。
+
+实现后最小验收范围：同tick多请求合并、跨tick运行不重叠且不丢dirty、完成结果始终接替旧缓存；初始化／卸载／传送门及跨维度副本；CTL模式保持不重复发包，真实灯变化和门变化仍正确同步。只做这些针对性验证，不另搭通用测试框架或扩展为算法替换。本轮未执行上述实现或验证。
