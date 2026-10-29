@@ -1,5 +1,42 @@
 import unittest
-from input_gate import InputGate
+from input_gate import InputGate, UiLease
+
+class LeaseTests(unittest.TestCase):
+    def test_timeout_and_reconnect_do_not_restore_permission(self):
+        now = [0]
+        lease = UiLease(clock=lambda: now[0])
+        lease.set_enabled(True)
+        now[0] = 14
+        self.assertTrue(lease.expire())
+        now[0] = 15
+        self.assertFalse(lease.expire())
+        lease.heartbeat()
+        self.assertFalse(lease.enabled)
+
+    def test_heartbeat_renews_and_disconnect_revokes(self):
+        now = [0]
+        lease = UiLease(clock=lambda: now[0])
+        lease.set_enabled(True)
+        now[0] = 10
+        lease.heartbeat()
+        now[0] = 20
+        self.assertTrue(lease.expire())
+        lease.disconnect()
+        lease.heartbeat()
+        self.assertFalse(lease.enabled)
+
+    def test_expiry_preserves_pending_and_input(self):
+        now = [0]
+        lease = UiLease(clock=lambda: now[0])
+        gate = InputGate()
+        lease.set_enabled(True)
+        gate.user_input('draft')
+        queued = gate.offer('echo waiting\r')
+        now[0] = 16
+        lease.expire()
+        self.assertTrue(gate.dirty)
+        self.assertEqual(gate.pending['id'], queued['id'])
+        self.assertEqual(gate.offer('second\r', require_confirmation=not lease.enabled)['status'], 'busy')
 
 class GateTests(unittest.TestCase):
     def test_terminal_replies_are_not_user_input(self):

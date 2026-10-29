@@ -37,5 +37,24 @@ assert call('agent','/state',{})[1]['pending']['id']==result['id']
 assert call('ui','/confirm',{'id':result['id'],'overwrite':True})[0]==200
 time.sleep(.3)
 assert call('agent','/state',{})[1]['pending'] is None
+assert call('agent','/ui-disconnect',{})[0]==404
+assert call('agent','/stop',{})[0]==404
+assert call('ui','/allow-all',{'enabled':True})[0]==200
+assert call('ui','/ui-disconnect',{})[0]==200
+assert call('agent','/state',{})[1]['alive'] is True
+assert call('ui','/state',{})[1]['allow_all'] is False
+code,result=call('agent','/input',{'text':'echo OFFLINE_WAITING_TEST\r'})
+assert code==202
+assert call('ui','/reject',{'id':result['id']})[0]==200
+assert call('ui','/allow-all',{'enabled':True})[0]==200
+# Agent polling must never renew UI approval. No page heartbeat for 16 seconds.
+for _ in range(16):
+    time.sleep(1)
+    state=call('agent','/state',{})[1]
+assert state['alive'] is True and state['allow_all'] is False
+assert call('ui','/state',{})[1]['allow_all'] is False
+code,result=call('agent','/input',{'text':'echo TIMEOUT_WAITING_TEST\r'})
+assert code==202
+assert call('ui','/reject',{'id':result['id']})[0]==200
 assert call('ui','/stop',{})[0]==200
-print('PASS: default confirmation, confirm once, reject, UI-only toggle, allow-all, collision, pending preserved, overwrite')
+print('PASS: input gates, UI-only controls, explicit disconnect, heartbeat expiry, reconnect stays unapproved, PTY survives offline, stop response')

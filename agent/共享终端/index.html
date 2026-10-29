@@ -1,4 +1,4 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><title>共享终端</title><link rel="stylesheet" href="/xterm.css"><style>
 html{height:100%}body{min-height:100vh;display:flex;flex-direction:column;margin:0;background:#11151c;color:#e1e7ef;font:15px system-ui}header{padding:16px 20px;background:#202936;display:flex;gap:18px;align-items:center;flex-wrap:wrap}button{padding:8px 12px;cursor:pointer}#status{color:#9bdab9}p{margin:14px 20px;color:#bbc7d7}#terminal{flex:1;cursor:text;padding:12px 20px;overflow:auto}label{cursor:pointer}
-</style></head><body><header><b>共享终端</b><label title="允许助手直接发送；有未完成输入时仍需确认"><input id="allow-all" type="checkbox">全部允许</label><span id="status">连接中</span><button id="stop">关闭会话</button></header><div id="terminal"></div><script src="/xterm.js"></script><script src="/app.js"></script></body></html>
+</style></head><body><header><b>共享终端</b><label title="允许助手直接发送；有未完成输入时仍需确认"><input id="allow-all" type="checkbox">全部允许</label><span id="status">连接中</span><button id="stop" title="关闭后台终端及其中的 SSH 连接">停止终端</button></header><div id="terminal"></div><script src="/xterm.js"></script><script src="/app.js"></script></body></html>
