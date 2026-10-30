@@ -1,5 +1,12 @@
 # Agent 交接与通用维护要求
 
+## 2026-10-31 01:31 test0004与启动器更新测试已交付
+
+- 用户要求编译、打包、分类提交。build-test.bat、build.bat均成功，分别生成build/pack-test.zip（1.6.test0004，589359541字节）与build/pack.zip（1.6.0，130961654字节）；本机build/test-sequence-1.6.txt已由3变4，下次成功测试打包为test0005。源码包版本不变。本轮直接使用已准备的WinPS模块环境，无需重复构建；仅定点读取产物索引确认版本，未全包解压/重复哈希检查。
+- **替代下方旧结论：本地测试也需要发布索引，与正式共用代码路径。** PrismLauncher/tools/niijima/deploy/packs/latest.json与仓库外prism-local-test/packs/latest.json已登记ID3→1.6.test0004→新岛铁道 v1.6.test0004.zip；ID2/test0003及其独立ZIP保留。发布ID跨测试/正式只递增，独立于test计数，下一发布ID必须大于3。build-test本身不改发布索引，本轮由agent打包后登记；未上传。
+- 新启动器测试EXE及不含测试JSON的NSIS安装器均已构建，3组相关CTest通过；首页每次显示最多灰色加载1秒，后台检查成功发现更大ID则显示更新，点击只新建实例并保留旧实例。详情和确切产物路径见PrismLauncher/agent/handoff.md。实际GUI/游戏测试待用户，未自动安装游戏或改动玩家实例。
+- 三仓库已检查：TrainResync无新改动，不无故重建。整合包仅新增本交接记录，功能代码与发布索引在PrismLauncher仓库分类提交。未push、未部署服务端。下方“本地直读ZIP无需索引/旧实例没有更新入口”是历史实现描述，已被本节替代。
+
 ## 2026-10-31 图标副本已打包交付
 
 - 用户授权重新打包、编译与分类提交。build-test.bat和build.bat成功：build/pack-test.zip为新岛铁道v1.6.test0003，589359541字节；build/pack.zip仍为v1.6.0，130961654字节。均含根icon.png、overrides/icon.png及原PCL/Logo.png；仅定点读取索引/条目确认版本和路径，没有进行全包完整性或逐文件哈希测试。
