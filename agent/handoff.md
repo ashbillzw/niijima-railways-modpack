@@ -1,5 +1,17 @@
 # Agent 交接与通用维护要求
 
+## 2026-10-31 图标副本已打包交付
+
+- 用户授权重新打包、编译与分类提交。build-test.bat和build.bat成功：build/pack-test.zip为新岛铁道v1.6.test0003，589359541字节；build/pack.zip仍为v1.6.0，130961654字节。均含根icon.png、overrides/icon.png及原PCL/Logo.png；仅定点读取索引/条目确认版本和路径，没有进行全包完整性或逐文件哈希测试。
+- build-test成功后将本机build/test-sequence-1.6.txt从2写为3，失败不递增；下次成功为test0004。计数文件位于被忽略的本地build目录，不是线上发布ID，也不保证跨机连续。源码pack/modrinth.index.json保持1.6.0。
+- 启动器的本地niijima-local-test.json仍直接指向build/pack-test.zip，无需注册发布索引；正式分发则需用户上传包并在packs/latest.json新增更大的数字ID及version/file。打包脚本不修改该发布索引，现有启动器对已安装实例也不执行基于该ID的自动升级。本轮未访问或改动服务器。
+- 首次打包受父进程PowerShell7模块路径影响，Windows PowerShell5找不到Get-FileHash，未产生成功包/未递增计数。仅在仓库外本次执行脚本中为子进程设置WinPS模块路径后重试成功，未修改项目构建脚本。日志位于C:/mydata/Agents/Codex-CreateTrainResync/prism-build/，前缀pack-icons-20261031及pack-test-icons-20261031。
+- 下方“图标兼容副本未重新打包”已是历史状态，本节交付结果替代；实际启动器导入效果待用户测试。
+## 2026-10-31 启动器图标兼容副本
+
+按用户要求，保留 `pack/overrides/PCL/Logo.png` 原图及Setup.ini配置，原样复制为 `pack/icon.png` 和 `pack/overrides/icon.png`；三份均21973字节，SHA256核对一致。以后替换Logo时同步这三个位置，避免不同启动器显示不同版本。
+
+根icon.png和overrides/icon.png覆盖当前Prism已有查找约定；PCL仍使用原配置。mrpack官方格式未定义统一图标字段/路径，不宣称所有启动器均支持。新岛首页导入入口未设置default图标key的问题属于启动器源码接线遗漏，放置文件本身不能解决；诊断见PrismLauncher仓库agent/handoff.md。本轮只增加图标副本和记录，未修改启动器、未重新打包、未改现有实例、未提交或部署。
 ## 2026-10-30 休息前交接
 
 用户明确今晚停止，下次接续TrainResync的CTL／车门碰撞修复，按[核查后的最精简方案](模组管理/CTL-1.0.0代码审计-20261030.md#核查后的最精简方案2026-10-30当前讨论稿)实施，保留最后成功碰撞结果；当前只有分析与方案，未实现或部署。另一份无燃料列车红灯前急停报告也已加入[总todo“列车问题”](todo-list.md#列车问题下次接续2026-10-30-用户指定)，详情和未确定因素保留在DAT专题。不在用户休息期间自行实施或启动后台任务。
