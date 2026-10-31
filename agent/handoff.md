@@ -1,5 +1,63 @@
 # Agent 交接与通用维护要求
 
+> 2026-10-31 21:41提交交接：本页各次“未commit”描述保留为当时状态；用户现已要求按功能提交三个仓库，提交结果以Git历史为准。本机交付维持test0010/pack-id9、helper0.1.30、TrainResync1.6.0.m，等待用户测试；未push。
+
+## 2026-10-31 21:38 炼药锅反馈处理与全套本机交付
+
+原始JSON、逐项结果及源码依据见agent/物品整合/炼药锅测试反馈-20261019.md最新节。A15/A17用户通过，已从当前HTML复测题库归档，现123题；A19.1锅沿接触、A20.9果酱转换仍失败，不能标为已修复。helper0.1.30修复Fruits Delight成功交互不挥手，增加每类最多24条接触/配方诊断；未猜测修改热源、配方或接触判据。用户随后补充“好像森罗灶，记得点燃”，源码确认该灶已有farmerdelight热源tag且使用原版LIT；仍需实测日志判断现场条件。HTML已验证旧JSON导入、评论保留及往返导出，导出的版本字段只是页面目标值，不能当成运行检测。
+
+helper构建/既有自检成功，3项新增/现有FDC交互注入静态检查通过；TrainResync1.6.0.m重新build成功（源码语义未变，重构建JAR摘要变为91E8AE3CE99D9B006490E516CA95E6FE2946ED6B901359D9A3E813BBF886F416）。两者已入包，shared TrainResync m引用和服务器启用JSON保持。helper只用于客户端集成服测试，未擅自放入服务器共享层。
+
+build-test.bat/build.bat成功：test0010/pack-id9、普通包1.6.0。Prism维护latest.json与本地镜像已登记9，独立ZIP已复制，旧ID保留。启动器解压计数和取消按钮布局源码已编译、收集到install-niijima，安装器也已更新。本轮所有本机交付已完成；没有上传、push或运行线上更新器。
+
+用户关闭程序后，实际使用的Prism test0007实例仅替换mods：helper0.1.29→0.1.30、TrainResync k→m；未改实例pack-id、配置或存档，因此实例名仍test0007，它是手动换JAR的测试副本。旧EXE/JAR在仓库外备份/cauldron-deploy-20261031。helper SHA256为0159E20E27C70CE6D16513AEB5D023D3B175BF8992CF1139B952EDFAF4078DC5；helper本地Git提交993abf6，三主仓库未新增commit。本轮未启动游戏、未使用computer use。构建日志统一在仓库外prism-build，文件名含cauldron-feedback-20261031。
+
+## 2026-10-31 21:20 配置决定所有环境：TrainResync m / test0009
+
+用户明确取消单人/局域网强制关闭限制。1.6.0.m 在所有服务器环境读取 config/trainresync.json；只有 railwayDataProtection=true 才开启。集成服会登记启用状态及首次初始化快照，仅把预检留给世界加载时的既有读取 Mixin（保证错误界面的加载监听器已建立），读写保护并未豁免。下方21:09的“仅专用服／集成服无条件跳过”已过时；解析规则和默认关闭保持有效。
+
+玩家 pack 不含启用配置，server/shared/config/trainresync.json 保留 true。包内 JAR 与 shared 引用均升为 1.6.0.m（693418字节，SHA256 9F3931FBB8725D1FC18BC4455D3E63B61C22EF6BDD0CC3024BD708AACFCFD36F）；旧 l JAR 备份在仓库外 prism-build。__master__ 仍需包含新 JAR 才能实际分发，未部署服务器或修改现有游戏实例。
+
+gradlew.bat build 成功（13秒）；静态核对配置登记先于集成服延迟检查，既有加载/保存开关保留。未重复运行未改动解析器的14项检查，未运行游戏。build-test.bat 与 build.bat 均成功，test0009/pack-id 8 已登记到 Prism 维护索引及本地镜像，独立 ZIP 已复制，普通包仍1.6.0。定点检查测试包只有 m 版 TrainResync 且无 trainresync.json。启动器未重编译，其既有 UI 修正仍仅源码。本轮未commit/push，未使用computer use，未触碰炼药锅功能总图。
+
+## 2026-10-31 21:09 铁路保护默认关闭：TrainResync l / test0008
+
+用户要求整个TrainResync共用一个JSON。已实现config/trainresync.json，当前键railwayDataProtection（布尔，默认false）。专用服务器且明确true才启用整套铁路数据保护；单人/局域网集成服务器无条件跳过，未启用时加载与保存Mixin均回到原路径。缺文件不自动生成；坏配置/读取失败警告后关闭。配置启动读取，按世界路径保存状态并在停止时清理，无新增依赖/Mixin。详情见TrainResync仓库agent/配置.md。
+
+启用JSON仅在server/shared/config/trainresync.json，两服共享；客户端pack及test0008产物均无该文件。pack/overrides/mods和shared引用已升为1.6.0.l，旧差异层源此前已移除。JAR为693411字节，源及包内SHA256相同：C3001D8F9007AAA271349DB9B95A0FD7DBF56276E18715EDCFD4CAF4FE4A8658。__master__引用仍须对应分支包含新JAR后才可分发，未部署服务器。
+
+gradlew.bat build成功，14项外部配置检查通过；未实际游戏/专用服验证。build-test.bat、build.bat均成功，测试版1.6.test0008/pack-id 7已同步登记并复制到启动器本地packs目录；旧ID与ZIP保留。普通包仍1.6.0。下方k/test0007的客户端保护行为已由本节替代，原新世界判定修复仍用于明确开启的专用服。
+
+未改现有玩家实例、未使用computer use、未重新编译启动器（其解压计数与取消布局修正仍仅源码）。本轮改动未commit/push；其他agent新增的炼药锅功能总图目录未触碰。构建日志在仓库外prism-build，前缀trainresync-config-gate-20261031、pack-trainresync-l-20261031。
+
+## 2026-10-31 20:21 新世界误判修复已交付：TrainResync k / test0007
+
+用户批准按已核对方案修复。TrainResync 1.6.0.k在ServerAboutToStartEvent快照`!server.getWorldData().overworldData().isInitialized()`，替换基于level.dat/目录存在性的误判；保留NEW_WORLDS生命周期缓存，删除不再使用的isNewWorld(Path)。未修改DAT内容校验、临时文件拒绝、原子保存或旧世界缺文件阻断逻辑；没有新增Mixin。
+
+原样gradlew.bat build成功（13秒），外部6项检查验证缺失DAT豁免边界与残留tmp拒绝；测试源码留在仓库外临时测试/railway-new-world-20261031。未实际运行游戏，新建、正常保存后重新进入仍由用户验证；建议先创建全新世界，不将此前创建失败的半成品存档作为首次验收。
+
+pack/overrides/mods已由j替换为k，server/shared/mods引用同步为trainresync-1.6.0.k-all.jar.ablink，内容仍是__master__。两服无额外TrainResync差异源；引用分支需包含新JAR才可线上分发。k版JAR为690895字节，源与包内副本SHA256一致：D945DBDD3F9435F98C62D64A475EC00A92630CF9E17C95CBB213D9D43EAA937B。j版备份在仓库外prism-build/trainresync-1.6.0.j-before-new-world-fix.jar。
+
+build-test.bat与build.bat均成功：最终测试版1.6.test0007，发布pack-id 6；普通包仍1.6.0。启动器latest.json维护源与本地测试副本同步，独立ZIP已就位，保留ID1–5；没有改现有游戏实例、启动器EXE或线上服务器。下方j/test0006和“修正方案尚未实施”均为历史阶段，现由本节替代；实际游戏验收尚未完成。本轮改动尚未提交、未push。构建日志前缀trainresync-new-world-fix-20261031和pack-trainresync-k-20261031，位于仓库外prism-build。
+
+## 2026-10-31 20:15 test0006 新建世界崩溃：TrainResync j 误判
+
+用户创建“新的世界”时客户端崩溃。实例为 %APPDATA%/NiijimaLauncher/instances/新岛铁道 v1.6.test0006/minecraft，报告 crash-reports/crash-2026-10-31_20.15.37-server.txt。根因是 TrainResync 1.6.0.j：RailwayDataGuard.checkLoad → AtomicRailwayFile.checkState 抛出 Existing world is missing railway data（data/create_tracks.dat），随后保护层包装为 Cannot start with unsafe railway data，终止集成服务器启动。
+
+源码中 ServerAboutToStartEvent 调用 isNewWorld；后者只要发现level.dat、level.dat_old、region、data或维度目录就判旧世界。现场level.dat/level.dat_old创建于20:15:35，世界目录起于20:15:34，20:15:36首次读取铁路数据即拒绝；新世界初始化已先写基础文件，这个判据不能可靠区分新旧。此错误是保护机制对新建流程的误判，不是本报告证明铁路DAT真的损坏。报告最大堆32768MiB，异常不是OOM。
+
+2026-10-31 20:18 修正方案核对（尚未实施）：在既有ServerAboutToStartEvent中用 !server.getWorldData().overworldData().isInitialized() 替换目录存在性推断，并保留NEW_WORLDS在本次启动期间缓存结果。Minecraft 1.20.1的Minecraft.doWorldLoad会先saveDataTag，再启动集成服务器；PrimaryLevelData的新建状态为initialized=false，MinecraftServer.createLevels初始化出生点后改为true，因此不能到读取铁路DAT时才重新判断。已用本机Forge 47.2.0编译依赖字节码确认集成服和专用服均在loadLevel之前发ServerAboutToStart。仅豁免首次初始化时的DAT缺失，不跳过已有DAT校验、残留tmp拒绝或原子保存；已初始化旧世界缺文件仍阻断。实际新建/重新进入和旧档保护路径仍需修复后验证。
+
+本轮只定位与记录，未改生产代码、JAR、世界文件或执行GUI操作。上述“编译通过/已入包”不等于新建世界验收通过；j版的新建世界路径已确认失败。修复需使用正确生命周期的新建语义，保留对真实损坏/未完成铁路保存的保护；不能通过任意放行DAT缺失或删除存档文件掩盖问题。
+
+## 2026-10-31 晚间同步、TrainResync j 入包与 test0006
+
+- 三仓库fetch/pull --ff-only均成功且已是最新；没有合并提交或冲突。TrainResync main（201470f）执行原样 gradlew.bat build 成功，产物 TrainResync/build/libs/trainresync-1.6.0.j-all.jar 为691085字节，SHA256 89C06B86357BFBF38C05FDCB557F11DA2EF258B89E9C01DAEB926CF6D9062D1F；无额外Gradle选项，未游戏验证。
+- 用户追加授权后，pack/overrides/mods 中的1.6.0.i-all.jar已替换为上述j版，源JAR与包内副本哈希一致，旧i版备份在仓库外prism-build/trainresync-1.6.0.i-before-evening.jar。索引无TrainResync重复条目。本轮初次检查时shared无此模组、两服差异源仍是d/a版；随后用户明确要求统一，已移除这两个旧源，新增server/shared/mods/trainresync-1.6.0.j-all.jar.ablink，内容为__master__，按既有规则引用pack/overrides/mods中的j版。旧源已备份在仓库外prism-build/server-trainresync-before-shared-20261031。引用分支尚需包含新JAR后才可分发；未执行更新器、未部署服务器或替换现有游戏实例。
+- build-test.bat与build.bat重新执行成功，最终build/pack-test.zip为1.6.test0006（589371539字节），build/pack.zip为1.6.0（130973653字节）。初次打包的test0005仍含i版；随后按用户要求替换JAR才生成test0006，不复用已分配编号。源包版本保持1.6.0，下一本机测试编号为0007。
+- 启动器发布索引维护源及仓库外本地测试副本新增pack-id 4→test0005、5→test0006，两个独立ZIP均保留；当前最新为5。启动器测试EXE及干净NSIS安装器已重建，确切路径和摘要见PrismLauncher/agent/handoff.md。未上传索引或ZIP，未使用computer use，未实际导入游戏测试。
+- 本节替代下方“当前包内TrainResync i / 最新test0004”的历史交付状态。JAR替换与交接记录尚未提交；本轮没有自动commit或push。
+
 ## 2026-10-31 01:31 test0004与启动器更新测试已交付
 
 - 用户要求编译、打包、分类提交。build-test.bat、build.bat均成功，分别生成build/pack-test.zip（1.6.test0004，589359541字节）与build/pack.zip（1.6.0，130961654字节）；本机build/test-sequence-1.6.txt已由3变4，下次成功测试打包为test0005。源码包版本不变。本轮直接使用已准备的WinPS模块环境，无需重复构建；仅定点读取产物索引确认版本，未全包解压/重复哈希检查。
