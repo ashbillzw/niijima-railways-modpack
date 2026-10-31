@@ -1,5 +1,15 @@
 # YSM 模型与包服差异
 
+## 2026-10-31 TrainResync 统一至 shared
+
+> 同日21:09更新：当前为1.6.0.l/test0008/pack-id 7。shared/mods引用随包升为l，新增shared/config/trainresync.json，railwayDataProtection=true；客户端包不带JSON，集成服务器无条件关闭保护。以下j/k描述保留为当日历史；尚未部署线上。
+
+> 同日20:21更新：j版新建世界误判已修复，当前包内及shared引用升级为1.6.0.k，test0007/pack-id 6已打包，仍未部署；下文j版是本日第一次统一时的历史状态。
+
+用户要求两服共用本轮构建的1.6.0.j。包内已替换i版；server/shared/mods/trainresync-1.6.0.j-all.jar.ablink内容为`__master__`，目标是该分支的pack/overrides/mods/trainresync-1.6.0.j-all.jar。create-cn的d版实体JAR和train-cn的a版ablink均已移出分发源，旧文件保存在仓库外备份。两服合成后各只有一个j版来源，不再维护TrainResync版本差异。
+
+本条替代下方“主服d／创造服a保持不变”的历史结论；j版源码编译成功、包内副本哈希已核对，但未运行更新器或部署到服务器。当前改动位于agent-dev-1.6，`__master__`引用须等master包含新JAR后才可实际分发，不把本地路径存在当作线上链接可用。
+
 > **待办维护位置更新（2026-10-24）：** 本文的待办／下一步／候选清单保留为历史与技术依据，不再独立维护状态；有效任务统一见[总 todo](../todo-list.md)，炼药锅 mini todo 为例外。功能台账、测试步骤及来源证据仍在本文维护；旧“待实现／待决定”不覆盖总表及mini的最新结论。
 
 ## 备注
