@@ -1,0 +1,454 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="10000" height="10000" viewBox="0 0 4000 4000">
+<title>炼药锅功能关系图</title>
+<desc>空锅位于中央，名称与色点通过直线分枝向外生长。按本包 helper 0.1.29 已核对功能绘制；概念分枝不等于配方，具体条件见同目录说明。</desc>
+<rect width="4000" height="4000" fill="#fcfbf7"/>
+<g id="connections" fill="none" stroke-linecap="round">
+<line data-from="empty" data-to="water" x1="1990.30" y1="1935.11" x2="1912.79" y2="1416.48" stroke="#91ad65" stroke-width="4.5"><title>空锅 → 清水锅</title></line>
+<polygon points="1912.79,1416.48 1909.22,1433.19 1921.09,1431.42" fill="#91ad65" stroke="none"/>
+<line data-from="water" data-to="wash" x1="1880.61" y1="1383.04" x2="1166.92" y2="1286.03" stroke="#91ad65" stroke-width="3.2"><title>清水锅 → 洗色</title></line>
+<polygon points="1166.92,1286.03 1181.97,1294.13 1183.58,1282.24" fill="#91ad65" stroke="none"/>
+<line data-from="wash" data-to="leather" x1="1117.56" y1="1278.17" x2="653.18" y2="1192.29" stroke="#91ad65" stroke-width="3.2"><title>洗色 → 无色皮革／马铠</title></line>
+<polygon points="653.18,1192.29 667.82,1201.10 670.00,1189.30" fill="#91ad65" stroke="none"/>
+<line data-from="wash" data-to="banner" x1="1122.74" y1="1267.14" x2="778.08" y2="979.22" stroke="#91ad65" stroke-width="3.2"><title>洗色 → 去顶层图案旗帜</title></line>
+<polygon points="778.08,979.22 786.51,994.09 794.21,984.88" fill="#91ad65" stroke="none"/>
+<line data-from="wash" data-to="shulker" x1="1131.86" y1="1260.41" x2="926.53" y2="771.98" stroke="#91ad65" stroke-width="3.2"><title>洗色 → 无色潜影盒</title></line>
+<polygon points="926.53,771.98 927.20,789.06 938.26,784.41" fill="#91ad65" stroke="none"/>
+<line data-from="water" data-to="dye" x1="1891.58" y1="1364.40" x2="1566.83" y2="930.71" stroke="#91ad65" stroke-width="3.2"><title>清水锅 → 染液锅</title></line>
+<polygon points="1566.83,930.71 1571.62,947.12 1581.23,939.93" fill="#91ad65" stroke="none"/>
+<line data-from="dye" data-to="dyed" x1="1532.57" y1="894.84" x2="1129.41" y2="569.71" stroke="#91ad65" stroke-width="3.2"><title>染液锅 → 染色物品</title></line>
+<polygon points="1129.41,569.71 1138.09,584.42 1145.63,575.08" fill="#91ad65" stroke="none"/>
+<line data-from="dye" data-to="sheep" x1="1542.11" y1="887.71" x2="1348.41" y2="417.17" stroke="#91ad65" stroke-width="3.2"><title>染液锅 → 染色羊</title></line>
+<polygon points="1348.41,417.17 1348.95,434.25 1360.05,429.68" fill="#91ad65" stroke="none"/>
+<line data-from="dye" data-to="dye_bottle" x1="1553.10" y1="885.97" x2="1597.61" y2="308.76" stroke="#91ad65" stroke-width="3.2"><title>染液锅 → 瓶装染液</title></line>
+<polygon points="1597.61,308.76 1590.40,324.25 1602.37,325.17" fill="#91ad65" stroke="none"/>
+<line data-from="water" data-to="lemon" x1="1896.55" y1="1361.42" x2="1785.96" y2="1123.58" stroke="#91ad65" stroke-width="3.2"><title>清水锅 → 柠檬水锅</title></line>
+<polygon points="1785.96,1123.58 1787.27,1140.61 1798.15,1135.55" fill="#91ad65" stroke="none"/>
+<line data-from="lemon" data-to="fruit" x1="1794.26" y1="1085.67" x2="1993.25" y2="937.62" stroke="#91ad65" stroke-width="3.2"><title>柠檬水锅 → 水果锅</title></line>
+<polygon points="1993.25,937.62 1976.83,942.36 1983.99,951.99" fill="#91ad65" stroke="none"/>
+<line data-from="fruit" data-to="jam" x1="2014.42" y1="898.11" x2="2016.77" y2="719.13" stroke="#91ad65" stroke-width="3.2"><title>水果锅 → 果酱锅</title></line>
+<polygon points="2016.77,719.13 2010.56,735.05 2022.56,735.21" fill="#91ad65" stroke="none"/>
+<line data-from="jam" data-to="jam_bottle" x1="2010.25" y1="670.13" x2="1887.84" y2="259.36" stroke="#91ad65" stroke-width="3.2"><title>果酱锅 → 瓶装果酱</title></line>
+<polygon points="1887.84,259.36 1886.66,276.41 1898.16,272.98" fill="#91ad65" stroke="none"/>
+<line data-from="jam" data-to="jelly" x1="2029.16" y1="672.38" x2="2130.38" y2="498.04" stroke="#91ad65" stroke-width="3.2"><title>果酱锅 → 果冻锅</title></line>
+<polygon points="2130.38,498.04 2117.15,508.86 2127.53,514.89" fill="#91ad65" stroke="none"/>
+<line data-from="jelly" data-to="jelly_bowl" x1="2145.68" y1="451.66" x2="2162.00" y2="278.23" stroke="#91ad65" stroke-width="3.2"><title>果冻锅 → 碗装果冻</title></line>
+<polygon points="2162.00,278.23 2154.52,293.60 2166.47,294.72" fill="#91ad65" stroke="none"/>
+<line data-from="water" data-to="glow_water" x1="1925.07" y1="1364.35" x2="2280.37" y2="886.93" stroke="#91ad65" stroke-width="3.2"><title>清水锅 → 发光水锅</title></line>
+<polygon points="2280.37,886.93 2266.01,896.18 2275.63,903.34" fill="#91ad65" stroke="none"/>
+<line data-from="glow_water" data-to="spectral" x1="2301.96" y1="842.85" x2="2428.68" y2="357.21" stroke="#91ad65" stroke-width="3.2"><title>发光水锅 → 光灵箭</title></line>
+<polygon points="2428.68,357.21 2418.84,371.17 2430.45,374.20" fill="#91ad65" stroke="none"/>
+<line data-from="water" data-to="extinguish" x1="1926.31" y1="1365.32" x2="2664.18" y2="481.74" stroke="#91ad65" stroke-width="3.2"><title>清水锅 → 灭火</title></line>
+<polygon points="2664.18,481.74 2649.32,490.17 2658.53,497.86" fill="#91ad65" stroke="none"/>
+<line data-from="water" data-to="boil_water" x1="1934.78" y1="1377.53" x2="2661.72" y2="1122.31" stroke="#91ad65" stroke-width="3.2"><title>清水锅 → 沸水锅</title></line>
+<polygon points="2661.72,1122.31 2644.63,1121.95 2648.61,1133.27" fill="#91ad65" stroke="none"/>
+<line data-from="boil_water" data-to="dough" x1="2695.75" y1="1091.66" x2="2885.93" y2="650.39" stroke="#91ad65" stroke-width="3.2"><title>沸水锅 → 生面团</title></line>
+<polygon points="2885.93,650.39 2874.08,662.71 2885.10,667.46" fill="#91ad65" stroke="none"/>
+<line data-from="boil_water" data-to="mossy" x1="2705.37" y1="1099.20" x2="3062.42" y2="828.48" stroke="#91ad65" stroke-width="3.2"><title>沸水锅 → 苔砖</title></line>
+<polygon points="3062.42,828.48 3046.04,833.37 3053.29,842.93" fill="#91ad65" stroke="none"/>
+<line data-from="empty" data-to="potion" x1="2094.89" y1="1985.82" x2="2583.52" y2="1912.79" stroke="#b18bd2" stroke-width="4.5"><title>空锅 → 药水锅</title></line>
+<polygon points="2583.52,1912.79 2566.81,1909.22 2568.58,1921.09" fill="#b18bd2" stroke="none"/>
+<line data-from="potion" data-to="boil_potion" x1="2627.93" y1="1884.55" x2="2819.55" y2="1575.06" stroke="#b18bd2" stroke-width="3.2"><title>药水锅 → 沸腾药水锅</title></line>
+<polygon points="2819.55,1575.06 2806.03,1585.50 2816.23,1591.82" fill="#b18bd2" stroke="none"/>
+<line data-from="boil_potion" data-to="mixed" x1="2854.39" y1="1541.61" x2="3097.23" y2="1411.32" stroke="#b18bd2" stroke-width="3.2"><title>沸腾药水锅 → 混合药水</title></line>
+<polygon points="3097.23,1411.32 3080.30,1413.59 3085.97,1424.17" fill="#b18bd2" stroke="none"/>
+<line data-from="mixed" data-to="potion_bottle" x1="3128.03" y1="1376.36" x2="3243.74" y2="1043.65" stroke="#b18bd2" stroke-width="3.2"><title>混合药水 → 瓶装混合药水</title></line>
+<polygon points="3243.74,1043.65 3232.81,1056.80 3244.15,1060.74" fill="#b18bd2" stroke="none"/>
+<line data-from="mixed" data-to="conflict" x1="3141.29" y1="1387.68" x2="3384.14" y2="1257.39" stroke="#b18bd2" stroke-width="3.2"><title>混合药水 → 清空锅</title></line>
+<polygon points="3384.14,1257.39 3367.20,1259.67 3372.87,1270.24" fill="#b18bd2" stroke="none"/>
+<line data-from="mixed" data-to="explosion" x1="3143.62" y1="1404.00" x2="3516.40" y2="1482.99" stroke="#b18bd2" stroke-width="3.2"><title>混合药水 → 爆炸</title></line>
+<polygon points="3516.40,1482.99 3501.99,1473.80 3499.50,1485.54" fill="#b18bd2" stroke="none"/>
+<line data-from="potion" data-to="arrow" x1="2640.88" y1="1904.22" x2="3622.68" y2="1757.49" stroke="#b18bd2" stroke-width="3.2"><title>药水锅 → 药箭</title></line>
+<polygon points="3622.68,1757.49 3605.96,1753.92 3607.74,1765.79" fill="#b18bd2" stroke="none"/>
+<line data-from="potion" data-to="glow_potion" x1="2640.56" y1="1914.26" x2="3140.44" y2="2022.14" stroke="#b18bd2" stroke-width="3.2"><title>药水锅 → 发光药水锅</title></line>
+<polygon points="3140.44,2022.14 3126.06,2012.90 3123.53,2024.63" fill="#b18bd2" stroke="none"/>
+<line data-from="glow_potion" data-to="glow_arrow" x1="3189.85" y1="2028.19" x2="3685.88" y2="2039.94" stroke="#b18bd2" stroke-width="3.2"><title>发光药水锅 → 发光药箭</title></line>
+<polygon points="3685.88,2039.94 3670.03,2033.56 3669.75,2045.56" fill="#b18bd2" stroke="none"/>
+<line data-from="potion" data-to="contact" x1="2635.09" y1="1925.80" x2="3123.63" y2="2314.92" stroke="#b18bd2" stroke-width="3.2"><title>药水锅 → 接触施效</title></line>
+<polygon points="3123.63,2314.92 3114.85,2300.26 3107.38,2309.64" fill="#b18bd2" stroke="none"/>
+<line data-from="contact" data-to="lasting" x1="3167.97" y1="2331.50" x2="3690.19" y2="2339.84" stroke="#b18bd2" stroke-width="3.2"><title>接触施效 → 持续效果</title></line>
+<polygon points="3690.19,2339.84 3674.28,2333.59 3674.09,2345.59" fill="#b18bd2" stroke="none"/>
+<line data-from="contact" data-to="instant" x1="3164.53" y1="2343.49" x2="3628.15" y2="2622.49" stroke="#b18bd2" stroke-width="3.2"><title>接触施效 → 瞬间效果</title></line>
+<polygon points="3628.15,2622.49 3617.53,2609.10 3611.34,2619.38" fill="#b18bd2" stroke="none"/>
+<line data-from="empty" data-to="lava" x1="2093.34" y1="2061.78" x2="2708.73" y2="2469.10" stroke="#df8269" stroke-width="4.5"><title>空锅 → 岩浆锅</title></line>
+<polygon points="2708.73,2469.10 2698.70,2455.27 2692.08,2465.27" fill="#df8269" stroke="none"/>
+<line data-from="lava" data-to="burn" x1="2758.91" y1="2497.95" x2="3510.23" y2="2865.10" stroke="#df8269" stroke-width="3.2"><title>岩浆锅 → 灼烧</title></line>
+<polygon points="3510.23,2865.10 3498.49,2852.69 3493.22,2863.47" fill="#df8269" stroke="none"/>
+<line data-from="lava" data-to="fd_heat" x1="2754.87" y1="2504.04" x2="3373.54" y2="3042.31" stroke="#df8269" stroke-width="3.2"><title>岩浆锅 → 农夫乐事锅供热</title></line>
+<polygon points="3373.54,3042.31 3365.41,3027.28 3357.53,3036.34" fill="#df8269" stroke="none"/>
+<line data-from="empty" data-to="world" x1="2077.53" y1="2174.14" x2="2239.97" y2="2538.99" stroke="#61aaa6" stroke-width="4.5"><title>空锅 → 共用交互</title></line>
+<line data-from="world" data-to="redstone" x1="2275.94" y1="2581.21" x2="2734.93" y2="2867.37" stroke="#61aaa6" stroke-width="3.2"><title>共用交互 → 比较器</title></line>
+<line data-from="redstone" data-to="volume_signal" x1="2777.21" y1="2894.07" x2="3225.23" y2="3181.00" stroke="#61aaa6" stroke-width="3.2"><title>比较器 → 液量信号</title></line>
+<line data-from="redstone" data-to="fruit_signal" x1="2772.64" y1="2899.33" x2="3093.02" y2="3272.25" stroke="#61aaa6" stroke-width="3.2"><title>比较器 → 水果加工信号</title></line>
+<line data-from="redstone" data-to="cheese_signal" x1="2766.35" y1="2903.23" x2="2954.64" y2="3348.22" stroke="#61aaa6" stroke-width="3.2"><title>比较器 → 奶酪熟成信号</title></line>
+<line data-from="world" data-to="display" x1="2266.24" y1="2590.61" x2="2495.95" y2="2986.16" stroke="#61aaa6" stroke-width="3.2"><title>共用交互 → 显示与查询</title></line>
+<line data-from="display" data-to="jade" x1="2522.96" y1="3028.18" x2="2799.62" y2="3415.61" stroke="#61aaa6" stroke-width="3.2"><title>显示与查询 → 玉</title></line>
+<line data-from="display" data-to="jei" x1="2516.33" y1="3031.50" x2="2654.39" y2="3462.84" stroke="#61aaa6" stroke-width="3.2"><title>显示与查询 → 物品管理器</title></line>
+<line data-from="world" data-to="rope" x1="2259.47" y1="2593.43" x2="2512.55" y2="3531.98" stroke="#61aaa6" stroke-width="3.2"><title>共用交互 → 绳索移动</title></line>
+<line data-from="world" data-to="poi" x1="2255.10" y1="2594.25" x2="2353.37" y2="3530.28" stroke="#61aaa6" stroke-width="3.2"><title>共用交互 → 皮匠工作站</title></line>
+<line data-from="world" data-to="fence" x1="2250.82" y1="2594.37" x2="2204.26" y2="3551.36" stroke="#61aaa6" stroke-width="3.2"><title>共用交互 → 栅栏连接</title></line>
+<line data-from="world" data-to="hat" x1="2246.92" y1="2593.90" x2="2055.25" y2="3597.54" stroke="#61aaa6" stroke-width="3.2"><title>共用交互 → 帽架彩蛋</title></line>
+<line data-from="empty" data-to="auto" x1="1911.39" y1="2173.91" x2="1732.15" y2="2525.69" stroke="#7b9c91" stroke-width="4.5"><title>空锅 → 装取与传输</title></line>
+<line data-from="auto" data-to="containers" x1="1723.22" y1="2580.03" x2="1807.79" y2="3077.22" stroke="#7b9c91" stroke-width="3.2"><title>装取与传输 → 容器</title></line>
+<line data-from="containers" data-to="bottles" x1="1815.62" y1="3126.60" x2="1885.48" y2="3603.55" stroke="#7b9c91" stroke-width="3.2"><title>容器 → 瓶装取液</title></line>
+<line data-from="containers" data-to="buckets" x1="1808.12" y1="3126.51" x2="1732.77" y2="3568.88" stroke="#7b9c91" stroke-width="3.2"><title>容器 → 桶装取液</title></line>
+<line data-from="containers" data-to="dispenser" x1="1801.06" y1="3124.14" x2="1575.38" y2="3557.34" stroke="#7b9c91" stroke-width="3.2"><title>容器 → 发射器</title></line>
+<line data-from="auto" data-to="pipes" x1="1709.96" y1="2579.08" x2="1405.10" y2="3527.71" stroke="#7b9c91" stroke-width="3.2"><title>装取与传输 → 机械动力管道</title></line>
+<line data-from="auto" data-to="tap" x1="1703.20" y1="2575.86" x2="1434.73" y2="2986.47" stroke="#7b9c91" stroke-width="3.2"><title>装取与传输 → 龙头兼容</title></line>
+<line data-from="tap" data-to="supp_tap" x1="1412.02" y1="3030.68" x2="1240.80" y2="3483.73" stroke="#7b9c91" stroke-width="3.2"><title>龙头兼容 → 锦致装饰龙头</title></line>
+<line data-from="tap" data-to="tavern_tap" x1="1405.57" y1="3027.03" x2="1068.48" y2="3451.43" stroke="#7b9c91" stroke-width="3.2"><title>龙头兼容 → 森罗酒馆龙头</title></line>
+<line data-from="auto" data-to="natural" x1="1693.91" y1="2565.77" x2="1191.96" y2="2838.06" stroke="#7b9c91" stroke-width="3.2"><title>装取与传输 → 自然补充</title></line>
+<line data-from="natural" data-to="rain" x1="1158.42" y1="2871.94" x2="926.46" y2="3338.19" stroke="#7b9c91" stroke-width="3.2"><title>自然补充 → 降雨</title></line>
+<line data-from="natural" data-to="drip" x1="1152.34" y1="2867.62" x2="789.66" y2="3238.83" stroke="#7b9c91" stroke-width="3.2"><title>自然补充 → 滴水石</title></line>
+<line data-from="natural" data-to="animal" x1="1147.98" y1="2861.84" x2="666.47" y2="3121.36" stroke="#7b9c91" stroke-width="3.2"><title>自然补充 → 动物滴奶</title></line>
+<line data-from="empty" data-to="heat" x1="1905.83" y1="2040.95" x2="1458.93" y2="2235.26" stroke="#b89972" stroke-width="4.5"><title>空锅 → 加热与加工</title></line>
+<line data-from="heat" data-to="sources" x1="1409.19" y1="2264.25" x2="989.91" y2="2585.30" stroke="#b89972" stroke-width="3.2"><title>加热与加工 → 有效热源</title></line>
+<line data-from="sources" data-to="campfire" x1="951.03" y1="2616.71" x2="546.34" y2="2962.96" stroke="#b89972" stroke-width="3.2"><title>有效热源 → 营火／炉灶</title></line>
+<line data-from="sources" data-to="burner" x1="946.69" y1="2609.25" x2="453.98" y2="2787.06" stroke="#b89972" stroke-width="3.2"><title>有效热源 → 燃烧室</title></line>
+<line data-from="heat" data-to="craft" x1="1403.79" y1="2251.76" x2="900.82" y2="2334.32" stroke="#b89972" stroke-width="3.2"><title>加热与加工 → 锅内加工</title></line>
+<line data-from="craft" data-to="products" x1="853.79" y1="2349.45" x2="387.69" y2="2587.48" stroke="#b89972" stroke-width="3.2"><title>锅内加工 → 配方产物</title></line>
+<line data-from="craft" data-to="remainders" x1="851.30" y1="2341.09" x2="357.03" y2="2394.03" stroke="#b89972" stroke-width="3.2"><title>锅内加工 → 容器余料</title></line>
+<line data-from="empty" data-to="snow" x1="1905.04" y1="2008.31" x2="1194.65" y2="2070.46" stroke="#75a9ce" stroke-width="4.5"><title>空锅 → 细雪锅</title></line>
+<polygon points="1194.65,2070.46 1211.11,2075.04 1210.06,2063.09" fill="#75a9ce" stroke="none"/>
+<line data-from="snow" data-to="melt" x1="1136.87" y1="2075.51" x2="355.42" y2="2143.88" stroke="#75a9ce" stroke-width="3.2"><title>细雪锅 → 灭火融水</title></line>
+<polygon points="355.42,2143.88 371.89,2148.46 370.84,2136.51" fill="#75a9ce" stroke="none"/>
+<line data-from="empty" data-to="milk" x1="1905.26" y1="1978.13" x2="1425.12" y2="1867.28" stroke="#e2af55" stroke-width="4.5"><title>空锅 → 牛奶锅</title></line>
+<polygon points="1425.12,1867.28 1439.36,1876.72 1442.06,1865.03" fill="#e2af55" stroke="none"/>
+<line data-from="milk" data-to="milk_bottle" x1="1367.92" y1="1861.79" x2="389.12" y2="1905.88" stroke="#e2af55" stroke-width="3.2"><title>牛奶锅 → 农夫乐事奶瓶</title></line>
+<line data-from="milk" data-to="cure" x1="1368.14" y1="1856.76" x2="434.10" y2="1730.00" stroke="#e2af55" stroke-width="3.2"><title>牛奶锅 → 解除效果</title></line>
+<polygon points="434.10,1730.00 449.15,1738.10 450.76,1726.21" fill="#e2af55" stroke="none"/>
+<line data-from="milk" data-to="age_milk" x1="1370.39" y1="1848.96" x2="1193.73" y2="1768.83" stroke="#e2af55" stroke-width="3.2"><title>牛奶锅 → 熟成奶锅</title></line>
+<polygon points="1193.73,1768.83 1205.82,1780.91 1210.78,1769.98" fill="#e2af55" stroke="none"/>
+<line data-from="age_milk" data-to="cheese" x1="1147.01" y1="1751.38" x2="960.29" y2="1696.95" stroke="#e2af55" stroke-width="3.2"><title>熟成奶锅 → 奶酪锅</title></line>
+<polygon points="960.29,1696.95 973.98,1707.19 977.33,1695.67" fill="#e2af55" stroke="none"/>
+<line data-from="cheese" data-to="cheese_bucket" x1="912.29" y1="1682.96" x2="725.58" y2="1628.54" stroke="#e2af55" stroke-width="3.2"><title>奶酪锅 → 奶酪桶</title></line>
+<polygon points="725.58,1628.54 739.26,1638.78 742.62,1627.26" fill="#e2af55" stroke="none"/>
+<line data-from="cheese_bucket" data-to="cheese_block" x1="677.57" y1="1614.55" x2="490.86" y2="1560.13" stroke="#e2af55" stroke-width="3.2"><title>奶酪桶 → 奶酪块</title></line>
+<polygon points="490.86,1560.13 504.54,1570.36 507.90,1558.84" fill="#e2af55" stroke="none"/>
+<line data-from="milk" data-to="shake" x1="1372.88" y1="1844.57" x2="1002.19" y2="1587.44" stroke="#e2af55" stroke-width="3.2"><title>牛奶锅 → 奶昔锅</title></line>
+<polygon points="1002.19,1587.44 1011.92,1601.49 1018.76,1591.63" fill="#e2af55" stroke="none"/>
+<line data-from="shake" data-to="shake_bottle" x1="958.69" y1="1563.34" x2="557.39" y2="1395.06" stroke="#e2af55" stroke-width="3.2"><title>奶昔锅 → 奶昔瓶</title></line>
+<polygon points="557.39,1395.06 569.83,1406.79 574.47,1395.72" fill="#e2af55" stroke="none"/>
+<line data-from="water" data-to="fruit" x1="1914.57" y1="1359.51" x2="2008.34" y2="947.46" stroke="#91ad65" stroke-width="3.2"><title>满清水锅加入瓶装果酱，直接进入水果锅</title></line>
+<polygon points="2008.34,947.46 1998.94,961.73 2010.64,964.39" fill="#91ad65" stroke="none"/>
+</g><g id="items">
+<g id="node-empty"><title>空锅</title>
+<g transform="translate(2000.0,2000.0)" fill="#fcfbf7" stroke="#4b5556" stroke-width="5" stroke-linejoin="round"><path d="M -43 -30 L -48 -3 Q -55 35 -28 43 L 28 43 Q 55 35 48 -3 L 43 -30 Z"/><ellipse cx="0" cy="-30" rx="43" ry="10"/><path d="M -28 44 L -34 56 M 28 44 L 34 56" fill="none" stroke-linecap="round"/></g>
+<text x="1938.00" y="2136.56" font-family="Microsoft YaHei, sans-serif" font-size="62" font-weight="600" fill="#293332">空锅</text>
+</g>
+<g id="node-water"><title>清水锅</title>
+<circle cx="1908.36" cy="1386.81" r="18" fill="#91ad65"/>
+<text x="1957.36" y="1472.77" font-family="Microsoft YaHei, sans-serif" font-size="42" font-weight="600" fill="#293332">清水锅</text>
+</g>
+<g id="node-wash"><title>洗色</title>
+<circle cx="1141.16" cy="1282.53" r="13" fill="#91ad65"/>
+<text x="1106.16" y="1361.33" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">洗色</text>
+</g>
+<g id="node-leather"><title>无色皮革／马铠</title>
+<circle cx="627.61" cy="1187.56" r="13" fill="#91ad65"/>
+<text x="505.11" y="1266.36" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">无色皮革／马铠</text>
+</g>
+<g id="node-banner"><title>去顶层图案旗帜</title>
+<circle cx="758.13" cy="962.55" r="13" fill="#91ad65"/>
+<text x="635.63" y="901.35" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">去顶层图案旗帜</text>
+</g>
+<g id="node-shulker"><title>无色潜影盒</title>
+<circle cx="916.45" cy="748.02" r="13" fill="#91ad65"/>
+<text x="828.95" y="686.82" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">无色潜影盒</text>
+</g>
+<g id="node-dye"><title>染液锅</title>
+<circle cx="1551.25" cy="909.90" r="13" fill="#91ad65"/>
+<text x="1599.25" y="918.70" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">染液锅</text>
+</g>
+<g id="node-dyed"><title>染色物品</title>
+<circle cx="1109.17" cy="553.39" r="13" fill="#91ad65"/>
+<text x="1039.17" y="492.19" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">染色物品</text>
+</g>
+<g id="node-sheep"><title>染色羊</title>
+<circle cx="1338.51" cy="393.13" r="13" fill="#91ad65"/>
+<text x="1286.01" y="331.93" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">染色羊</text>
+</g>
+<g id="node-dye_bottle"><title>瓶装染液</title>
+<circle cx="1599.61" cy="282.84" r="13" fill="#91ad65"/>
+<text x="1529.61" y="221.64" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">瓶装染液</text>
+</g>
+<g id="node-lemon"><title>柠檬水锅</title>
+<circle cx="1775.00" cy="1100.00" r="13" fill="#91ad65"/>
+<text x="1823.00" y="1108.80" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">柠檬水锅</text>
+</g>
+<g id="node-fruit"><title>水果锅</title>
+<circle cx="2014.11" cy="922.11" r="13" fill="#91ad65"/>
+<text x="1861.11" y="930.91" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">水果锅</text>
+</g>
+<g id="node-jam"><title>果酱锅</title>
+<circle cx="2017.11" cy="693.13" r="13" fill="#91ad65"/>
+<text x="2065.11" y="701.93" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">果酱锅</text>
+</g>
+<g id="node-jam_bottle"><title>瓶装果酱</title>
+<circle cx="1880.41" cy="234.44" r="13" fill="#91ad65"/>
+<text x="1810.41" y="173.24" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">瓶装果酱</text>
+</g>
+<g id="node-jelly"><title>果冻锅</title>
+<circle cx="2143.43" cy="475.56" r="13" fill="#91ad65"/>
+<text x="2191.43" y="484.36" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">果冻锅</text>
+</g>
+<g id="node-jelly_bowl"><title>碗装果冻</title>
+<circle cx="2164.43" cy="252.35" r="13" fill="#91ad65"/>
+<text x="2094.43" y="191.15" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">碗装果冻</text>
+</g>
+<g id="node-glow_water"><title>发光水锅</title>
+<circle cx="2295.90" cy="866.07" r="13" fill="#91ad65"/>
+<text x="2107.90" y="874.87" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">发光水锅</text>
+</g>
+<g id="node-spectral"><title>光灵箭</title>
+<circle cx="2435.25" cy="332.05" r="13" fill="#91ad65"/>
+<text x="2382.75" y="270.85" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">光灵箭</text>
+</g>
+<g id="node-extinguish"><title>灭火</title>
+<circle cx="2680.84" cy="461.78" r="13" fill="#91ad65"/>
+<text x="2645.84" y="400.58" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">灭火</text>
+</g>
+<g id="node-boil_water"><title>沸水锅</title>
+<circle cx="2686.25" cy="1113.70" r="13" fill="#91ad65"/>
+<text x="2633.75" y="1192.50" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">沸水锅</text>
+</g>
+<g id="node-dough"><title>生面团</title>
+<circle cx="2896.22" cy="626.52" r="13" fill="#91ad65"/>
+<text x="2843.72" y="565.32" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">生面团</text>
+</g>
+<g id="node-mossy"><title>苔砖</title>
+<circle cx="3083.14" cy="812.78" r="13" fill="#91ad65"/>
+<text x="3048.14" y="891.58" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">苔砖</text>
+</g>
+<g id="node-potion"><title>药水锅</title>
+<circle cx="2613.19" cy="1908.36" r="18" fill="#b18bd2"/>
+<text x="2550.19" y="2015.32" font-family="Microsoft YaHei, sans-serif" font-size="42" font-weight="600" fill="#293332">药水锅</text>
+</g>
+<g id="node-boil_potion"><title>沸腾药水锅</title>
+<circle cx="2833.24" cy="1552.95" r="13" fill="#b18bd2"/>
+<text x="2610.24" y="1561.75" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">沸腾药水锅</text>
+</g>
+<g id="node-mixed"><title>混合药水</title>
+<circle cx="3120.14" cy="1399.03" r="13" fill="#b18bd2"/>
+<text x="3050.14" y="1477.83" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">混合药水</text>
+</g>
+<g id="node-potion_bottle"><title>瓶装混合药水</title>
+<circle cx="3252.28" cy="1019.10" r="13" fill="#b18bd2"/>
+<text x="3147.28" y="957.90" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">瓶装混合药水</text>
+</g>
+<g id="node-conflict"><title>清空锅</title>
+<circle cx="3407.05" cy="1245.10" r="13" fill="#b18bd2"/>
+<text x="3354.55" y="1323.90" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">清空锅</text>
+</g>
+<g id="node-explosion"><title>爆炸</title>
+<circle cx="3541.83" cy="1488.38" r="13" fill="#b18bd2"/>
+<text x="3506.83" y="1567.18" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">爆炸</text>
+</g>
+<g id="node-arrow"><title>药箭</title>
+<circle cx="3648.39" cy="1753.65" r="13" fill="#b18bd2"/>
+<text x="3613.39" y="1832.45" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">药箭</text>
+</g>
+<g id="node-glow_potion"><title>发光药水锅</title>
+<circle cx="3165.85" cy="2027.62" r="13" fill="#b18bd2"/>
+<text x="3078.35" y="2106.42" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">发光药水锅</text>
+</g>
+<g id="node-glow_arrow"><title>发光药箭</title>
+<circle cx="3711.88" cy="2040.56" r="13" fill="#b18bd2"/>
+<text x="3641.88" y="2119.36" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">发光药箭</text>
+</g>
+<g id="node-contact"><title>接触施效</title>
+<circle cx="3143.97" cy="2331.12" r="13" fill="#b18bd2"/>
+<text x="2955.97" y="2339.92" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">接触施效</text>
+</g>
+<g id="node-lasting"><title>持续效果</title>
+<circle cx="3716.18" cy="2340.26" r="13" fill="#b18bd2"/>
+<text x="3646.18" y="2419.06" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">持续效果</text>
+</g>
+<g id="node-instant"><title>瞬间效果</title>
+<circle cx="3650.42" cy="2635.90" r="13" fill="#b18bd2"/>
+<text x="3580.42" y="2714.70" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">瞬间效果</text>
+</g>
+<g id="node-lava"><title>岩浆锅</title>
+<circle cx="2733.75" cy="2485.66" r="18" fill="#df8269"/>
+<text x="2670.75" y="2592.62" font-family="Microsoft YaHei, sans-serif" font-size="42" font-weight="600" fill="#293332">岩浆锅</text>
+</g>
+<g id="node-burn"><title>灼烧</title>
+<circle cx="3533.59" cy="2876.52" r="13" fill="#df8269"/>
+<text x="3498.59" y="2955.32" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">灼烧</text>
+</g>
+<g id="node-fd_heat"><title>农夫乐事锅供热</title>
+<circle cx="3393.15" cy="3059.38" r="13" fill="#df8269"/>
+<text x="3270.65" y="3138.18" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">农夫乐事锅供热</text>
+</g>
+<g id="node-world"><title>共用交互</title>
+<circle cx="2252.18" cy="2566.40" r="18" fill="#61aaa6"/>
+<text x="2036.18" y="2577.86" font-family="Microsoft YaHei, sans-serif" font-size="42" font-weight="600" fill="#293332">共用交互</text>
+</g>
+<g id="node-redstone"><title>比较器</title>
+<circle cx="2757.00" cy="2881.12" r="13" fill="#61aaa6"/>
+<text x="2704.50" y="2819.92" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">比较器</text>
+</g>
+<g id="node-volume_signal"><title>液量信号</title>
+<circle cx="3247.12" cy="3195.02" r="13" fill="#61aaa6"/>
+<text x="3177.12" y="3273.82" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">液量信号</text>
+</g>
+<g id="node-fruit_signal"><title>水果加工信号</title>
+<circle cx="3109.96" cy="3291.97" r="13" fill="#61aaa6"/>
+<text x="3004.96" y="3370.77" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">水果加工信号</text>
+</g>
+<g id="node-cheese_signal"><title>奶酪熟成信号</title>
+<circle cx="2964.77" cy="3372.16" r="13" fill="#61aaa6"/>
+<text x="2859.77" y="3450.96" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">奶酪熟成信号</text>
+</g>
+<g id="node-display"><title>显示与查询</title>
+<circle cx="2509.01" cy="3008.64" r="13" fill="#61aaa6"/>
+<text x="2557.01" y="3017.44" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">显示与查询</text>
+</g>
+<g id="node-jade"><title>玉</title>
+<circle cx="2814.73" cy="3436.77" r="13" fill="#61aaa6"/>
+<text x="2797.23" y="3515.57" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">玉</text>
+</g>
+<g id="node-jei"><title>物品管理器</title>
+<circle cx="2662.32" cy="3487.60" r="13" fill="#61aaa6"/>
+<text x="2574.82" y="3566.40" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">物品管理器</text>
+</g>
+<g id="node-rope"><title>绳索移动</title>
+<circle cx="2519.32" cy="3557.09" r="13" fill="#61aaa6"/>
+<text x="2568.32" y="3636.89" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">绳索移动</text>
+</g>
+<g id="node-poi"><title>皮匠工作站</title>
+<circle cx="2356.09" cy="3556.14" r="13" fill="#61aaa6"/>
+<text x="2268.59" y="3634.94" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">皮匠工作站</text>
+</g>
+<g id="node-fence"><title>栅栏连接</title>
+<circle cx="2202.99" cy="3577.33" r="13" fill="#61aaa6"/>
+<text x="2132.99" y="3704.13" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">栅栏连接</text>
+</g>
+<g id="node-hat"><title>帽架彩蛋</title>
+<circle cx="2050.38" cy="3623.08" r="13" fill="#61aaa6"/>
+<text x="1861.38" y="3702.88" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">帽架彩蛋</text>
+</g>
+<g id="node-auto"><title>装取与传输</title>
+<circle cx="1718.53" cy="2552.42" r="18" fill="#7b9c91"/>
+<text x="1766.53" y="2563.88" font-family="Microsoft YaHei, sans-serif" font-size="42" font-weight="600" fill="#293332">装取与传输</text>
+</g>
+<g id="node-containers"><title>容器</title>
+<circle cx="1812.15" cy="3102.86" r="13" fill="#7b9c91"/>
+<text x="1860.15" y="3111.66" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">容器</text>
+</g>
+<g id="node-bottles"><title>瓶装取液</title>
+<circle cx="1889.24" cy="3629.27" r="13" fill="#7b9c91"/>
+<text x="1700.24" y="3709.07" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">瓶装取液</text>
+</g>
+<g id="node-buckets"><title>桶装取液</title>
+<circle cx="1728.40" cy="3594.51" r="13" fill="#7b9c91"/>
+<text x="1539.40" y="3674.31" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">桶装取液</text>
+</g>
+<g id="node-dispenser"><title>发射器</title>
+<circle cx="1563.37" cy="3580.40" r="13" fill="#7b9c91"/>
+<text x="1630.57" y="3500.00" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">发射器</text>
+</g>
+<g id="node-pipes"><title>机械动力管道</title>
+<circle cx="1397.15" cy="3552.46" r="13" fill="#7b9c91"/>
+<text x="1292.15" y="3631.26" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">机械动力管道</text>
+</g>
+<g id="node-tap"><title>龙头兼容</title>
+<circle cx="1420.50" cy="3008.23" r="13" fill="#7b9c91"/>
+<text x="1232.50" y="3017.03" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">龙头兼容</text>
+</g>
+<g id="node-supp_tap"><title>锦致装饰龙头</title>
+<circle cx="1231.61" cy="3508.05" r="13" fill="#7b9c91"/>
+<text x="972.61" y="3587.85" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">锦致装饰龙头</text>
+</g>
+<g id="node-tavern_tap"><title>森罗酒馆龙头</title>
+<circle cx="1052.31" cy="3471.79" r="13" fill="#7b9c91"/>
+<text x="794.31" y="3480.59" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">森罗酒馆龙头</text>
+</g>
+<g id="node-natural"><title>自然补充</title>
+<circle cx="1169.11" cy="2850.45" r="13" fill="#7b9c91"/>
+<text x="1099.11" y="2789.25" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">自然补充</text>
+</g>
+<g id="node-rain"><title>降雨</title>
+<circle cx="914.88" cy="3361.47" r="13" fill="#7b9c91"/>
+<text x="962.88" y="3370.27" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">降雨</text>
+</g>
+<g id="node-drip"><title>滴水石</title>
+<circle cx="771.49" cy="3257.43" r="13" fill="#7b9c91"/>
+<text x="718.99" y="3336.23" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">滴水石</text>
+</g>
+<g id="node-animal"><title>动物滴奶</title>
+<circle cx="643.58" cy="3133.70" r="13" fill="#7b9c91"/>
+<text x="573.58" y="3212.50" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">动物滴奶</text>
+</g>
+<g id="node-heat"><title>加热与加工</title>
+<circle cx="1431.42" cy="2247.22" r="18" fill="#b89972"/>
+<text x="1326.42" y="2163.18" font-family="Microsoft YaHei, sans-serif" font-size="42" font-weight="600" fill="#293332">加热与加工</text>
+</g>
+<g id="node-sources"><title>有效热源</title>
+<circle cx="969.27" cy="2601.10" r="13" fill="#b89972"/>
+<text x="1017.27" y="2609.90" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">有效热源</text>
+</g>
+<g id="node-campfire"><title>营火／炉灶</title>
+<circle cx="526.58" cy="2979.86" r="13" fill="#b89972"/>
+<text x="439.08" y="3058.66" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">营火／炉灶</text>
+</g>
+<g id="node-burner"><title>燃烧室</title>
+<circle cx="429.53" cy="2795.89" r="13" fill="#b89972"/>
+<text x="377.03" y="2874.69" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">燃烧室</text>
+</g>
+<g id="node-craft"><title>锅内加工</title>
+<circle cx="875.17" cy="2338.54" r="13" fill="#b89972"/>
+<text x="805.17" y="2417.34" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">锅内加工</text>
+</g>
+<g id="node-products"><title>配方产物</title>
+<circle cx="364.54" cy="2599.30" r="13" fill="#b89972"/>
+<text x="294.54" y="2678.10" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">配方产物</text>
+</g>
+<g id="node-remainders"><title>容器余料</title>
+<circle cx="331.18" cy="2396.80" r="13" fill="#b89972"/>
+<text x="261.18" y="2475.60" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">容器余料</text>
+</g>
+<g id="node-snow"><title>细雪锅</title>
+<circle cx="1164.76" cy="2073.07" r="18" fill="#75a9ce"/>
+<text x="1101.76" y="2158.03" font-family="Microsoft YaHei, sans-serif" font-size="42" font-weight="600" fill="#293332">细雪锅</text>
+</g>
+<g id="node-melt"><title>灭火融水</title>
+<circle cx="329.52" cy="2146.15" r="13" fill="#75a9ce"/>
+<text x="259.52" y="2224.95" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">灭火融水</text>
+</g>
+<g id="node-milk"><title>牛奶锅</title>
+<circle cx="1395.89" cy="1860.53" r="18" fill="#e2af55"/>
+<text x="1332.89" y="1945.49" font-family="Microsoft YaHei, sans-serif" font-size="42" font-weight="600" fill="#293332">牛奶锅</text>
+</g>
+<g id="node-milk_bottle"><title>农夫乐事奶瓶</title>
+<circle cx="363.15" cy="1907.05" r="13" fill="#e2af55"/>
+<text x="258.15" y="1985.85" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">农夫乐事奶瓶</text>
+</g>
+<g id="node-cure"><title>解除效果</title>
+<circle cx="408.34" cy="1726.50" r="13" fill="#e2af55"/>
+<text x="338.34" y="1805.30" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">解除效果</text>
+</g>
+<g id="node-age_milk"><title>熟成奶锅</title>
+<circle cx="1170.05" cy="1758.09" r="13" fill="#e2af55"/>
+<text x="1219.05" y="1695.89" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">熟成奶锅</text>
+</g>
+<g id="node-cheese"><title>奶酪锅</title>
+<circle cx="935.33" cy="1689.68" r="13" fill="#e2af55"/>
+<text x="882.83" y="1768.48" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">奶酪锅</text>
+</g>
+<g id="node-cheese_bucket"><title>奶酪桶</title>
+<circle cx="700.61" cy="1621.26" r="13" fill="#e2af55"/>
+<text x="648.11" y="1700.06" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">奶酪桶</text>
+</g>
+<g id="node-cheese_block"><title>奶酪块</title>
+<circle cx="465.90" cy="1552.85" r="13" fill="#e2af55"/>
+<text x="413.40" y="1631.65" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">奶酪块</text>
+</g>
+<g id="node-shake"><title>奶昔锅</title>
+<circle cx="980.83" cy="1572.62" r="13" fill="#e2af55"/>
+<text x="928.33" y="1511.42" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">奶昔锅</text>
+</g>
+<g id="node-shake_bottle"><title>奶昔瓶</title>
+<circle cx="533.42" cy="1385.01" r="13" fill="#e2af55"/>
+<text x="480.92" y="1463.81" font-family="Microsoft YaHei, sans-serif" font-size="35" font-weight="400" fill="#293332">奶昔瓶</text>
+</g>
+</g></svg>
