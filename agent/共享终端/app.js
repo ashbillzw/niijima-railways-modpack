@@ -5,21 +5,20 @@ const term = new Terminal({cols:110,rows:32,fontSize:14,cursorBlink:true,scrollb
 const terminalContainer=document.getElementById('terminal');
 term.open(terminalContainer);
 terminalContainer.addEventListener('click',()=>{if(!window.getSelection()?.toString())term.focus();});
-let cursor=0, stopped=false, stopping=false, leaving=false, pending=Promise.resolve(), requestId=null, inputBusy=0;
+let cursor=0, stopped=false, stopping=false, leaving=false, pending=Promise.resolve(), requestId=null;
 const box=document.createElement('section');
 box.id='confirmation';box.hidden=true;
 box.style.cssText='margin:12px 20px;padding:16px;background:#3d311c;border:1px solid #e1b668;border-radius:8px';
 box.innerHTML='<b>待确认</b><pre id="command" style="white-space:pre-wrap;overflow-wrap:anywhere"></pre><p id="hint"></p><button id="confirm" title="先发送 Ctrl+C，再发送此命令">覆盖</button> <button id="reject">丢弃</button>';
 document.querySelector('header').after(box);
 async function api(path, body){const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:JSON.stringify(body)});if(!r.ok) throw Error('HTTP '+r.status);return r.json();}
-term.onData(text=>{if(stopped||stopping||leaving)return;inputBusy++;document.getElementById('confirm').disabled=true;pending=pending.then(()=>api('/input',{text})).catch(e=>{document.getElementById('status').textContent=e.message;}).finally(()=>{inputBusy--;});});
-document.getElementById('confirm').onclick=async()=>{const id=requestId;try{await pending;await api('/confirm',{id,overwrite:document.getElementById('confirm').dataset.overwrite==='true'});term.focus();}catch(e){document.getElementById('status').textContent=e.message;}};
+term.onData(text=>{if(stopped||stopping||leaving)return;pending=pending.then(()=>api('/input',{text})).catch(e=>{document.getElementById('status').textContent=e.message;});});
+document.getElementById('confirm').onclick=async e=>{const id=requestId, overwrite=e.currentTarget.dataset.overwrite==='true';try{await pending;await api('/confirm',{id,overwrite});term.focus();}catch(e){document.getElementById('status').textContent=e.message;}};
 document.getElementById('reject').onclick=async()=>{try{await api('/reject',{id:requestId});term.focus();}catch(e){document.getElementById('status').textContent=e.message;}};
 function renderGate(s){
   box.hidden=!s.pending;requestId=s.pending?.id || null;
   document.getElementById('command').textContent=s.pending?.text || '';
   const confirm=document.getElementById('confirm');
-  confirm.disabled=!!inputBusy;
   confirm.dataset.overwrite=String(!!s.user_input_active);
   confirm.textContent=s.user_input_active?'覆盖':'发送';
   confirm.title=s.user_input_active?'先取消当前输入，再发送命令':'发送此命令';
