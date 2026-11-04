@@ -286,3 +286,37 @@ Minecraft 需要先把压缩 NBT 读成完整结构，Create 才能从 `RailGrap
 - **与60秒tick的关系：目前没有直接性能证据。** 急停是运动行为现象，不能等同主线程卡住60秒；若以后出现同步卡顿、错误刷屏、反复信号扫描或异常采样栈，再与本次性能事件交叉判断。
 
 本轮字节码摘录与局部放大截图保存在仓库外 `D:\mydata\Agents\Minecraft相关\临时分析\player-reports-20261030\`。本节保留可独立理解的事实和限制，不将临时分析产物或聊天图片纳入仓库。
+
+## 2026-11-04 · 两服停服后的只读核查
+
+北京时间 10:27 正常停看门狗与两服，三项 unit 均为 inactive、MainPID=0、Result=success。根据两服 server.properties 的 level-name 读取正式世界 data/create_tracks.dat。create-cn 文件 4,293,301 字节，修改时间 02:41:40（北京时间），gzip 未正常结束，解出前缀 45,912,747 字节，NBT 在 Trains 内截断。RailGraphs 305/305、SignalBlocks 84,017/84,017、DimensionPalette 2/2、Trains 122/150 条完整。目录还有 .old 至 .old7，未检查其内容。train-cn 文件 1,573,591 字节，修改时间 10:27:20，gzip 与 NBT 均完整，160 列、644 个轨道图、2,113 个信号分组。两目录均未见文件名含 create_tracks 的临时 DAT。未恢复或启动，11 月 4 日这次截断的触发原因待查。
+
+## 2026-11-04 · 从最近完整备份恢复与 1.5 兼容性核查
+
+按 create-cn 的 automatic 与 archive 中 ZIP 文件名时间倒序检查。11-04 00-06-02 备份中的 DAT 同样缺 gzip 尾。11-02 00-06-02 备份成员 create-cn_world/data/create_tracks.dat 通过成员 CRC、gzip、NBT 完整解析和图、列车、车厢引用检查，含 300 个图、83,951 个信号分组、149 列、386 节车厢。经批准只恢复这一份 DAT，保留原文件为 create_tracks.dat.old8（4,293,301 字节）。恢复后 4,670,283 字节，SHA-256 为 675fe02498828c6fe29986938b416df1812d5fb1ec38c6bf37576f2fa1839f10。train-cn 当前 DAT 的图、列车、车厢引用也通过只读核查。恢复后两服及 mc-watchdog-r2 均 inactive；未部署新 JAR 或改配置。
+
+长期归档 timer enabled；北京时间 10:00:03 prune 成功退出 0。日志包含延后、建链及淘汰。两服各有 7 份 automatic、8 份 archive，各自最新 ZIP 在两目录同 inode、链接数 2。归档保留 ZIP 原样，不能据此判断存档内部有效。
+
+核查目标是 test0017 的 TrainResync 1.6.0.o；create-cn 当前启用 1.6.0.d、train-cn 启用 1.6.0.a。两服 Create 0.5.1.j。DAT 保存与加载 Mixin 只检查 Create；服务端启动事件另读 config/trainresync.json，缺文件默认关闭，两服现场均缺。启用 railwayDataProtection 后，已有世界缺 DAT 或存在 .trainresync.tmp 会阻止启动；损坏 gzip/NBT、列车结构或解码失败会在加载阶段阻断。保存异常保留旧 DAT、请求停服；是否能自动重启取决于旧 DAT 是否有效及是否残留临时文件。
+
+线上 1.5 仍满足全部五个炼药锅基础模组门槛。森罗厨房 1.1.0 有 Pot/Stockpot/Steamer 的目标方法及调用点，但不存在 TeapotBlockEntity；当前插件只按 mod ID 选中该组。Mixin 0.8.5 的目标类缺失在非严格模式可跳过，严格目标模式则报错；不可因配置 required 就断言此处必崩，亦不能以此保证完整专服可启动。另已抽查线上 Fruits Delight 1.1.1 与 Farmer’s Delight 1.2.9 的关键注入点。尚无 1.5 全套模组搭配 1.6.0.o 的隔离专服冷启动验收。
+
+## 2026-11-04 · create-cn 卡顿时间线（北京时间）
+
+11 月 4 日 01:57 至 02:35，create-cn 的长延迟约每隔 5–6 分钟出现一次：10.36、10.25、10.36、16.23、17.82、25.11、44.25、47.96 秒。这些是 Can't keep up 的累计落后时间，不是逐次保存耗时。02:41:24 内置 watchdog 报告单 tick 已达 60.41 秒，02:41:31 生成 crash-2026-11-03_18.41.31-server.txt（文件名为 UTC）。主线程 RUNNABLE，栈为世界保存 → DimensionDataStorage → SavedData → NbtIo → GZIPOutputStream → Deflater；栈本身不含 DAT 文件名。02:41:40 正式 DAT 最后写入，02:41:42 unit 退出，02:47:54 重启加载 create_tracks 失败。窗口内未见内核 OOM kill 或磁盘报错。崩溃快照：0 玩家，主世界 Chunks[S] W: 6510，15,613 个方块实体，JVM 堆空闲 44 MiB / 16,384 MiB。
+
+最近 12 份 crash report 中有 11 份 watchdog，其中 8 份主线程在 DimensionDataStorage 保存，8 次报告的堆空闲均为 27–73 MiB。最强工作假设为堆余量极低时，周期保存的分配、序列化和压缩放大停顿。现有日志没有同期 GC 暂停或对象留存证据，不能锁定占用堆的模组、证明内存泄漏或把 60 秒都归给压缩。建议下次受控启动记录滚动 GC/safepoint 日志及 JFR，再对齐保存窗口。只读调查，未修改远端配置、未启动服务。
+
+## 2026-11-04 · 线上兼容候选与部署前验证
+
+TrainResync main eeb912f 实现最多五分钟等待、完整正式 DAT 配合十五分钟 tmp 归档恢复，以及按有效 niijima-pack.json 门控的整套炼药锅代码和内置数据包。缺 pack-id 时不注册炼药锅与标签拴绳扩展；保留切石机索引、CTL 灯态与车厢碰撞优化。14 个炼药锅数据文件内容均与原源文件一致，已核对归档内无默认加载副本。有效标记、缺文件、无有效 ID、Prism 实例父目录与专服目录的本地测试通过。
+
+临时诊断分支 diag/railway-memory-20261104 提交 8788424，trainresync-1.6.0.p-diag-all.jar 的 SHA-256 为 29d504f4e6c8e562cc22c1b0036b603cb3f1c469086f1735b24c9e305e7f3e8d。独立 JFR 记录及铁路保存摘要；归档目录选定为 /synology/MCShare/minecraft/railway-recovery/{create-cn,train-cn}/。本条记录为本地编译与静态验证，生产启动需另记。
+
+## 2026-11-04 · 两服首次线上启动验收（北京时间）
+
+已通过共享 SSH 向 create-cn、train-cn 部署 1.6.0.p-diag（上节 SHA-256），每服在安装前校验摘要，旧 JAR 分别改名为 trainresync-1.6.0.d-all.jar.before-railguard.disabled、trainresync-1.6.0.a-all.jar.before-railguard.disabled。两服 config/trainresync.json 启用保护，railwayTempArchive 分别指向既定的 NAS 子目录。
+
+create-cn 11:41:05 日志确认铁路保护生效，11:41:09 Done、TCP 25591 监听。train-cn 11:42:04 保护生效，11:42:08 Done、TCP 25590 监听。两服 Java 进程均已打开各自的 JFR 录制块。create-cn 启动后有 Radium 分析 Supplementaries CannonBlock 时读取客户端 PoseStack 的警告，未阻止就绪。此为线上启动验收，未人为制造超时、截断或 tmp 恢复。mc-watchdog-r2 仍为 inactive。
+
+11:46:57（北京时间）经批准启动 mc-watchdog-r2；journal 确认启动，看门狗和两服均 active/running，两服 MainPID 与首次验收一致。
