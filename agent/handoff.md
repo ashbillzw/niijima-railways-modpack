@@ -1,5 +1,43 @@
 # Agent 交接与通用维护要求
 
+## 2026-11-06 · test0019 注册与三仓提交
+
+**交付状态更新（2026-11-06）：** 已统一构建并注册 **pack-id 19 / test0019**，包含TrainResync 1.6.0.s的炼药锅与全屏修复。提交检查时将Chloride Mixin改为目标类直接引用，去除@Pseudo；Gradle build及既有容量自检再次通过。最终包内JAR SHA-256为 `26167c9a6dd3137fbe8fa5c1dbdb019de19a1cfa8ce051167613f25eaee1a938`。普通build与build-test成功；本地测试ZIP为589392252字节。启动器源码索引和本机packs索引均已登记，未上传生产服务器。现有test0018仍为此前手动更新的s构建；新安装test0019使用本次最终构建。游戏实测尚待用户反馈。
+
+## 2026-11-06 · 炼药锅第三轮refresh / test0018
+
+状态更新（2026-11-06第三轮refresh）：B10.4／B10.5通过移出，B11无效题归档，B12改成具体蜂蜜注取题；新增声音及“仅混入新药时判定”复测，现110题。TrainResync 1.6.0.s已统一编译并替换test0018，普通build通过；等用户游戏反馈。详见[mini todo](物品整合/炼药锅测试反馈-20261019.md)。
+
+交付更新（2026-11-06 04:55 +08:00）：TrainResync 1.6.0.s已统一构建，包含本轮炼药锅修复及另一任务的F11保存／主菜单前置。已替换pack/overrides及现有test0018实例中的TrainResync JAR，设置与存档未动；shared引用仍指向同名s版。SHA-256：`c21bbdc11f4f20e9bc5425f0f8642cdaf37c111a62c0644626ba6080bbfd64d6`，843126字节。普通build.bat成功，build/pack.zip为130994334字节。本轮未生成新的build-test实例；游戏行为待用户复测。
+
+并行构建曾产生仅含窗口修改的同名隔离s版，不要用其覆盖上述SHA-256的统一交付。两仓源码与文档尚未提交。
+
+## 2026-11-06 · F11 保存与启动前置
+
+> **历史状态（已由本轮统一交付替代）：04:51决定等待统一构建。** 用户要求等另一项炼药锅工作完成后一起编译，已停止后续构建、打包和部署。下文构建记录是此前中间状态：包内 s JAR 与普通 pack.zip 包含当时并行修改的炼药锅代码，不能作为两项工作共同完成后的最终验收产物；隔离源码构建虽已结束，但未替换包内文件。源码保留，当前游戏实例未替换。统一构建时重新生成 JAR 和整合包，再开展游戏验收。
+
+用户要求的两项行为已纳入 TrainResync 1.6.0.s：Chloride 完成 F11 模式切换后立即保存其配置及 options.txt；游戏首次进入已无加载遮罩的 TitleScreen／FancyMenu random_video 页时，通过 GLFW 请求前置一次。视频页使用原生 identifier；没有新增运行依赖、强制全屏、持续置顶或重复抢焦点。Windows 仍可拒绝前置请求，源码和静态检查不能代替实际游戏验证。
+
+具体机制、源码证据及测试范围见 [TrainResync 配置说明](../../Create-Train-Resync/agent/配置.md)。当前实例的 F11 保存不会影响另一份新实例；包内 fullscreen:true／Chloride BORDERLESS 默认值本轮不改。
+
+新 JAR 843126 字节，SHA-256 `60C40C87C0D50655C65291AFF5FD5BB8CC906AA9C88F95520BD39793BBFDE549`；已替换 `pack/overrides/mods/trainresync-1.6.0.r-all.jar`，shared 引用同步为 `trainresync-1.6.0.s-all.jar.ablink`，仍为 `__master__`。旧 r JAR／引用备份在仓库外 `window-behavior-20261106/previous-distribution/`。分发前仍需对应分支提供 s JAR。
+
+gradlew.bat build 与静态核对通过，普通 build.bat 成功，产物 build/pack.zip。没有运行 build-test 或生成新 pack-id／test-id；test0018 及正在使用的实例尚未替换，未部署线上。未 commit／push，未改启动器代码。下方此前 r 的测试交付仍是当时状态，本节只更新包内当前分发源。
+
+## 2026-11-06 · 炼药锅第二轮refresh
+
+状态更新（2026-11-06第二轮refresh）：最新04:11导出中B08.1–B08.8、B09、B10.1–B10.3共12项通过，均已归档移出HTML（包括有评论者）。新增用户要求的B10.5跨阈值爆炸测试；现108题，从B10.4继续。三条评论的答复及边界见mini todo顶部。本轮仅改题库和文档，实例仍为已更新的TrainResync r。
+
+第一轮“119题、B08待实测”已过时；本轮原始JSON与通过项详见[反馈记录](物品整合/炼药锅测试反馈-20261019.md)。未修改Java或构建产物，未提交。
+
+## 2026-11-06 · 炼药锅 refresh / test0018（第一轮历史）
+
+2026-11-06 03:47 已在用户退出游戏后，将当前 Prism `新岛铁道 v1.6.test0013/minecraft/mods` 的旧 TrainResync o 替换为 r。旧 JAR 备份在仓库外 `cauldron-test-page/refresh-20261106/instance-backup/`，复制前后 SHA-256 一致：`0835E1503A79C3C12D4C05A3A1B6E38865B8C7E76012E12B68D1B392C7D6A057`。实例根已有 token 114514／pack-id 13，满足新版模块启用条件；未改实例名称、pack-id、配置或存档。目录仍叫 test0013，此实例已是手动更新 JAR 的复测副本。
+
+普通 `build.bat` 成功。全量测试包首次因 PowerShell 7 进程继承给 Windows PowerShell 5 的模块路径导致 Get-FileHash 无法加载而失败；仅在调用进程恢复系统模块目录后重新执行原 build-test.bat 成功，没有修改构建脚本。由于另一机已使用 test0014–0017，本地忽略目录的序号基线由13校准为17，生成 `test0018`（589385655字节），pack-id 18 已登记到启动器维护源和本地 packs，独立 ZIP 已就位。旧13条目和旧ZIP保留，14–17未在本机补造条目。定点检查包索引为1.6.test0018、files为空，包内仅新版TrainResync r。
+
+最新反馈与119题HTML见[refresh记录](物品整合/炼药锅测试反馈-20261019.md)。原始JSON已入库归档；B07移出、B08拆分，游戏复测未进行。下方旧测试交付记录保留为历史。本轮refresh新改动尚未提交／推送，与此前三仓已完成推送区分。
+
 ## 2026-11-06 · 本轮续作
 
 现有模组汉化续作：新增 42 个中文键、纠正或扩展 29 条，共 71 条，详见[汉化交付与保留边界](模组管理/汉化/资源交付与代码层残留-20261018.md)。用户限制 Mixin 必须同时满足面向玩家、理解收益、无非 Mixin 途径；本轮 KJS 六类按钮使用 Forge 事件，只有 RPL 两段连接失败提示新增一个可选客户端 Mixin。
