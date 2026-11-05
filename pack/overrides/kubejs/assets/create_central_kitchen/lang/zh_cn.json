@@ -70,5 +70,6 @@
   "item.create_central_kitchen.incomplete_portobello_wrap": "波特贝勒菇卷饼（半成品）",
   "item.create_central_kitchen.mulberry_jam_bucket": "桑葚果酱桶",
   "create_central_kitchen.ponder.blaze_stove.automation.text_3": "你也可以手持任意指南右击烈焰人炉灶以交换它们",
-  "datapack.create_central_kitchen.corn_delight": "机械动力：中央厨房 - 玉米乐事"
+  "datapack.create_central_kitchen.corn_delight": "机械动力：中央厨房 - 玉米乐事",
+  "create_central_kitchen.ponder.blaze_stove.heat_source.text_4": "不过务必注意超级加热的火焰会立刻烧毁你的原料"
 }

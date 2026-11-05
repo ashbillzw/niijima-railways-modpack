@@ -1,0 +1,10 @@
+{
+  "ritchiesprojectilelib.configgui.maxChunksForceLoaded": "每刻强制加载区块上限",
+  "ritchiesprojectilelib.configgui.maxChunksForceLoaded.tooltip": "每个游戏刻最多强制加载的区块数。设为0表示不限制强制加载的区块数量。",
+  "ritchiesprojectilelib.configgui.maxChunksLoadedEachTick": "每刻处理区块加载数上限",
+  "ritchiesprojectilelib.configgui.maxChunksLoadedEachTick.tooltip": "每个游戏刻最多处理加载的区块数。",
+  "ritchiesprojectilelib.configgui.projectileChunkAge": "区块保持加载时间",
+  "ritchiesprojectilelib.configgui.projectileChunkAge.tooltip": "单位：游戏刻。由本模组加载的区块在卸载前保持加载的时间。",
+  "ritchiesprojectilelib.configgui.entityLoadTimeout": "实体加载等待时间",
+  "ritchiesprojectilelib.configgui.entityLoadTimeout.tooltip": "单位：游戏刻。由本模组加载的区块若尚未加载实体，在卸载前保持加载的时间。"
+}

@@ -27,5 +27,7 @@
   "block.natures_spirit.tall_frigid_grass": "高寒气草丛",
   "block.natures_spirit.white_wisteria_leaves": "白花紫藤树叶",
   "block.natures_spirit.yellow_aspen_leaves": "黄叶白杨树叶",
-  "block.natures_spirit.larch_sign": "落叶松木告示牌"
+  "block.natures_spirit.larch_sign": "落叶松木告示牌",
+  "pack.natures_spirit.plank_consistency": "木板纹理统一",
+  "tag.item.natures_spirit.disabled_pizza_toppings": "禁用的披萨配料"
 }

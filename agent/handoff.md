@@ -1,5 +1,13 @@
 # Agent 交接与通用维护要求
 
+## 2026-11-06 · 本轮续作
+
+现有模组汉化续作：新增 42 个中文键、纠正或扩展 29 条，共 71 条，详见[汉化交付与保留边界](模组管理/汉化/资源交付与代码层残留-20261018.md)。用户限制 Mixin 必须同时满足面向玩家、理解收益、无非 Mixin 途径；本轮 KJS 六类按钮使用 Forge 事件，只有 RPL 两段连接失败提示新增一个可选客户端 Mixin。
+
+TrainResync 按授权快进到 c98428b／q，再构建 1.6.0.r；既有 CTL／车门、铁路 DAT、炼药锅及经验罐修复保留。r 已替换包内 o，shared 引用同步为 `trainresync-1.6.0.r-all.jar.ablink`（仍 `__master__`）；下方 test0013／o 是历史产物，不代表此次包内 JAR。上线前需 master 含新 JAR。
+
+Gradle build 与既有 1001 状态自检成功，语言格式／Mixin 映射静态检查通过；`build.bat` 已运行成功，产物 `build/pack.zip`。未运行 build-test、未改 pack-id／test-id 或 Prism；未替换玩家实例、未启动游戏／专用服、未上传部署、未提交。本轮不把高级配置残留、纯风格候选或游戏验收标为完成。仓库外证据：`C:/mydata/Agents/Codex-CreateTrainResync/lang-audit/resume-20261106/`。
+
 ## 2026-11-02 · 炼药锅本地交付
 
 test0013 使用 TrainResync 1.6.0.o，已移除 shader-switch-debug；两服共用同一 `__master__` JAR 引用。上线前须先让 master 提供目标文件。发布与推送由用户另行安排。游戏验收见[炼药锅测试反馈](物品整合/炼药锅测试反馈-20261019.md)及[JEI 审计](物品整合/炼药锅JEI覆盖审计-20261031.md)。下方旧包为各日期的历史交付。
