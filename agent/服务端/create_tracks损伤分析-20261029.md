@@ -320,3 +320,157 @@ TrainResync main eeb912f 实现最多五分钟等待、完整正式 DAT 配合�
 create-cn 11:41:05 日志确认铁路保护生效，11:41:09 Done、TCP 25591 监听。train-cn 11:42:04 保护生效，11:42:08 Done、TCP 25590 监听。两服 Java 进程均已打开各自的 JFR 录制块。create-cn 启动后有 Radium 分析 Supplementaries CannonBlock 时读取客户端 PoseStack 的警告，未阻止就绪。此为线上启动验收，未人为制造超时、截断或 tmp 恢复。mc-watchdog-r2 仍为 inactive。
 
 11:46:57（北京时间）经批准启动 mc-watchdog-r2；journal 确认启动，看门狗和两服均 active/running，两服 MainPID 与首次验收一致。
+
+
+## 2026-11-05 · 线上备份、DAT 保护与内存诊断审计
+
+称呼更正（用户 11 月 5 日确认）：create-cn 为主服，train-cn 为次要的创造测试服。此前聊天中把两者叫反；下面数据仍按原服务器 ID 对应，已修正文案。主服从 11 月 4 日部署补丁到本次检查未发现新崩溃，但 GC 后高占用／上升趋势属于主服；约 3.6 GiB 的稳定低位属于测试服，不能用于判断主服内存稳定。
+
+北京时间 19:05–19:17，通过共享 SSH 只读核查。未改配置、未重启游戏或看门狗、未强制 GC／导出新堆转储。两服与 mc-watchdog-r2 均 active/running，线上仍为 1.6.0.p-diag。SSH 在最后一条日志返回后被远端关闭；以下为断线前现场，不代表持续监控。
+
+### 自动备份与长期归档
+
+两服 SimpleBackups 均启用，每 2880 分钟、保留 7 份；目录容量上限 create-cn 140 GB、train-cn 70 GB，DH 数据库排除规则仍在。automatic 符号链接指向 NAS；两服各 7 份 automatic、8 份 archive，每份 automatic 同名归档均同 inode、链接数 2。旧 archive 独有文件链接数 1，未因短期轮换丢失。
+
+| 服务器 | 最新成功 ZIP（文件名时间为 UTC） | 开始时间（北京时间） | 大小 | 日志耗时 |
+| --- | --- | --- | --- | --- |
+| create-cn | create-cn_world_2026-11-04_00-06-02.zip | 11 月 4 日 08:06 | 9,711,337,165 字节，约 9.04 GiB | 4 分 48 秒 |
+| train-cn | train-cn_world_2026-11-03_23-21-52.zip | 11 月 4 日 07:21 | 3,936,750,778 字节，约 3.67 GiB | 1 分 58 秒 |
+
+按两天间隔，下轮预计北京时间 11 月 6 日约 08:06／07:21，目前未逾期。mc-backup-archive.timer active/waiting；11 月 4 日 03:00 UTC 至检查时共 33 次任务，两服均成功，均 additions=0、eligible_deletions=0、archive_count=8。oneshot service 的 inactive/dead、Result=success 属正常完成。本次窗口无新增 ZIP，故未发生新建链或新淘汰，不把无操作成功等同于本轮实际删除验证。
+
+**主服（create-cn）上述最新 ZIP 生成于保护补丁部署前，其中 DAT 已在 11 月 4 日检查确认损坏。** 归档正常不证明 ZIP 内业务数据有效；本次没有重复解压该 ZIP。当前正式 DAT 完整，补丁部署后的下一轮两天备份尚未到期。
+
+### DAT 及保存补丁
+
+当前正式文件各读一次到内存，然后对这份字节快照做完整 gzip 解压及 NBT 结构解析，避免跨保存时点混读。结果：
+
+| 服务器 | DAT 大小 | 文件时间（北京时间） | 列车 | 轨道图 | 信号分组 |
+| --- | ---: | --- | ---: | ---: | ---: |
+| create-cn | 4,778,067 字节 | 11 月 5 日 19:10:49 | 150/150 | 303/303 | 84,148/84,148 |
+| train-cn | 1,572,418 字节 | 11 月 5 日 19:10:32 | 160/160 | 648/648 | 2,117/2,117 |
+
+两服均 gzip/NBT 完整，无 trainresync.tmp，railway-recovery 目录为空。此处核查截断和结构完整性，未再次遍历全部列车身份／轨道语义引用。
+
+从部署后的压缩日志与当前日志统计至 11 月 5 日 19:05，两服分别 377 条 DAT 保存摘要，全部 committed=true：create-cn 0.922–1.418 秒，train-cn 0.721–1.261 秒。未发现新 crash report、保存失败或 tmp 恢复事件；不代表人为超时／故障恢复路径已在生产触发验收。
+
+两服最近一次启动分别为 11 月 5 日 03:00:08、03:30:04，journal 为正常停止后启动；未发现同期异常退出。看门狗文件日志最后一条为 11 月 4 日 11:46:57 启动，此后无 missed／故障重启条目。本轮没有最终定位夜间正常重启的触发者，不断言由 cron 或看门狗发起。
+
+### JFR：已证实的高分配来源与尚未证实的泄漏
+
+分析两份已完成录制：create-cn logs/railway-1793763665547.jfr（北京时间 11 月 5 日 01:33–03:00，约 87 分钟），train-cn logs/railway-1793763724836.jfr（02:16–03:30，约 74 分钟）。256 MiB 上限使实际保留窗口短于最大 2 小时。当前会话目标 JFR 为 0 字节，与诊断代码在结束时输出目标文件的方式一致，不能据此判定未录制；本轮详细统计来自已结束会话，不是实时堆分析。
+
+`jdk.ThreadAllocationStatistics` 的线程累计分配差值显示：
+
+| 线程／服务器 | 保留窗口内累计分配 | 对应采样区间平均速率 |
+| --- | ---: | ---: |
+| TrackMap watcher / create-cn | 1,347,183,703,704 字节，约 1.23 TiB | 约 260 MiB/s |
+| TrackMap watcher / train-cn | 2,036,728,460,544 字节，约 1.85 TiB | 约 454 MiB/s |
+| Server thread / create-cn | 1,026,985,405,088 字节 | 约 188 MiB/s |
+| Server thread / train-cn | 466,305,729,928 字节 | 约 100 MiB/s |
+
+**这是分配后可以反复被 GC 回收的总量，不是同时占用 1–2 TB 内存，也不是留存量。** TrackMap 线程采样起止略短于完整 JFR 窗口；速率按其实际端点计算。
+
+每份 JFR 顺序读取前 20,000 个 ObjectAllocationSample（仅开头约 80–90 秒，非全时段加权比例），定位到 Create Track Map 的 `littlechasiu.ctm.TrackWatcher`：
+
+- `update` 第 413 行：ArrayList.iterator；
+- `ExtensionsKt.getPath` → `TrackNodeLocation.getLocation` → `CreateSignal`：构造 Vec3／信号路径；
+- `CreateSignalBlock` → LinkedHashSet／HashSet：构造信号分组集合；测试服（train-cn）另有 Line.divideAt／Vec3.lerp。
+
+两服实际 JAR 均为 create-track-map-ashbill-patch-1.4+mc1.20.1-neoforge.jar。可确认该模组是显著分配来源，尚未进行源码修正或关闭模组的对照实验，不能宣布它是 60 秒 tick 或泄漏的唯一根因。
+
+主服（create-cn） GC 后堆占用的分段低位／中位整体上涨：开头低位约 12,997 MiB，后段中位约 13,655 MiB；停服前 System.gc 触发 Full GC 后降到 11,726 MiB（约 11.45 GiB）。该 Full GC 最长暂停 1.923 秒，整段各 GC sumOfPauses 合计约 23.17 秒，录制区间未见 60 秒 GC 暂停。测试服（train-cn）各段 GC 后低位约 3,718–3,727 MiB（约 3.63–3.64 GiB），未持续上升；暂停合计约 8.97 秒，最长 0.238 秒。**高分配已证实，持续泄漏尚未证实；主服（create-cn）高基线及上升趋势仍需解释，不能把本窗口增量线性外推。**
+
+OldObjectSample 中主服（create-cn）出现 Create `FluidDrainingBehaviour.continueSearch`、`FluidManipulationBehaviour.search` 的 HashSet／HashMap 扩容和队列，另有 BlueMap 图像／网格、Distant Horizons 数据及 Netty 缓冲分配栈。这些是有留存时间的抽样对象线索，没有支配树和 retained size，不能据样本数排列真实内存占用或宣布具体对象泄漏。主服（create-cn） 84,148 个信号分组远多于测试服（train-cn） 2,117 个，也值得在解释 Track Map 遍历成本时考虑，但不能直接证明数据异常。
+
+保存摘要的 heapMiB 前后值同时受其他线程及 GC 影响，不能当作一次 DAT 保存分配量；其中 GC 计数也只涵盖保存窗口。现场主服（create-cn） RSS 约 18.73 GiB、测试服（train-cn）约 9.86 GiB，堆上限分别 16／8 GiB；RSS 包含堆外和 JVM 内存，超出堆上限本身不证明泄漏。
+
+取证脚本与原始终端输出保存在本机仓库外 `D:\mydata\Agents\Minecraft相关\临时分析\*20261105.py`、`临时工作区/shared-terminal/audit-20261105-*.json`。未把原始日志或凭据入库，未新增待办，未部署修复。
+
+
+### 2026-11-05 19:52：重新连接后的即时数据与进一步审计边界
+
+用户要求查看当前而非历史 JFR。北京时间 19:52:59，create-cn 主服 PID 1544932，RSS 19,699,456 KiB（约 18.79 GiB），进程已运行 16:52:51；train-cn 测试服 PID 1547743，RSS 10,342,324 KiB（约 9.86 GiB），已运行 16:22:55。19:51:55 服务检查三项均 active/running。系统 MemAvailable 16,273 MiB（约 15.89 GiB），Swap 使用 162 MiB。主服最新保存 19:50:49 committed=true、1.290 秒，heapMiB=13822→14604（保存后约 14.26 GiB，上限 16 GiB）；测试服 19:50:32 committed=true、1.055 秒，heapMiB=5815→6476。堆摘要比 RSS 快照早约两分钟，不能将它们当成同一时刻精确分解；保存后数值也不是 Full GC 后的存活量。
+
+普通用户访问 root Java 的 /proc/cwd 被拒，改用 ps 与已有日志完成只读采集；PATH 和当前 JRE bin 未发现 jstat。未提权附加 JVM、强制 GC、生成堆转储、变更诊断配置或重启服务。
+
+关于用户询问的长期占用：HPROF 堆快照配合 Eclipse MAT 的 Dominator Tree／retained size／Paths to GC Roots，可查当前哪些对象与引用链保留了大块 Java 堆；共享对象不能简单按模组重复相加。一次快照用于现状，多时点快照比较及业务语义用于判断持续累积或泄漏。类直方图仅按类统计实例数和对象自身大小，不能解释 byte[]／HashMap 属于哪个缓存；JFR OldObjectSample 配合根引用路径可提供抽样线索，但不是完整占用清单。进程 RSS 还包括 JVM 原生、线程栈、映射等，HPROF 不覆盖全部，必要时另查 OS 映射与 NMT。
+
+Java 21 官方将 GC.class_histogram 和 GC.heap_dump 均列为 High impact；heap_dump 默认请求 Full GC，-all 包含不可达对象且不请求该 Full GC，不能据此视作无暂停。JFR path-to-gc-roots 也有类似 Full GC 的开销。若进一步实施，需另行确认具体命令、输出路径和对游戏停顿／看门狗的影响。本轮仅讨论方法，未授权或执行上述诊断变更，未新增待办。
+
+依据：[Java 21 jcmd](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jcmd.html)、[Java 21 内存泄漏诊断](https://docs.oracle.com/en/java/javase/21/troubleshoot/troubleshooting-memory-leaks.html)、[Eclipse MAT 留存分析](https://help.eclipse.org/latest/topic/org.eclipse.mat.ui.help/reference/findingmemoryleak.html)。
+
+
+### 2026-11-05 20:00：堆快照工具与停服需求的只读审计
+
+当前 PATH、/etc/java 和标准 JVM 安装目录未找到 jcmd、jmap、jstat；PATH 有 jfr。/etc/java 只有 Eclipse Adoptium Temurin 21.0.5+11-jre 和 19.0.2+7-jre，dpkg 未登记 OpenJDK／Temurin 包。两服实际进程及 start-abs.sh 均指向 /etc/java/jdk-21.0.5+11-jre/bin/java，Java 进程所有者为 root。显式命令行和两个 @参数文件均未见 DisableAttachMechanism；主服 Xmx16G/Xms4G、测试服 Xmx8G/Xms2560M。当前 JRE 未带 lib/libattach.so；外置完整 JDK 可提供客户端诊断工具及依赖，无须把这些文件复制进正在运行的 JRE。
+
+结论：补充独立、匹配的 JDK 21 工具本身不需要停服、替换运行中 Java、重启或新增 TrainResync Mixin。实际 attach 尚未验证，不能仅凭未见禁用参数保证可连接；需要在工具就绪并获准后，以与目标 JVM 相同的有效用户／组验证。未读取进程环境变量中的注入参数、未调用 jcmd 附加 JVM。
+
+两服 server.properties 的 max-tick-time 均为 60000；两服和外部看门狗均 active/running。现有保护只等待 activeSave 对应的 DAT 保存，不为任意诊断暂停延长等待。故“补工具不用停服”不等于“现在可无风险直接取快照”；采集可能长暂停，正式实施仍须安排内置／外部看门狗处理并逐项获准，不能先结束 JVM 后再捕获其原内存。工具缺失本身没有构成必须停服的理由。
+
+服务器本地盘可用约 85 GiB、NAS 可用约 2.3 TiB（df -h）；本轮没有选择或创建输出目录、下载／安装工具、改配置、强制 GC、生成 HPROF 或重启服务。原始输出在仓库外 shared-terminal/audit-20261105-heap-tools.json 与 audit-20261105-heap-attach.json。
+
+
+### 2026-11-05：堆采集看门狗豁免的源码评估（尚未实现）
+
+用户提出在独立诊断分支用变量／文件标记，临时将看门狗容忍时间增加到最多五分钟，并询问能否复用 DAT 保护路径。本轮核对 diag/railway-memory-20261104（8788424）的 RailwayWatchdogMixin、AtomicRailwayFile 与本机 MC 1.20.1 ServerWatchdog 源码。
+
+既有 Mixin 注入 exit() HEAD：此时原版已经判定超时并生成 crash report；awaitCurrentSave() 只等待当前保存 latch（最多额外五分钟），之后仍进入 exit()，不是“恢复运行”豁免。因此可以复用同一个 Mixin 目标／维护位置，但不能把采集 flag 简单塞入该 latch 后宣称不会退出。采集豁免需要在超时判定之前介入，原 DAT 退出前等待行为保持独立。原版判定后使用同一轮时间值计算 Thread.sleep；实现若仅跳过退出而保留负 sleep 时长，可能导致看门狗线程异常退出，设计与验证必须一并考虑。
+
+变量适合 JVM 内部采集入口；外部 jcmd 采集配合有期限的文件标记更容易控制。实现应考虑标记残留、采集结束后服务器 tick 尚未恢复的时序，以及标记结束后恢复正常监督，不能靠永久存在的标记关闭看门狗。具体限额仍待用户选项回复：总 tick 上限五分钟，还是原有一分钟之外额外五分钟；未擅自选定。未修改代码、分支、服务或创建实际标记。
+
+部署新 Mixin 通常要重启 Java，当前内存现场随之消失，只能保护重启后的采集。五分钟是诊断豁免的逻辑上限，不是在整个 JVM 被暂停时保证准时终止采集的外部硬超时；Java 看门狗自身同样可能暂停。此方案仅涉及内置 Minecraft 看门狗，不自动改变外部 mc-watchdog-r2 的 TCP 检查或 systemd 行为。
+
+
+### 2026-11-05 20:25：诊断宽限已本地实现，未部署
+
+用户选定快照宽限为单次 tick 总门槛五分钟，并随后澄清两种逻辑独立：快照未超五分钟可以继续运行；真正决定退出后，DAT 原有额外等待仍保留，不把两者强行合并为全流程五分钟硬限制。取代上节“时限待选”的状态。
+
+TrainResync 当前切到 diag/railway-memory-20261104，在原线上 p-diag 基线增加 22 行 RailwayWatchdogMixin，版本 1.6.0.p-diag2；main 不变、后续 q 修复未合入。实例工作目录存在普通文件 trainresync-heap-dump.flag 时，超时判定门槛变为 300000 毫秒；无标记使用原门槛。诊断模式修正超出原60秒后可能出现的负休眠，改为至少一秒后复查；保持正常唤醒节奏，不直接睡满五分钟。DAT 保存和退出前等待代码原样保留。
+
+标记由采集操作创建，确认游戏 tick 恢复后移除；不自动创建／删除／超时过期，残留时后续 tick 仍使用五分钟门槛，不能作为常驻配置分发。需要先部署并重启才能生效，会丢失当前运行内存现场。没有安装远端 JDK、创建标记、采集堆快照、改配置或重启服务器。
+
+离线 build 成功、27 项隔离断言通过，验证生产方法的标记切换／五分钟边界／负休眠，并核对 Forge 47.2.0、47.4.6 注入字节码及生产 refmap；未真实游戏加载验证。首次构建缺本机 NIIJIMA_MODS_DIR，设置为既有 test0016/minecraft/mods 后成功，无下载。测试与日志在仓库外 临时测试/TrainResync-堆快照看门狗/。产物位于 TrainResync/build/libs/trainresync-1.6.0.p-diag2-all.jar，833345 字节，SHA-256 f686f9ac10af85cb909d87e558ea2f7d70f66242cb31f068d5fe56cd3bec5e05；尚未提交、入包或部署。操作语义见诊断分支 agent/配置.md 最新节。
+
+### 2026-11-05 23:10：局域网连接、停服后导航数据只读取证
+
+用户携本机返回服务器所在房间，要求核查“列车不产生预先进路／走错轨道”，补充现象应该今天才出现，暂不清楚具体列车和道岔。共享终端已连接 192.168.1.222:22，沿用原 SSH 别名身份和已信任主机密钥；未改 SSH 配置。以下时间统一北京时间（UTC+08:00），除明确标注的 ZIP 文件名和成员时间。
+
+**服务仍停止。** mc-create-cn-r2、mc-train-cn-r2、mc-watchdog-r2 均 inactive/dead、MainPID=0，退出活动状态时间为 20:37:30。两服随后完成正常停服保存：主服最后 DAT 保存 20:37:35.575，committed=true、1094 ms，20:37:35.989 所有维度保存完成；测试服 DAT 保存 20:37:32.748，committed=true、982 ms，所有维度随后保存完成。本轮未恢复文件、未启动服务、未部署 p-diag2。
+
+#### 当前 DAT：未发现再次截断，尚未定位走错轨道的根因
+
+| 停服后文件 | 字节数 | 列车／车厢 | 轨道图 | SignalBlocks |
+| --- | ---: | ---: | ---: | ---: |
+| create-cn 主服 | 4,717,543 | 150／391 | 303 | 84,152 |
+| train-cn 测试服 | 1,572,608 | 160／340 | 648 | 2,117 |
+
+两份文件均完整 gzip 解压、通过 CRC，并将 NBT 解析到末尾；无残留临时 DAT。当前主服正式文件修改时间为 20:37:35.559，测试服为 20:37:32.735。主服 17,414 个图节点、34,566 条有向边，无重复列车／图／信号组 ID、越界连接目标、非对称图边，未发现列车引用不存在的轨道图。41 列有导航目的地，8 列有 ReservedSignalBlocks，0 列 Derailed；这些是停服快照，不能证明故障时所有车辆工作正常，也不能据“部分无预留”断言全服不能预留。导航目的地、阻挡信号、已保存 Path 边及转向架所在边均能在各列车轨道图中找到，列车占用／预留的信号组引用存在。
+
+查到 206 条边引用的信号组不在全局表中、3 个信号侧的组引用缺失，但相同 206 条的计数及抽样 UUID 在 10/27、11/02 已存在；当前这 3 个信号亦见于两份旧 DAT（两份旧 DAT 各为 4 个）。需结合 Create fallback／无效侧等语义解释，不能将此检查结果直接标成今天新增损坏。当前缺组信号侧均保存为 INVALID。
+
+只读检查 DAT 指向的世界方块：涵盖 338 站台记录、1446 信号机端点及其他边缘点，共读取约 1028 个区块。发现主世界 (101,77,861)、(219,77,857) 两信号机及 (561,64,-760) 的 Track Station 仍在 DAT 内，但对应世界位置已是空气；**11/02 同一完整 ZIP 内的 DAT 和 region 文件就有完全相同的三个不一致**，故不能作为此次回档后新损坏的证据。已覆盖区块中另有 3 个世界站台／信号机 UUID 未列入 DAT，尚未证明属于有效绑定或本次故障位置；不是全世界反向扫描。初筛耦合器出现的 UUID 不同不能直接当异常：抽查显示其合法 SecondaryId 对应第二个图边缘点，故排除该粗判作为损坏证据。
+
+当前日志两服各有 153 条成功 DAT 保存摘要。没有新的 DAT 保存失败、OOM 或可直接指认此次走错轨道的异常堆栈；主服最新 crash report 仍为 UTC 11/03 18:41（保护部署前）。主服 TrackMap 的 ConcurrentModificationException 是其后台地图更新循环异常，不能凭它认定导航数据被改坏。停服时 stty/JLine 错误之后，游戏线程仍完成 DAT 和全部区块保存。
+
+代码依据使用本机 Create 0.5.1.j 实际 JAR 的 javap，另对线上 Navigation.class 和 TrackTargetingBehaviour.class 做 SHA-256 比对，两者均一致；本机 Create checkout 为 6.0.10/MC1.21.1，未将其当线上版本。Navigation.navigateOptions() 在 currentPath 为空，或下一条规划边不在本次候选边中时，返回 options.get(0)，没有在该分支强制停车或记录错误。这是“规划／现场分岔不匹配时可能走入别的轨道”的代码机制，**本次尚无故障列车、道岔与运行时路径证据，不能把该机制宣称为已确认 root cause**。正常剩余路线没有分岔也可有空 Path，不能仅凭空列表判坏。TrackTargetingBehaviour 加载时优先按 UUID 取现有图边缘点，并非无条件根据世界重新生成铁路图。因此文件结构完整不保证地图与运行状态完全一致；局部 DAT 回退导致世界时间线不一致仍是待验证解释，现有证据不足以要求再次回档或全服回档。
+
+#### 两次实际 DAT 回档时间（只操作 create-cn）
+
+| 实际操作时间（北京时间） | 恢复来源 ZIP（名称时间为 UTC） | 对应备份开始时间（北京时间） | 原现场保留文件 |
+| --- | --- | --- | --- |
+| 2026-10-30 00:00:32（步骤窗口 00:00:18–00:00:39） | create-cn_world_2026-10-27_00-06-00.zip | 2026-10-27 08:06:00 | create_tracks.dat.old7，4,683,103 字节 |
+| 2026-11-04 10:33:23 | create-cn_world_2026-11-02_00-06-02.zip | 2026-11-02 08:06:02 | create_tracks.dat.old8，4,293,301 字节 |
+
+目标均为 /home/ashbill/minecraft-server/create-cn/create-cn_world/data/create_tracks.dat；均原样提取 ZIP 中的同名正式 DAT，不改列车 NBT、不做部分合并、不恢复 region／玩家数据。两次恢复后的文件分别为 4,717,984 字节／151 列、4,670,283 字节／149 列。第一次未执行此前讨论的删除 kiha25；第二次跳过了已确认 DAT 损坏的 11/04 ZIP。train-cn 没有执行 DAT 回档。
+
+## 2026-11-06 · p-diag3 调试指令已部署，恢复运行
+
+用户批准部署并开两服和狗，旧 p-diag 在两服 mods 中均改名为 `.jar.disabled`；未执行新回档、改配置或修改游戏内铁路状态。北京时间 create-cn 00:32:57 Done、train-cn 00:34:47 Done，mc-watchdog-r2 00:37:10 启动，三服务 active/running。铁路保护与 JFR 保留；主服 00:38:07 自动保存 committed=true、1112 ms。
+
+新指令的当前内存引用检查：主服 150 列／0 finding，测试服 160 列／0 finding。抽查 E233Y02 已有规划与预留，但这不能排除其他列车或特定道岔异常。主服完成八入口基本验收，短 trace 到期结束；未复现走错轨道，未采集动态 FORK/NAV。详细产物、命令和验收边界见[列车调试指令](列车调试指令方案-20261105.md)。共享终端已接入主服 screen；用户要求自行设置复现、再提供列车名，目前停止继续发游戏内指令，不更改方块／轨道／时刻表。
+
+时间依据：old7 的 ctime 为 UTC 10/29 16:00:32.950，与本地任务日志窗口一致；old8 的 ctime 为 UTC 11/04 02:33:23.383，与本地 10:30:41–10:36:54 恢复记录一致。第二次脚本实际以硬链接保留旧文件，再原子替换正式路径，结果是原文件保留在 old8。两个 ZIP 内 DAT 成员的记录时间分别为 UTC 10/27 00:06:22、11/02 00:06:26（北京时间 08:06:22、08:06:26）；这里列为 ZIP 元数据，不将其混同为整个世界所有数据的同一保存瞬间。
+
+原始脚本和输出保存在仓库外 临时分析/railway-navigation-20261105/ 与 临时工作区/shared-terminal/nav-*-output*.json。本次只读调查，不新增待办。后续定位仍缺一列故障车辆及具体分岔／车站例子；用户目前无法提供，不擅自开服复现。

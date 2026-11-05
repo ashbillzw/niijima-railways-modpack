@@ -207,3 +207,8 @@ systemd 启动因上述 217/USER 失败，Python 未执行，两个 archive/ 仍
 - 先以原 UID 1024/GID 100 做真实目录 dry-run：两服各 additions=2，eligible_deletions=0。随后 `systemctl start mc-backup-archive.service` 在 15:49:19 UTC（北京时间 23:49:19）成功完成正式 prune；创造服 archive_count=6，主服 archive_count=8，各补建两份硬链接，本轮没有删除。
 - service 为 `Result=success`、`ExecMainStatus=0`；oneshot 完成后 inactive/dead 属正常状态。timer 仍 enabled、active/waiting，下一次为 10 月 30 日北京时间 00:00。未等待下一整点，不能将此次手动触发说成已验证后续定时运行。
 - 服务每次启动读取脚本，无需 daemon-reload、重启定时器或重启 Minecraft；本轮没有修改 systemd 单元、模组配置或 NAS 时钟。真实业务数据能否恢复仍不由这些归档检查保证。
+
+
+## 2026-11-05 19 时：运行审计
+
+两服各 7 份 automatic、8 份 archive；automatic 的全部同名归档均同 inode、链接数 2。最近 33 次小时任务全部成功，本窗口 additions=0、eligible_deletions=0；两天一次的新 ZIP 尚未到期，下一轮预计北京时间 11 月 6 日早晨。主服（create-cn）最新 ZIP 仍为补丁前产生、DAT 已知损坏的 11 月 4 日备份，不能把归档运行正常视为其中铁路数据有效。现场路径、备份时间、大小及验证边界见 [11 月 5 日线上审计](../服务端/create_tracks损伤分析-20261029.md#2026-11-05--线上备份dat-保护与内存诊断审计)。本轮只读，未改备份规则或文件。
