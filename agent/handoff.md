@@ -1,5 +1,37 @@
 # Agent 交接与通用维护要求
 
+## 2026-11-06 · 精确混药与动力泵整批输入 / test0023
+
+正式 main 工作树仍为 `D:/mydata/Agents/Minecraft相关/临时工作区/TrainResync-main-cleanup-20261106`。TrainResync **1.6.0.v** 修正原生混药按显示层数加权的问题，改用实际 mB；150 mB A60秒＋250 mB B60秒现在为400 mB、A22.5秒＋B37.5秒。相同药液正常按mB流转；Create开放管口对不同药液复用已有缓存，满250 mB才调用原生混药及声音／后续反应，停泵保留，反抽可取回。仅直接调用Forge接口的其他设备若不提供完整250 mB则拒收，不额外给锅创建缓存。
+
+离线build、既有1001容量状态检查及309项定向断言通过，未启动游戏验证Mixin加载、声音、警告与爆炸。包内JAR及shared引用更新为v；845150字节，SHA-256 `eedd72190c4aa52c4f2f836dcd7aee9d989d2416a60db23b4160f6b03f5fa3a4`。普通build与build-test成功，新 **test0023／pack-id23** 已登记到Prism维护索引及本机packs，固定ZIP：`D:/mydata/Agents/Minecraft相关/本地资源/启动器整合包发布/packs/新岛铁道 v1.6.test0023.zip`（589386167字节）。旧包保留，未改既有游戏实例、未提交、未上传服务器。
+
+规则与测试边界见[炼药锅专题文末实现记录](物品整合/炼药锅全模组兼容排查.md)。测试脚本、构建日志及旧u版备份在仓库外 `临时测试/炼药锅混药-20261106/`。没有修改HTML题库或新增待办；下文u版交付记录保留为历史。
+
+## 2026-11-06 · 女仆灰烬清理 / test0022
+
+用户批准按最小方案扩展铲雪任务，沿用全部原行为。正式 main 工作树（路径同下节）新增 23 行 TaskSnowMixin，只对 canHarvest 返回值追加 supplementaries:ash；原有雪层、寻路、清理、掉落、工具损耗不变，无新任务或配置。1.6.0.u 包含下节已完成的精简改动，未合并诊断分支。
+
+Gradle build、既有检查、成品字节码核对及两种打包通过。包内 JAR 和 shared 的 __master__ 引用同步为 u；JAR 840847 字节，SHA-256 09c59f13210a7cee5f920e15575c370b5a4f1dffdea9e6a988826156d980b674。新 test0022／pack-id 22 已登记至 Prism 维护索引和本机 packs，固定 ZIP 为 `D:/mydata/Agents/Minecraft相关/本地资源/启动器整合包发布/packs/新岛铁道 v1.6.test0022.zip`（589382173 字节）；旧包保留。
+
+未修改既有游戏实例、未启动游戏、未上传服务器、未提交。持铲清理收灰烬并扣 1 点耐久；空手清理没有掉落，均按上游原任务。实际游戏效果尚未验证。详见[评估与实现记录](模组管理/女仆铲雪适配灰烬评估-20261106.md)。本轮日志及前版 JAR 在仓库外 `临时工作区/maid-ash-implementation-20261106/`。
+
+## 2026-11-06 · AI 代码精简 / test0021
+
+用户批准保持行为的 AI 代码精简。正式源码在独立 main 工作树 D:/mydata/Agents/Minecraft相关/临时工作区/TrainResync-main-cleanup-20261106，原仓库维持诊断分支。合并重复 Mixin、集中建锅/排液/洗涤规则后，正式 Java 净减62行、4个文件。诊断分支仅增加6行，共享信号组汇集及移出循环不变量。具体等价依据和未实施候选见 TrainResync 的 agent/AI代码精简审计-20261106.md。
+
+正式 TrainResync 1.6.0.t 已编译并更新包内 JAR，两服共享 __master__ 引用同步为 t。JAR 839680字节，SHA-256 9cca7468b66869a9b6fa9724f57507a4492da002c8c618b297535ceb6639676e。离线 build、既有1001容量状态检查、诊断 compileJava 通过；普通 build.bat / build-test.bat 成功。新 test0021 / pack-id 21 已注册到 Prism 维护索引和本机 packs，ZIP 为 D:/mydata/Agents/Minecraft相关/本地资源/启动器整合包发布/packs/新岛铁道 v1.6.test0021.zip（589381107字节）。
+
+源码和交付改动未提交；保留原有其他任务修改，未改现有游戏实例，未实际运行游戏或部署服务器。发布前 master 仍需提供 t JAR。备份及本轮日志位于仓库外 临时分析/trainresync-ai-audit-20261106/。下方 test0020 记录保留为历史。
+
+## 2026-11-06 · D 盘本机 test0020
+
+同步后按用户要求重新构建正式 TrainResync main `15f5ed0`（1.6.0.s），更新包内同名 JAR；Gradle build 与 1001 种容量状态检查通过。JAR 为 843160 字节，SHA-256 `43d04ab75de1d44e1ae0325f8824c0bf05c8966215a005d133ded1f4c6a93717`。本机编译产物取代此前另一机的同版本二进制，不包含独立 debugger／诊断分支的新功能；编译后已恢复原诊断分支 checkout。
+
+普通 `build.bat` 与 `build-test.bat` 成功，产物为 `build/pack.zip`（130986166 字节）与 `build/pack-test.zip`（589383653 字节）。测试序号按已登记的 19 接续为 **test0020／pack-id 20**，已写入 Prism 维护索引和本机 packs 索引。固定 ZIP：`D:/mydata/Agents/Minecraft相关/本地资源/启动器整合包发布/packs/新岛铁道 v1.6.test0020.zip`。包索引 files 为空，只包含正式 TrainResync s；旧包和旧条目保留，未改现有游戏实例。题库没有变化，可使用 test0020 继续本轮复测。
+
+日志与临时构建脚本位于仓库外 `D:/mydata/Agents/Minecraft相关/工具/prism-build/delivery-20261106/`。未部署服务器、未启动游戏；本次交付改动尚未提交或推送。
+
 ## 2026-11-06 · test0019 注册与三仓提交
 
 **交付状态更新（2026-11-06）：** 已统一构建并注册 **pack-id 19 / test0019**，包含TrainResync 1.6.0.s的炼药锅与全屏修复。提交检查时将Chloride Mixin改为目标类直接引用，去除@Pseudo；Gradle build及既有容量自检再次通过。最终包内JAR SHA-256为 `26167c9a6dd3137fbe8fa5c1dbdb019de19a1cfa8ce051167613f25eaee1a938`。普通build与build-test成功；本地测试ZIP为589392252字节。启动器源码索引和本机packs索引均已登记，未上传生产服务器。现有test0018仍为此前手动更新的s构建；新安装test0019使用本次最终构建。游戏实测尚待用户反馈。
