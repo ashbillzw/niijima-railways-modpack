@@ -48,6 +48,7 @@
   right:calc((100% - 100vw) / 2); pointer-events:none; user-select:none;
 
 }
+.feedback-slot { display:flow-root; }
 .pink-event .feedback-container {
   width:65%; margin:12px 0 0; border:1px solid #ffd0dc; border-radius:27px; background:#fffefd;
   overflow:visible; box-shadow:0 0 0 7px #fffdf76b,0 12px 34px #ec96b41c;

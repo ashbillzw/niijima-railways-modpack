@@ -18,6 +18,9 @@
     }));
   });
   const frame = document.getElementById('feedback-frame');
+  const slot = document.querySelector('.feedback-slot');
+  const container = frame.closest('.feedback-container');
+  let reservedWidth = 0, reservedHeight = 0;
   frame.addEventListener('load', () => frame.contentWindow.postMessage({ type: 'niijima-feedback-measure' }, location.origin));
   const inGame = new URLSearchParams(location.search).get('in_game') === '1';
   if (inGame) {
@@ -33,6 +36,14 @@
     if (event.source !== frame.contentWindow || event.origin !== location.origin) return;
     if (event.data?.type !== 'niijima-feedback-height') return;
     const height = event.data.height;
-    if (Number.isFinite(height) && height >= 0) frame.style.height = `${Math.ceil(height) + 24}px`;
+    if (Number.isFinite(height) && height >= 0) {
+      frame.style.height = `${Math.ceil(height) + 24}px`;
+      const width = frame.clientWidth;
+      if (width !== reservedWidth) reservedHeight = 0;
+      reservedWidth = width;
+      // Keep the page background stable when a shorter tab hides its attachment field.
+      reservedHeight = Math.max(reservedHeight, container.getBoundingClientRect().bottom - slot.getBoundingClientRect().top);
+      slot.style.minHeight = `${Math.ceil(reservedHeight)}px`;
+    }
   });
 })();
