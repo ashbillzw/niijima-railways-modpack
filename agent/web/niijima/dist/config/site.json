@@ -1,0 +1,18 @@
+{
+  "uploadUrl": "",
+  "limits": {
+    "maxAttachmentBytes": 10485760,
+    "maxArchiveBytes": 11534336
+  },
+  "messages": {
+    "uploading": "正在提交…",
+    "success": "提交成功",
+    "failure": "提交失败，请重试",
+    "unavailable": "暂未开放提交",
+    "tooLarge": "附件超过10 MiB，请减少附件后重试",
+    "required_playerId": "请填写游戏内ID",
+    "required_title": "请填写标题",
+    "required_details": "请填写详情",
+    "required_logs": "请添加错误报告"
+  }
+}

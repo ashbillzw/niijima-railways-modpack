@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Bug反馈 / 功能建议 · 新島鉃道</title>
+  <script>
+    (() => {
+      const view = new URLSearchParams(location.search);
+      document.documentElement.classList.toggle('embedded', view.get('embed') === '1');
+      document.documentElement.classList.toggle('hide-nav', view.get('nav') === '0');
+    })();
+  </script>
+  <link rel="stylesheet" href="../assets/site.css">
+  <script src="../assets/vendor/jszip-3.10.1.min.js" defer></script>
+  <script type="module" src="../assets/feedback.js"></script>
+</head>
+<body>
+    <header class="site-header standalone-header">
+      <div class="page-shell nav-content">
+      <a class="brand" href="https://mc.ashbill.com" data-home-link><img class="brand-mark" src="../assets/niijima-logo.jpg" alt="" width="36" height="36"><img class="brand-wordmark" src="../assets/niijima-wordmark.svg" alt="新島鉃道" width="112" height="28"></a>
+      </div>
+    </header>
+  <div class="page-shell feedback-shell">
+    <main class="standalone">
+      <h1 class="form-heading">Bug反馈 / 功能建议</h1>
+      <div class="tabs" role="tablist" aria-label="反馈类型">
+        <button class="tab" id="bug-tab" role="tab" type="button" aria-selected="true" aria-controls="feedback-panel" data-kind="bug"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7L6 4M16 7L18 4M5 12H2M22 12H19M5 17L3 19M19 17L21 19M8 8H16V15C16 20 8 20 8 15ZM12 8V20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Bug反馈</button>
+        <button class="tab" id="suggestion-tab" role="tab" type="button" aria-selected="false" aria-controls="feedback-panel" tabindex="-1" data-kind="suggestion"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18H15M10 21H14M8 14C2 8 8 2 12 3C19 3 21 9 16 14L15 16H9Z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>功能建议</button>
+      </div>
+      <form id="feedback-form" novalidate>
+        <fieldset id="form-fields" style="border:0;padding:0;margin:0;min-width:0">
+          <div id="feedback-panel" role="tabpanel" aria-labelledby="bug-tab">
+            <div class="form-grid">
+              <div class="field"><label for="player-id">游戏内ID</label><input class="input" id="player-id" name="playerId" autocomplete="username" maxlength="64" required aria-describedby="player-id-error"><span class="field-error" id="player-id-error"></span></div>
+              <div class="field"><label for="feedback-title">标题</label><input class="input" id="feedback-title" name="title" maxlength="160" required aria-describedby="feedback-title-error"><span class="field-error" id="feedback-title-error"></span></div>
+            </div>
+            <div class="field"><label for="details">详情</label><textarea class="input" id="details" name="details" maxlength="15000" rows="6" required placeholder="复现步骤、预期和实际情况" aria-describedby="details-error"></textarea><span class="field-error" id="details-error"></span></div>
+            <div class="attachment" id="attachment-section">
+              <svg class="attachment-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12L14 6C18 2 23 7 19 11L10 20C4 26-3 18 3 12L12 3" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+              <div style="min-width:0;width:100%"><label for="logs">错误报告<span class="optional" id="logs-optional" hidden>选填</span></label><input id="logs" name="logs" type="file" multiple required disabled aria-describedby="logs-error"><ul class="file-list" id="file-list" hidden></ul><span class="field-error" id="logs-error"></span></div>
+            </div>
+          </div>
+          <div class="form-bottom"><p class="form-note" id="availability" aria-live="polite"></p><button class="primary-button" id="submit" type="submit" disabled><span id="submit-label">提交反馈</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12H20M14 6L20 12L14 18" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+        </fieldset>
+        <p class="copy-status" id="submission-status" role="status" aria-live="polite"></p>
+      </form>
+    </main>
+  </div>
+</body>
+</html>

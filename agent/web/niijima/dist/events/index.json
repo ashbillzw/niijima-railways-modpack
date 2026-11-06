@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "events": [
+    {
+      "id": "feedback-v1.6",
+      "image": "../assets/feedback-banner.svg",
+      "url": "./feedback-v1.6/",
+      "alt": "v1.6测试期间Bug反馈/功能建议收集"
+    }
+  ]
+}
