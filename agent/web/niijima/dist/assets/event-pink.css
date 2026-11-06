@@ -1,11 +1,14 @@
 /* Campaign art comes from the approved reference; CSS controls layout only. */
-.pink-event { background:#fff8f6; }
+.pink-event { position:relative; isolation:isolate; background:#fff8f6; }
 .pink-event .page-shell { width:min(1320px,calc(100% - 96px)); }
 .pink-event .site-header { height:68px; background:#fffefa; border-color:#ffd4e3; }
 .pink-event .brand-wordmark { width:124px; }
 .event-scene {
   position:relative; overflow:hidden; isolation:isolate;
-  background:#fff8f6 url("event-background-expanded.webp") center center / cover no-repeat;
+}
+.pink-event::before {
+  content:""; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  background:#fff8f6 url("event-background-expanded.webp") center / cover no-repeat;
 }
 .event-layout { position:relative; padding-top:22px; padding-bottom:60px; }
 .campaign-banner {
