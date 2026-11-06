@@ -1,3 +1,29 @@
 {
-  "railwayDataProtection": true
+  "railwayDataProtection": true,
+  "meituan": {
+    "enabled": true,
+    "nearRadius": 500,
+    "farStart": 500,
+    "farEnd": 1000,
+    "farProbability": 0.25,
+    "playerMultiplier": 1.5,
+    "farMultiplier": 1.5,
+    "hotProbability": 0.05,
+    "hotMinHundredths": 150,
+    "hotMaxHundredths": 200,
+    "deliveryRadius": 10,
+    "deliveryTimeoutSeconds": 12000,
+    "animalMinSeconds": 300,
+    "animalMaxSeconds": 1800,
+    "animals": [
+      "美西螈", "骆驼", "猫", "鸡", "牛", "苦力怕", "驴", "末影人", "狐狸",
+      "山羊", "守卫者", "马", "铁傀儡", "羊驼", "哞菇", "骡", "豹猫", "熊猫",
+      "鹦鹉", "猪", "北极熊", "兔子", "绵羊", "嗅探兽", "雪傀儡", "监守者", "狼"
+    ],
+    "foods": {
+      "farmersdelight:apple_pie": { "价格": 16, "数量乘数": 1, "加成": {} },
+      "farmersdelight:sweet_berry_cheesecake": { "价格": 16, "数量乘数": 1, "加成": {} },
+      "farmersdelight:chocolate_pie": { "价格": 16, "数量乘数": 1, "加成": {} }
+    }
+  }
 }

@@ -1,5 +1,37 @@
 # Agent 交接与通用维护要求
 
+## 2026-11-06 · AI 代码二次审计 / test0028
+
+TrainResync **1.6.0.z**只精简管口同次填充的重复药液判断、冗余强制转换及重复取值，保留美团、视频前置和 y 版混药修复。审计按 AI 作者范围进行，未改人类 legacy；详细取舍见正式 main 工作树 `agent/AI代码精简审计-20261106.md`。超过 100 行的编码任务完成后询问是否二次审计的规则已写入两份 AGENTS.md。
+
+Gradle build、容量检查、美团2066项断言和diff检查通过；普通及测试打包成功，**test0028／pack-id28**已登记启动器维护索引与本机packs。包内z JAR及shared引用配套更新；JAR 894175字节，SHA-256 `25fd9be4e5262ba45803c5eba3fe49e808858b6ce139a17e66139aa37551bad7`。旧包保留，未改现有实例，游戏验收待用户测试，未部署生产服务器。日志和旧y成品备份位于仓库外`临时测试/AI代码精简-20261106/`。下方各节的“未提交”是当轮交付时状态。
+
+## 2026-11-06 · 第四轮炼药锅refresh / test0027
+
+TrainResync **1.6.0.y**修复4＋5种药效时漏掉原生中文警告；译文「这种混合药水似乎不太稳定……」原本就在Amendments JAR内，本轮未新增翻译。按用户最新规则，混前至少8种且输入含新药效种类才爆炸；重复加入原5种、只改已有药效的等级／时长不炸。正式main工作树沿用 `D:/mydata/Agents/Minecraft相关/临时工作区/TrainResync-main-cleanup-20261106`，保留同期美团及启动前置改动。
+
+3项通过题已原样归档移出，B10.6失败归档后替换为B10.9；新增B10.10／B10.11，现110题，从B10.9继续。Gradle、定向混药和进度迁移检查通过；普通及测试打包成功，**test0027／pack-id27**已登记两处本地索引。游戏实测待用户进行；未改运行实例、未上传服务器、未提交。完整反馈与验证边界见[第四轮记录](物品整合/炼药锅测试反馈-20261019.md)。
+
+## 2026-11-06 · 视频页前置重试 / test0026
+
+用户确认修复：安装 FancyMenu 时首次进入 `random_video` 且加载遮罩结束后才请求前置；最多尝试 3 次、间隔至少 1 秒。Windows 用 `GetForegroundWindow` 与游戏原生窗口句柄比较，成功、离开视频页或最后一次请求后仍失败均停止；无永久置顶、无模式切换、无管理员要求。未安装 FancyMenu 时保留原版标题页入口。Windows 前台限制仍可能拒绝请求，日志会明确记录实际成功或重试耗尽；下方 20:44 分析的“未改代码”仅为历史阶段。
+
+正式 main 工作树 `D:/mydata/Agents/Minecraft相关/临时工作区/TrainResync-main-cleanup-20261106` 已构建 **TrainResync 1.6.0.x**，包含同日 w 版美团功能及本次前置修改。19 项真实类／外围替身定向断言、离线 build 和项目既有检查通过；未操作游戏界面，实际 Windows 前置仍待用户验收。具体实现与权限依据见该工作树 `agent/配置.md` 的“视频页前置与有限重试”节。
+
+包内 JAR 与 shared 的 `__master__` 引用同步为 x；893349 字节，SHA-256 `1afe7a56c080d6d32cf99d01c626c2f5ee489a08587d56a64421e9b3c9173038`。普通 build.bat、build-test.bat 成功，**test0026／pack-id 26** 已登记到 Prism 维护索引及本机 packs；固定 ZIP 为 `D:/mydata/Agents/Minecraft相关/本地资源/启动器整合包发布/packs/新岛铁道 v1.6.test0026.zip`（589433102 字节）。保留另一个任务的 test0025 及两份索引各自的历史条目；未替换现有游戏实例、未上传部署或 commit。构建日志、定向验证与旧 w JAR 位于仓库外 `临时测试/启动视频前置-20261106/`。部署服务器前 master 仍须提供 x JAR。
+
+## 2026-11-06 · 美团配送首版 / test0025
+
+**收尾补充：并行任务已进一步交付1.6.0.x／test0026，包内和shared引用现在为x。** 已读取最终test0026 ZIP定向核对：美团18个class与本轮w成品完全一致，配置仍启用、三种食品和27种名字正确；可使用新包测试美团。test0026为589433102字节，本轮test0025保留；未回退其他任务的更新。
+
+用户要求先实现能够落地的配送功能，不含Inbox兼容。TrainResync正式`main`工作树仍为`D:/mydata/Agents/Minecraft相关/临时工作区/TrainResync-main-cleanup-20261106`，新增`meituan`包并构建**1.6.0.w**：点餐／更新／取消、双池稳定选单、跨远单分界重算、接单绑定、整单扣物、玩家单箱子或掉落、动物单消耗、货币及粒子均已实现。离线计时、停服暂停，订单及累计运行时间保存到主世界SavedData。Inbox离线通知与通用邮件API仍延期，离线消息当前只写日志。
+
+共用`config/trainresync.json`新增`meituan`节，包内和shared均启用；前三种派各16，27种生物名，远单概率25%、玩家单和远单×1.5，整单火爆5%触发且1.50–2.00按0.01等概率，缓存后不重掷。shared铁路保护继续开启，玩家包没有启用铁路保护。完整配置、边界、文案和游戏验收步骤见[机制文档第七节](玩法与配置/美团接单小游戏机制.md)。
+
+离线Gradle build、2066项美团规则断言及既有炼药锅检查通过；普通和测试打包成功，**test0025／pack-id25**已登记至Prism维护索引及本机packs。JAR 891872字节，SHA-256 `8910e04ddce71e3b560e844a3f6a3c490a44d277b3abd7c9abd2c331f0cffdb0`；ZIP `D:/mydata/Agents/Minecraft相关/本地资源/启动器整合包发布/packs/新岛铁道 v1.6.test0025.zip`为589431798字节。旧JAR及本次快照、日志位于仓库外`临时测试/美团实现-20261106/`。当前依赖应使用实际存在的test0024实例mods，旧test0016已删除。
+
+尚未游戏实测或生产部署，未提交或推送。另一个任务的`StartupWindowFocus.java`修改发生在本次编译后，本次成品沿用原窗口行为，该源码改动保留；后续构建需注意这项差异，不能把本次规则测试视为其验证。
+
 ## 2026-11-06 · 已审核玩法说明 / test0024
 
 按用户逐项审核接入女仆灰烬、拴绳、飞机燃料、假座位、两种接触网线、面团及列车燃料储罐说明；仅 KJS 客户端脚本与中文语言资源变化，沿用 TrainResync 1.6.0.v。保留“荧光油”用语：飞机最高为荧光油，列车最高为生物乙醇。撤回误读 `movable_empty_collider` 的“装配后可穿过”提示；森罗厨房当前已自带农夫乐事热源标签，不加自定义署名；龙蛋不加提示。完整文本、来源纠正及炼药锅延期审核见[文案审核结果](模组管理/自定义功能玩家说明审计-20261106.md#逐项审核与接入2026-11-06)。
@@ -51,6 +83,14 @@ Gradle build、既有检查、成品字节码核对及两种打包通过。包�
 并行构建曾产生仅含窗口修改的同名隔离s版，不要用其覆盖上述SHA-256的统一交付。两仓源码与文档尚未提交。
 
 ## 2026-11-06 · F11 保存与启动前置
+
+**20:44 前置问题复查（仅分析，未改代码）：** 用户澄清窗口化全屏正常，实际问题是进入视频时未自动来到其他窗口前面。本机 `新岛铁道 v1.6.test0024/minecraft/logs/latest.log` 在 20:38:57.395 已记录 `Requested game-window focus at initial title screen (GLFW_FOCUSED=true)`；MCEF 视频管理器于 20:38:57.190 初始化完成，浏览器 JavaScript API 注入在 20:38:58.100–58.601 继续进行。这证明请求代码已执行，不能证明视频首帧就绪或实际前置成功；日志没有记录触发时究竟是 TitleScreen 还是 random_video，也没有记录桌面前台窗口。
+
+正式 main 的 `StartupWindowFocus.afterClientTick`（本机工作树 `D:/mydata/Agents/Minecraft相关/临时工作区/TrainResync-main-cleanup-20261106`）允许 TitleScreen／random_video 中先出现者触发，在调用 GLFW 前设置 `requested=true`；不检查前置结果、不在后续视频就绪时再次处理。启动器 `NiijimaHomeWindow::watchGameWindow` 则在找到第一个可见游戏窗口后请求前置并结束监测，也不等待视频。
+
+本机 LWJGL 为 3.3.1，其 GLFW DLL 版本字符串为 `3.4.0 Win32 WGL Null EGL OSMesa VisualC DLL`。[GLFW Win32 源码](https://github.com/glfw/glfw/blob/3.4/src/win32_window.c)中，focus 请求依次调用 BringWindowToTop／SetForegroundWindow／SetFocus，而 focused 查询比较的是 GetActiveWindow；[微软文档](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-getactivewindow)明确它返回调用线程的活动窗口，桌面前台需用 GetForegroundWindow。因此当前日志的 true 不能作为实际来到前台的验收依据；[Windows 前台限制](https://learn.microsoft.com/en-us/windows/win32/api/winuser/nf-winuser-setforegroundwindow)也允许拒绝请求。
+
+已确认的是一次性尝试与实际视频时点未绑定、没有真实前台结果核对；尚不能凭现有日志确定这次是系统拒绝、请求时点偏早还是后来失去前台。后续修正方向是明确视频页触发时点、用实际前台窗口核对结果，再决定有限补救；不要把窗口模式改动或永久置顶当作本问题修复。本轮仅读源码／日志与官方资料，未操作游戏界面、未复现、未构建或新增待办。
 
 > **历史状态（已由本轮统一交付替代）：04:51决定等待统一构建。** 用户要求等另一项炼药锅工作完成后一起编译，已停止后续构建、打包和部署。下文构建记录是此前中间状态：包内 s JAR 与普通 pack.zip 包含当时并行修改的炼药锅代码，不能作为两项工作共同完成后的最终验收产物；隔离源码构建虽已结束，但未替换包内文件。源码保留，当前游戏实例未替换。统一构建时重新生成 JAR 和整合包，再开展游戏验收。
 
