@@ -3,5 +3,7 @@
   "gui.amendments.ink.dark_purple": "深紫色",
   "item.amendments.dye_bottle.teal": "蓝绿色",
   "item.amendments.dye_bottle.royal_blue": "宝蓝色",
-  "item.amendments.dye_bottle.mint": "薄荷绿"
+  "item.amendments.dye_bottle.mint": "薄荷绿",
+  "death.attack.boiling": "%1$s 被烫死了",
+  "death.attack.boiling.player": "%1$s 在试图逃离 %2$s 时被烫死了"
 }

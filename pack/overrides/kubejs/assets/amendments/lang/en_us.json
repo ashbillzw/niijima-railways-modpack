@@ -1,0 +1,4 @@
+{
+  "death.attack.boiling": "%1$s was scalded to death",
+  "death.attack.boiling.player": "%1$s was scalded to death while trying to escape %2$s"
+}
