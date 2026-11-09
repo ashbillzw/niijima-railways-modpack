@@ -1,5 +1,42 @@
 # Agent 交接与通用维护要求
 
+## 2026-11-09 · 发射器失败回退 / test0032
+
+TrainResync 1.6.0.ab：自有容器交互失败PASS回退Moonlight原发射链，Fruits Delight未成功制作时回退DefaultDispenseItemBehavior.execute，成功路径保持。字节码确认父类调用已重混淆，无自身递归；未做游戏运行验证。详细实现与边界见TrainResync agent/炼药锅整合.md。
+
+Gradle与既有检查通过；普通build.bat、build-test.bat成功。ab JAR 896264字节，SHA-256 `1499af92b2332a44a6ab6277a2deb82d32804ef9d0d0266a5b66ecf022d387ca`；包内与shared ablink配套更新（仍__master__，不代表master或线上已更新）。测试HTML现107题，新增B13.7–15，保留原98题和有效旧进度。test0032／pack-id32已登记两处索引，固定包 `C:/mydata/Agents/Codex-CreateTrainResync/prism-local-test/packs/新岛铁道 v1.6.test0032.zip`（589444894字节）。未替换运行实例、未生产部署。外部日志与旧aa备份：dispenser-fallback-20261109/。
+
+## 2026-11-09 · 第七轮refresh / test0031继续使用
+
+14:35导出14通过、1题意不清失败。14通过项（含B13.3评论）原样归档移出；混药、稀释警告、死亡中英文已由用户标记通过，B10.9/B10.11此前失败状态被本轮通过替代。B14改为具体染羊毛操作B14.1，新题无旧答案；现98题、suite=refresh-20261109-7。无游戏代码/资源改动，不重编译或打包，继续test0031／TrainResync aa。用户要求完整列出发射器失败时保留物品与原版弹出行为的差异，暂未授权改变，分析记于炼药锅反馈专题。
+
+
+## 2026-11-09 · 第六轮refresh与沸腾死亡翻译 / test0031
+
+最新导出13:40:44：B10.10/B10.7通过，已原样归档并移出；B10.9旧失败、B10.11等级疑问保留。B10.11符合Amendments原生同种等级整数平均：Ⅰ＋Ⅱ仍为Ⅰ；本题时长按500:250液量得到约63.3秒，未改玩法。HTML新增死亡语言复测B10.15，现112题，suite=refresh-20261109-6；110/113题旧进度迁移检查通过，未解决反馈不丢失。
+
+Amendments 2.2.3缺少death.attack.boiling及.player的中英文值；按用户确认在kubejs/assets/amendments/lang补齐，共4条。shared/kubejs.ablink已有__master__共享引用，无需差异层副本。仅资源与测试记录修改，无Java改动，沿用aa（仍含上一轮稀释警告）。普通build.bat和build-test.bat成功，test0031／pack-id31已登记两处索引；固定ZIP `C:/mydata/Agents/Codex-CreateTrainResync/prism-local-test/packs/新岛铁道 v1.6.test0031.zip`（589444051字节）。未替换现有实例、未游戏验证、未提交推送或上线。原始导出和详细解释见炼药锅反馈专题；仓库外日志为refresh-20261109-134044/。
+
+## 2026-11-09 · 稀释危险警告 / test0030
+
+TrainResync 1.6.0.aa：成功混合后的药水达到或超过8种效果时，无效果／既有效果输入也播放原有警告声、烟雾及中文提示，但不爆炸。仅混前已达阈值且输入新增药效种类才炸；取药不新增声音／烟雾。保持原生加热、容量与时长算法，详见TrainResync的agent/炼药锅整合.md。
+
+Gradle build、24项混药反应断言及既有测试通过；普通build.bat与build-test.bat成功。包内aa JAR与两服shared ablink同步，SHA-256 `916cebdd572ea58672869f0a126c5b44f0077321a14933be9874d72e1f526969`；引用仍为__master__，不表示远端master已提供aa。test0030／pack-id30已登记两处索引，固定包 `C:/mydata/Agents/Codex-CreateTrainResync/prism-local-test/packs/新岛铁道 v1.6.test0030.zip`（589443668字节）。成品目录只有一份TrainResync aa、无旧helper。没有替换现有实例、生产部署或commit/push。
+
+测试HTML新增B10.12–14，113题，原110题及B10.9未解决反馈完整保留。实际音画警告仍需游戏验收。构建初次被PowerShell执行策略、测试打包被继承的模块路径阻断；仅本次进程Bypass并使用Windows PowerShell原生模块路径后成功，未改系统策略。日志与备份在仓库外 `dilution-warning-20261109/`。
+
+## 2026-11-09 · 炼药锅第五轮 refresh
+
+最新13:28导出B10.9混药失败，用户随后说明可能忘点燃；当前配置ONLY_BOILING，符合未沸腾时拒绝混药的原生路径。原始JSON、原题及评论已归档到[反馈专题](物品整合/炼药锅测试反馈-20261019.md)。仍待点燃后复测，不判通过；110题及旧进度保留，未改代码、未重编译，继续使用test0029／TrainResync z。
+
+## 2026-11-09 · C 盘本机同步后统一构建 / test0029
+
+三仓快进至整合包 b5cc226、TrainResync c8106a3、Prism 725422931 后构建。本轮没有修改 Java/C++ 源码。TrainResync 1.6.0.z 使用 `gradlew.bat build` 成功，既有炼药锅容量检查及美团 2066 项断言通过；本机重建 JAR 为 894117 字节，SHA-256 `70C9DFC80794E7EBB5CB02FD07EA55EFDB090F3C7C93208757B8D6A276028F18`，已更新 pack/overrides。shared 已有同名 z 的 __master__ 引用，无需改名；不代表线上 master 已提供该文件。
+
+普通 build.bat 和 build-test.bat 均成功，所有索引文件复用本机缓存。序号接续另一机 test0028，本次生成 **test0029 / pack-id 29**；维护索引与本机 packs 索引均新增29，保留各自历史条目和旧ZIP。另一机20–28的ZIP没有随Git传来，本机未补造它们。固定测试包：`C:/mydata/Agents/Codex-CreateTrainResync/prism-local-test/packs/新岛铁道 v1.6.test0029.zip`（589442490字节）；普通包 `build/pack.zip`（131044602字节）。没有替换现有游戏实例。
+
+Prism Release 编译及三组索引/本地模式 CTest 通过，测试入口 `C:/mydata/Repositories/PrismLauncher/install-niijima/niijima-launcher.exe` 已更新，原本机测试JSON保留。安装器已生成，见启动器本地安装测试文档。本轮没有GUI操作、游戏实测、生产部署或commit/push。外部日志、构建脚本与旧JAR/EXE备份：`C:/mydata/Agents/Codex-CreateTrainResync/build-20261109/`。同步过程中其他任务修改的背景视频文档保持原样。
+
 ## 2026-11-06 · AI 代码二次审计 / test0028
 
 TrainResync **1.6.0.z**只精简管口同次填充的重复药液判断、冗余强制转换及重复取值，保留美团、视频前置和 y 版混药修复。审计按 AI 作者范围进行，未改人类 legacy；详细取舍见正式 main 工作树 `agent/AI代码精简审计-20261106.md`。超过 100 行的编码任务完成后询问是否二次审计的规则已写入两份 AGENTS.md。
