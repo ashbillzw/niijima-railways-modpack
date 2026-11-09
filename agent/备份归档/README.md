@@ -1,6 +1,8 @@
 # Minecraft 备份归档
 
-**最新状态（2026-10-29 23:49 北京时间）：已修复并上线验证。** 移除 NAS 文件修改时间与游戏成功日志的严格比较，四份受阻备份已补归档；两服 archive 为 6/8 份，service 执行成功，小时 timer 保持启用。本轮没有删除备份。原因、历史检查和修复结果见文末；10 月 25 日的数量仅代表当时验收。
+**目录更新（2026-11-09）：** NAS 公开内容已原地移入 `/synology/MCShare/csjwp/`。两服备份符号链接及 `/etc/mc-backup-archive.json` 的 source/archive 已同步更新；挂载校验 target 和服务 RequiresMountsFor 仍为 `/synology/MCShare`。既有网页 URL 保持不变，迁移前后 HTTP 对比通过。下文旧日期中的磁盘路径属于历史记录。
+
+**当时状态（2026-10-29 23:49 北京时间）：已修复并上线验证。** 移除 NAS 文件修改时间与游戏成功日志的严格比较，四份受阻备份已补归档；两服 archive 为 6/8 份，service 执行成功，小时 timer 保持启用。本轮没有删除备份。原因、历史检查和修复结果见文末；10 月 25 日的数量仅代表当时验收。
 
 2026-10-25：已完成本地开发及 18 项测试，并通过共享终端正式部署。两服共 10 份硬链接已建立；远端已切换 prune，timer enabled/active/waiting，每小时执行、Persistent=yes。首轮正式运行成功，无删除候选。没有修改 SimpleBackups、原 ZIP 内容、两服或看门狗；原有手动备份不纳入管理。
 
@@ -8,10 +10,10 @@
 
 SimpleBackups 继续每 2880 分钟备份、最多保留 7 份；此前目录容量上限为 create-cn 140 GB、train-cn 70 GB，容量限制可能让实际数量少于 7。归档脚本不调整模组配置，不参与生成备份。
 
-NAS 已有目录（历史依据：2026-10-25 本机迁移记录，部署前重新核对）：
+NAS 当前目录（2026-11-09 迁移后）：
 
 ```text
-/synology/MCShare/minecraft/simplebackups/
+/synology/MCShare/csjwp/minecraft/simplebackups/
 ├── create-cn/
 │   ├── automatic/  # 模组拥有，脚本只读并作为硬链接来源
 │   └── archive/    # 拟新建，脚本独占管理
