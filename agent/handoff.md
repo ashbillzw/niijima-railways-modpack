@@ -5,6 +5,29 @@
 
 01:15导出：B13.7–15发射器回退／成功路径及B14.1染色共10项通过，含评论原样归档移出。750 mB跨普通／喷溅／滞留瓶型仍拒收，符合原生Bottle字段判定；Fruits Delight发射器制作路径未播放制作声，本轮保持现状，详见反馈专题。B15题意不清拆为B15.1–3：栅栏连接、液面颜色更新、沸腾显示。现99题、suite=refresh-20261110-8，保留有效旧进度，新题无旧答案。仅测试页／文档更新，继续test0032／TrainResync ab，无需编译打包，未自动commit或push。
 
+## 2026-11-10 · v3 主页本地实现
+
+横幅最终按用户反馈改用现有活动页的粉色背景、邮票、橙色丝带及角色插画；不再把启动器绿色小图直接作为首页首期banner。桌面/窄屏与点击跳转已检查，原活动页与启动器素材不改。
+
+`agent/web/niijima/dist/index.html` 已加入活动 banner、主服地图／主服铁道图／创造服铁道图切换；单 iframe 按需加载。公共顶栏、底栏使用 `_includes/` 的 SSI 片段，暂只接主页；旧活动页、反馈表单及线上页面不改。下载突出显示，反馈与备份独立，更多保留网盘／网鱼／状态。底栏使用用户指定的 QQ 邀请、Bilibili 合集和 ashbill.com 个人页链接。
+
+本地 `预览.cmd` 改用 Nginx 1.30.6（运行时位于 `%TEMP%/niijima-v3-tools`），地址 `http://127.0.0.1:18762/v3/`；旧18761预览不支持SSI，不能验收新主页。预览仅监听本机，地图与旧站通过192.168.1.222:25572只读代理；生产服务器未写入。SSI输出、资源MIME、三地图及旧下载/备份/网鱼HTTP200通过，状态入口401，非GET/HEAD代理请求被本机403拦截。JS语法检查通过；未获本次computer use授权，未进行实际浏览器点击或桌面/窄屏视觉验收。
+
+后续同日用户确认旧备份链接并授权浏览器验收：1280×900／390×844布局与菜单、活动入口、地图切换已检查；无横向溢出。修复活动页返回时iframe与按钮状态不一致，复测通过。BlueMap和创造服轨道可见；主服铁道图现有 `create-track-map.js:198` 持续报读取undefined的dimension，未改地图服务或追查数据根因，不宣称该地图完整验收通过。此记录替代上一段“未进行浏览器验收”的阶段状态。修复前fetch遭GitHub SSL连接错误，本地缓存ahead/behind为0/0，不代表新查询成功。
+
+备份日历尚未制作，按钮已获准暂指旧备份页；新网盘地址 `https://files.ashbill.com:25572/` 尚待DNS及服务器配置，不能宣称已可用。正式部署、反馈上传仍需另行审批；无提交。实现、预览与设计边界见 [网页 README](web/niijima/README.md) 和 [设计案](web/niijima/v3公共导航与底栏设计案.md)。
+
+## 2026-11-09 · NAS 公开目录整理完成
+
+现有公开内容已移至 `/synology/MCShare/csjwp/`（同一 NFS 内重命名，非复制）；挂载点仍是 `/synology/MCShare`。copyparty 正式入口为 `https://files.yake.wang:25572/csjwp/`，原中文入口307跳转并保留文件路径/查询参数。Nginx 完整展开24份配置，11处NAS alias均已更新，其余旧下载URL不变；56项迁移前后HTTP对比通过，另验中文/空格与查询参数。两服备份符号链接、归档配置、DAT临时留档路径已同步。
+
+按用户要求逐服接入screen执行list，均0人后停服；迁移后两服17:40启动并出现Done，看门狗17:45恢复，copyparty/nginx/归档timer均正常。归档dry-run退出0，原始备份各7份、长期归档create-cn 8份/train-cn 9份，无新增/淘汰候选，未主动删除备份。
+
+目录实际权限：MCShare为root:root 0777，新csjwp为1024:100 0777；copyparty账号写入/进入权限检查通过。此前将mkdir参数误当实际0755，chmod申请被自动审批拒绝；现场stat确认不需调整，未执行chmod。不要把待回复的权限选项当作仍需操作。私有反馈收件目录和上传URL尚未部署，下一步另行授权。
+
+原配置备份 `/var/backups/csjwp-migration-20261109T093627Z`；细节见 [入口与部署计划](web/niijima/入口与部署计划.md) 顶部最新章节。共享终端本机会话文件为仓库外 `临时工作区/shared-terminal/session-nas-20261109.json`；目前连接公网别名custom-sz-cn（本轮局域网192.168.1.222连接超时）。本轮文档及归档示例配置尚未提交。
+
+
 ## 2026-11-09 · 发射器失败回退 / test0032
 
 TrainResync 1.6.0.ab：自有容器交互失败PASS回退Moonlight原发射链，Fruits Delight未成功制作时回退DefaultDispenseItemBehavior.execute，成功路径保持。字节码确认父类调用已重混淆，无自身递归；未做游戏运行验证。详细实现与边界见TrainResync agent/炼药锅整合.md。
@@ -596,3 +619,22 @@ build-test.bat与build.bat均成功：最终测试版1.6.test0007，发布pack-i
 测试HTML按共用路径由149项精简为125项，入口差异和边界分支保留，移出映射及旧记录见全模组兼容排查。149项备份在独立工作区cauldron-test-page/backup-149-before-compact-20261024；旧进度可导入，评论保留，改动步骤重置状态。下次从HTML开始复测。总todo已汇集分散待办，专题旧队列标历史，禁止按旧段落重新实施已完成工作。
 
 helper独立Git main已提交59bfbaa（无远端），完整bundle已导出并verify至 C:/mydata/Agents/Codex-CreateTrainResync/跨机交接-20261024/milk-integration-helper.bundle。此前20261019 bundle已过时，不含0.1.28／0.1.29。TrainResync main无本轮改动。
+
+### 2026-11-09：服务器冷归档候选初筛（只读）
+用户澄清目标为服务器 SSD，而非工作电脑；反馈上传部署继续暂停。现场 df：服务器根盘233GiB/已用140GiB/可用82GiB，NAS可用2.3TiB。du -x 不跟随NAS/符号链接：version-backups约8.1GiB、train-cn/backups历史手动备份5.8GiB，优先候选合计13.8GiB；/var/www约9.2GiB迁移需保留URL。主服BlueMap26.3GiB与世界24.6GiB属于活动数据；两服logs合计约5GiB，含多份JFR需区分当前文件。以ashbill权限初筛，受限目录不完整。两服与狗均运行，未迁移/删除/停服。详细本机报告：临时工作区/server-disk-audit-20261109/服务器磁盘占用.md。
+
+
+2026-11-09 补充核查：NAS 已有 /synology/MCShare/csjwp/minecraft/version-backups/create-cn_train-cn_version_backup_1.4.4.tar.gz，10230634628 字节（约9.53GiB）。因此版本备份分散在两处：SSD存1.1–1.3，NAS存1.4.4；不能笼统说版本备份都不在NAS。本轮仅核对文件存在和大小，未检查压缩包内容。
+
+2026-11-09 版本备份迁移准备：用户要求将SSD的1.1–1.3四份tar.gz移入NAS现有version-backups并保留文件名。目标无重名，Nginx/可读网页/已检脚本未发现引用；/var/www/copyparty权限不足。拟rsync带进度及remove-source-files逐文件迁移，保留空源目录、不改1.4.4、不停服。远端写入选项审批尚待回复，未执行。目标属于现有公开网盘范围。
+
+### 2026-11-09 19:12（北京时间）：1.1–1.3 版本备份已迁往 NAS
+
+用户通过当次选项批准后，在共享终端执行 rsync -rt --ignore-existing --info=progress2 --remove-source-files。挂载与同名检查通过，4份共8,643,667,214字节传输完成，rsync/迁移脚本退出0；源目录 /home/ashbill/minecraft-server/version-backups 已空并保留。以下文件原名迁入 /synology/MCShare/csjwp/minecraft/version-backups/：
+
+- create-cn_train-cn_version_backup_1.1.tar.gz
+- create-cn_train-cn_version_backup_1.2.tar.gz
+- create-cn_version_backup_1.3.tar.gz
+- train-cn_version_backup_1.3.tar.gz
+
+原有1.4.4未改动；SSD可用空间由约82GiB增至90GiB，占用64%降至60%。仅使用rsync内置传输校验及完成后的文件清单，没有解包或额外哈希。不修改网页配置，不停启两服/看门狗。目标沿用NAS既有公开目录范围。此记录取代此前“迁移待审批”和“1.1–1.3仍在SSD”的状态；反馈上传部署仍暂停。

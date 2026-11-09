@@ -12,15 +12,15 @@
       "name": "create-cn",
       "logs": "/home/ashbill/minecraft-server/create-cn/logs",
       "prefix": "create-cn_world_",
-      "source": "/synology/MCShare/minecraft/simplebackups/create-cn/automatic",
-      "archive": "/synology/MCShare/minecraft/simplebackups/create-cn/archive"
+      "source": "/synology/MCShare/csjwp/minecraft/simplebackups/create-cn/automatic",
+      "archive": "/synology/MCShare/csjwp/minecraft/simplebackups/create-cn/archive"
     },
     {
       "name": "train-cn",
       "logs": "/home/ashbill/minecraft-server/train-cn/logs",
       "prefix": "train-cn_world_",
-      "source": "/synology/MCShare/minecraft/simplebackups/train-cn/automatic",
-      "archive": "/synology/MCShare/minecraft/simplebackups/train-cn/archive"
+      "source": "/synology/MCShare/csjwp/minecraft/simplebackups/train-cn/automatic",
+      "archive": "/synology/MCShare/csjwp/minecraft/simplebackups/train-cn/archive"
     }
   ]
 }
