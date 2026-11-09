@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>新島鉃道</title>
+  <link rel="icon" href="/v3/assets/niijima-logo.jpg">
+  <link rel="stylesheet" href="/v3/assets/navigation.css">
+  <link rel="stylesheet" href="/v3/assets/home.css">
+  <script src="/v3/assets/navigation.js" defer></script>
+  <script src="/v3/assets/home.js" defer></script>
+</head>
+<body>
+  <!--# include virtual="/v3/_includes/header.html" -->
+  <main class="home">
+    <div class="event-banners" id="event-banners" hidden></div>
+    <template id="banner-feedback-v1.6">
+      <span class="campaign-preview">
+        <span class="campaign-copy">
+          <span class="campaign-version">v1.6 测试期间</span>
+          <span class="campaign-heading">Bug反馈</span>
+          <span class="campaign-subtitle">/ 功能建议收集</span>
+        </span>
+        <img class="campaign-character" src="/v3/assets/event-character-v4.png" alt="" width="1040" height="1512">
+      </span>
+    </template>
+    <section class="map-section" aria-label="地图">
+      <div class="map-switcher" role="group" aria-label="地图">
+        <button type="button" data-map="/bluemap/web/" aria-pressed="true">主服地图</button>
+        <button type="button" data-map="/create-cn-rail-map/" aria-pressed="false">主服铁道图</button>
+        <button type="button" data-map="/train-cn-rail-map/" aria-pressed="false">创造服铁道图</button>
+      </div>
+      <iframe id="map" title="主服地图" src="/bluemap/web/" allow="fullscreen"></iframe>
+    </section>
+  </main>
+  <!--# include virtual="/v3/_includes/footer.html" -->
+</body>
+</html>
