@@ -1,5 +1,10 @@
 # Agent 交接与通用维护要求
 
+
+## 2026-11-10 · 第八轮炼药锅refresh
+
+01:15导出：B13.7–15发射器回退／成功路径及B14.1染色共10项通过，含评论原样归档移出。750 mB跨普通／喷溅／滞留瓶型仍拒收，符合原生Bottle字段判定；Fruits Delight发射器制作路径未播放制作声，本轮保持现状，详见反馈专题。B15题意不清拆为B15.1–3：栅栏连接、液面颜色更新、沸腾显示。现99题、suite=refresh-20261110-8，保留有效旧进度，新题无旧答案。仅测试页／文档更新，继续test0032／TrainResync ab，无需编译打包，未自动commit或push。
+
 ## 2026-11-09 · 发射器失败回退 / test0032
 
 TrainResync 1.6.0.ab：自有容器交互失败PASS回退Moonlight原发射链，Fruits Delight未成功制作时回退DefaultDispenseItemBehavior.execute，成功路径保持。字节码确认父类调用已重混淆，无自身递归；未做游戏运行验证。详细实现与边界见TrainResync agent/炼药锅整合.md。
