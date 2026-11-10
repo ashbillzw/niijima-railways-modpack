@@ -1,0 +1,323 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3600" height="2960" viewBox="0 0 3600 2960"><title>主服现役铁道网络</title><desc>45列有运行证据的自动列车，12条具名线路及2组未正式归属交路。逻辑停站图，不表示真实轨道路径。</desc>
+<path d="M2770.00,2400.00 L2770.00,1830.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2770.00,2400.00 L2770.00,1830.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: kyan—小林</title></path>
+<path d="M2050.00,1070.00 L2450.00,1070.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1070.00 L2450.00,1070.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 三岛—东赤石</title></path>
+<path d="M2050.00,1070.00 L1924.91,1070.00 A16,16 0 0 1 1913.60,1065.31 L1824.69,976.40 A16,16 0 0 1 1820.00,965.09 L1820.00,850.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1070.00 L1924.91,1070.00 A16,16 0 0 1 1913.60,1065.31 L1824.69,976.40 A16,16 0 0 1 1820.00,965.09 L1820.00,850.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 三岛—仓本</title></path>
+<path d="M2450.00,1070.00 L2521.66,1070.00 A16,16 0 0 1 2532.97,1074.69 L2665.31,1207.03 A16,16 0 0 1 2670.00,1218.34 L2670.00,1396.00 A16,16 0 0 0 2686.00,1412.00 L2854.00,1412.00 A16,16 0 0 1 2870.00,1428.00 L2870.00,1631.66 A16,16 0 0 1 2865.31,1642.97 L2774.69,1733.60 A16,16 0 0 0 2770.00,1744.91 L2770.00,1830.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2450.00,1070.00 L2521.66,1070.00 A16,16 0 0 1 2532.97,1074.69 L2665.31,1207.03 A16,16 0 0 1 2670.00,1218.34 L2670.00,1396.00 A16,16 0 0 0 2686.00,1412.00 L2854.00,1412.00 A16,16 0 0 1 2870.00,1428.00 L2870.00,1631.66 A16,16 0 0 1 2865.31,1642.97 L2774.69,1733.60 A16,16 0 0 0 2770.00,1744.91 L2770.00,1830.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 东赤石—小林</title></path>
+<path d="M2450.00,1070.00 L2521.66,1070.00 A16,16 0 0 1 2532.97,1074.69 L2665.31,1207.03 A16,16 0 0 1 2670.00,1218.34 L2670.00,1396.00 A16,16 0 0 0 2686.00,1412.00 L2750.00,1412.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2450.00,1070.00 L2521.66,1070.00 A16,16 0 0 1 2532.97,1074.69 L2665.31,1207.03 A16,16 0 0 1 2670.00,1218.34 L2670.00,1396.00 A16,16 0 0 0 2686.00,1412.00 L2750.00,1412.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 东赤石—青梅</title></path>
+<path d="M1820.00,850.00 L1820.00,650.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1820.00,850.00 L1820.00,650.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 仓本—双子驿</title></path>
+<path d="M1820.00,650.00 L1820.00,518.34 A16,16 0 0 0 1815.31,507.03 L1692.97,384.69 A16,16 0 0 0 1681.66,380.00 L1550.00,380.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1820.00,650.00 L1820.00,518.34 A16,16 0 0 0 1815.31,507.03 L1692.97,384.69 A16,16 0 0 0 1681.66,380.00 L1550.00,380.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 双子驿—桦山半岛</title></path>
+<path d="M1550.00,380.00 L1300.00,380.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1550.00,380.00 L1300.00,380.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 桦山半岛—红松岭</title></path>
+<path d="M1000.00,380.00 L1300.00,380.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1000.00,380.00 L1300.00,380.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 甜菜南—红松岭</title></path>
+<path d="M3400.00,1412.00 L2750.00,1412.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M3400.00,1412.00 L2750.00,1412.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"><title>苔沼线: 苔原—青梅</title></path>
+<path d="M2770.00,2400.00 L2770.00,1830.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1070.00 L2450.00,1070.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1070.00 L1924.91,1070.00 A16,16 0 0 1 1913.60,1065.31 L1824.69,976.40 A16,16 0 0 1 1820.00,965.09 L1820.00,850.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M2450.00,1070.00 L2521.66,1070.00 A16,16 0 0 1 2532.97,1074.69 L2665.31,1207.03 A16,16 0 0 1 2670.00,1218.34 L2670.00,1396.00 A16,16 0 0 0 2686.00,1412.00 L2854.00,1412.00 A16,16 0 0 1 2870.00,1428.00 L2870.00,1631.66 A16,16 0 0 1 2865.31,1642.97 L2774.69,1733.60 A16,16 0 0 0 2770.00,1744.91 L2770.00,1830.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M2450.00,1070.00 L2521.66,1070.00 A16,16 0 0 1 2532.97,1074.69 L2665.31,1207.03 A16,16 0 0 1 2670.00,1218.34 L2670.00,1396.00 A16,16 0 0 0 2686.00,1412.00 L2750.00,1412.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M1820.00,850.00 L1820.00,650.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M1820.00,650.00 L1820.00,518.34 A16,16 0 0 0 1815.31,507.03 L1692.97,384.69 A16,16 0 0 0 1681.66,380.00 L1550.00,380.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M1550.00,380.00 L1300.00,380.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M1000.00,380.00 L1300.00,380.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M3400.00,1412.00 L2750.00,1412.00" fill="none" stroke="#168c73" stroke-width="24" stroke-linecap="round"/>
+<path d="M2730.00,2400.00 L2730.00,1830.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2730.00,2400.00 L2730.00,1830.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"><title>苔沼线快速: kyan—小林</title></path>
+<path d="M2730.00,2400.00 L2730.00,1728.34 A16,16 0 0 1 2734.69,1717.03 L2825.31,1626.40 A16,16 0 0 0 2830.00,1615.09 L2830.00,1468.00 A16,16 0 0 0 2814.00,1452.00 L2750.00,1452.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2730.00,2400.00 L2730.00,1728.34 A16,16 0 0 1 2734.69,1717.03 L2825.31,1626.40 A16,16 0 0 0 2830.00,1615.09 L2830.00,1468.00 A16,16 0 0 0 2814.00,1452.00 L2750.00,1452.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"><title>苔沼线快速: kyan—青梅</title></path>
+<polygon points="2730.0,1879.4402736051663 2722.0,1861.4402736051663 2738.0,1861.4402736051663" fill="#e09a13"/>
+<path d="M2050.00,1110.00 L1908.34,1110.00 A16,16 0 0 1 1897.03,1105.31 L1784.69,992.97 A16,16 0 0 1 1780.00,981.66 L1780.00,650.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1110.00 L1908.34,1110.00 A16,16 0 0 1 1897.03,1105.31 L1784.69,992.97 A16,16 0 0 1 1780.00,981.66 L1780.00,650.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"><title>苔沼线快速: 三岛—双子驿</title></path>
+<polygon points="1780.0,968.6489097459603 1788.0,986.6489097459603 1772.0,986.6489097459603" fill="#e09a13"/>
+<path d="M2050.00,1110.00 L2505.09,1110.00 A16,16 0 0 1 2516.40,1114.69 L2625.31,1223.60 A16,16 0 0 1 2630.00,1234.91 L2630.00,1436.00 A16,16 0 0 0 2646.00,1452.00 L2814.00,1452.00 A16,16 0 0 1 2830.00,1468.00 L2830.00,1615.09 A16,16 0 0 1 2825.31,1626.40 L2734.69,1717.03 A16,16 0 0 0 2730.00,1728.34 L2730.00,1830.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1110.00 L2505.09,1110.00 A16,16 0 0 1 2516.40,1114.69 L2625.31,1223.60 A16,16 0 0 1 2630.00,1234.91 L2630.00,1436.00 A16,16 0 0 0 2646.00,1452.00 L2814.00,1452.00 A16,16 0 0 1 2830.00,1468.00 L2830.00,1615.09 A16,16 0 0 1 2825.31,1626.40 L2734.69,1717.03 A16,16 0 0 0 2730.00,1728.34 L2730.00,1830.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"><title>苔沼线快速: 三岛—小林</title></path>
+<path d="M2050.00,1110.00 L1908.34,1110.00 A16,16 0 0 1 1897.03,1105.31 L1784.69,992.97 A16,16 0 0 1 1780.00,981.66 L1780.00,534.91 A16,16 0 0 0 1775.31,523.60 L1676.40,424.69 A16,16 0 0 0 1665.09,420.00 L1550.00,420.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1110.00 L1908.34,1110.00 A16,16 0 0 1 1897.03,1105.31 L1784.69,992.97 A16,16 0 0 1 1780.00,981.66 L1780.00,534.91 A16,16 0 0 0 1775.31,523.60 L1676.40,424.69 A16,16 0 0 0 1665.09,420.00 L1550.00,420.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"><title>苔沼线快速: 三岛—桦山半岛</title></path>
+<polygon points="1780.0,791.0660171779823 1772.0,773.0660171779823 1788.0,773.0660171779823" fill="#e09a13"/>
+<path d="M2050.00,1110.00 L2505.09,1110.00 A16,16 0 0 1 2516.40,1114.69 L2625.31,1223.60 A16,16 0 0 1 2630.00,1234.91 L2630.00,1436.00 A16,16 0 0 0 2646.00,1452.00 L2750.00,1452.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1110.00 L2505.09,1110.00 A16,16 0 0 1 2516.40,1114.69 L2625.31,1223.60 A16,16 0 0 1 2630.00,1234.91 L2630.00,1436.00 A16,16 0 0 0 2646.00,1452.00 L2750.00,1452.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"><title>苔沼线快速: 三岛—青梅</title></path>
+<path d="M1780.00,650.00 L1780.00,534.91 A16,16 0 0 0 1775.31,523.60 L1676.40,424.69 A16,16 0 0 0 1665.09,420.00 L1000.00,420.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1780.00,650.00 L1780.00,534.91 A16,16 0 0 0 1775.31,523.60 L1676.40,424.69 A16,16 0 0 0 1665.09,420.00 L1000.00,420.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"><title>苔沼线快速: 双子驿—甜菜南</title></path>
+<polygon points="1462.582892567978,420.0 1480.582892567978,412.0 1480.582892567978,428.0" fill="#e09a13"/>
+<path d="M1550.00,420.00 L1000.00,420.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1550.00,420.00 L1000.00,420.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"><title>苔沼线快速: 桦山半岛—甜菜南</title></path>
+<polygon points="1285.0,420.0 1267.0,428.0 1267.0,412.0" fill="#e09a13"/>
+<path d="M2730.00,2400.00 L2730.00,1830.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"/>
+<path d="M2730.00,2400.00 L2730.00,1728.34 A16,16 0 0 1 2734.69,1717.03 L2825.31,1626.40 A16,16 0 0 0 2830.00,1615.09 L2830.00,1468.00 A16,16 0 0 0 2814.00,1452.00 L2750.00,1452.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1110.00 L1908.34,1110.00 A16,16 0 0 1 1897.03,1105.31 L1784.69,992.97 A16,16 0 0 1 1780.00,981.66 L1780.00,650.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1110.00 L2505.09,1110.00 A16,16 0 0 1 2516.40,1114.69 L2625.31,1223.60 A16,16 0 0 1 2630.00,1234.91 L2630.00,1436.00 A16,16 0 0 0 2646.00,1452.00 L2814.00,1452.00 A16,16 0 0 1 2830.00,1468.00 L2830.00,1615.09 A16,16 0 0 1 2825.31,1626.40 L2734.69,1717.03 A16,16 0 0 0 2730.00,1728.34 L2730.00,1830.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1110.00 L1908.34,1110.00 A16,16 0 0 1 1897.03,1105.31 L1784.69,992.97 A16,16 0 0 1 1780.00,981.66 L1780.00,534.91 A16,16 0 0 0 1775.31,523.60 L1676.40,424.69 A16,16 0 0 0 1665.09,420.00 L1550.00,420.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1110.00 L2505.09,1110.00 A16,16 0 0 1 2516.40,1114.69 L2625.31,1223.60 A16,16 0 0 1 2630.00,1234.91 L2630.00,1436.00 A16,16 0 0 0 2646.00,1452.00 L2750.00,1452.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"/>
+<path d="M1780.00,650.00 L1780.00,534.91 A16,16 0 0 0 1775.31,523.60 L1676.40,424.69 A16,16 0 0 0 1665.09,420.00 L1000.00,420.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"/>
+<path d="M1550.00,420.00 L1000.00,420.00" fill="none" stroke="#e09a13" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1190.00 L1590.00,1190.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1190.00 L1590.00,1190.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"><title>东海道线: 三岛—新双峰</title></path>
+<path d="M1250.00,1300.00 L1250.00,1206.00 A16,16 0 0 1 1266.00,1190.00 L1590.00,1190.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1250.00,1300.00 L1250.00,1206.00 A16,16 0 0 1 1266.00,1190.00 L1590.00,1190.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"><title>东海道线: 平湖—新双峰</title></path>
+<path d="M1250.00,1300.00 L1250.00,1345.09 A16,16 0 0 1 1245.31,1356.40 L1056.40,1545.31 A16,16 0 0 1 1045.09,1550.00 L1000.00,1550.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1250.00,1300.00 L1250.00,1345.09 A16,16 0 0 1 1245.31,1356.40 L1056.40,1545.31 A16,16 0 0 1 1045.09,1550.00 L1000.00,1550.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"><title>东海道线: 平湖—根岸</title></path>
+<path d="M800.00,1550.00 L1000.00,1550.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M800.00,1550.00 L1000.00,1550.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"><title>东海道线: 杉海关—根岸</title></path>
+<path d="M800.00,1550.00 L160.00,1550.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M800.00,1550.00 L160.00,1550.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"><title>东海道线: 杉海关—沼津</title></path>
+<path d="M2050.00,1190.00 L1590.00,1190.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"/>
+<path d="M1250.00,1300.00 L1250.00,1206.00 A16,16 0 0 1 1266.00,1190.00 L1590.00,1190.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"/>
+<path d="M1250.00,1300.00 L1250.00,1345.09 A16,16 0 0 1 1245.31,1356.40 L1056.40,1545.31 A16,16 0 0 1 1045.09,1550.00 L1000.00,1550.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"/>
+<path d="M800.00,1550.00 L1000.00,1550.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"/>
+<path d="M800.00,1550.00 L160.00,1550.00" fill="none" stroke="#e45c37" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1150.00 L1590.00,1150.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1150.00 L1590.00,1150.00" fill="none" stroke="#376db5" stroke-width="24" stroke-linecap="round"><title>北陆本线: 三岛—新双峰</title></path>
+<path d="M2050.00,1150.00 L2173.37,1150.00 A16,16 0 0 0 2184.69,1145.31 L2375.31,954.69 A16,16 0 0 1 2386.63,950.00 L2680.00,950.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1150.00 L2173.37,1150.00 A16,16 0 0 0 2184.69,1145.31 L2375.31,954.69 A16,16 0 0 1 2386.63,950.00 L2680.00,950.00" fill="none" stroke="#376db5" stroke-width="24" stroke-linecap="round"><title>北陆本线: 三岛—沃托里村</title></path>
+<path d="M2900.00,350.00 L2900.00,650.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2900.00,350.00 L2900.00,650.00" fill="none" stroke="#376db5" stroke-width="24" stroke-linecap="round"><title>北陆本线: 松岭—雪岭</title></path>
+<path d="M2680.00,950.00 L2723.37,950.00 A16,16 0 0 0 2734.69,945.31 L2895.31,784.69 A16,16 0 0 0 2900.00,773.37 L2900.00,650.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2680.00,950.00 L2723.37,950.00 A16,16 0 0 0 2734.69,945.31 L2895.31,784.69 A16,16 0 0 0 2900.00,773.37 L2900.00,650.00" fill="none" stroke="#376db5" stroke-width="24" stroke-linecap="round"><title>北陆本线: 沃托里村—雪岭</title></path>
+<path d="M2050.00,1150.00 L1590.00,1150.00" fill="none" stroke="#376db5" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1150.00 L2173.37,1150.00 A16,16 0 0 0 2184.69,1145.31 L2375.31,954.69 A16,16 0 0 1 2386.63,950.00 L2680.00,950.00" fill="none" stroke="#376db5" stroke-width="24" stroke-linecap="round"/>
+<path d="M2900.00,350.00 L2900.00,650.00" fill="none" stroke="#376db5" stroke-width="24" stroke-linecap="round"/>
+<path d="M2680.00,950.00 L2723.37,950.00 A16,16 0 0 0 2734.69,945.31 L2895.31,784.69 A16,16 0 0 0 2900.00,773.37 L2900.00,650.00" fill="none" stroke="#376db5" stroke-width="24" stroke-linecap="round"/>
+<path d="M1050.00,1000.00 L800.00,1000.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1050.00,1000.00 L800.00,1000.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"><title>御殿场线: 南山南—岩波</title></path>
+<path d="M1050.00,1000.00 L1249.37,1000.00 A16,16 0 0 1 1260.69,1004.69 L1346.00,1090.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1050.00,1000.00 L1249.37,1000.00 A16,16 0 0 1 1260.69,1004.69 L1346.00,1090.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"><title>御殿场线: 南山南—茉莉町</title></path>
+<path d="M1810.00,1670.00 L1810.00,1560.63 A16,16 0 0 0 1805.31,1549.31 L1760.00,1504.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1810.00,1670.00 L1810.00,1560.63 A16,16 0 0 0 1805.31,1549.31 L1760.00,1504.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"><title>御殿场线: 南新岛—御殿场</title></path>
+<path d="M1590.00,1334.00 L1760.00,1504.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1590.00,1334.00 L1760.00,1504.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"><title>御殿场线: 双峰—御殿场</title></path>
+<path d="M560.00,1200.00 L755.31,1004.69 A16,16 0 0 1 766.63,1000.00 L800.00,1000.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M560.00,1200.00 L755.31,1004.69 A16,16 0 0 1 766.63,1000.00 L800.00,1000.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"><title>御殿场线: 双门峡—岩波</title></path>
+<path d="M560.00,1200.00 L410.00,1350.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M560.00,1200.00 L410.00,1350.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"><title>御殿场线: 双门峡—白树高地</title></path>
+<path d="M160.00,1510.00 L243.37,1510.00 A16,16 0 0 0 254.69,1505.31 L410.00,1350.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M160.00,1510.00 L243.37,1510.00 A16,16 0 0 0 254.69,1505.31 L410.00,1350.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"><title>御殿场线: 沼津—白树高地</title></path>
+<path d="M1050.00,1000.00 L800.00,1000.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"/>
+<path d="M1050.00,1000.00 L1249.37,1000.00 A16,16 0 0 1 1260.69,1004.69 L1346.00,1090.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"/>
+<path d="M1810.00,1670.00 L1810.00,1560.63 A16,16 0 0 0 1805.31,1549.31 L1760.00,1504.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"/>
+<path d="M1590.00,1334.00 L1760.00,1504.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"/>
+<path d="M560.00,1200.00 L755.31,1004.69 A16,16 0 0 1 766.63,1000.00 L800.00,1000.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"/>
+<path d="M560.00,1200.00 L410.00,1350.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"/>
+<path d="M160.00,1510.00 L243.37,1510.00 A16,16 0 0 0 254.69,1505.31 L410.00,1350.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"/>
+<path d="M900.00,2160.00 L766.00,2160.00 A16,16 0 0 1 750.00,2144.00 L750.00,1950.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M900.00,2160.00 L766.00,2160.00 A16,16 0 0 1 750.00,2144.00 L750.00,1950.00" fill="none" stroke="#278942" stroke-width="24" stroke-linecap="round"><title>西海道1号线: 冰原沙滩—终末之地</title></path>
+<path d="M900.00,2160.00 L1150.00,2160.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M900.00,2160.00 L1150.00,2160.00" fill="none" stroke="#278942" stroke-width="24" stroke-linecap="round"><title>西海道1号线: 冰原沙滩—鸟居</title></path>
+<path d="M750.00,1950.00 L750.00,1750.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M750.00,1950.00 L750.00,1750.00" fill="none" stroke="#278942" stroke-width="24" stroke-linecap="round"><title>西海道1号线: 终末之地—西南矿场</title></path>
+<path d="M1370.00,2400.00 L1370.00,2286.63 A16,16 0 0 0 1365.31,2275.31 L1254.69,2164.69 A16,16 0 0 0 1243.37,2160.00 L1150.00,2160.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1370.00,2400.00 L1370.00,2286.63 A16,16 0 0 0 1365.31,2275.31 L1254.69,2164.69 A16,16 0 0 0 1243.37,2160.00 L1150.00,2160.00" fill="none" stroke="#278942" stroke-width="24" stroke-linecap="round"><title>西海道1号线: 西海道站—鸟居</title></path>
+<path d="M900.00,2160.00 L766.00,2160.00 A16,16 0 0 1 750.00,2144.00 L750.00,1950.00" fill="none" stroke="#278942" stroke-width="24" stroke-linecap="round"/>
+<path d="M900.00,2160.00 L1150.00,2160.00" fill="none" stroke="#278942" stroke-width="24" stroke-linecap="round"/>
+<path d="M750.00,1950.00 L750.00,1750.00" fill="none" stroke="#278942" stroke-width="24" stroke-linecap="round"/>
+<path d="M1370.00,2400.00 L1370.00,2286.63 A16,16 0 0 0 1365.31,2275.31 L1254.69,2164.69 A16,16 0 0 0 1243.37,2160.00 L1150.00,2160.00" fill="none" stroke="#278942" stroke-width="24" stroke-linecap="round"/>
+<path d="M900.00,2200.00 L796.00,2200.00 A16,16 0 0 0 780.00,2216.00 L780.00,2263.37 A16,16 0 0 0 784.69,2274.69 L875.31,2365.31 A16,16 0 0 1 880.00,2376.63 L880.00,2450.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M900.00,2200.00 L796.00,2200.00 A16,16 0 0 0 780.00,2216.00 L780.00,2263.37 A16,16 0 0 0 784.69,2274.69 L875.31,2365.31 A16,16 0 0 1 880.00,2376.63 L880.00,2450.00" fill="none" stroke="#2289ad" stroke-width="24" stroke-linecap="round"><title>西海道2号线: 冰原沙滩—西海道原点</title></path>
+<path d="M100.00,2600.00 L350.00,2600.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M100.00,2600.00 L350.00,2600.00" fill="none" stroke="#2289ad" stroke-width="24" stroke-linecap="round"><title>西海道2号线: 蓝海湾—雪原村庄</title></path>
+<path d="M880.00,2450.00 L880.00,2523.37 A16,16 0 0 1 875.31,2534.69 L814.69,2595.31 A16,16 0 0 1 803.37,2600.00 L650.00,2600.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M880.00,2450.00 L880.00,2523.37 A16,16 0 0 1 875.31,2534.69 L814.69,2595.31 A16,16 0 0 1 803.37,2600.00 L650.00,2600.00" fill="none" stroke="#2289ad" stroke-width="24" stroke-linecap="round"><title>西海道2号线: 西海道原点—西海道机场</title></path>
+<path d="M650.00,2600.00 L350.00,2600.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M650.00,2600.00 L350.00,2600.00" fill="none" stroke="#2289ad" stroke-width="24" stroke-linecap="round"><title>西海道2号线: 西海道机场—雪原村庄</title></path>
+<path d="M900.00,2200.00 L796.00,2200.00 A16,16 0 0 0 780.00,2216.00 L780.00,2263.37 A16,16 0 0 0 784.69,2274.69 L875.31,2365.31 A16,16 0 0 1 880.00,2376.63 L880.00,2450.00" fill="none" stroke="#2289ad" stroke-width="24" stroke-linecap="round"/>
+<path d="M100.00,2600.00 L350.00,2600.00" fill="none" stroke="#2289ad" stroke-width="24" stroke-linecap="round"/>
+<path d="M880.00,2450.00 L880.00,2523.37 A16,16 0 0 1 875.31,2534.69 L814.69,2595.31 A16,16 0 0 1 803.37,2600.00 L650.00,2600.00" fill="none" stroke="#2289ad" stroke-width="24" stroke-linecap="round"/>
+<path d="M650.00,2600.00 L350.00,2600.00" fill="none" stroke="#2289ad" stroke-width="24" stroke-linecap="round"/>
+<path d="M1900.00,2860.00 L1736.63,2860.00 A16,16 0 0 1 1725.31,2855.31 L1454.69,2584.69 A16,16 0 0 1 1450.00,2573.37 L1450.00,2400.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1900.00,2860.00 L1736.63,2860.00 A16,16 0 0 1 1725.31,2855.31 L1454.69,2584.69 A16,16 0 0 1 1450.00,2573.37 L1450.00,2400.00" fill="none" stroke="#6957ad" stroke-width="24" stroke-linecap="round"><title>西海道C1线: 南湾—西海道站</title></path>
+<path d="M1450.00,2400.00 L1450.00,2106.63 A16,16 0 0 1 1454.69,2095.31 L1595.31,1954.69 A16,16 0 0 1 1606.63,1950.00 L1750.00,1950.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1450.00,2400.00 L1450.00,2106.63 A16,16 0 0 1 1454.69,2095.31 L1595.31,1954.69 A16,16 0 0 1 1606.63,1950.00 L1750.00,1950.00" fill="none" stroke="#6957ad" stroke-width="24" stroke-linecap="round"><title>西海道C1线: 西海道站—鹿岛</title></path>
+<path d="M1900.00,2860.00 L1736.63,2860.00 A16,16 0 0 1 1725.31,2855.31 L1454.69,2584.69 A16,16 0 0 1 1450.00,2573.37 L1450.00,2400.00" fill="none" stroke="#6957ad" stroke-width="24" stroke-linecap="round"/>
+<path d="M1450.00,2400.00 L1450.00,2106.63 A16,16 0 0 1 1454.69,2095.31 L1595.31,1954.69 A16,16 0 0 1 1606.63,1950.00 L1750.00,1950.00" fill="none" stroke="#6957ad" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,2740.00 L1756.63,2740.00 A16,16 0 0 1 1745.31,2735.31 L1494.69,2484.69 A16,16 0 0 1 1490.00,2473.37 L1490.00,2400.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,2740.00 L1756.63,2740.00 A16,16 0 0 1 1745.31,2735.31 L1494.69,2484.69 A16,16 0 0 1 1490.00,2473.37 L1490.00,2400.00" fill="none" stroke="#946332" stroke-width="24" stroke-linecap="round"><title>西海道K1线: 守卫者塔—西海道站</title></path>
+<path d="M2050.00,2740.00 L2400.00,2740.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,2740.00 L2400.00,2740.00" fill="none" stroke="#946332" stroke-width="24" stroke-linecap="round"><title>西海道K1线: 守卫者塔—西海道第一发电站</title></path>
+<path d="M2050.00,2740.00 L1756.63,2740.00 A16,16 0 0 1 1745.31,2735.31 L1494.69,2484.69 A16,16 0 0 1 1490.00,2473.37 L1490.00,2400.00" fill="none" stroke="#946332" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,2740.00 L2400.00,2740.00" fill="none" stroke="#946332" stroke-width="24" stroke-linecap="round"/>
+<path d="M920.00,2450.00 L920.00,2513.37 A16,16 0 0 0 924.69,2524.69 L1045.31,2645.31 A16,16 0 0 0 1056.63,2650.00 L1243.37,2650.00 A16,16 0 0 0 1254.69,2645.31 L1405.31,2494.69 A16,16 0 0 0 1410.00,2483.37 L1410.00,2400.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M920.00,2450.00 L920.00,2513.37 A16,16 0 0 0 924.69,2524.69 L1045.31,2645.31 A16,16 0 0 0 1056.63,2650.00 L1243.37,2650.00 A16,16 0 0 0 1254.69,2645.31 L1405.31,2494.69 A16,16 0 0 0 1410.00,2483.37 L1410.00,2400.00" fill="none" stroke="#bf4c69" stroke-width="24" stroke-linecap="round"><title>西海道-产区专线: 西海道原点—西海道站</title></path>
+<path d="M1410.00,2400.00 L1410.00,2106.63 A16,16 0 0 0 1405.31,2095.31 L1164.69,1854.69 A16,16 0 0 0 1153.37,1850.00 L1000.00,1850.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1410.00,2400.00 L1410.00,2106.63 A16,16 0 0 0 1405.31,2095.31 L1164.69,1854.69 A16,16 0 0 0 1153.37,1850.00 L1000.00,1850.00" fill="none" stroke="#bf4c69" stroke-width="24" stroke-linecap="round"><title>西海道-产区专线: 西海道站—西海道量产机器</title></path>
+<path d="M920.00,2450.00 L920.00,2513.37 A16,16 0 0 0 924.69,2524.69 L1045.31,2645.31 A16,16 0 0 0 1056.63,2650.00 L1243.37,2650.00 A16,16 0 0 0 1254.69,2645.31 L1405.31,2494.69 A16,16 0 0 0 1410.00,2483.37 L1410.00,2400.00" fill="none" stroke="#bf4c69" stroke-width="24" stroke-linecap="round"/>
+<path d="M1410.00,2400.00 L1410.00,2106.63 A16,16 0 0 0 1405.31,2095.31 L1164.69,1854.69 A16,16 0 0 0 1153.37,1850.00 L1000.00,1850.00" fill="none" stroke="#bf4c69" stroke-width="24" stroke-linecap="round"/>
+<path d="M1530.00,2400.00 L1530.00,2306.63 A16,16 0 0 1 1534.69,2295.31 L1685.31,2144.69 A16,16 0 0 1 1696.63,2140.00 L2883.37,2140.00 A16,16 0 0 0 2894.69,2135.31 L3005.31,2024.69 A16,16 0 0 0 3010.00,2013.37 L3010.00,1548.00 A16,16 0 0 0 2994.00,1532.00 L2750.00,1532.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1530.00,2400.00 L1530.00,2306.63 A16,16 0 0 1 1534.69,2295.31 L1685.31,2144.69 A16,16 0 0 1 1696.63,2140.00 L2883.37,2140.00 A16,16 0 0 0 2894.69,2135.31 L3005.31,2024.69 A16,16 0 0 0 3010.00,2013.37 L3010.00,1548.00 A16,16 0 0 0 2994.00,1532.00 L2750.00,1532.00" fill="none" stroke="#c43a45" stroke-width="24" stroke-linecap="round"><title>都营大新岛线: 西海道站—青梅</title></path>
+<path d="M1960.00,1612.00 L2393.37,1612.00 A16,16 0 0 0 2404.69,1607.31 L2475.31,1536.69 A16,16 0 0 1 2486.63,1532.00 L2750.00,1532.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1960.00,1612.00 L2393.37,1612.00 A16,16 0 0 0 2404.69,1607.31 L2475.31,1536.69 A16,16 0 0 1 2486.63,1532.00 L2750.00,1532.00" fill="none" stroke="#c43a45" stroke-width="24" stroke-linecap="round"><title>都营大新岛线: 都营新岛—青梅</title></path>
+<path d="M1530.00,2400.00 L1530.00,2306.63 A16,16 0 0 1 1534.69,2295.31 L1685.31,2144.69 A16,16 0 0 1 1696.63,2140.00 L2883.37,2140.00 A16,16 0 0 0 2894.69,2135.31 L3005.31,2024.69 A16,16 0 0 0 3010.00,2013.37 L3010.00,1548.00 A16,16 0 0 0 2994.00,1532.00 L2750.00,1532.00" fill="none" stroke="#c43a45" stroke-width="24" stroke-linecap="round"/>
+<path d="M1960.00,1612.00 L2393.37,1612.00 A16,16 0 0 0 2404.69,1607.31 L2475.31,1536.69 A16,16 0 0 1 2486.63,1532.00 L2750.00,1532.00" fill="none" stroke="#c43a45" stroke-width="24" stroke-linecap="round"/>
+<path d="M1850.00,1670.00 L1850.00,1734.00 A16,16 0 0 0 1866.00,1750.00 L2050.00,1750.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1850.00,1670.00 L1850.00,1734.00 A16,16 0 0 0 1866.00,1750.00 L2050.00,1750.00" fill="none" stroke="#7c9630" stroke-width="24" stroke-linecap="round"><title>南新岛延线: 南新岛—相别山</title></path>
+<path d="M2050.00,1750.00 L2133.37,1750.00 A16,16 0 0 0 2144.69,1745.31 L2393.31,1496.69 A16,16 0 0 1 2404.63,1492.00 L2750.00,1492.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1750.00 L2133.37,1750.00 A16,16 0 0 0 2144.69,1745.31 L2393.31,1496.69 A16,16 0 0 1 2404.63,1492.00 L2750.00,1492.00" fill="none" stroke="#7c9630" stroke-width="24" stroke-linecap="round"><title>南新岛延线: 相别山—青梅</title></path>
+<path d="M1850.00,1670.00 L1850.00,1734.00 A16,16 0 0 0 1866.00,1750.00 L2050.00,1750.00" fill="none" stroke="#7c9630" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1750.00 L2133.37,1750.00 A16,16 0 0 0 2144.69,1745.31 L2393.31,1496.69 A16,16 0 0 1 2404.63,1492.00 L2750.00,1492.00" fill="none" stroke="#7c9630" stroke-width="24" stroke-linecap="round"/>
+<path d="M2570.00,1730.00 L2570.00,2040.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2570.00,1730.00 L2570.00,2040.00" fill="none" stroke="#27a4a0" stroke-width="24" stroke-linecap="round"><title>MR湘南单轨: 单轨青梅—末地门</title></path>
+<path d="M2570.00,1730.00 L2570.00,1396.63 A16,16 0 0 0 2565.31,1385.31 L2490.00,1310.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2570.00,1730.00 L2570.00,1396.63 A16,16 0 0 0 2565.31,1385.31 L2490.00,1310.00" fill="none" stroke="#27a4a0" stroke-width="24" stroke-linecap="round"><title>MR湘南单轨: 单轨青梅—金泽</title></path>
+<path d="M2570.00,2040.00 L2300.00,2310.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2570.00,2040.00 L2300.00,2310.00" fill="none" stroke="#27a4a0" stroke-width="24" stroke-linecap="round"><title>MR湘南单轨: 末地门—赤石博物馆</title></path>
+<path d="M2250.00,1310.00 L2490.00,1310.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2250.00,1310.00 L2490.00,1310.00" fill="none" stroke="#27a4a0" stroke-width="24" stroke-linecap="round"><title>MR湘南单轨: 羽村—金泽</title></path>
+<path d="M2570.00,1730.00 L2570.00,2040.00" fill="none" stroke="#27a4a0" stroke-width="24" stroke-linecap="round"/>
+<path d="M2570.00,1730.00 L2570.00,1396.63 A16,16 0 0 0 2565.31,1385.31 L2490.00,1310.00" fill="none" stroke="#27a4a0" stroke-width="24" stroke-linecap="round"/>
+<path d="M2570.00,2040.00 L2300.00,2310.00" fill="none" stroke="#27a4a0" stroke-width="24" stroke-linecap="round"/>
+<path d="M2250.00,1310.00 L2490.00,1310.00" fill="none" stroke="#27a4a0" stroke-width="24" stroke-linecap="round"/>
+<path d="M2050.00,1230.00 L1306.00,1230.00 A16,16 0 0 0 1290.00,1246.00 L1290.00,1361.66 A16,16 0 0 1 1285.31,1372.97 L1072.97,1585.31 A16,16 0 0 1 1061.66,1590.00 L160.00,1590.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M2050.00,1230.00 L1306.00,1230.00 A16,16 0 0 0 1290.00,1246.00 L1290.00,1361.66 A16,16 0 0 1 1285.31,1372.97 L1072.97,1585.31 A16,16 0 0 1 1061.66,1590.00 L160.00,1590.00" fill="none" stroke="#315369" stroke-width="24" stroke-linecap="round"><title>踊り子: 三岛—沼津</title></path>
+<path d="M2050.00,1230.00 L1306.00,1230.00 A16,16 0 0 0 1290.00,1246.00 L1290.00,1361.66 A16,16 0 0 1 1285.31,1372.97 L1072.97,1585.31 A16,16 0 0 1 1061.66,1590.00 L160.00,1590.00" fill="none" stroke="#315369" stroke-width="24" stroke-linecap="round"/>
+<path d="M1590.00,1334.00 L1346.00,1090.00" fill="none" stroke="#ffffff" stroke-width="32" stroke-linecap="round"/>
+<path d="M1590.00,1334.00 L1346.00,1090.00" fill="none" stroke="#9b568f" stroke-width="24" stroke-linecap="round"><title>御殿场线: 双峰—茉莉町</title></path>
+<path d="M1590,1170 L1590,1334" fill="none" stroke="#7d8987" stroke-width="3"/>
+<rect x="2710" y="2380" width="80" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>kyan</title></rect>
+<rect x="2030" y="1050" width="40" height="200" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>三岛</title></rect>
+<rect x="2430" y="1050" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>东赤石</title></rect>
+<rect x="1800" y="830" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>仓本</title></rect>
+<rect x="880" y="2140" width="40" height="80" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>冰原沙滩</title></rect>
+<rect x="2550" y="1710" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>单轨青梅</title></rect>
+<rect x="1030" y="980" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>南山南</title></rect>
+<rect x="1790" y="1650" width="80" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>南新岛</title></rect>
+<rect x="1880" y="2840" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>南湾</title></rect>
+<rect x="1760" y="630" width="80" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>双子驿</title></rect>
+<rect x="1570" y="1314" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>双峰</title></rect>
+<rect x="540" y="1180" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>双门峡</title></rect>
+<rect x="2030" y="2720" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>守卫者塔</title></rect>
+<rect x="2710" y="1810" width="80" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>小林</title></rect>
+<rect x="780" y="980" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>岩波</title></rect>
+<rect x="1230" y="1280" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>平湖</title></rect>
+<rect x="1740" y="1484" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>御殿场</title></rect>
+<rect x="1570" y="1130" width="40" height="80" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>新双峰</title></rect>
+<rect x="2550" y="2020" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>末地门</title></rect>
+<rect x="780" y="1530" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>杉海关</title></rect>
+<rect x="2880" y="330" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>松岭</title></rect>
+<rect x="980" y="1530" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>根岸</title></rect>
+<rect x="1530" y="360" width="40" height="80" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>桦山半岛</title></rect>
+<rect x="2660" y="930" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>沃托里村</title></rect>
+<rect x="140" y="1490" width="40" height="120" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>沼津</title></rect>
+<rect x="980" y="360" width="40" height="80" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>甜菜南</title></rect>
+<rect x="390" y="1330" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>白树高地</title></rect>
+<rect x="2030" y="1730" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>相别山</title></rect>
+<rect x="1280" y="360" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>红松岭</title></rect>
+<rect x="730" y="1930" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>终末之地</title></rect>
+<rect x="2230" y="1290" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>羽村</title></rect>
+<rect x="3380" y="1392" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>苔原</title></rect>
+<rect x="1326" y="1070" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>茉莉町</title></rect>
+<rect x="80" y="2580" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>蓝海湾</title></rect>
+<rect x="730" y="1730" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>西南矿场</title></rect>
+<rect x="860" y="2430" width="80" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>西海道原点</title></rect>
+<rect x="630" y="2580" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>西海道机场</title></rect>
+<rect x="1350" y="2380" width="200" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>西海道站</title></rect>
+<rect x="2380" y="2720" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>西海道第一发电站</title></rect>
+<rect x="980" y="1830" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>西海道量产机器</title></rect>
+<rect x="2280" y="2290" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>赤石博物馆</title></rect>
+<rect x="1940" y="1592" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>都营新岛</title></rect>
+<rect x="2470" y="1290" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>金泽</title></rect>
+<rect x="330" y="2580" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>雪原村庄</title></rect>
+<rect x="2880" y="630" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>雪岭</title></rect>
+<rect x="2730" y="1392" width="40" height="160" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>青梅</title></rect>
+<rect x="1130" y="2140" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>鸟居</title></rect>
+<rect x="1730" y="1930" width="40" height="40" rx="20" fill="#ffffff" stroke="#171717" stroke-width="4"><title>鹿岛</title></rect>
+<text x="2090.0" y="1245.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">三岛</text>
+<path d="M1550.0,2400.0 L1561,2400" stroke="#777777" stroke-width="2"/>
+<text x="1574" y="2415.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">西海道站</text>
+<path d="M2750.0,1552.0 L2750,1559.0" stroke="#777777" stroke-width="2"/>
+<text x="2670.0" y="1607.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">青梅</text>
+<path d="M160.0,1490.0 L160,1474" stroke="#777777" stroke-width="2"/>
+<text x="120.0" y="1456" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">沼津</text>
+<text x="836.0" y="415.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">甜菜南</text>
+<text x="1390.0" y="335.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">桦山半岛</text>
+<text x="1620.0" y="665.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">双子驿</text>
+<text x="1490.0" y="1105.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">新双峰</text>
+<text x="1650.0" y="1685.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">南新岛</text>
+<text x="2814" y="1845.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">小林</text>
+<text x="780.0" y="2115.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">冰原沙滩</text>
+<text x="2690.0" y="2484" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">未命名</text>
+<text x="640.0" y="2465.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">西海道原点</text>
+<text x="2780.0" y="365.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">松岭</text>
+<text x="1240.0" y="326" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">红松岭</text>
+<text x="2780.0" y="665.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">雪岭</text>
+<text x="1860.0" y="865.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">仓本</text>
+<text x="2540" y="896" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">沃托里村</text>
+<text x="760.0" y="946" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">岩波</text>
+<text x="990.0" y="946" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">南山南</text>
+<text x="2410" y="1025" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">东赤石</text>
+<text x="1390" y="1036" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">茉莉町</text>
+<text x="396.0" y="1146" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">双门峡</text>
+<text x="1130.0" y="1315.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">平湖</text>
+<text x="2130.0" y="1325.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">羽村</text>
+<text x="2450.0" y="1256" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">金泽</text>
+<text x="1470.0" y="1389.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">双峰</text>
+<text x="210.0" y="1325.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">白树高地</text>
+<text x="3440.0" y="1427.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">苔原</text>
+<text x="1804" y="1450" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">御殿场</text>
+<text x="740.0" y="1496" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">杉海关</text>
+<text x="960.0" y="1496" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">根岸</text>
+<text x="2004" y="1558" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">新岛（都营）</text>
+<text x="2290.0" y="1745.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">青梅（单轨）</text>
+<text x="550.0" y="1765.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">西南矿场</text>
+<text x="1990.0" y="1834" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">相别山</text>
+<text x="860.0" y="1796" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">西海道量产机器</text>
+<text x="550.0" y="1965.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">终末之地</text>
+<text x="1790.0" y="1965.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">鹿岛</text>
+<text x="2406.0" y="1986" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">末地门</text>
+<text x="1110.0" y="2106" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">鸟居</text>
+<text x="2056.0" y="2325.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">赤石博物馆</text>
+<text x="80.0" y="2535.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">蓝海湾</text>
+<text x="270.0" y="2546" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">雪原村庄</text>
+<text x="550.0" y="2546" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">西海道机场</text>
+<text x="1970.0" y="2686" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">守卫者塔</text>
+<text x="2444" y="2755.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">西海道第一发电站</text>
+<text x="1940.0" y="2875.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="40" font-weight="bold" fill="#171717">南湾</text>
+<path d="M1030.0,380.0 L1030.0,324.0" stroke="#168c73" stroke-width="3"/>
+<rect x="967.0" y="266.0" width="126.0" height="58" rx="9" fill="#168c73"/>
+<text x="982.0" y="304.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">苔沼线</text>
+<path d="M1055.0,420.0 L1055.0,476.0" stroke="#e09a13" stroke-width="3"/>
+<rect x="960.0" y="476.0" width="190.0" height="58" rx="9" fill="#e09a13"/>
+<text x="975.0" y="514.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">苔沼线快速</text>
+<path d="M480.0,1550.0 L480.0,1494.0" stroke="#e45c37" stroke-width="3"/>
+<rect x="401.0" y="1436.0" width="158.0" height="58" rx="9" fill="#e45c37"/>
+<text x="416.0" y="1474.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">东海道线</text>
+<path d="M2900.0,380.0 L2946.0,380.0" stroke="#376db5" stroke-width="3"/>
+<rect x="2946.0" y="351.0" width="158.0" height="58" rx="9" fill="#376db5"/>
+<text x="2961.0" y="389.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">北陆本线</text>
+<path d="M1810.0,1593.4391918985787 L1764.0,1593.4391918985787" stroke="#9b568f" stroke-width="3"/>
+<rect x="1606.0" y="1564.4391918985787" width="158.0" height="58" rx="9" fill="#9b568f"/>
+<text x="1621.0" y="1602.4391918985787" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">御殿场线</text>
+<path d="M1370.0,2365.988225099391 L1349.0,2365.988225099391" stroke="#278942" stroke-width="3"/>
+<rect x="1141.0" y="2336.988225099391" width="208.0" height="58" rx="9" fill="#278942"/>
+<text x="1156.0" y="2374.988225099391" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">西海道1号线</text>
+<path d="M175.0,2600.0 L175.0,2656.0" stroke="#2289ad" stroke-width="3"/>
+<rect x="71.0" y="2656.0" width="208.0" height="58" rx="9" fill="#2289ad"/>
+<text x="86.0" y="2694.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">西海道2号线</text>
+<path d="M1706.988225099391,1950.0 L1706.988225099391,1894.0" stroke="#6957ad" stroke-width="3"/>
+<rect x="1608.488225099391" y="1836.0" width="197.0" height="58" rx="9" fill="#6957ad"/>
+<text x="1623.488225099391" y="1874.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">西海道C1线</text>
+<path d="M2365.0,2740.0 L2365.0,2684.0" stroke="#946332" stroke-width="3"/>
+<rect x="2267.0" y="2626.0" width="196.0" height="58" rx="9" fill="#946332"/>
+<text x="2282.0" y="2664.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">西海道K1线</text>
+<path d="M1046.011774900609,1850.0 L1046.011774900609,1946.0" stroke="#bf4c69" stroke-width="3"/>
+<rect x="914.011774900609" y="1946.0" width="264.0" height="58" rx="9" fill="#bf4c69"/>
+<text x="929.011774900609" y="1984.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">西海道-产区专线</text>
+<path d="M1670.2509667991878,2159.749033200812 L1670.2509667991878,2103.749033200812" stroke="#c43a45" stroke-width="3"/>
+<rect x="1559.2509667991878" y="2045.749033200812" width="222.0" height="58" rx="9" fill="#c43a45"/>
+<text x="1574.2509667991878" y="2083.749033200812" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">都营大新岛线</text>
+<path d="M2368.450966799188,1521.5490332008121 L2368.450966799188,1465.5490332008121" stroke="#7c9630" stroke-width="3"/>
+<rect x="2273.450966799188" y="1407.5490332008121" width="190.0" height="58" rx="9" fill="#7c9630"/>
+<text x="2288.450966799188" y="1445.5490332008121" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">南新岛延线</text>
+<path d="M2322.0,1310.0 L2322.0,1254.0" stroke="#27a4a0" stroke-width="3"/>
+<rect x="2219.5" y="1196.0" width="205.0" height="58" rx="9" fill="#27a4a0"/>
+<text x="2234.5" y="1234.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">MR湘南单轨</text>
+<path d="M250.16568542494917,1590.0 L250.16568542494917,1646.0" stroke="#315369" stroke-width="3"/>
+<rect x="187.16568542494917" y="1646.0" width="126.0" height="58" rx="9" fill="#315369"/>
+<text x="202.16568542494917" y="1684.0" font-family="Noto Sans SC,Noto Sans JP,sans-serif" font-size="32" font-weight="normal" fill="#ffffff">踊り子</text>
+
+</svg>

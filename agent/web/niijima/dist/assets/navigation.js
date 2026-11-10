@@ -1,9 +1,13 @@
-const menuToggle = document.querySelector('.menu-toggle');
-menuToggle.addEventListener('click', () => {
-  menuToggle.setAttribute('aria-expanded', menuToggle.getAttribute('aria-expanded') !== 'true');
-});
+const navigation = document.querySelector('.site-navigation');
+const moreMenu = navigation.querySelector('.more-menu');
+const compactLinks = Array.from(navigation.querySelectorAll('.compact-nav-link'));
+const compactNavigation = matchMedia('(max-width: 640px)');
+function arrangeNavigation() {
+  if (compactNavigation.matches) moreMenu.querySelector('.more-links').prepend(...compactLinks);
+  else for (const link of compactLinks) navigation.insertBefore(link, moreMenu);
+}
+compactNavigation.addEventListener('change', arrangeNavigation);
+arrangeNavigation();
 document.addEventListener('keydown', event => {
-  if (event.key !== 'Escape') return;
-  document.querySelector('.more-menu').open = false;
-  menuToggle.setAttribute('aria-expanded', 'false');
+  if (event.key === 'Escape') moreMenu.open = false;
 });

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>乘换案内</title>
+  <style>
+    body { margin: 0; background: #e8e8e5; }
+    main { position: absolute; inset: 0; overflow: auto; scrollbar-width: none; overscroll-behavior: contain; }
+    .sheet {
+      background-image: linear-gradient(to right, #c1c2be 0, #c1c2be .4px, transparent .85px),
+                        linear-gradient(to bottom, #c1c2be 0, #c1c2be .4px, transparent .85px);
+      background-size: calc(44px * var(--zoom, 1)) calc(44px * var(--zoom, 1));
+      background-position: center;
+      display: grid; place-items: center; width: max-content; min-width: 100%; min-height: 100%; }
+    img { display: block; width: calc(min(100vw, 100vh * 3600 / 2960) * var(--zoom, 1)); height: auto; user-select: none; }
+    main.zoomed { cursor: grab; }
+    main.dragging { cursor: grabbing; }
+    time { position: fixed; top: 8px; right: 10px; padding: 2px 5px; color: #555; background: #e8e8e5f2; font: 13px/1.4 system-ui, sans-serif; pointer-events: none; }
+  </style>
+</head>
+<body>
+  <main aria-label="乘换案内" tabindex="0">
+    <div class="sheet"><img src="assets/rail-network-v15.svg" alt="主服铁道线路与换乘站" width="3600" height="2960" draggable="false"></div>
+  </main>
+  <time datetime="2026-11-11" aria-label="绘图日期 2026年11月11日">2026.11.11</time>
+  <script>
+    const view = document.querySelector('main');
+    const image = view.querySelector('img');
+    let zoom = 1;
+
+    view.addEventListener('wheel', event => {
+      event.preventDefault();
+      const unit = event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? view.clientHeight : 1;
+      const next = Math.min(5, Math.max(1, zoom * Math.exp(-event.deltaY * unit / 500)));
+      if (next === zoom) return;
+
+      const before = image.getBoundingClientRect();
+      const x = (event.clientX - before.left) / before.width;
+      const y = (event.clientY - before.top) / before.height;
+      zoom = next;
+      view.style.setProperty('--zoom', zoom);
+      view.classList.toggle('zoomed', zoom > 1);
+      const after = image.getBoundingClientRect();
+      view.scrollBy(after.left + x * after.width - event.clientX, after.top + y * after.height - event.clientY);
+    }, { passive: false });
+
+    view.addEventListener('pointerdown', event => {
+      if (zoom === 1 || event.button !== 0 || event.pointerType === 'touch') return;
+      const left = view.scrollLeft, top = view.scrollTop;
+      view.setPointerCapture(event.pointerId);
+      view.classList.add('dragging');
+      const move = pointer => {
+        if (pointer.pointerId === event.pointerId)
+          view.scrollTo(left + event.clientX - pointer.clientX, top + event.clientY - pointer.clientY);
+      };
+      view.addEventListener('pointermove', move);
+      view.addEventListener('lostpointercapture', () => {
+        view.removeEventListener('pointermove', move);
+        view.classList.remove('dragging');
+      }, { once: true });
+    });
+  </script>
+</body>
+</html>

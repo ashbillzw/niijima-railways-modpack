@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 316 215" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" dominant-baseline="middle" fill="#22231f" role="img" aria-label="MSPT / TPS">
+  <defs>
+    <radialGradient id="paper" cx=".08" cy=".93" r=".92">
+      <stop offset="0" stop-color="#e2d4b9" />
+      <stop offset=".36" stop-color="#efe8d8" />
+      <stop offset="1" stop-color="#f5f0e3" />
+    </radialGradient>
+    <linearGradient id="hub" x2=".8" y2="1">
+      <stop stop-color="#777a6c" />
+      <stop offset=".4" stop-color="#353a30" />
+      <stop offset="1" stop-color="#161c17" />
+    </linearGradient>
+    <filter id="paper-patina" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".017 .033" numOctaves="3" seed="9"/>
+      <feColorMatrix values="0 0 0 0 .46  0 0 0 0 .33  0 0 0 0 .18  1.4 0 0 0 -.56"/>
+    </filter>
+    <filter id="paper-grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".65" numOctaves="2" seed="17" />
+      <feColorMatrix type="saturate" values="0" />
+    </filter>
+    <filter id="needle-shadow" x="-30%" y="-20%" width="160%" height="150%">
+      <feDropShadow dx="1.2" dy="2" stdDeviation="1.1" flood-color="#22291d" flood-opacity=".35" />
+    </filter>
+  </defs>
+  <rect y="30" width="316" height="215" rx="6" fill="url(#paper)" />
+  <rect x="2" y="32" width="312" height="211" rx="5" filter="url(#paper-patina)" opacity=".32" />
+  <rect x="2" y="32" width="312" height="211" rx="5" filter="url(#paper-grain)" opacity=".15" />
+  <rect x="2" y="32" width="312" height="211" rx="5" fill="none" stroke="#837c6650" />
+  <rect x="5" y="35" width="306" height="205" rx="4" fill="none" stroke="#fff8" stroke-width="1.2" />
+  <path d="M 14 47 h 24 M 282 228 h 18" stroke="#9d947448" stroke-width=".8"/>
+  <text x="158" y="174" font-size="25" font-weight="700" letter-spacing="1.2">MSPT</text>
+  <path d="M 158 70 A 148 148 0 0 1 271.375 122.867 L 257.586 134.438 A 130 130 0 0 0 158 88 Z" fill="#cc6354" />
+  <path d="M 58.414 134.438 A 130 130 0 0 1 257.586 134.438" stroke="#22231f" fill="none" />
+  <path d="M 58.414 134.438 L 44.625 122.867" stroke="#22231f" stroke-width="1.8" />
+  <path d="M 62.154 130.173 L 56.256 124.769" stroke="#22231f" stroke-width="1" />
+  <path d="M 66.076 126.076 L 60.419 120.419" stroke="#22231f" stroke-width="1" />
+  <path d="M 70.173 122.154 L 64.769 116.256" stroke="#22231f" stroke-width="1" />
+  <path d="M 74.438 118.414 L 65.439 107.69" stroke="#22231f" stroke-width="1" />
+  <path d="M 78.861 114.864 L 73.991 108.517" stroke="#22231f" stroke-width="1" />
+  <path d="M 83.435 111.51 L 78.846 104.957" stroke="#22231f" stroke-width="1" />
+  <path d="M 88.151 108.359 L 83.853 101.612" stroke="#22231f" stroke-width="1" />
+  <path d="M 93 105.417 L 86 93.292" stroke="#22231f" stroke-width="1" />
+  <path d="M 97.973 102.689 L 94.279 95.593" stroke="#22231f" stroke-width="1" />
+  <path d="M 103.06 100.18 L 95.452 83.866" stroke="#22231f" stroke-width="1.8" />
+  <path d="M 108.251 97.896 L 105.19 90.505" stroke="#22231f" stroke-width="1" />
+  <path d="M 113.537 95.84 L 108.749 82.684" stroke="#22231f" stroke-width="1" />
+  <path d="M 118.908 94.017 L 116.503 86.387" stroke="#22231f" stroke-width="1" />
+  <path d="M 124.354 92.43 L 122.283 84.702" stroke="#22231f" stroke-width="1" />
+  <path d="M 129.863 91.082 L 128.131 83.271" stroke="#22231f" stroke-width="1" />
+  <path d="M 135.426 89.975 L 132.995 76.188" stroke="#22231f" stroke-width="1" />
+  <path d="M 141.032 89.112 L 139.987 81.181" stroke="#22231f" stroke-width="1" />
+  <path d="M 146.67 88.495 L 145.973 80.525" stroke="#22231f" stroke-width="1" />
+  <path d="M 152.329 88.124 L 151.981 80.131" stroke="#22231f" stroke-width="1" />
+  <path d="M 158 88 L 158 70" stroke="#22231f" stroke-width="1.8" />
+  <path d="M 163.671 88.124 L 164.019 80.131" stroke="#22231f" stroke-width="1" />
+  <path d="M 169.33 88.495 L 170.027 80.525" stroke="#22231f" stroke-width="1" />
+  <path d="M 174.968 89.112 L 176.013 81.181" stroke="#22231f" stroke-width="1" />
+  <path d="M 180.574 89.975 L 183.005 76.188" stroke="#22231f" stroke-width="1" />
+  <path d="M 186.137 91.082 L 187.869 83.271" stroke="#22231f" stroke-width="1" />
+  <path d="M 191.646 92.43 L 193.717 84.702" stroke="#22231f" stroke-width="1" />
+  <path d="M 197.092 94.017 L 199.497 86.387" stroke="#22231f" stroke-width="1" />
+  <path d="M 202.463 95.84 L 207.251 82.684" stroke="#22231f" stroke-width="1" />
+  <path d="M 207.749 97.896 L 210.81 90.505" stroke="#22231f" stroke-width="1" />
+  <path d="M 212.94 100.18 L 220.548 83.866" stroke="#22231f" stroke-width="1.8" />
+  <path d="M 218.027 102.689 L 221.721 95.593" stroke="#22231f" stroke-width="1" />
+  <path d="M 223 105.417 L 230 93.292" stroke="#22231f" stroke-width="1" />
+  <path d="M 227.849 108.359 L 232.147 101.612" stroke="#22231f" stroke-width="1" />
+  <path d="M 232.565 111.51 L 237.154 104.957" stroke="#22231f" stroke-width="1" />
+  <path d="M 237.139 114.864 L 242.009 108.517" stroke="#22231f" stroke-width="1" />
+  <path d="M 241.562 118.414 L 250.561 107.69" stroke="#22231f" stroke-width="1" />
+  <path d="M 245.827 122.154 L 251.231 116.256" stroke="#22231f" stroke-width="1" />
+  <path d="M 249.924 126.076 L 255.581 120.419" stroke="#22231f" stroke-width="1" />
+  <path d="M 253.846 130.173 L 259.744 124.769" stroke="#22231f" stroke-width="1" />
+  <path d="M 257.586 134.438 L 271.375 122.867" stroke="#22231f" stroke-width="1.8" />
+  <text x="32.369" y="112.583" font-size="20" font-weight="600">0</text>
+  <text x="88.691" y="69.366" font-size="20" font-weight="600">25</text>
+  <text x="158" y="54" font-size="20" font-weight="600">50</text>
+  <text x="227.309" y="69.366" font-size="20" font-weight="600">75</text>
+  <text x="283.631" y="112.583" font-size="20" font-weight="600">100</text>
+  <path d="M 158 99 A 119 119 0 0 1 249.159 141.508" stroke="#383931" fill="none" stroke-width=".8" />
+  <text x="130" y="120" font-size="11.5">TPS</text>
+  <path d="M 158 99 L 158 108" stroke="#33372d" stroke-width="1.25" />
+  <text x="158" y="120" font-size="13" font-weight="500" letter-spacing="-.4">20</text>
+  <path d="M 163.4637148823566 99.12549550183473 L 163.23414703015678 104.12022258158957" stroke="#33372d" stroke-width="0.8" />
+  <path d="M 169.52049361367833 99.55896730061326 L 168.64919577734972 108.51669246275176" stroke="#33372d" stroke-width="1.25" />
+  <path d="M 176.25360693056354 100.40830882233013 L 175.4866486561701 105.34913618273642" stroke="#33372d" stroke-width="0.8" />
+  <path d="M 183.75631405863425 101.82077515272793 L 181.80835753319133 110.60743921680734" stroke="#33372d" stroke-width="1.25" />
+  <text x="177.71108216593407" y="122.32299130224654" font-size="13" font-weight="500" letter-spacing="-.4">16</text>
+  <path d="M 192.12958469261974 103.99924803445683 L 190.6955685290643 108.78919559603426" stroke="#33372d" stroke-width="0.8" />
+  <path d="M 201.475581899601 107.2260239113397 L 198.18751268030346 115.60388764913753" stroke="#33372d" stroke-width="1.25" />
+  <text x="194.8034203879067" y="126.77437263286798" font-size="13" font-weight="500" letter-spacing="-.4">14</text>
+  <path d="M 211.88246938398683 111.89778752031737 L 209.61850008213864 116.35586367492589" stroke="#33372d" stroke-width="0.8" />
+  <path d="M 223.3915683904259 118.57695044186057 L 218.44598758778866 126.09634074457699" stroke="#33372d" stroke-width="1.25" />
+  <text x="213.85187985093899" y="136.12219448153223" font-size="13" font-weight="500" letter-spacing="-.4">12</text>
+  <path d="M 235.9284273394889 128.06580065184326 L 232.6541236697625 131.84454852361455" stroke="#33372d" stroke-width="0.8" />
+  <path d="M 249.15928873115837 141.50827444730183 L 242.26488874308757 147.29336293448068" stroke="#33372d" stroke-width="1.25" />
+  <text x="236.07235542565985" y="155.00681425071915" font-size="13" font-weight="500" letter-spacing="-.4">10</text>
+  <g fill="url(#hub)" stroke="#8f927a" stroke-width=".7">
+    <circle cx="28" cy="220" r="5"/><circle cx="288" cy="220" r="5"/>
+    <path d="M 25 219 l 6 2 M 286 222 l 4 -4" stroke="#151c14" stroke-width="1.4"/>
+  </g>
+  <g id="needle" filter="url(#needle-shadow)">
+    <path d="M 155.5 218 L 157.4 72 L 158.6 72 L 160.5 218 L 159 230 L 157 230 Z" fill="#20281f" transform="rotate(-15 158 218)" />
+    <circle cx="158" cy="218" r="12" fill="url(#hub)" stroke="#20261f" stroke-width="1" />
+    <circle cx="158" cy="218" r="5" fill="#555b4b" stroke="#9b9d8050" />
+  </g>
+</svg>
