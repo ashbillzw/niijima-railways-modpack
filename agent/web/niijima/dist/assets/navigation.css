@@ -43,3 +43,12 @@
 }
 
 .footer-links img { width: 18px; height: 18px; image-rendering: auto; }
+
+.v3-chrome { font: 15px/1.5 "Microsoft YaHei", system-ui, sans-serif; flex-shrink: 0; }
+.v3-chrome *, .v3-chrome *::before, .v3-chrome *::after { box-sizing: border-box; }
+.v3-chrome a { color: inherit; text-decoration: none; }
+.chrome-header { position: relative; z-index: 5; }
+.chrome-header + .feedback-shell { margin-top: 25px; }
+.embedded .v3-chrome, .hide-nav .v3-chrome, .in-game .chrome-footer,
+.in-game .v3-chrome .site-navigation, .in-game .v3-chrome .room-signals { display: none; }
+.embedded .chrome-header + .feedback-shell, .hide-nav .chrome-header + .feedback-shell { margin-top: 0; }

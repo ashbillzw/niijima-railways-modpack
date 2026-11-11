@@ -6,6 +6,8 @@
   <title>乘换案内</title>
   <style>
     body { margin: 0; background: #e8e8e5; }
+    .network-page { height: 100dvh; display: flex; flex-direction: column; }
+    .network-view { flex: 1; min-height: 0; position: relative; container-type: size; }
     main { position: absolute; inset: 0; overflow: auto; scrollbar-width: none; overscroll-behavior: contain; }
     .sheet {
       background-image: linear-gradient(to right, #c1c2be 0, #c1c2be .4px, transparent .85px),
@@ -13,17 +15,25 @@
       background-size: calc(44px * var(--zoom, 1)) calc(44px * var(--zoom, 1));
       background-position: center;
       display: grid; place-items: center; width: max-content; min-width: 100%; min-height: 100%; }
-    img { display: block; width: calc(min(100vw, 100vh * 3600 / 2960) * var(--zoom, 1)); height: auto; user-select: none; }
+    .sheet img { display: block; width: calc(min(100cqw, 100cqh * 3600 / 2960) * var(--zoom, 1)); height: auto; user-select: none; }
     main.zoomed { cursor: grab; }
     main.dragging { cursor: grabbing; }
-    time { position: fixed; top: 8px; right: 10px; padding: 2px 5px; color: #555; background: #e8e8e5f2; font: 13px/1.4 system-ui, sans-serif; pointer-events: none; }
+    time { position: absolute; top: 8px; right: 10px; padding: 2px 5px; color: #555; background: #e8e8e5f2; font: 13px/1.4 system-ui, sans-serif; pointer-events: none; }
   </style>
+  <link rel="stylesheet" href="/v3/assets/navigation.css">
+  <link rel="stylesheet" href="/v3/assets/console.css">
+  <script src="/v3/assets/navigation-mode.js"></script>
+  <script src="/v3/assets/navigation.js" defer></script>
+  <script src="/v3/assets/home-status.js" defer></script>
 </head>
-<body>
+<body class="network-page">
+  <div class="console v3-chrome chrome-header"><!--# include virtual="/v3/_includes/header.html" --></div>
+  <div class="network-view">
   <main aria-label="乘换案内" tabindex="0">
     <div class="sheet"><img src="assets/rail-network-v15.svg" alt="主服铁道线路与换乘站" width="3600" height="2960" draggable="false"></div>
   </main>
   <time datetime="2026-11-11" aria-label="绘图日期 2026年11月11日">2026.11.11</time>
+  </div>
   <script>
     const view = document.querySelector('main');
     const image = view.querySelector('img');
@@ -61,5 +71,6 @@
       }, { once: true });
     });
   </script>
+  <div class="console v3-chrome chrome-footer"><!--# include virtual="/v3/_includes/footer.html" --></div>
 </body>
 </html>

@@ -24,10 +24,6 @@
   frame.addEventListener('load', () => frame.contentWindow.postMessage({ type: 'niijima-feedback-measure' }, location.origin));
   const inGame = new URLSearchParams(location.search).get('in_game') === '1';
   if (inGame) {
-    document.querySelectorAll('[data-home-link]').forEach(link => {
-      if (link.classList.contains('brand')) { link.removeAttribute('href'); link.removeAttribute('data-home-link'); }
-      else link.hidden = true;
-    });
     const url = new URL(frame.src);
     url.searchParams.set('in_game', '1');
     frame.src = url.href;

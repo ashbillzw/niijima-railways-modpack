@@ -2,12 +2,6 @@ import { attachmentsTooLarge, validateFeedback, uploadEndpoint, packageFeedback,
 
 const query = new URLSearchParams(location.search);
 const embedded = query.get('embed') === '1';
-if (query.get('in_game') === '1') {
-  document.querySelectorAll('[data-home-link]').forEach(link => {
-    if (link.classList.contains('brand')) link.removeAttribute('href');
-    else link.hidden = true;
-  });
-}
 
 const form = document.getElementById('feedback-form');
 const fields = document.getElementById('form-fields');

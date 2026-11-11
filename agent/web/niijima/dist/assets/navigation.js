@@ -1,4 +1,6 @@
 const navigation = document.querySelector('.site-navigation');
+if (document.documentElement.classList.contains('in-game'))
+  document.querySelector('.home-brand')?.removeAttribute('href');
 const moreMenu = navigation.querySelector('.more-menu');
 const compactLinks = Array.from(navigation.querySelectorAll('.compact-nav-link'));
 const compactNavigation = matchMedia('(max-width: 640px)');

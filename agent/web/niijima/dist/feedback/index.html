@@ -5,23 +5,17 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>新島鉃道</title>
-  <script>
-    (() => {
-      const view = new URLSearchParams(location.search);
-      document.documentElement.classList.toggle('embedded', view.get('embed') === '1');
-      document.documentElement.classList.toggle('hide-nav', view.get('nav') === '0');
-    })();
-  </script>
   <link rel="stylesheet" href="../assets/site.css">
   <script src="../assets/vendor/jszip-3.10.1.min.js" defer></script>
   <script type="module" src="../assets/feedback.js"></script>
+  <link rel="stylesheet" href="/v3/assets/navigation.css">
+  <link rel="stylesheet" href="/v3/assets/console.css">
+  <script src="/v3/assets/navigation-mode.js"></script>
+  <script src="/v3/assets/navigation.js" defer></script>
+  <script src="/v3/assets/home-status.js" defer></script>
 </head>
 <body>
-    <header class="site-header standalone-header">
-      <div class="page-shell nav-content">
-      <a class="brand" href="https://mc.ashbill.com" data-home-link><img class="brand-mark" src="../assets/niijima-logo.jpg" alt="" width="36" height="36"><img class="brand-wordmark" src="../assets/niijima-wordmark.svg" alt="新島鉃道" width="112" height="28"></a>
-      </div>
-    </header>
+  <div class="console v3-chrome chrome-header"><!--# include virtual="/v3/_includes/header.html" --></div>
   <div class="page-shell feedback-shell">
     <main class="standalone">
       <h1 class="form-heading">Bug反馈 / 功能建议</h1>
@@ -48,5 +42,6 @@
       </form>
     </main>
   </div>
+  <div class="console v3-chrome chrome-footer"><!--# include virtual="/v3/_includes/footer.html" --></div>
 </body>
 </html>
