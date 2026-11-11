@@ -16,6 +16,11 @@ const frame = document.getElementById('map');
 const message = document.querySelector('.map-outage');
 const sign = document.querySelector('.room-signals');
 const needle = document.querySelector('#needle path');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const needleTravelMs = 6000;
+const needleSteps = [];
+let needleTarget = null;
+let needleFrame = 0;
 const pilot = document.getElementById('mspt-pilot');
 const mapErrors = new Map();
 const frameErrors = new Map();
@@ -67,6 +72,36 @@ function digits(id, number) {
   ).join('');
 }
 
+function drawNeedle() {
+  const now = performance.now();
+  let value = needleTarget;
+  while (needleSteps.length && now - needleSteps[0].start >= needleTravelMs) needleSteps.shift();
+  // Overlap step responses. Each starts and ends at zero velocity.
+  for (const { start, change } of needleSteps) {
+    const t = (now - start) / needleTravelMs;
+    value -= change * (1 - t) ** 4 * (1 + 4 * t);
+  }
+  needle.setAttribute('transform', 'rotate(' + (value - 50) + ' 158 218)');
+  pilot.classList.toggle('lit', value > 50);
+  needleFrame = needleSteps.length ? requestAnimationFrame(drawNeedle) : 0;
+}
+
+function updateNeedle(mspt) {
+  const target = mspt === null ? null : Math.min(100, mspt);
+  needle.style.visibility = target === null ? 'hidden' : '';
+  if (target === needleTarget && !(reducedMotion.matches && needleFrame)) return;
+  if (target === null || reducedMotion.matches) {
+    cancelAnimationFrame(needleFrame);
+    needleSteps.length = 0;
+    needleFrame = 0;
+  } else if (needleTarget !== null) {
+    needleSteps.push({ start: performance.now(), change: target - needleTarget });
+  }
+  needleTarget = target;
+  if (target === null) pilot.classList.remove('lit');
+  else if (!needleFrame) drawNeedle();
+}
+
 function renderStatus() {
   const now = Date.now();
   const main = servers.get('create-cn');
@@ -74,9 +109,7 @@ function renderStatus() {
   sign.dataset.active = since !== null ? (now - since > stopThreshold ? 'down' : 'restart') : main.data ? 'up' : '';
   if (!frame) return;
   const mspt = main.data && since === null ? main.data.mspt : null;
-  needle.style.visibility = mspt === null ? 'hidden' : '';
-  if (mspt !== null) needle.setAttribute('transform', 'rotate(' + (Math.min(100, mspt) - 50) + ' 158 218)');
-  pilot.classList.toggle('lit', mspt !== null && mspt > 50);
+  updateNeedle(mspt);
 
   const both = [...servers.values()];
   digits('online-players', both.every(s => s.data || s.missingSince !== null)
