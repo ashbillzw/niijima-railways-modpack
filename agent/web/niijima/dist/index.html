@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="/v3/assets/console.css">
   <script src="/v3/assets/navigation.js" defer></script>
   <script src="/v3/assets/home.js" defer></script>
+  <script src="/v3/assets/home-status.js" defer></script>
 </head>
 <body class="console">
   <!--# include virtual="/v3/_includes/header.html" -->
@@ -17,22 +18,28 @@
     <aside class="console-side side-left">
       <div class="map-switcher control-bay panel" role="group" aria-label="地图">
         <span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span>
-        <button class="console-key" type="button" data-map="/bluemap/web/" aria-pressed="true"><span class="pilot" aria-hidden="true"></span><span>主服地图</span></button>
+        <button class="console-key" type="button" data-server="create-cn" data-map="/bluemap/web/" aria-pressed="true"><span class="pilot" aria-hidden="true"></span><span>主服地图</span></button>
         <button class="console-key" type="button" data-map="/v3/rail-network.html" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>乘换案内</span></button>
-        <button class="console-key" type="button" data-map="/create-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>主服铁道图</span></button>
-        <button class="console-key" type="button" data-map="/train-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>创造服铁道图</span></button>
+        <button class="console-key" type="button" data-server="create-cn" data-map="/create-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>主服铁道图</span></button>
+        <button class="console-key" type="button" data-server="train-cn" data-map="/train-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>创造服铁道图</span></button>
       </div>
-      <div class="instrument meter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="meter-case"><img src="/v3/assets/mspt-meter.svg" alt="MSPT / TPS" width="316" height="215"></div></div>
+      <div class="instrument meter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="meter-case"><!--# include virtual="/v3/assets/mspt-meter.svg" --></div></div>
       <div class="vent" aria-hidden="true"></div>
     </aside>
     <section class="map-section" aria-label="地图">
       <span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span>
-      <div class="screen"><iframe id="map" title="主服地图" src="/bluemap/web/" allow="fullscreen"></iframe></div>
+      <div class="screen">
+        <iframe id="map" title="主服地图" allow="fullscreen"></iframe>
+        <div class="map-outage" hidden>
+          <div></div><div></div><div></div>
+          <div><img src="/v3/assets/falco-outage.bmp" width="160" height="251" alt="" loading="lazy"></div>
+        </div>
+      </div>
       <div class="monitor-vent" aria-hidden="true"></div>
     </section>
     <aside class="console-side side-right">
       <div class="event-banners control-bay panel" id="event-banners"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><button class="console-key blank-key" disabled aria-hidden="true" tabindex="-1"></button><button class="console-key blank-key" disabled aria-hidden="true" tabindex="-1"></button><button class="console-key blank-key" disabled aria-hidden="true" tabindex="-1"></button></div>
-      <div class="instrument counter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="counter"><div class="metal-label">在线人数</div><div class="counter-window"><svg class="seven-segment" data-value="123" role="img"></svg></div></div><div class="counter"><div class="metal-label">总登录次数</div><div class="counter-window"><svg class="seven-segment" data-value="12345" role="img"></svg></div></div></div>
+      <div class="instrument counter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="counter"><div class="metal-label">在线人数</div><div class="counter-window"><svg class="seven-segment" id="online-players" role="img"></svg></div></div><div class="counter"><div class="metal-label">总登录次数</div><div class="counter-window"><svg class="seven-segment" id="total-logins" role="img"></svg></div></div></div>
       <div class="vent" aria-hidden="true"></div>
     </aside>
   </main>

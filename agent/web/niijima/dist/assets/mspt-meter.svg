@@ -99,8 +99,9 @@
     <circle cx="28" cy="220" r="5"/><circle cx="288" cy="220" r="5"/>
     <path d="M 25 219 l 6 2 M 286 222 l 4 -4" stroke="#151c14" stroke-width="1.4"/>
   </g>
+  <image id="mspt-pilot" href="/v3/assets/mspt-pilot.webp" x="213" y="176" width="25" height="25"/>
   <g id="needle" filter="url(#needle-shadow)">
-    <path d="M 155.5 218 L 157.4 72 L 158.6 72 L 160.5 218 L 159 230 L 157 230 Z" fill="#20281f" transform="rotate(-15 158 218)" />
+    <path d="M 155.5 218 L 157.4 72 L 158.6 72 L 160.5 218 L 159 230 L 157 230 Z" fill="#20281f" transform="rotate(-50 158 218)" />
     <circle cx="158" cy="218" r="12" fill="url(#hub)" stroke="#20261f" stroke-width="1" />
     <circle cx="158" cy="218" r="5" fill="#555b4b" stroke="#9b9d8050" />
   </g>

@@ -10,7 +10,7 @@ button { font: inherit; }
 .control-bay { flex-shrink: 0; display: grid; gap: 14px; align-content: start; }
 .console-key { position: relative; width: 100%; aspect-ratio: var(--button-ratio); min-width: 0; border: 5px solid #323431; border-radius: 10px; padding: 4px 9px; color: #20231f; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(#ece8db, #c8c4b6); box-shadow: inset 0 2px 1px #ffffffe0, inset 0 -3px 2px #67615260, 0 0 0 1px #85867f, 0 3px 2px #0005; font-weight: 700; font-size: clamp(13px, 1.15vw, 23px); text-shadow: 0 1px #fff5; transition: filter .1s, box-shadow .1s; }
 .map-switcher .console-key:hover { filter: none; }
-.map-switcher .console-key:not([aria-pressed="true"]):hover .pilot { background: radial-gradient(circle at 35% 28%, #fff4ae, #edc847 30%, #a3750a 72%); box-shadow: 0 0 0 2px #242723, 0 0 4px #dbb33165; }
+.map-switcher .console-key:hover .pilot { background: radial-gradient(circle at 35% 28%, #fff4ae, #edc847 30%, #a3750a 72%); box-shadow: 0 0 0 2px #242723, 0 0 4px #dbb33165; }
 .console-key:active:not(:disabled) { box-shadow: inset 0 3px 5px #0005, 0 0 0 1px #85867f; }
 .pilot { width: clamp(12px, 1.05vw, 20px); aspect-ratio: 1; flex: none; border-radius: 50%; border: 2px solid #666359; background: radial-gradient(circle at 35% 28%, #888579, #272923 65%); box-shadow: 0 0 0 2px #242723, 0 1px 2px #000b; }
 [aria-pressed="true"] .pilot { background: radial-gradient(circle at 35% 28%, #d8ffb0, #54c62b 28%, #168017 70%); box-shadow: 0 0 0 2px #242723, 0 0 4px #55af4c70; }

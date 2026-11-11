@@ -50,13 +50,15 @@
 
 /* Brushed metal caps with laser-marked lettering. */
 .console .map-switcher .console-key { background-image: linear-gradient(#ffffff08, #00000008), url('button-sand-v4.jpg'); background-size: auto, cover; background-position: center; background-blend-mode: normal; color: #22251f; font-weight: 600; text-shadow: 0 .4px 0 #e5e1d580; }
-.console .site-navigation > a, .console .site-navigation > a:hover, .console .more-menu > summary, .console .more-menu > summary:hover, .console .menu-toggle {
+.console .site-navigation > a, .console .more-menu > summary, .console .menu-toggle {
   width: 66px; height: 40px; min-width: 66px; padding: 0; border: 6px solid transparent; border-radius: 3px;
   color: #f4f1df; text-shadow: 0 1px 1px #0008;
-  background: linear-gradient(var(--switch-top, #39845bc9), var(--switch-bottom, #123b25e0)) padding-box, url('button-resin.png') center / cover padding-box, linear-gradient(135deg, #faf9e7, #9c9e92 35%, #4b514b 60%, #d5d7c9) border-box;
-  background-color: #246849; background-blend-mode: normal, multiply, normal;
   box-shadow: inset 0 0 0 2px #162d20, inset 0 3px 3px #ffffff50, inset 0 -4px 4px #0006, 0 0 0 1px #62665c, 0 3px 3px #0006;
   align-content: center; text-align: center; font-size: 14px;
+}
+.console .site-navigation > a, .console .site-navigation > a:hover, .console .more-menu > summary, .console .more-menu > summary:hover, .console .menu-toggle {
+  background: linear-gradient(var(--switch-top, #39845bc9), var(--switch-bottom, #123b25e0)) padding-box, url('button-resin.png') center / cover padding-box, linear-gradient(135deg, #faf9e7, #9c9e92 35%, #4b514b 60%, #d5d7c9) border-box;
+  background-color: #246849; background-blend-mode: normal, multiply, normal;
 }
 .console .site-navigation .download-link { --switch-top: #e5ac22c9; --switch-bottom: #855509df; background-color: #b57712; color: #fff4d6; }
 .console .more-menu > summary::after { display: none; }
@@ -97,6 +99,7 @@
   background-size: auto, 360px;
 }
 .console .meter-case { position: relative; border-width: 5px; padding: 5px; border-color: #292e29; }
+.console .meter-case > svg { width: 100%; height: auto; display: block; border-radius: 4px; }
 .console .meter-case::after {
   content: ''; position: absolute; inset: 5px; border-radius: 4px; pointer-events: none;
   background: linear-gradient(132deg, #fff2, #fff0 39%, #fff1 39.3%, #fff0 59%);
@@ -114,7 +117,8 @@
 .console .metal-label::after, .console .footer-links::after { right: 5px; }
 @media (max-width: 540px) {
   .console .meter-case { border-width: 4px; padding: 2px; }
-  .console .meter-case::after { inset: 2px; }
+  .console .meter-case > svg { width: 100%; height: auto; display: block; border-radius: 4px; }
+.console .meter-case::after { inset: 2px; }
   .console .metal-label { padding-left: 12px; padding-right: 12px; }
   .console .metal-label::before { left: 3px; }
   .console .metal-label::after { right: 3px; }
@@ -175,4 +179,36 @@
 }
 @container (max-width: 900px) {
   .console .counter-panel .metal-label { width: 100%; padding-inline: 12px; font-size: 10px; white-space: nowrap; }
+}
+
+/* Three backlit panes share one metal housing next to the station plate. */
+.room-signals { display: flex; align-self: center; margin-right: auto; padding: 3px; gap: 2px; border: 1px solid #8a897a; border-radius: 5px; background: linear-gradient(#55594e, #242922); box-shadow: inset 0 1px 2px #191c17, 0 1px 0 #fff9; }
+.room-signals span { min-width: 3.3em; text-align: center; padding: .32em .45em; border: 1px solid #45483c; border-radius: 2px; background: linear-gradient(#9a9b88, #686d5e); color: #35392f; font-size: 13px; font-weight: 700; letter-spacing: .08em; }
+.room-signals [data-state="up"] { --glass: #93e4a1; --base: #459755; }
+.room-signals [data-state="restart"] { --glass: #ffe797; --base: #d8a332; }
+.room-signals [data-state="down"] { --glass: #ffab96; --base: #d25a42; }
+.room-signals[data-active="up"] [data-state="up"],
+.room-signals[data-active="restart"] [data-state="restart"],
+.room-signals[data-active="down"] [data-state="down"] { background: linear-gradient(var(--glass), var(--base)); color: #25291e; box-shadow: inset 0 0 3px #fffa, 0 0 4px var(--base); }
+#mspt-pilot { filter: brightness(.35) saturate(.55); }
+#mspt-pilot.lit { filter: drop-shadow(0 0 3px #e7411a); }
+.map-switcher { animation: map-fault 1.2s steps(1, end) infinite; }
+@keyframes map-fault { 0%, 100% { --fault-opacity: 1; } 50% { --fault-opacity: 0; } }
+.map-switcher .unavailable:not(:hover) .pilot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 35% 28%, #ffc1a0, #e43c22 36%, #751c12 80%); box-shadow: 0 0 4px #e22f12; opacity: var(--fault-opacity, 1); }
+@media (prefers-reduced-motion: reduce) { .map-switcher { animation: none; } }
+.console .screen { position: relative; background: #050805; }
+#map { visibility: hidden; }
+#map.ready { visibility: visible; }
+.map-outage { position: absolute; inset: 0; padding: clamp(16px, 2.2vw, 36px); background: #050805; color: #87df96; font: 500 clamp(14px, 1.25vw, 20px)/1.65 Consolas, "Microsoft YaHei", monospace; font-variant-numeric: tabular-nums; }
+.map-outage > div::before { content: "> "; white-space: pre; }
+.map-outage > div:last-child { display: flex; align-items: flex-start; height: calc(100% - 3lh); }
+.map-outage img { height: auto; width: auto; max-width: calc(100% - 2ch); max-height: 100%; image-rendering: pixelated; }
+@media (max-width: 640px) {
+  .room-signals { margin-inline: 5px auto; }
+  .room-signals span { min-width: 2.35em; padding: .25em .15em; font-size: 11px; }
+}
+@media (max-width: 430px) {
+  .console .navigation-shell { flex-wrap: wrap; row-gap: 6px; }
+  .room-signals { margin-left: auto; margin-right: 0; }
+  .console .site-navigation { flex-basis: 100%; justify-content: flex-end; }
 }
