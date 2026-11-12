@@ -223,7 +223,7 @@ MSPT字样移到指针中段右侧的留白处，表盘顶部裁去30单位，vi
 
 | 路径（相对 dist） | 用途 |
 |---|---|
-| `index.html` | 主页；默认主服 BlueMap，另可切换主服／创造服铁道图 |
+| `index.html` | 主页；默认主服 BlueMap，另可切换主服／测试服铁道图 |
 | `_includes/header.html`、`_includes/footer.html` | SSI 公共栏；配套 `assets/navigation.css`、`assets/navigation.js` |
 | `feedback/` | 活动页内嵌的反馈表单，保留独立访问能力；当前全站导航进入反馈活动页。两类反馈均需游戏内 ID，Bug 至少一份附件 |
 | `events/feedback-v1.6/` | 首期活动页，内嵌上述反馈页；活动说明与奖励说明保留在外层 |
@@ -277,7 +277,19 @@ MSPT字样移到指针中段右侧的留白处，表盘顶部裁去30单位，vi
 
 代码依据：[copyparty HTTP API](https://github.com/9001/copyparty/blob/hovudstraum/docs/devnotes.md#write)、[handle_plain_upload](https://github.com/9001/copyparty/blob/hovudstraum/copyparty/httpcli.py)。用户服务器的实际版本、权限、响应和跨域行为尚未验证。前端校验只改善体验，不能替代服务端配额与权限。玩家填写的游戏内 ID 是联系信息，不作为身份认证。
 
-JSZip 固定为 3.10.1，来自 [上游发布代码](https://github.com/Stuk/jszip/tree/v3.10.1)，按 MIT 选项使用；保留 `assets/vendor/JSZip-LICENSE.md` 及文件头声明。字体采用系统字体栈，未重复打包大型字体。
+JSZip 固定为 3.10.1，来自 [上游发布代码](https://github.com/Stuk/jszip/tree/v3.10.1)，按 MIT 选项使用；保留 `assets/vendor/JSZip-LICENSE.md` 及文件头声明。早期版本使用系统字体。2026-11-13 起，v3 页面从同站的 `assets/fonts/fonts.css` 加载 Noto Sans SC（Fontsource Variable 5.3.1，100–900 字重，按 Unicode 范围请求 WOFF2）。共用导航、首页控制台和备份页的中文与下载页一致。Zen Maru Gothic 400 和 700 来自启动器资源，按需加载，两套字体的 OFL 许可均在 `assets/vendor/`。品牌 SVG 已转曲；主服线路图 SVG 仍以独立图片加载，站名使用 SVG 自身的字体栈。
+
+2026-11-13：用户提供的 Helvetica Regular（400）及 Bold（700）以原始 TTF 放在 `dist/assets/fonts/`，页面 CSS 使用原名 `Helvetica`。首页内联 MSPT 表盘的刻度、TPS 和 MSPT 均首选随站提供的 Helvetica。该商业字体的许可依用户购买条款，前述 OFL 仅适用于 Noto 和 Zen。
+
+v3 的排版目标是固定字形并随站提供字体，包括独立 SVG 内的文字。本轮先调大首页地图按钮和公共顶栏导航的文字。顶栏导航字号为 16px；地图按钮以比原先大约 12% 的字号排版，最长标签按指示灯旁的可用空间缩小。 两列布局（视口宽度不超过 540px）中，四个地图指示灯的直径为 14–17px，在 320px 宽度下与最长标签仍有 8px 间距。
+
+Helvetica 网页加载使用同目录 WOFF2。两份原始 TTF 的 glyf 表长度均漏计末尾一个实际存在的零填充字节，浏览器拒绝解码。转换时仅在内存中补正表长，已核对每个字重的 385 个字形轮廓、字符映射及水平度量一致。原始 TTF 保留原样。
+
+2026-11-13：备份日历的年份、月份、星期、日期及容量统一使用 Noto Sans SC，数字和单位与汉字使用同一字体。首页地图离线提示的正文、数字及行首 `>` 也使用 Noto Sans SC。 早先仅指定首选字体的方案，已由下述内嵌「喵」后备方案取代。
+
+六个 v3 内容页用 `_includes/head.html` 共用字体和导航资源标签，五个子页的导航模式脚本在首屏由 SSI 内联。备份页的 SSI block 为直接从磁盘打开的日历保留本地样式引用。Noto Sans SC 使用原名，首选随站字体，加载失败后尝试本机同款，最后回退到 Niijima Meow。Zen Maru Gothic 和 Helvetica 也保留原名；Niijima Meow 是新制后备字体本身的名称。Helvetica 使用原名，允许浏览器或操作系统自行替代；本机 Windows 的 FontSubstitutes 含 Helvetica → Arial。
+
+`_includes/meow-font.css` 经 SSI 嵌进 HTML，内含 5,128 字节的 Niijima Meow WOFF2。其轮廓取自启动器同源的 Noto Sans SC「喵」（400 字重，OFL）；可见文字共用该轮廓，普通空格与全角空格保留间距。此字体只改变显示。更换自有字体声明时保留 Niijima Meow 作为后备。独立 SVG 图片使用内嵌的 Noto 可变字体子集和相同的「喵」数据：`rail-network-v15.svg` 的 48 个站名和 14 个线路标签，`feedback-banner.svg` 的两段文字。以后改图中文字时，按全部可见 text 元素重新生成该图片的 Noto 子集，并检查各字的覆盖。
 
 ## 后续接入边界
 

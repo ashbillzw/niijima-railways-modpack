@@ -5,12 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>新島鉃道</title>
   <link rel="icon" href="/v3/assets/niijima-logo.jpg">
-  <link rel="stylesheet" href="/v3/assets/navigation.css">
-  <link rel="stylesheet" href="/v3/assets/home.css">
-  <link rel="stylesheet" href="/v3/assets/console.css">
-  <script src="/v3/assets/navigation.js" defer></script>
+  <!--# set var="v3_home" value="1" -->
+  <!--# include virtual="/v3/_includes/head.html" -->
   <script src="/v3/assets/home.js?v=2e27ee6" defer></script>
-  <script src="/v3/assets/home-status.js" defer></script>
 </head>
 <body class="console">
   <!--# include virtual="/v3/_includes/header.html" -->
@@ -21,7 +18,7 @@
         <button class="console-key" type="button" data-server="create-cn" data-map="/bluemap/web/" aria-pressed="true"><span class="pilot" aria-hidden="true"></span><span>主服地图</span></button>
         <button class="console-key" type="button" data-map="/v3/rail-network.html" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>乘换案内</span></button>
         <button class="console-key" type="button" data-server="create-cn" data-map="/create-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>主服铁道图</span></button>
-        <button class="console-key" type="button" data-server="train-cn" data-map="/train-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>创造服铁道图</span></button>
+        <button class="console-key" type="button" data-server="train-cn" data-map="/train-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>测试服铁道图</span></button>
       </div>
       <div class="instrument meter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="meter-case"><!--# include virtual="/v3/assets/mspt-meter.svg" --></div></div>
       <div class="vent" aria-hidden="true"></div>

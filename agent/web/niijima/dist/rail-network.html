@@ -7,37 +7,120 @@
   <style>
     body { margin: 0; background: #e8e8e5; }
     .network-page { height: 100dvh; display: flex; flex-direction: column; }
-    .network-view { flex: 1; min-height: 0; position: relative; container-type: size; }
-    main { position: absolute; inset: 0; overflow: auto; scrollbar-width: none; overscroll-behavior: contain; }
-    .sheet {
+    .network-view {
+      flex: 1; min-height: 0; display: grid; grid-template-rows: auto minmax(0, 1fr);
       background-image: linear-gradient(to right, #c1c2be 0, #c1c2be .4px, transparent .85px),
                         linear-gradient(to bottom, #c1c2be 0, #c1c2be .4px, transparent .85px);
       background-size: calc(44px * var(--zoom, 1)) calc(44px * var(--zoom, 1));
-      background-position: center;
+      background-position: calc(50% - var(--scroll-x, 0px)) calc(50% - var(--scroll-y, 0px)); }
+    main { min-width: 0; min-height: 0; container-type: size; overflow: auto; scrollbar-width: none; overscroll-behavior: contain; }
+    .sheet {
       display: grid; place-items: center; width: max-content; min-width: 100%; min-height: 100%; }
-    .sheet img { display: block; width: calc(min(100cqw, 100cqh * 3600 / 2960) * var(--zoom, 1)); height: auto; user-select: none; }
+    .sheet img { display: block; width: calc(min(94cqw, 94cqh * var(--ratio, 1.2162162162)) * var(--zoom, 1)); height: auto; user-select: none; }
     main.zoomed { cursor: grab; }
     main.dragging { cursor: grabbing; }
-    time { position: absolute; top: 8px; right: 10px; padding: 2px 5px; color: #555; background: #e8e8e5f2; font: 13px/1.4 system-ui, sans-serif; pointer-events: none; }
+    .editions { padding: 8px 10px 0; display: flex; align-items: flex-start; gap: 8px; pointer-events: none; color: #444; font: 13px/1.4 "Noto Sans SC", "Niijima Meow"; }
+    .credit { background: #e8e8e5f2; color: inherit; font-size: .5em; padding: 2px 5px; }
+    .edition-picker { position: relative; margin-left: auto; pointer-events: auto; }
+    .edition-picker summary, .edition-list button {
+      font: 350 11px/18px "Noto Sans SC", "Niijima Meow"; color: #62645f; cursor: pointer; }
+    .edition-picker .featured { font-weight: 700; font-size: 13px; color: #333630; }
+    .edition-picker summary {
+      list-style: none; padding: 2px 11px 2px 0; text-align: right;
+      background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 4'%3E%3Cpath fill='%23444' d='M0 0h6L3 4z'/%3E%3C/svg%3E") right center / 6px 4px no-repeat;
+    }
+    .edition-picker summary::-webkit-details-marker { display: none; }
+    .edition-list {
+      position: absolute; z-index: 1; right: 0; top: 100%; width: max-content;
+      max-height: min(60dvh, 24rem); overflow-y: auto; padding: 3px;
+      background: #f2f2ef; border: 1px solid #bcbdb7; border-radius: 3px; }
+    .edition-list button { display: block; width: 100%; border: 0; padding: 3px 9px; text-align: right; background: transparent; }
+    .edition-list button:is(:hover, :focus-visible, [aria-pressed="true"]) { background: #ddded8; }
+    .credit { min-width: 0; overflow-wrap: anywhere; }
   </style>
-  <link rel="stylesheet" href="/v3/assets/navigation.css">
-  <link rel="stylesheet" href="/v3/assets/console.css">
-  <script src="/v3/assets/navigation-mode.js"></script>
-  <script src="/v3/assets/navigation.js" defer></script>
-  <script src="/v3/assets/home-status.js" defer></script>
+  <!--# include virtual="/v3/_includes/head.html" -->
 </head>
 <body class="network-page">
   <div class="console v3-chrome chrome-header"><!--# include virtual="/v3/_includes/header.html" --></div>
   <div class="network-view">
+  <div class="editions">
+    <span class="credit" hidden></span>
+    <details class="edition-picker" aria-label="绘图日期">
+      <summary class="featured">2026.11.11</summary>
+      <div class="edition-list">
+        <button type="button" class="featured" value="assets/rail-network-v15.svg" data-width="3600" data-height="2960">2026.11.11</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2026-09-27.svg" data-width="909" data-height="909" data-author="幻风zyt">（非公式）2026.09.27</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2026-03-01.svg?v=2" data-width="965" data-height="728" data-author="Itinatsunoyaku">（非公式）2026.03.01</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2025-12-26.png" data-width="5632" data-height="4608">2025.12.26</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2025-11-12.png" data-width="5650" data-height="6000">2025.11.12</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2025-10-13.png" data-width="2014" data-height="2060">2025.10.13</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2025-10-13-plan.png" data-width="2014" data-height="2060">(规划）2025.10.13</button>
+        <button type="button" class="featured" value="/synology-root/minecraft/assets/rail-network/2025-09-14.svg" data-width="524" data-height="432">2025.09.14</button>
+        <button type="button" class="featured" value="/synology-root/minecraft/assets/rail-network/2024-end.svg" data-width="410" data-height="177">2024年末</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2024-early-plan.png" data-width="3040" data-height="1703">（规划）2024年初</button>
+      </div>
+    </details>
+  </div>
   <main aria-label="乘换案内" tabindex="0">
     <div class="sheet"><img src="assets/rail-network-v15.svg" alt="主服铁道线路与换乘站" width="3600" height="2960" draggable="false"></div>
   </main>
-  <time datetime="2026-11-11" aria-label="绘图日期 2026年11月11日">2026.11.11</time>
   </div>
   <script>
     const view = document.querySelector('main');
+    const network = view.closest('.network-view');
+    view.addEventListener('scroll', () => {
+      network.style.setProperty('--scroll-x', view.scrollLeft + 'px');
+      network.style.setProperty('--scroll-y', view.scrollTop + 'px');
+    });
     const image = view.querySelector('img');
     let zoom = 1;
+    const picker = document.querySelector('.edition-picker');
+    const summary = picker.querySelector('summary');
+    const editions = [...picker.querySelectorAll('button')];
+    const credit = document.querySelector('.credit');
+    function showEdition(edition) {
+      const { width, height, author } = edition.dataset;
+      for (const item of editions) item.setAttribute('aria-pressed', String(item === edition));
+      summary.textContent = edition.textContent;
+      summary.classList.toggle('featured', edition.classList.contains('featured'));
+      image.width = Number(width);
+      image.height = Number(height);
+      view.style.setProperty('--ratio', width / height);
+      image.src = edition.value;
+      credit.textContent = author ? `非公式，线路及车站的名称及译名等可能与实际有偏差；制作：${author}` : '';
+      credit.hidden = !author;
+      zoom = 1;
+      network.style.setProperty('--zoom', zoom);
+      view.classList.remove('zoomed');
+      view.scrollTo(0, 0);
+    }
+    showEdition(editions[0]);
+    for (const item of editions) item.addEventListener('click', () => {
+      showEdition(item);
+      picker.open = false;
+      summary.focus();
+    });
+    picker.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && picker.open) {
+        picker.open = false;
+        summary.focus();
+      } else if (['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(event.key)) {
+        event.preventDefault();
+        const index = editions.indexOf(document.activeElement);
+        let next = index < 0 ? editions.findIndex(item => item.getAttribute('aria-pressed') === 'true') :
+          (index + (event.key === 'ArrowUp' ? -1 : 1) + editions.length) % editions.length;
+        if (event.key === 'Home') next = 0;
+        if (event.key === 'End') next = editions.length - 1;
+        picker.open = true;
+        editions[next].focus();
+      }
+    });
+    document.addEventListener('pointerdown', event => {
+      if (picker.open && !picker.contains(event.target)) picker.open = false;
+    });
+    picker.addEventListener('focusout', event => {
+      if (event.relatedTarget && !picker.contains(event.relatedTarget)) picker.open = false;
+    });
 
     view.addEventListener('wheel', event => {
       event.preventDefault();
@@ -49,14 +132,15 @@
       const x = (event.clientX - before.left) / before.width;
       const y = (event.clientY - before.top) / before.height;
       zoom = next;
-      view.style.setProperty('--zoom', zoom);
+      network.style.setProperty('--zoom', zoom);
       view.classList.toggle('zoomed', zoom > 1);
       const after = image.getBoundingClientRect();
       view.scrollBy(after.left + x * after.width - event.clientX, after.top + y * after.height - event.clientY);
     }, { passive: false });
 
     view.addEventListener('pointerdown', event => {
-      if (zoom === 1 || event.button !== 0 || event.pointerType === 'touch') return;
+      if (event.button !== 0 || event.pointerType === 'touch') return;
+      if (view.scrollWidth <= view.clientWidth && view.scrollHeight <= view.clientHeight) return;
       const left = view.scrollLeft, top = view.scrollTop;
       view.setPointerCapture(event.pointerId);
       view.classList.add('dragging');

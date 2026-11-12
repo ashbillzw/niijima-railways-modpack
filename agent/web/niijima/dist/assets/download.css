@@ -1,5 +1,5 @@
 * { box-sizing: border-box; }
-body { margin: 0; background: #edece4; font-family: "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; }
+body { margin: 0; background: #edece4; font-family: "Noto Sans SC", "Niijima Meow"; }
 .downloads { display: grid; }
 body { -webkit-user-select: none; user-select: none; }
 .chrome-footer { -webkit-user-select: text; user-select: text; cursor: text; }

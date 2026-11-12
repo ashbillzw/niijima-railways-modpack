@@ -54,7 +54,7 @@
   width: 66px; height: 40px; min-width: 66px; padding: 0; border: 3px solid transparent; border-radius: 3px;
   color: #f4f1df; text-shadow: 0 1px 1px #0008;
   box-shadow: inset 0 0 0 2px #162d20, inset 0 3px 3px #ffffff50, inset 0 -4px 4px #0006, 0 0 0 1px #62665c, 0 3px 3px #0006;
-  align-content: center; text-align: center; font-size: 14px;
+  align-content: center; text-align: center; font-size: 16px;
 }
 .console .site-navigation > a, .console .site-navigation > a:hover, .console .more-menu > summary, .console .more-menu > summary:hover, .console .menu-toggle {
   background: linear-gradient(var(--switch-top, #39845bc9), var(--switch-bottom, #123b25e0)) padding-box, url('button-resin.png') center / cover padding-box, linear-gradient(135deg, #faf9e7, #9c9e92 35%, #4b514b 60%, #d5d7c9) border-box;
@@ -89,7 +89,7 @@
 }
 @media (max-width: 540px) {
   .map-switcher .console-key { padding-left: 22px; padding-right: 6px; font-size: 12px; }
-  .map-switcher .pilot { left: 5px; }
+  .map-switcher .pilot { left: 9px; }
   .console .event-banners .console-key { padding: 2px; border-width: 3px; border-radius: 5px; }
   .console .event-banners .console-key::after { inset: 1px; }
 }
@@ -127,7 +127,7 @@
 
 .console .home-brand { transition: filter .2s, box-shadow .2s; }
 .console .home-brand:hover { filter: brightness(1.12); box-shadow: inset 0 1px 2px #fff, inset 0 0 16px #fff5, 0 1px 2px #383f3040; }
-.console .site-navigation > a:hover, .console .more-menu > summary:hover, .console .menu-toggle:hover { --switch-top: #dfa52be8; --switch-bottom: #865212ed; filter: none; }
+.console .site-navigation > a:hover, .console .more-menu > summary:hover, .console .more-menu[open] > summary, .console .menu-toggle:hover { --switch-top: #dfa52be8; --switch-bottom: #865212ed; filter: none; }
 .console .site-navigation:where(:not(:has([aria-current]))) .download-link { animation: download-signal .666667s steps(1, end) infinite; }
 .console .site-navigation .download-link:hover { animation: none; --switch-top: #dfa52be8; --switch-bottom: #865212ed; }
 @keyframes download-signal {
@@ -162,7 +162,7 @@
   .console .map-switcher .pilot { left: 9px; }
 }
 @container (max-width: 900px) {
-  .console .map-switcher .console-key { font-size: 10.5px; }
+  .console .map-switcher .console-key { font-size: 12px; }
 }
 
 .console .map-switcher .console-key > span:not(.pilot) { white-space: nowrap; line-height: 1; }
@@ -176,7 +176,7 @@
 
 .console .footer-links img[src$="moegirl-sharp.png"] { filter: brightness(0); }
 @media (max-width: 540px) {
-  .console .map-switcher .console-key { font-size: 18px; }
+  .console .map-switcher .console-key { font-size: 20px; }
 }
 @container (max-width: 900px) {
   .console .counter-panel .metal-label { width: 100%; padding-inline: 12px; font-size: 10px; white-space: nowrap; }
@@ -200,7 +200,7 @@
 .console .screen { position: relative; background: #050805; }
 #map { visibility: hidden; }
 #map.ready { visibility: visible; }
-.map-outage { position: absolute; inset: 0; padding: clamp(16px, 2.2vw, 36px); background: #050805; color: #87df96; font: 500 clamp(14px, 1.25vw, 20px)/1.65 Consolas, "Microsoft YaHei", monospace; font-variant-numeric: tabular-nums; }
+.map-outage { position: absolute; inset: 0; padding: clamp(16px, 2.2vw, 36px); background: #050805; color: #87df96; font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; line-height: 1.65; font-variant-numeric: tabular-nums; }
 .map-outage > div::before { content: "> "; white-space: pre; }
 .map-outage > div:last-child { display: flex; align-items: flex-start; height: calc(100% - 3lh); }
 .map-outage img { height: auto; width: auto; max-width: calc(100% - 2ch); max-height: 100%; image-rendering: pixelated; }
