@@ -335,3 +335,5 @@ FM 固定地址、启动器 JSON、现有 local-test JSON 的扩展方式、Syno
 活动页与独立反馈页的 HTML title 均为「新島鉃道」，特殊铁字使用鉃（U+9243）。页内品牌继续使用现有矢量字标。部署时复用现有橙色 N logo 配置 favicon 并核对实际加载；本轮只记录图标部署要求，尚未添加 favicon 或部署。
 
 2026-11-09：固定活动入口已从 activity/ 合并至 events/。Node 模拟检查通过：/v3/ 下正常活动跳转、in_game 参数传递、index.html 入口的空目标回退、配置读取失败回退；入口资源路径与 diff 格式检查通过。未进行本轮浏览器验证，未部署。
+
+2026-11-13 已部署标签页图标。v3 七个页面（含新首页及活动跳转入口）统一使用标题「新島鉃道」。图标仅在 dist/_includes/head.html 声明，引用 /v3/assets/niijima-logo.jpg。活动跳转页通过 v3_redirect 跳过公共导航资源。已从正式 HTTPS 核对七页的标题、单一图标声明和 JPEG 响应。
