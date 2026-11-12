@@ -1,5 +1,5 @@
 {
-  "uploadUrl": "",
+  "uploadUrl": "/feedback-upload/",
   "limits": {
     "maxAttachmentBytes": 10485760,
     "maxArchiveBytes": 11534336

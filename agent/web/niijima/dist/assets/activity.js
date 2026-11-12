@@ -1,7 +1,7 @@
 (() => {
   const entry = new URL(location.href);
   const configURL = new URL('../config/activity.json', entry);
-  const fallback = new URL('../feedback/', entry);
+  const fallback = new URL('feedback-v1.6/', entry);
   function destination(value) {
     const target = value ? new URL(value, configURL) : fallback;
     if (!['https:', 'http:'].includes(target.protocol) || target.username || target.password)

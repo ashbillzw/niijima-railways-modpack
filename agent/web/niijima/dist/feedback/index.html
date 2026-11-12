@@ -15,6 +15,7 @@
   <script src="/v3/assets/home-status.js" defer></script>
 </head>
 <body>
+  <!--# set var="nav_section" value="feedback" -->
   <div class="console v3-chrome chrome-header"><!--# include virtual="/v3/_includes/header.html" --></div>
   <div class="page-shell feedback-shell">
     <main class="standalone">
@@ -33,7 +34,9 @@
             <div class="field"><label for="details">详情</label><textarea class="input" id="details" name="details" maxlength="15000" rows="6" required placeholder="复现步骤、预期和实际情况" aria-describedby="details-error"></textarea><span class="field-error" id="details-error"></span></div>
             <div class="attachment" id="attachment-section">
               <svg class="attachment-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12L14 6C18 2 23 7 19 11L10 20C4 26-3 18 3 12L12 3" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
-              <div style="min-width:0;width:100%"><label for="logs">错误报告<span class="optional" id="logs-optional" hidden>选填</span></label><input id="logs" name="logs" type="file" multiple required disabled aria-describedby="logs-error"><ul class="file-list" id="file-list" hidden></ul><span class="field-error" id="logs-error"></span></div>
+              <div style="min-width:0;width:100%"><label for="logs">错误报告<span class="optional" id="logs-optional" hidden>选填</span></label>
+                <div id="logs-hint" class="form-note">请上传错误报告，或截图、录屏等材料。</div>
+                <input id="logs" name="logs" type="file" multiple required disabled aria-describedby="logs-hint logs-error"><ul class="file-list" id="file-list" hidden></ul><span class="field-error" id="logs-error"></span></div>
             </div>
           </div>
           <div class="form-bottom"><p class="form-note" id="availability" aria-live="polite"></p><button class="primary-button" id="submit" type="submit" disabled><span id="submit-label">提交反馈</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12H20M14 6L20 12L14 18" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>

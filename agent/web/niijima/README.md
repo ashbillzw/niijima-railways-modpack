@@ -225,7 +225,7 @@ MSPT字样移到指针中段右侧的留白处，表盘顶部裁去30单位，vi
 |---|---|
 | `index.html` | 主页；默认主服 BlueMap，另可切换主服／创造服铁道图 |
 | `_includes/header.html`、`_includes/footer.html` | SSI 公共栏；配套 `assets/navigation.css`、`assets/navigation.js` |
-| `feedback/` | 长期独立反馈表单，Bug／功能建议共用；两者游戏内 ID 必填，Bug 至少一份附件，不限制文件类型 |
+| `feedback/` | 活动页内嵌的反馈表单，保留独立访问能力；当前全站导航进入反馈活动页。两类反馈均需游戏内 ID，Bug 至少一份附件 |
 | `events/feedback-v1.6/` | 首期活动页，内嵌上述反馈页；活动说明与奖励说明保留在外层 |
 | `events/` | 游戏内固定入口；读取路由配置后跳转，FM 不需要随活动改 URL |
 | `config/activity.json` | `target` 决定固定入口目标，相对该 JSON 解析；空目标或读取失败回到长期反馈页 |
@@ -262,7 +262,7 @@ MSPT字样移到指针中段右侧的留白处，表盘顶部裁去30单位，vi
 
 `uploadUrl` 留空时不提交任何内容。之后由管理员在 `config/site.json` 填入 copyparty 专用上传目录 URL，再部署该配置。网页不会询问玩家上传地址，不会读未选择的文件，不会自动从日志提取 ID；不会执行客户端凭据登录或自动补传。
 
-用户最终确认：**附件合计最多 10 MiB（10,485,760 字节），最终 ZIP 最多 11 MiB（11,534,336 字节）**，分别由 `limits.maxAttachmentBytes` 和 `limits.maxArchiveBytes` 配置；此前 100／20 MiB 及单一 20 MiB 方案均由此替代。界面采用 PCL 的「错误报告」名称，实际不限制文件类型；条件触发文案已接入 `messages`。上传地址按约定留待之后连接服务器配置，当前按钮禁用并显示「暂未开放提交」。
+**附件合计最多 10 MiB，最终 ZIP 最多 11 MiB**，由 `limits.maxAttachmentBytes` 和 `limits.maxArchiveBytes` 配置。界面采用 PCL 的「错误报告」名称，实际不限制文件类型。公网通过同源 `/feedback-upload/` 收件，配置和验收见[入口与部署计划](入口与部署计划.md)。
 
 ## 上传契约
 
