@@ -5,7 +5,7 @@ const term = new Terminal({cols:110,rows:32,fontSize:14,cursorBlink:true,scrollb
 const terminalContainer=document.getElementById('terminal');
 term.open(terminalContainer);
 terminalContainer.addEventListener('click',()=>{if(!window.getSelection()?.toString())term.focus();});
-let cursor=0, stopped=false, stopping=false, leaving=false, pending=Promise.resolve(), requestId=null;
+let cursor=0, replay=true, stopped=false, stopping=false, leaving=false, pending=Promise.resolve(), requestId=null;
 const box=document.createElement('section');
 box.id='confirmation';box.hidden=true;
 box.style.cssText='margin:12px 20px;padding:16px;background:#3d311c;border:1px solid #e1b668;border-radius:8px';
@@ -55,14 +55,20 @@ window.addEventListener('pagehide',()=>{
   leaving=true;
   fetch('/ui-disconnect',{method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+token},body:'{}',keepalive:true}).catch(()=>{});
 });
-window.addEventListener('pageshow',event=>{if(event.persisted){leaving=false;poll();}});
+window.addEventListener('pageshow',event=>{if(event.persisted){leaving=false;replay=true;poll();}});
 async function poll(){
   if(stopped||leaving)return;
   if(stopping){setTimeout(poll,250);return;}
   try{
     const s=await api('/state',{after:cursor});
     if(stopped||stopping||leaving)return;
-    cursor=s.cursor;if(s.output)term.write(s.output);renderGate(s);
+    if(replay && s.output){
+      // Display the backlog without sending replies to old terminal queries into today's prompt.
+      term.options.disableStdin=true;
+      try{await new Promise(done=>term.write(s.output,done));}
+      finally{term.options.disableStdin=stopped||stopping;}
+    }else if(s.output)term.write(s.output);
+    replay=false;cursor=s.cursor;renderGate(s);
     document.getElementById('allow-all').checked=s.allow_all;
     document.getElementById('status').textContent=s.alive?(s.user_input_active?'输入中':s.allow_all?'共享中':'逐条确认'):'已退出';
   }catch(e){if(!stopped&&!stopping&&!leaving){document.getElementById('allow-all').checked=false;document.getElementById('status').textContent='已断开';}}
