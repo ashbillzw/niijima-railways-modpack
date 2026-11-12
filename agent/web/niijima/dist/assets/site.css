@@ -20,3 +20,9 @@
   .embedded .primary-button { width:auto; }
 }
 @media (max-width:560px) { .embedded .standalone { padding:27px 22px; } }
+
+.id-warning { display:block; margin-top:5px; font-size:12px; color:#81501b; }
+.feedback-result { max-width:calc(100% - 32px); padding:24px 32px; border:1px solid var(--line); border-radius:16px; background:var(--paper); color:var(--ink); text-align:center; }
+.feedback-result::backdrop { background:#17251ddb; }
+.feedback-result p { margin:0 0 18px; font-weight:700; }
+.feedback-result .primary-button { margin:auto; }

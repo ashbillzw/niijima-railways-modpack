@@ -7,6 +7,7 @@
   "messages": {
     "uploading": "正在提交…",
     "success": "提交成功",
+    "successDialog": "提交成功喵！",
     "failure": "提交失败，请重试",
     "unavailable": "暂未开放提交",
     "tooLarge": "附件超过10 MiB，请减少附件后重试",

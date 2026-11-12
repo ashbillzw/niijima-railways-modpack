@@ -44,7 +44,7 @@ function dirty() {
   clearErrors();
 }
 function selectTab(index) {
-  if (busy) return;
+  if (busy || type === tabs[index].dataset.kind) return;
   type = tabs[index].dataset.kind;
   tabs.forEach((tab, i) => { tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; });
   document.getElementById('feedback-panel').setAttribute('aria-labelledby', tabs[index].id);
@@ -65,6 +65,11 @@ tabs.forEach((tab, index) => {
   });
 });
 form.addEventListener('input', dirty);
+function updateIdWarning() {
+  document.getElementById('player-id-warning').hidden = !/[^A-Za-z0-9_]/.test(inputs.playerId.value.trim());
+}
+inputs.playerId.addEventListener('input', updateIdWarning);
+window.addEventListener('pageshow', updateIdWarning);
 logs.addEventListener('change', () => {
   dirty();
   const list = document.getElementById('file-list');
@@ -93,6 +98,16 @@ function setBusy(value) {
   form.setAttribute('aria-busy', String(value));
 }
 
+function showResult(success) {
+  status.textContent = message(success ? 'success' : 'failure');
+  const host = window.frameElement?.id === 'feedback-frame' ? window.parent.document : document;
+  const dialog = host.importNode(document.getElementById('result-template').content.firstElementChild, true);
+  dialog.querySelector('p').textContent = success ? message('successDialog') : status.textContent;
+  host.body.append(dialog);
+  dialog.addEventListener('close', () => dialog.remove(), { once: true });
+  dialog.showModal();
+}
+
 form.addEventListener('submit', async event => {
   event.preventDefault();
   if (!endpoint || busy || submitted) return;
@@ -117,10 +132,10 @@ form.addEventListener('submit', async event => {
     }
     await uploadFeedback(endpoint, prepared);
     submitted = true;
-    status.textContent = message('success');
   } catch {
-    status.textContent = message('failure');
+    submitted = false;
   } finally { setBusy(false); }
+  showResult(submitted);
 });
 
 const configURL = new URL('../config/site.json', import.meta.url);

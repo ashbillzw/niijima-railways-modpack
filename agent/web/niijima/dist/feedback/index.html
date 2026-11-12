@@ -28,7 +28,12 @@
         <fieldset id="form-fields" style="border:0;padding:0;margin:0;min-width:0">
           <div id="feedback-panel" role="tabpanel" aria-labelledby="bug-tab">
             <div class="form-grid">
-              <div class="field"><label for="player-id">游戏内ID</label><input class="input" id="player-id" name="playerId" autocomplete="username" maxlength="64" required aria-describedby="player-id-error"><span class="field-error" id="player-id-error"></span></div>
+              <div class="field">
+                <label for="player-id">游戏内ID</label>
+                <input class="input" id="player-id" name="playerId" autocomplete="username" maxlength="64" required aria-describedby="player-id-warning player-id-error">
+                <small id="player-id-warning" class="id-warning" hidden>请输入游戏内ID，不正确输入可能无法收到奖励</small>
+                <span class="field-error" id="player-id-error"></span>
+              </div>
               <div class="field"><label for="feedback-title">标题</label><input class="input" id="feedback-title" name="title" maxlength="160" required aria-describedby="feedback-title-error"><span class="field-error" id="feedback-title-error"></span></div>
             </div>
             <div class="field"><label for="details">详情</label><textarea class="input" id="details" name="details" maxlength="15000" rows="6" required placeholder="复现步骤、预期和实际情况" aria-describedby="details-error"></textarea><span class="field-error" id="details-error"></span></div>
@@ -45,6 +50,12 @@
       </form>
     </main>
   </div>
+  <template id="result-template">
+    <dialog class="feedback-result" aria-labelledby="result-message">
+      <p id="result-message"></p>
+      <form method="dialog"><button class="primary-button" autofocus>确定</button></form>
+    </dialog>
+  </template>
   <div class="console v3-chrome chrome-footer"><!--# include virtual="/v3/_includes/footer.html" --></div>
 </body>
 </html>
