@@ -74,7 +74,7 @@ function digits(id, number) {
 
 function drawNeedle() {
   const now = performance.now();
-  let value = needleTarget;
+  let value = needleTarget ?? 0;
   while (needleSteps.length && now - needleSteps[0].start >= needleTravelMs) needleSteps.shift();
   // Overlap step responses. Each starts and ends at zero velocity.
   for (const { start, change } of needleSteps) {
@@ -82,24 +82,23 @@ function drawNeedle() {
     value -= change * (1 - t) ** 4 * (1 + 4 * t);
   }
   needle.setAttribute('transform', 'rotate(' + (value - 50) + ' 158 218)');
-  pilot.classList.toggle('lit', value > 50);
+  pilot.classList.toggle('lit', needleTarget !== null && value > 50);
   needleFrame = needleSteps.length ? requestAnimationFrame(drawNeedle) : 0;
 }
 
 function updateNeedle(mspt) {
   const target = mspt === null ? null : Math.min(100, mspt);
-  needle.style.visibility = target === null ? 'hidden' : '';
   if (target === needleTarget && !(reducedMotion.matches && needleFrame)) return;
-  if (target === null || reducedMotion.matches) {
+  if (needleTarget === null || reducedMotion.matches) {
     cancelAnimationFrame(needleFrame);
     needleSteps.length = 0;
     needleFrame = 0;
-  } else if (needleTarget !== null) {
-    needleSteps.push({ start: performance.now(), change: target - needleTarget });
+  } else {
+    needleSteps.push({ start: performance.now(), change: (target ?? 0) - needleTarget });
   }
   needleTarget = target;
   if (target === null) pilot.classList.remove('lit');
-  else if (!needleFrame) drawNeedle();
+  if (!needleFrame) drawNeedle();
 }
 
 function renderStatus() {
