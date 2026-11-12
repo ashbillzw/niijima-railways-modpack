@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../assets/download.css">
   <script src="../assets/navigation-mode.js"></script>
   <script defer src="../assets/navigation.js"></script>
+  <script defer src="../assets/download-selection.js"></script>
   <script defer src="../assets/home-status.js"></script>
 </head>
 <body>
@@ -18,28 +19,29 @@
       <img class="launcher-icon" src="../assets/download/launcher.png" width="100" height="100" alt="">
       <h1>新岛启动器</h1>
       <p lang="en">for <strong class="os-windows">Windows 11</strong></p>
-      <a class="action primary" role="link" aria-disabled="true">下载</a>
+      <a class="action card-download primary" role="link" aria-disabled="true" aria-label="下载新岛启动器"><span class="download-label">下载</span></a>
     </section>
     <div class="editions">
       <section class="edition pcl">
-        <img src="../assets/download/pcl.png" alt="PCL" width="54" height="54">
+        <img src="../assets/download/pcl.png" alt="PCL2" width="54" height="54">
         <h2>PCL 版整合包</h2>
-        <p><strong class="os-windows">Windows</strong> / PCL</p>
-        <div class="actions"><a class="action" role="link" aria-disabled="true">下载</a></div>
+        <p><strong class="os-windows">Windows</strong> / <a class="action app-link" href="https://meloong.com/pcl" target="_blank" rel="noopener">PCL2</a></p>
+        <a class="action card-download" role="link" aria-disabled="true" aria-label="下载 PCL 版整合包"><span class="download-label">下载</span></a>
       </section>
       <section class="edition modrinth">
         <img src="../assets/download/modrinth.png" alt="Modrinth" width="54" height="54">
-        <h2>Modrinth启动器</h2>
-        <div class="actions">
-          <a class="action" href="https://modrinth.com/modpack/niijima-railways" target="_blank" rel="noopener">mrpack</a>
-          <a class="action" href="https://modrinth.com/app" target="_blank" rel="noopener">Modrinth App</a>
-        </div>
+        <h2>Modrinth包</h2>
+        <p><a class="action app-link" href="https://modrinth.com/app" target="_blank" rel="noopener">Modrinth App</a></p>
+        <a class="action card-download" href="https://modrinth.com/modpack/niijima-railways" target="_blank" rel="noopener" aria-label="下载 Modrinth 整合包"><span class="download-label">下载</span></a>
       </section>
       <section class="edition fcl">
         <img src="../assets/download/fcl.png" alt="FCL" width="54" height="54">
         <h2>兼容版整合包</h2>
-        <p><strong class="os-android">Android</strong> / FCL <span>·</span> <strong class="os-macos">macOS</strong> / HMCL</p>
-        <div class="actions"><a class="action" role="link" aria-disabled="true">下载</a></div>
+        <p class="platform-pairs">
+          <span><strong class="os-android">Android</strong> / <a class="action app-link" href="https://github.com/FCL-Team/FoldCraftLauncher/releases" target="_blank" rel="noopener">FCL</a></span>
+          <span><strong class="os-macos">macOS</strong> / <a class="action app-link" href="https://hmcl.huangyuhui.net/download/" target="_blank" rel="noopener">HMCL</a></span>
+        </p>
+        <a class="action card-download" role="link" aria-disabled="true" aria-label="下载兼容版整合包"><span class="download-label">下载</span></a>
       </section>
     </div>
   </main>
