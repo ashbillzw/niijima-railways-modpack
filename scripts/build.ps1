@@ -186,6 +186,10 @@ function Build-Pack($Branch, $Suffix, $Label, [string]$Kind) {
         if ($Kind -eq 'test') {
             Set-TestOptions $pack
             Set-TestWorldRules $pack
+            $minescript = Join-Path $Build 'local-test-mods/minescript-forge-1.20.1-4.0.jar'
+            if (Test-Path -LiteralPath $minescript -PathType Leaf) {
+                Copy-Item -LiteralPath $minescript -Destination (Join-Path $pack 'overrides/mods')
+            }
         }
         Compress-Pack $pack $name $work
         if ($Kind -eq 'test') { [IO.File]::WriteAllText($sequencePath, [string]$sequence, $Utf8) }
