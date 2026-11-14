@@ -1,0 +1,1864 @@
+{
+  "schema": 1,
+  "baseline": "5a66bce6b688b6af01a4aab5858fcb1acd7d249d21187ef7b0780644d999ba5f",
+  "exportedAt": "2026-11-15T03:39:32.377387+08:00",
+  "changes": [
+    {
+      "id": "farmersdelight:cake_slice",
+      "name": "蛋糕切片",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets"
+      ],
+      "changes": {
+        "needsDiscussion": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:apple_pie_slice",
+      "name": "苹果派切片",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets"
+      ],
+      "changes": {
+        "needsDiscussion": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:sweet_berry_cheesecake_slice",
+      "name": "甜浆果芝士派切片",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets"
+      ],
+      "changes": {
+        "needsDiscussion": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:chocolate_pie_slice",
+      "name": "巧克力派切片",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets"
+      ],
+      "changes": {
+        "needsDiscussion": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:pumpkin_pie_slice",
+      "name": "南瓜派切片",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets"
+      ],
+      "changes": {
+        "needsDiscussion": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:melon_juice",
+      "name": "西瓜汁",
+      "mod": "农夫乐事",
+      "category": "饮品",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:drinks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:apple_cider",
+      "name": "苹果酒",
+      "mod": "农夫乐事",
+      "category": "饮品",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:drinks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "needsDiscussion": {
+          "before": true,
+          "after": false
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:melon_popsicle",
+      "name": "西瓜冰棍",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:cake",
+      "name": "蛋糕",
+      "mod": "原版食品",
+      "category": "甜点／零食",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:sweets",
+        "touhou_little_maid:maid_tamed_item"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:hamburger",
+      "name": "汉堡包",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:ignored_in_automatic_shapeless",
+        "farmersdelight:snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:mixed_salad",
+      "name": "混合沙拉",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:pasta_with_meatballs",
+      "name": "肉丸意面",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:pasta_with_mutton_chop",
+      "name": "羊排意面",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:roasted_mutton_chops",
+      "name": "烤羊排",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 8.0
+    },
+    {
+      "id": "farmersdelight:steak_and_potatoes",
+      "name": "牛排配马铃薯",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 8.0
+    },
+    {
+      "id": "farmersdelight:salmon_roll",
+      "name": "鲑鱼寿司",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "farmersdelight:snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        },
+        "qty": {
+          "before": 2,
+          "after": 4
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 5.0
+    },
+    {
+      "id": "farmersdelight:cod_roll",
+      "name": "鳕鱼寿司",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "farmersdelight:snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        },
+        "qty": {
+          "before": 2,
+          "after": 4
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 5.0
+    },
+    {
+      "id": "farmersdelight:kelp_roll",
+      "name": "海带寿司卷",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "farmersdelight:snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 12.0
+    },
+    {
+      "id": "farmersdelight:rice_roll_medley_block",
+      "name": "寿司拼盘",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:feasts"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 40.0
+    },
+    {
+      "id": "kaleidoscope_cookery:dongpo_pork",
+      "name": "东坡肉",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_cookery:spicy_chicken",
+      "name": "辣子鸡",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 18.0
+    },
+    {
+      "id": "farmersdelight:hot_cocoa",
+      "name": "热可可",
+      "mod": "农夫乐事",
+      "category": "饮品",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:drinks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:apple_pie",
+      "name": "苹果派",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:pies"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:sweet_berry_cheesecake",
+      "name": "甜浆果芝士派",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:pies"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:chocolate_pie",
+      "name": "巧克力派",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:pies"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:milk_bottle",
+      "name": "奶瓶",
+      "mod": "农夫乐事",
+      "category": "饮品",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:drinks",
+        "forge:bottles",
+        "forge:bottles/milk",
+        "forge:milk",
+        "forge:milk/milk_bottle"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:sweet_berry_cookie",
+      "name": "甜浆果曲奇",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets",
+        "supplementaries:cookies"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:honey_cookie",
+      "name": "蜂蜜曲奇",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets",
+        "supplementaries:cookies"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:fruit_salad",
+      "name": "水果沙拉",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:sweets"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:smoked_ham",
+      "name": "烟熏火腿",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:cooked_cod_slice",
+      "name": "熟鳕鱼片",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "forge:cooked_fishes",
+        "forge:cooked_fishes/cod",
+        "origins:meat"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:cooked_salmon_slice",
+      "name": "熟鲑鱼片",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "forge:cooked_fishes",
+        "forge:cooked_fishes/salmon",
+        "origins:meat"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:glow_berry_custard",
+      "name": "发光浆果蛋奶沙司",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:egg_sandwich",
+      "name": "夹蛋三明治",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:ignored_in_automatic_shapeless",
+        "farmersdelight:snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:chicken_sandwich",
+      "name": "鸡肉三明治",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:ignored_in_automatic_shapeless",
+        "farmersdelight:snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:bacon_sandwich",
+      "name": "培根三明治",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:ignored_in_automatic_shapeless",
+        "farmersdelight:snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:mutton_wrap",
+      "name": "羊肉卷饼",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:ignored_in_automatic_shapeless",
+        "farmersdelight:snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:nether_salad",
+      "name": "下界沙拉",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:beef_stew",
+      "name": "牛肉炖",
+      "mod": "农夫乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:chicken_soup",
+      "name": "鸡肉汤",
+      "mod": "农夫乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:vegetable_soup",
+      "name": "蔬菜汤",
+      "mod": "农夫乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:fish_stew",
+      "name": "鱼肉炖",
+      "mod": "农夫乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:pumpkin_soup",
+      "name": "南瓜汤",
+      "mod": "农夫乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:baked_cod_stew",
+      "name": "烘焙鳕鱼炖",
+      "mod": "农夫乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:onion_soup",
+      "name": "洋葱汤",
+      "mod": "农夫乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:bone_broth",
+      "name": "大骨汤",
+      "mod": "农夫乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:bacon_and_eggs",
+      "name": "培根蛋",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals",
+        "origins:meat"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:vegetable_noodles",
+      "name": "蔬菜面",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:ratatouille",
+      "name": "蔬菜杂烩",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:squid_ink_pasta",
+      "name": "鱿鱼墨面",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:grilled_salmon",
+      "name": "香烤鲑鱼",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:mushroom_rice",
+      "name": "蘑菇饭",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:roast_chicken",
+      "name": "盘装烤鸡",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:shepherds_pie",
+      "name": "盘装牧羊人派",
+      "mod": "农夫乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:stuffed_pumpkin",
+      "name": "碗装填馅南瓜",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:honey_glazed_ham",
+      "name": "盘装蜜汁火腿",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "farmersdelight:gleaming_salad",
+      "name": "碗装闪亮沙拉",
+      "mod": "农夫乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_tavern:watermelon_juice",
+      "name": "西瓜汁",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:piston",
+      "name": "活塞",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "minecraft:observer",
+      "name": "侦测器",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "minecraft:sulfur_cube_archetype/slow_bouncy",
+        "minecraft:sulfur_cube_swallowable"
+      ],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 64
+        }
+      },
+      "adjustedUnitPrice": 192
+    },
+    {
+      "id": "minecraft:repeater",
+      "name": "红石中继器",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "minecraft:comparator",
+      "name": "红石比较器",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "minecraft:lever",
+      "name": "拉杆",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "minecraft:tripwire_hook",
+      "name": "绊线钩",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "minecraft:lightning_rod",
+      "name": "避雷针",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 64
+        }
+      },
+      "adjustedUnitPrice": 128
+    },
+    {
+      "id": "minecraft:rail",
+      "name": "铁轨",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "minecraft:rails"
+      ],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "create:shaft",
+      "name": "传动杆",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "create:cogwheel",
+      "name": "齿轮",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "create:large_cogwheel",
+      "name": "大齿轮",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "create:gearbox",
+      "name": "十字齿轮箱",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": true,
+          "after": false
+        }
+      }
+    },
+    {
+      "id": "create:electron_tube",
+      "name": "电子管",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 64
+        }
+      },
+      "adjustedUnitPrice": 192
+    },
+    {
+      "id": "create:railway_casing",
+      "name": "列车机壳",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "create:casing"
+      ],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 64
+        }
+      },
+      "adjustedUnitPrice": 256
+    },
+    {
+      "id": "minecraft:conduit",
+      "name": "潮涌核心",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 384
+    },
+    {
+      "id": "minecraft:wither_skeleton_skull",
+      "name": "凋灵骷髅头颅",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:heads",
+        "minecraft:noteblock_top_instruments",
+        "neapolitan:hides_chimpanzee_ears"
+      ],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 512
+    },
+    {
+      "id": "minecraft:end_crystal",
+      "name": "末地水晶",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 16
+        }
+      },
+      "adjustedUnitPrice": 384
+    },
+    {
+      "id": "minecraft:lodestone",
+      "name": "磁石",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 320
+    },
+    {
+      "id": "minecraft:beacon",
+      "name": "信标",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 1024
+    },
+    {
+      "id": "minecraft:pumpkin_pie",
+      "name": "南瓜派",
+      "mod": "原版食品",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:pies"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:mushroom_stew",
+      "name": "蘑菇煲",
+      "mod": "原版食品",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:rabbit_stew",
+      "name": "兔肉煲",
+      "mod": "原版食品",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:beetroot_soup",
+      "name": "甜菜汤",
+      "mod": "原版食品",
+      "category": "甜点／零食",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:honey_bottle",
+      "name": "蜂蜜瓶",
+      "mod": "原版食品",
+      "category": "饮品",
+      "tags": [
+        "create:upright_on_belt",
+        "kaleidoscope_cookery:glass_bottle_container"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:dragon_head",
+      "name": "龙首",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "amendments:non_stackable_heads",
+        "forge:heads",
+        "minecraft:noteblock_top_instruments",
+        "neapolitan:hides_chimpanzee_ears"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:piglin_head",
+      "name": "猪灵的头",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "minecraft:noteblock_top_instruments"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 768
+    },
+    {
+      "id": "minecraft:creeper_head",
+      "name": "苦力怕的头",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:heads",
+        "minecraft:noteblock_top_instruments",
+        "neapolitan:hides_chimpanzee_ears"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 640
+    },
+    {
+      "id": "minecraft:deepslate_emerald_ore",
+      "name": "深层绿宝石矿石",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:ore_rates/singular",
+        "forge:ores",
+        "forge:ores/emerald",
+        "forge:ores_in_ground/deepslate",
+        "minecraft:emerald_ores",
+        "minecraft:sulfur_cube_archetype/slow_bouncy",
+        "minecraft:sulfur_cube_swallowable"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 1024
+    },
+    {
+      "id": "minecraft:ancient_debris",
+      "name": "远古残骸",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:ore_rates/singular",
+        "forge:ores",
+        "forge:ores/netherite_scrap",
+        "minecraft:sulfur_cube_archetype/slow_flat",
+        "minecraft:sulfur_cube_swallowable"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 192
+    },
+    {
+      "id": "minecraft:diamond_block",
+      "name": "钻石块",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:storage_blocks",
+        "forge:storage_blocks/diamond",
+        "minecraft:sulfur_cube_archetype/slow_bouncy",
+        "minecraft:sulfur_cube_swallowable"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:deepslate_coal_ore",
+      "name": "深层煤矿石",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:ore_rates/singular",
+        "forge:ores",
+        "forge:ores/coal",
+        "forge:ores_in_ground/deepslate",
+        "minecraft:coal_ores",
+        "minecraft:sulfur_cube_archetype/slow_bouncy",
+        "minecraft:sulfur_cube_swallowable"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 768
+    },
+    {
+      "id": "create:crushing_wheel",
+      "name": "粉碎轮",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "design_decor:crushing_wheels"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 192
+    },
+    {
+      "id": "create:mechanical_arm",
+      "name": "动力臂",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:zombie_head",
+      "name": "僵尸的头",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:heads",
+        "minecraft:noteblock_top_instruments",
+        "neapolitan:hides_chimpanzee_ears"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 640
+    },
+    {
+      "id": "minecraft:skeleton_skull",
+      "name": "骷髅头颅",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:heads",
+        "minecraft:noteblock_top_instruments",
+        "neapolitan:hides_chimpanzee_ears"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 384
+    },
+    {
+      "id": "neapolitan:chimpanzee_head",
+      "name": "黑猩猩头颅",
+      "mod": "那不勒斯风味",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "forge:heads",
+        "minecraft:noteblock_top_instruments",
+        "neapolitan:hides_chimpanzee_ears"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 640
+    },
+    {
+      "id": "supplementaries:enderman_head",
+      "name": "末影人的头",
+      "mod": "锦致装饰",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "amendments:non_stackable_heads",
+        "minecraft:noteblock_top_instruments"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 768
+    },
+    {
+      "id": "create:mechanical_saw",
+      "name": "动力锯",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "create:contraption_controlled"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
+        }
+      },
+      "adjustedUnitPrice": 192
+    },
+    {
+      "id": "create:deployer",
+      "name": "机械手",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "create:contraption_controlled"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "create:mechanical_roller",
+      "name": "动力压路机",
+      "mod": "机械动力",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "create:contraption_controlled"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "createbigcannons:ap_shot",
+      "name": "穿甲弹",
+      "mod": "机械动力：火炮",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "createbigcannons:big_cannon_projectiles"
+      ],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 384
+    },
+    {
+      "id": "createbigcannons:ap_shell",
+      "name": "穿甲榴弹",
+      "mod": "机械动力：火炮",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "createbigcannons:big_cannon_projectiles"
+      ],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 512
+    },
+    {
+      "id": "createbigcannons:he_shell",
+      "name": "高爆弹",
+      "mod": "机械动力：火炮",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "createbigcannons:big_cannon_projectiles"
+      ],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 512
+    },
+    {
+      "id": "createbigcannons:machine_gun_round",
+      "name": "机枪弹药",
+      "mod": "机械动力：火炮",
+      "category": "搞怪（整蛊）",
+      "tags": [
+        "createbigcannons:autocannon_cartridges"
+      ],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 32
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 256
+    },
+    {
+      "id": "minecraft:end_rod",
+      "name": "末地烛",
+      "mod": "原版",
+      "category": "搞怪（整蛊）",
+      "tags": [],
+      "changes": {
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 16
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      },
+      "adjustedUnitPrice": 128
+    }
+  ]
+}

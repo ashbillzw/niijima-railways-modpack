@@ -1,0 +1,286 @@
+{
+  "minecraft:piston": {
+    "name": "活塞",
+    "price": 2
+  },
+  "minecraft:observer": {
+    "name": "侦测器",
+    "price": 3
+  },
+  "minecraft:repeater": {
+    "name": "红石中继器",
+    "price": 2
+  },
+  "minecraft:comparator": {
+    "name": "红石比较器",
+    "price": 3
+  },
+  "minecraft:lever": {
+    "name": "拉杆",
+    "price": 0.5
+  },
+  "minecraft:tripwire_hook": {
+    "name": "绊线钩",
+    "price": 0.75
+  },
+  "minecraft:lightning_rod": {
+    "name": "避雷针",
+    "price": 2
+  },
+  "minecraft:rail": {
+    "name": "铁轨",
+    "price": 0.5
+  },
+  "create:shaft": {
+    "name": "传动杆",
+    "price": 0.5
+  },
+  "create:cogwheel": {
+    "name": "齿轮",
+    "price": 1
+  },
+  "create:large_cogwheel": {
+    "name": "大齿轮",
+    "price": 1.5
+  },
+  "create:gearbox": {
+    "name": "十字齿轮箱",
+    "price": 3
+  },
+  "create:electron_tube": {
+    "name": "电子管",
+    "price": 3
+  },
+  "create:railway_casing": {
+    "name": "列车机壳",
+    "price": 4
+  },
+  "minecraft:beacon": {
+    "name": "信标",
+    "price": 512
+  },
+  "minecraft:conduit": {
+    "name": "潮涌核心",
+    "price": 192
+  },
+  "minecraft:netherite_block": {
+    "name": "下界合金块",
+    "price": 2048
+  },
+  "minecraft:end_crystal": {
+    "name": "末地水晶",
+    "price": 24
+  },
+  "minecraft:lodestone": {
+    "name": "磁石",
+    "price": 160
+  },
+  "minecraft:wither_skeleton_skull": {
+    "name": "凋灵骷髅头颅",
+    "price": 128
+  },
+  "minecraft:dragon_head": {
+    "name": "龙首",
+    "price": 768
+  },
+  "minecraft:piglin_head": {
+    "name": "猪灵的头",
+    "price": 384
+  },
+  "minecraft:creeper_head": {
+    "name": "苦力怕的头",
+    "price": 320
+  },
+  "minecraft:deepslate_emerald_ore": {
+    "name": "深层绿宝石矿石",
+    "price": 512
+  },
+  "minecraft:ancient_debris": {
+    "name": "远古残骸",
+    "price": 48
+  },
+  "minecraft:diamond_block": {
+    "name": "钻石块",
+    "price": 144
+  },
+  "minecraft:wet_sponge": {
+    "name": "湿海绵",
+    "price": 64
+  },
+  "minecraft:respawn_anchor": {
+    "name": "重生锚",
+    "price": 128
+  },
+  "minecraft:ender_chest": {
+    "name": "末影箱",
+    "price": 64
+  },
+  "create:crushing_wheel": {
+    "name": "粉碎轮",
+    "price": 96
+  },
+  "create:rotation_speed_controller": {
+    "name": "转速控制器",
+    "price": 192
+  },
+  "create:steam_engine": {
+    "name": "蒸汽引擎",
+    "price": 128
+  },
+  "create:track_station": {
+    "name": "列车站",
+    "price": 192
+  },
+  "create:track_observer": {
+    "name": "列车侦测器",
+    "price": 128
+  },
+  "create:display_link": {
+    "name": "显示链接器",
+    "price": 128
+  },
+  "create:mechanical_arm": {
+    "name": "动力臂",
+    "price": 256
+  },
+  "minecraft:deepslate_coal_ore": {
+    "name": "深层煤矿石",
+    "price": 192
+  },
+  "minecraft:zombie_head": {
+    "name": "僵尸的头",
+    "price": 320,
+    "method": "用闪电苦力怕的爆炸击杀僵尸。"
+  },
+  "minecraft:skeleton_skull": {
+    "name": "骷髅头颅",
+    "price": 192,
+    "method": "用闪电苦力怕的爆炸击杀骷髅，或在远古城市找到自然生成的头颅。"
+  },
+  "supplementaries:enderman_head": {
+    "name": "末影人的头",
+    "price": 384,
+    "mod": "锦致装饰",
+    "method": "用闪电苦力怕的爆炸击杀末影人。"
+  },
+  "neapolitan:chimpanzee_head": {
+    "name": "黑猩猩头颅",
+    "price": 320,
+    "mod": "那不勒斯风味",
+    "method": "那不勒斯风味的稀有香蕉植株考古战利品。"
+  },
+  "create:mechanical_saw": {
+    "name": "动力锯",
+    "price": 96
+  },
+  "create:mechanical_drill": {
+    "name": "动力钻头",
+    "price": 128
+  },
+  "create:mechanical_press": {
+    "name": "动力冲压机",
+    "price": 128
+  },
+  "create:deployer": {
+    "name": "机械手",
+    "price": 160
+  },
+  "create:mechanical_roller": {
+    "name": "动力压路机",
+    "price": 192
+  },
+  "create:elevator_pulley": {
+    "name": "升降机滑轮",
+    "price": 192
+  },
+  "create:hose_pulley": {
+    "name": "软管滑轮",
+    "price": 128
+  },
+  "create:steam_whistle": {
+    "name": "蒸汽笛",
+    "price": 96
+  },
+  "create:item_vault": {
+    "name": "物品保险库",
+    "price": 128
+  },
+  "createbigcannons:cannon_drill": {
+    "name": "火炮钻孔机",
+    "price": 256,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:cannon_loader": {
+    "name": "火炮装载器",
+    "price": 256,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:cannon_mount": {
+    "name": "火炮底座",
+    "price": 384,
+    "mod": "机械动力：火炮"
+  },
+  "create:blaze_burner": {
+    "name": "烈焰人燃烧室",
+    "price": 96
+  },
+  "createbigcannons:solid_shot": {
+    "name": "硬头炮弹",
+    "price": 32,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:ap_shot": {
+    "name": "穿甲弹",
+    "price": 48,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:ap_shell": {
+    "name": "穿甲榴弹",
+    "price": 64,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:he_shell": {
+    "name": "高爆弹",
+    "price": 64,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:shrapnel_shell": {
+    "name": "榴散弹",
+    "price": 48,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:smoke_shell": {
+    "name": "烟雾弹",
+    "price": 32,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:fluid_shell": {
+    "name": "流体弹",
+    "price": 48,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:bag_of_grapeshot": {
+    "name": "葡萄弹",
+    "price": 32,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:mortar_stone": {
+    "name": "迫击石弹",
+    "price": 16,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:drop_mortar_shell": {
+    "name": "投放式迫击炮弹",
+    "price": 48,
+    "mod": "机械动力：火炮"
+  },
+  "createbigcannons:machine_gun_round": {
+    "name": "机枪弹药",
+    "price": 8,
+    "mod": "机械动力：火炮"
+  },
+  "minecraft:end_rod": {
+    "name": "末地烛",
+    "price": 8
+  }
+}
