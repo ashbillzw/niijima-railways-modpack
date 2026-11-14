@@ -12,6 +12,9 @@ const freshness = 15_000;
 const stopThreshold = 15 * 60_000;
 const servers = new Map((document.getElementById('map') ? ['create-cn', 'train-cn'] : ['create-cn']).map(id => [id, { data: null, missingSince: null }]));
 const mapButtons = [...document.querySelectorAll('[data-map]')];
+const pageQuery = new URLSearchParams(location.search);
+const mapKey = pageQuery.get('map');
+const mapDate = mapKey === 'rail-network' && pageQuery.get('mapdate');
 const frame = document.getElementById('map');
 const message = document.querySelector('.map-outage');
 const sign = document.querySelector('.room-signals');
@@ -31,7 +34,8 @@ function updateFrame(now) {
   const live = !!selected.dataset.server;
   const url = selected.dataset.map;
   const canLoad = !live || (mapErrors.get(selected) === null && interrupted(servers.get(selected.dataset.server), now) === null);
-  const src = canLoad ? url : 'about:blank';
+  let src = canLoad ? url : 'about:blank';
+  if (mapDate && selected.dataset.mapKey === 'rail-network') src += '?mapdate=' + encodeURIComponent(mapDate);
   if (frame.getAttribute('src') !== src || (canLoad && frameErrors.has(selected) && now - navigatedAt >= 15_000)) {
     navigatedAt = now;
     frame.classList.remove('ready');
@@ -189,7 +193,6 @@ async function poll() {
   setTimeout(poll, Math.max(0, 5000 - (performance.now() - start)));
 }
 if (frame || (sign && sign.getClientRects().length)) {
-  const mapKey = new URLSearchParams(location.search).get('map');
   const initialMap = frame && mapButtons.find(button => button.dataset.mapKey === mapKey);
   if (initialMap) selectMap(initialMap);
   else renderStatus();
