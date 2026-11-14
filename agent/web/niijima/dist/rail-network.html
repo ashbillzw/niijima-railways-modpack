@@ -37,6 +37,12 @@
     .edition-list button { display: block; width: 100%; border: 0; padding: 3px 9px; text-align: right; background: transparent; }
     .edition-list button:is(:hover, :focus-visible, [aria-pressed="true"]) { background: #ddded8; }
     .credit { min-width: 0; overflow-wrap: anywhere; }
+    .map-loading { grid-area: 1 / 1 / -1 / -1; }
+    .network-view:has(> .map-loading:not([hidden])) > .editions {
+      grid-area: 1 / 1; z-index: 1;
+      .credit { visibility: hidden; }
+      summary { filter: brightness(0) invert(1); }
+    }
   </style>
   <!--# include virtual="/v3/_includes/head.html" -->
 </head>
@@ -48,9 +54,10 @@
     <details class="edition-picker" aria-label="绘图日期">
       <summary class="featured">2026.11.11</summary>
       <div class="edition-list">
-        <button type="button" class="featured" value="assets/rail-network-v15.svg?v=20261114" data-width="3600" data-height="2960">2026.11.11</button>
-        <button type="button" value="/synology-root/minecraft/assets/rail-network/2026-09-27.svg" data-width="909" data-height="909" data-author="幻风zyt">（非公式）2026.09.27</button>
-        <button type="button" value="/synology-root/minecraft/assets/rail-network/2026-03-01.svg?v=2" data-width="965" data-height="728" data-author="Itinatsunoyaku">（非公式）2026.03.01</button>
+        <button type="button" class="featured" value="assets/rail-network-v15.svg?v=20261114b" data-width="3600" data-height="2960">2026.11.11</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2026-11-14-plan.svg" data-width="1433.123291015625" data-height="1768.4308776855469" data-author="KirizakiKnad">（规划）2026.11.14</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2026-09-27.svg" data-width="909" data-height="909" data-unofficial data-author="幻风zyt">（非公式）2026.09.27</button>
+        <button type="button" value="/synology-root/minecraft/assets/rail-network/2026-03-01.svg?v=2" data-width="965" data-height="728" data-unofficial data-author="Itinatsunoyaku">（非公式）2026.03.01</button>
         <button type="button" value="/synology-root/minecraft/assets/rail-network/2025-12-26.png" data-width="5632" data-height="4608">2025.12.26</button>
         <button type="button" value="/synology-root/minecraft/assets/rail-network/2025-11-12.png" data-width="5650" data-height="6000">2025.11.12</button>
         <button type="button" value="/synology-root/minecraft/assets/rail-network/2025-10-13.png" data-width="2014" data-height="2060">2025.10.13</button>
@@ -63,7 +70,7 @@
   </div>
   <div class="map-loading" role="status" hidden>地图加载中。。。</div>
   <main aria-label="乘换案内" tabindex="0">
-    <div class="sheet"><img src="assets/rail-network-v15.svg?v=20261114" alt="主服铁道线路与换乘站" width="3600" height="2960" draggable="false"></div>
+    <div class="sheet"><noscript><img src="assets/rail-network-v15.svg?v=20261114b" alt="主服铁道线路与换乘站" width="3600" height="2960" draggable="false"></noscript></div>
   </main>
   </div>
   <script>
@@ -73,45 +80,66 @@
       network.style.setProperty('--scroll-x', view.scrollLeft + 'px');
       network.style.setProperty('--scroll-y', view.scrollTop + 'px');
     });
-    let image = view.querySelector('img');
+    const image = new Image();
+    image.alt = '主服铁道线路与换乘站';
+    image.draggable = false;
+    view.querySelector('.sheet').append(image);
     const loading = document.querySelector('.map-loading');
+    const initialMessage = loading.textContent;
+    let download;
+    let imageUrl;
     let zoom = 1;
     const picker = document.querySelector('.edition-picker');
     const summary = picker.querySelector('summary');
     const editions = [...picker.querySelectorAll('button')];
     const credit = document.querySelector('.credit');
-    async function showEdition(edition) {
+    function showEdition(edition) {
       const { width, height, author } = edition.dataset;
       for (const item of editions) item.setAttribute('aria-pressed', String(item === edition));
       summary.textContent = edition.textContent;
       summary.classList.toggle('featured', edition.classList.contains('featured'));
-      if (image.getAttribute('src') !== edition.value || (image.complete && !image.naturalWidth)) {
-        const next = new Image(Number(width), Number(height));
-        next.alt = image.alt;
-        next.draggable = false;
-        next.src = edition.value;
-        image.replaceWith(next);
-        image = next;
-      }
       view.style.setProperty('--ratio', width / height);
-      credit.textContent = author ? `非公式，线路及车站的名称及译名等可能与实际有偏差；制作：${author}` : '';
+      const notice = edition.hasAttribute('data-unofficial') ? '非公式，线路及车站的名称及译名等可能与实际有偏差；' : '';
+      credit.textContent = author ? `${notice}制作：${author}` : '';
       credit.hidden = !author;
       zoom = 1;
       network.style.setProperty('--zoom', zoom);
       view.classList.remove('zoomed');
       view.scrollTo(0, 0);
-      const requested = image;
+      if (edition.value === image.dataset.edition && (!loading.hidden || image.naturalWidth)) return;
+      const previous = download;
+      const request = new XMLHttpRequest();
+      download = request;
+      previous?.abort();
+      if (imageUrl) URL.revokeObjectURL(imageUrl);
+      image.removeAttribute('src');
+      image.dataset.edition = edition.value;
+      image.width = Number(width);
+      image.height = Number(height);
       view.hidden = true;
+      loading.textContent = initialMessage;
       loading.hidden = false;
-      try {
-        await requested.decode();
-      } catch {
-        // Let the image show its native fallback if this edition failed.
-      }
-      if (image === requested) {
+      request.open('GET', edition.value);
+      request.responseType = 'blob';
+      request.onprogress = ({ loaded, total, lengthComputable }) => {
+        if (download !== request || !loaded) return;
+        const mib = bytes => (bytes / 1048576).toFixed(1);
+        loading.textContent = lengthComputable && total > 0
+          ? `地图加载中：${mib(loaded)} / ${mib(total)} MiB（${Math.floor(loaded / total * 100)}%）`
+          : `地图加载中：${mib(loaded)} MiB`;
+      };
+      request.onloadend = async () => {
+        if (download !== request) return;
+        if (request.status === 200 && request.response) {
+          imageUrl = URL.createObjectURL(request.response);
+          image.src = imageUrl;
+          await image.decode().catch(() => {});
+        }
+        if (download !== request) return;
         loading.hidden = true;
         view.hidden = false;
-      }
+      };
+      request.send();
     }
     showEdition(editions[0]);
     for (const item of editions) item.addEventListener('click', () => {

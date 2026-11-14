@@ -1,4 +1,4 @@
-param([int]$Port = 18762, [string]$MapHost = '192.168.1.222')
+param([int]$Port = 18762, [string]$MapHost = 'mc1.ashbill.com')
 $ErrorActionPreference = 'Stop'
 $runtime = Join-Path $env:TEMP 'niijima-v3-tools'
 $nginx = Join-Path $runtime 'nginx-1.30.6'
@@ -19,6 +19,9 @@ http {
     server {
         listen 127.0.0.1:$Port;
         location = / { return 302 /v3/; }
+        location = /synology-root/minecraft/assets/rail-network/2026-11-14-plan.svg {
+            alias "$dist/../deploy/rail-network/2026-11-14-plan.svg";
+        }
         location /v3/ {
             alias "$dist/";
             index index.html;
