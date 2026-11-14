@@ -87,7 +87,7 @@ function drawNeedle() {
 }
 
 function updateNeedle(mspt) {
-  const target = mspt === null ? null : Math.min(100, mspt);
+  const target = mspt === null ? null : Math.min(135, mspt);
   if (target === needleTarget && !(reducedMotion.matches && needleFrame)) return;
   if (needleTarget === null || reducedMotion.matches) {
     cancelAnimationFrame(needleFrame);
