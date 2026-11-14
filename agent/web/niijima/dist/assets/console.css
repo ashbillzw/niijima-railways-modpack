@@ -184,8 +184,7 @@
   background: radial-gradient(ellipse at 37% 30%, #fff, var(--core) 16%, var(--color) 46%, var(--off));
   box-shadow: 0 0 0 1px #a29b88, 0 0 7px var(--glow), inset 0 -1px 2px #0005;
 }
-#mspt-pilot { filter: brightness(.35) saturate(.55); }
-#mspt-pilot.lit { filter: drop-shadow(0 0 3px #e7411a); }
+#mspt-pilot.lit { visibility: visible; }
 .map-switcher { animation: map-fault 1.2s steps(1, end) infinite; }
 @keyframes map-fault { 0%, 100% { --fault-opacity: 1; } 50% { --fault-opacity: 0; } }
 .map-switcher .unavailable:not(:hover) .pilot::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(circle at 35% 28%, #ffc1a0, #e43c22 36%, #751c12 80%); box-shadow: 0 0 4px #e22f12; opacity: var(--fault-opacity, 1); }
