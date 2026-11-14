@@ -200,8 +200,9 @@
 .console .screen { position: relative; background: #050805; }
 #map { visibility: hidden; }
 #map.ready { visibility: visible; }
-.map-outage { position: absolute; inset: 0; padding: clamp(16px, 2.2vw, 36px); background: #050805; color: #87df96; font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; line-height: 1.65; font-variant-numeric: tabular-nums; }
-.map-outage > div::before { content: "> "; white-space: pre; }
+.map-outage, .map-loading { padding: clamp(16px, 2.2vw, 36px); background: #050805; color: #87df96; font-size: clamp(14px, 1.25vw, 20px); font-weight: 500; line-height: 1.65; font-variant-numeric: tabular-nums; }
+.map-outage { position: absolute; inset: 0; }
+.map-outage > div::before, .map-loading::before { content: "> "; white-space: pre; }
 .map-outage > div:last-child { display: flex; align-items: flex-start; height: calc(100% - 3lh); }
 .map-outage img { height: auto; width: auto; max-width: calc(100% - 2ch); max-height: 100%; image-rendering: pixelated; }
 @media (max-width: 640px) {
