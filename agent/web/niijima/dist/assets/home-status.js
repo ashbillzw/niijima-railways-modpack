@@ -189,7 +189,10 @@ async function poll() {
   setTimeout(poll, Math.max(0, 5000 - (performance.now() - start)));
 }
 if (frame || (sign && sign.getClientRects().length)) {
-  renderStatus();
+  const mapKey = new URLSearchParams(location.search).get('map');
+  const initialMap = frame && mapButtons.find(button => button.dataset.mapKey === mapKey);
+  if (initialMap) selectMap(initialMap);
+  else renderStatus();
   poll();
   setInterval(renderStatus, 1000);
 }
