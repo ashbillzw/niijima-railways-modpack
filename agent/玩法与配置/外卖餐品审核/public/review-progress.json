@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "baseline": "5a66bce6b688b6af01a4aab5858fcb1acd7d249d21187ef7b0780644d999ba5f",
-  "exportedAt": "2026-11-15T03:39:32.377387+08:00",
+  "exportedAt": "2026-11-15T17:41:52.960398+08:00",
   "changes": [
     {
       "id": "farmersdelight:cake_slice",
@@ -99,8 +99,13 @@
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
         }
-      }
+      },
+      "adjustedUnitPrice": 1.5
     },
     {
       "id": "farmersdelight:apple_cider",
@@ -127,8 +132,13 @@
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
         }
-      }
+      },
+      "adjustedUnitPrice": 3.0
     },
     {
       "id": "farmersdelight:melon_popsicle",
@@ -150,8 +160,13 @@
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
         }
-      }
+      },
+      "adjustedUnitPrice": 5.0
     },
     {
       "id": "minecraft:cake",
@@ -187,8 +202,13 @@
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
         }
-      }
+      },
+      "adjustedUnitPrice": 8.0
     },
     {
       "id": "farmersdelight:mixed_salad",
@@ -211,8 +231,13 @@
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
         }
-      }
+      },
+      "adjustedUnitPrice": 5.0
     },
     {
       "id": "farmersdelight:pasta_with_meatballs",
@@ -231,8 +256,13 @@
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
         }
-      }
+      },
+      "adjustedUnitPrice": 16.0
     },
     {
       "id": "farmersdelight:pasta_with_mutton_chop",
@@ -251,8 +281,13 @@
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
         }
-      }
+      },
+      "adjustedUnitPrice": 14.0
     },
     {
       "id": "farmersdelight:roasted_mutton_chops",
@@ -267,17 +302,8 @@
         "enabled": {
           "before": false,
           "after": true
-        },
-        "tasteMultiplier": {
-          "before": 1,
-          "after": 2
-        },
-        "preferred": {
-          "before": false,
-          "after": true
         }
-      },
-      "adjustedUnitPrice": 8.0
+      }
     },
     {
       "id": "farmersdelight:steak_and_potatoes",
@@ -292,17 +318,8 @@
         "enabled": {
           "before": false,
           "after": true
-        },
-        "tasteMultiplier": {
-          "before": 1,
-          "after": 2
-        },
-        "preferred": {
-          "before": false,
-          "after": true
         }
-      },
-      "adjustedUnitPrice": 8.0
+      }
     },
     {
       "id": "farmersdelight:salmon_roll",
@@ -398,13 +415,13 @@
           "before": false,
           "after": true
         },
-        "tasteMultiplier": {
-          "before": 1,
-          "after": 4
-        },
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
         }
       },
       "adjustedUnitPrice": 40.0
@@ -482,8 +499,13 @@
         "preferred": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 2
         }
-      }
+      },
+      "adjustedUnitPrice": 4.0
     },
     {
       "id": "farmersdelight:apple_pie",
@@ -1859,6 +1881,1631 @@
         }
       },
       "adjustedUnitPrice": 128
+    },
+    {
+      "id": "kaleidoscope_cookery:slime_ball_meal",
+      "name": "黏液饭",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:fondant_pie",
+      "name": "翻糖派",
+      "mod": "森罗物语·厨房",
+      "category": "甜点／零食",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:fondant_spider_eye",
+      "name": "翻糖蛛眼",
+      "mod": "森罗物语·厨房",
+      "category": "甜点／零食",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:chorus_fried_egg",
+      "name": "荷包紫颂烧",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:golden_salad",
+      "name": "黄金沙拉",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:crystal_lamb_chop",
+      "name": "水晶羊排",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:nether_style_sashimi",
+      "name": "下界风味刺身",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:pan_seared_knight_steak",
+      "name": "香煎骑士牛排",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:stargazy_pie",
+      "name": "仰望星空派",
+      "mod": "森罗物语·厨房",
+      "category": "甜点／零食",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:sweet_and_sour_ender_pearls",
+      "name": "珍珠咕噜肉",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:blaze_lamb_chop",
+      "name": "烈焰羊排",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:frost_lamb_chop",
+      "name": "凛冬羊排",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:braised_pork_ribs",
+      "name": "红烧排骨",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_cookery:buddha_jumps_over_the_wall",
+      "name": "佛跳墙",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:brown_mushroom_pot_soup",
+      "name": "棕蘑菇瓦罐汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:candied_potato",
+      "name": "拔丝土豆",
+      "mod": "森罗物语·厨房",
+      "category": "甜点／零食",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:bamboo_tube_rice",
+      "name": "熟竹筒饭",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 16.0
+    },
+    {
+      "id": "kaleidoscope_cookery:spicy_rabbit_head",
+      "name": "麻辣兔头",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:spicy_blood_stew",
+      "name": "毛血旺",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:red_mushroom_pot_soup",
+      "name": "红蘑菇瓦罐汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:oil_splashed_fish",
+      "name": "油泼鱼",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_cookery:numbing_spicy_chicken",
+      "name": "椒麻鸡",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_cookery:fried_spring_roll",
+      "name": "炸春卷",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:fried_caterpillar",
+      "name": "油炸猪儿虫",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:stuffed_tiger_skin_pepper",
+      "name": "虎皮青椒酿肉",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 24.0
+    },
+    {
+      "id": "kaleidoscope_cookery:dough_drop_soup",
+      "name": "疙瘩汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:crimson_fungus_pot_soup",
+      "name": "绯红菌瓦罐汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:four_joy_meatball_soup",
+      "name": "四喜丸子汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:warped_fungus_pot_soup",
+      "name": "诡异菌瓦罐汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:end_style_sashimi",
+      "name": "末地风味刺身",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:desert_style_sashimi",
+      "name": "沙漠风味刺身",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:cold_style_sashimi",
+      "name": "寒带风味刺身",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:tundra_style_sashimi",
+      "name": "苔原风味刺身",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:feasts",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:shengjian_mantou_plate",
+      "name": "一盘水煎包",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:baozi_plate",
+      "name": "一盘包子",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:qingtuan_plate",
+      "name": "一盘青团",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:sticky_candy_plate",
+      "name": "一盘牛皮糖",
+      "mod": "森罗物语·厨房",
+      "category": "甜点／零食",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:sticky_rice_cake_plate",
+      "name": "一盘糍粑",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:zongzi_plate",
+      "name": "一盘粽子",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:berry_platter",
+      "name": "浆果拼盘",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:apple_platter",
+      "name": "苹果拼盘",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 3.0
+    },
+    {
+      "id": "kaleidoscope_cookery:tomato_platter",
+      "name": "番茄拼盘",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:watermelon_platter",
+      "name": "西瓜拼盘",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 2.0
+    },
+    {
+      "id": "kaleidoscope_cookery:chorus_fruit_platter",
+      "name": "紫颂果拼盘",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:flower_tea",
+      "name": "花茶",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:tieguanyin",
+      "name": "铁观音",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 10.0
+    },
+    {
+      "id": "kaleidoscope_cookery:barley_tea",
+      "name": "麦香乌龙茶",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 10.0
+    },
+    {
+      "id": "kaleidoscope_cookery:biluochun",
+      "name": "碧螺春",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:oolong",
+      "name": "冻顶乌龙茶",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:sakura_fubuki",
+      "name": "樱吹雪",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:butter_tea",
+      "name": "酥油茶",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:clay_pot_milk_tea",
+      "name": "瓦罐奶茶",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:tea_egg",
+      "name": "茶叶蛋",
+      "mod": "森罗物语·厨房",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:scramble_egg_with_tomatoes",
+      "name": "番茄炒蛋",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:scramble_egg_with_tomatoes_rice_bowl",
+      "name": "番茄炒蛋盖饭",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 16.0
+    },
+    {
+      "id": "kaleidoscope_cookery:braised_beef",
+      "name": "红烧牛肉",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:braised_beef_rice_bowl",
+      "name": "红烧牛肉盖饭",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_cookery:stir_fried_pork_with_peppers",
+      "name": "青椒炒肉",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:stir_fried_pork_with_peppers_rice_bowl",
+      "name": "青椒炒肉盖饭",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 18.0
+    },
+    {
+      "id": "kaleidoscope_cookery:sweet_and_sour_pork",
+      "name": "糖醋里脊",
+      "mod": "森罗物语·厨房",
+      "category": "甜点／零食",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:sweet_and_sour_pork_rice_bowl",
+      "name": "糖醋里脊盖饭",
+      "mod": "森罗物语·厨房",
+      "category": "甜点／零食",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:fish_flavored_shredded_pork",
+      "name": "鱼香肉丝",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:fish_flavored_shredded_pork_rice_bowl",
+      "name": "鱼香肉丝盖饭",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 24.0
+    },
+    {
+      "id": "kaleidoscope_cookery:egg_fried_rice",
+      "name": "蛋炒饭",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 14.0
+    },
+    {
+      "id": "kaleidoscope_cookery:pork_bone_soup",
+      "name": "大骨汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:seafood_miso_soup",
+      "name": "海鲜味噌汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:fearsome_thick_soup",
+      "name": "恐惧浓汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:lamb_and_radish_soup",
+      "name": "萝卜羊肉汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:braised_beef_with_potatoes",
+      "name": "土豆炖牛肉",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:wild_mushroom_rabbit_soup",
+      "name": "野菌兔肉汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:pufferfish_soup",
+      "name": "河豚汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:borscht",
+      "name": "罗宋汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:beef_meatball_soup",
+      "name": "牛丸汤",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:chicken_and_mushroom_stew",
+      "name": "小鸡炖蘑菇",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:laba_congee",
+      "name": "腊八粥",
+      "mod": "森罗物语·厨房",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:sashimi",
+      "name": "刺身",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "forge:raw_fishes",
+        "forge:raw_fishes/tropical_fish",
+        "forge:raw_meats",
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "qty": {
+          "before": 3,
+          "after": 6
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 4.0
+    },
+    {
+      "id": "kaleidoscope_cookery:cooked_cow_offal",
+      "name": "熟牛杂",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "forge:cooked_beef",
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:donkey_burger",
+      "name": "驴肉火烧",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:dumpling",
+      "name": "饺子",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "needsDiscussion": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:sticky_candy",
+      "name": "牛皮糖",
+      "mod": "森罗物语·厨房",
+      "category": "甜点／零食",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:sticky_rice_cake",
+      "name": "糍粑",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:zongzi",
+      "name": "熟粽子",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:beef_noodle",
+      "name": "牛肉面",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:hui_noodle",
+      "name": "羊肉烩面",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:udon_noodle",
+      "name": "乌冬面",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 24.0
+    },
+    {
+      "id": "kaleidoscope_cookery:hot_dry_noodles",
+      "name": "热干面",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:cooked_meatball",
+      "name": "熟丸子",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
     }
   ]
 }

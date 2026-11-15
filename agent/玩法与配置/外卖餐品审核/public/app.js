@@ -6,21 +6,35 @@ function el(tag, text, cls) {
   if (cls) node.className = cls;
   return node;
 }
-const catalogResponse = await fetch("catalog.json");
-const {foods, recipes, icons, labels, tagIcons, fluidIcons = {}, draftKey, legacyDraftKeys = [], ingredientRoutes = {}, ingredientTags = {}} = await catalogResponse.json();
+const loadLabel=byId("load-label"), loadBar=byId("load-progress"), saveStatus=byId("save-status");
+const catalog = await new Promise((resolve,reject)=>{
+  const request=new XMLHttpRequest();
+  request.open("GET","catalog.json");
+  request.responseType="json";
+  request.onprogress=event=>{
+    if(!event.lengthComputable || !event.total)return;
+    loadBar.value=Math.floor(100*event.loaded/event.total);
+    loadLabel.textContent=`正在加载餐品 ${loadBar.value}%`;
+  };
+  request.onload=()=>request.status===200 && request.response ? resolve(request) : reject(Error("catalog.json: "+request.status));
+  request.onerror=()=>reject(Error("catalog.json: network error"));
+  request.send();
+});
+loadLabel.textContent="正在读取审核进度…";
+loadBar.removeAttribute("value");
+const {foods, recipes, icons, labels, tagIcons, fluidIcons = {}, ingredientRoutes = {}, ingredientTags = {}} = catalog.response;
 const all = Object.keys(foods), fields = ["enabled","price","tasteMultiplier","qty","bonuses","reviewNote","needsDiscussion","sideDish","preferred"];
 for (const food of Object.values(foods)) {
   food.tasteMultiplier ??= 1;
   food.preferred ??= false;
 }
 const baseline = Object.fromEntries(all.map(id => [id,Object.fromEntries(fields.map(k=>[k,foods[id][k]]))]));
-const storagePrefix = "niijima-food-review/";
-const keys = [draftKey || catalogResponse.headers.get("ETag"), ...legacyDraftKeys];
-const storageKey = storagePrefix + "review-v2/" + keys[0];
-const readDraft = prefix => keys.map(key=>localStorage.getItem(prefix+key)).find(value=>value!=null);
-const currentDraft = readDraft(storagePrefix+"review-v2/");
-const savedDraft = currentDraft ?? readDraft(storagePrefix);
-const edits = {};
+const revision = catalog.getResponseHeader("ETag");
+const progress = await fetch("progress", {cache:"no-store"});
+if (!progress.ok) throw Error("progress: " + progress.status);
+const edits = await progress.json();
+const storageKey = "niijima-food-review/pending/" + revision;
+const pending = JSON.parse(sessionStorage.getItem(storageKey) || "{}");
 let selection = new Set([all[0]]), anchor = all[0], visible = [], inspect = all[0], recipeIndex = 0;
 const tiles = new Map(), state = (id,k) => Object.hasOwn(edits[id] || {},k) ? edits[id][k] : baseline[id][k];
 const same = (a,b) => JSON.stringify(a) === JSON.stringify(b);
@@ -33,36 +47,55 @@ function setValue(id,k,value) {
   }
 }
 function putValue(id,k,value) {
+  (pending[id] ||= {})[k]=value;
   const change = edits[id] ||= {};
   if (same(value,baseline[id][k])) delete change[k]; else change[k]=value;
   if (!Object.keys(change).length) delete edits[id];
 }
-for (const [id, patch] of Object.entries(JSON.parse(savedDraft ?? "{}"))) {
-  if (!Object.hasOwn(foods,id)) continue;
-  for (const k of fields) {
-    if (k === "price" && currentDraft == null) continue; // Discard legacy price overrides at the requested reset.
-    if (Object.hasOwn(patch,k)) putValue(id,k,patch[k]);
-  }
-  // Preserve marks from drafts created when a disabled food could still be marked.
-  if (state(id,"sideDish") || state(id,"preferred")) putValue(id,"enabled",true);
-}
-if (savedDraft == null) {
-  const response = await fetch("review-progress.json");
-  if (!response.ok) throw Error("review-progress.json: " + response.status);
-  const progress = await response.json();
-  for (const {id, changes} of progress.changes) {
-    if (!Object.hasOwn(baseline, id)) continue;
-    for (const [key, {before, after}] of Object.entries(changes)) {
-      if (Object.hasOwn(baseline[id], key) && same(baseline[id][key], before)) putValue(id, key, after);
-    }
-  }
-}
-if (savedDraft != null && currentDraft == null) localStorage.setItem(storageKey,JSON.stringify(edits));
+for (const [id,patch] of Object.entries(pending))
+  for (const [k,value] of Object.entries(patch)) putValue(id,k,value);
 const priceFields = ["price","qty","tasteMultiplier","bonuses"];
-function save() {
-  localStorage.setItem(storageKey,JSON.stringify(edits));
-  receipt.textContent="";
+let saving, retry;
+async function post(path, data) {
+  const res=await fetch(path,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({revision,...data})});
+  const result=await res.json();
+  if(!res.ok)throw Error(result.error || res.statusText);
+  return result;
 }
+function rememberPending() {
+  if(Object.keys(pending).length)sessionStorage.setItem(storageKey,JSON.stringify(pending));
+  else sessionStorage.removeItem(storageKey);
+}
+async function drain() {
+  saveStatus.textContent="保存中…";
+  while(Object.keys(pending).length) {
+    const batch=JSON.parse(JSON.stringify(pending));
+    await post("progress",{edits:batch});
+    for(const [id,patch] of Object.entries(batch)) {
+      for(const [k,value] of Object.entries(patch))
+        if(same(pending[id][k],value))delete pending[id][k];
+      if(!Object.keys(pending[id]).length)delete pending[id];
+    }
+    rememberPending();
+  }
+  saveStatus.textContent="已保存";
+}
+function flush() {
+  clearTimeout(retry);
+  if (!saving && Object.keys(pending).length)
+    saving=drain().catch(err=>{
+      saveStatus.textContent="保存失败，正在重试";
+      retry=setTimeout(save,3000);
+      throw err;
+    }).finally(()=>{saving=null;});
+  return saving;
+}
+function save() {
+  rememberPending();
+  receipt.textContent="";
+  flush()?.catch(()=>{}); // drain reports the failure and schedules a retry.
+}
+if(Object.keys(pending).length)save();
 function icon(id) {
   if (!icons[id]) return el("span", "◇","icon");
   const i=el("img",null,id.startsWith("fluid/")?"icon fluid-icon":"icon");i.src=icons[id];i.alt="";i.draggable=false;return i;
@@ -349,8 +382,10 @@ function renderDetails(){
 byId("export").onclick=async e=>{
   const btn=e.currentTarget;btn.disabled=true;
   try{
-    const res=await fetch("export",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({revision:catalogResponse.headers.get("ETag"),edits})});
-    const data=await res.json();if(!res.ok)throw Error(data.error||res.statusText);receipt.textContent=data.file;
+    await flush();
+    receipt.textContent=(await post("export",{})).file;
   }catch(err){receipt.textContent=err.message;}finally{btn.disabled=false;}
 };
 renderGrid();renderDetails();
+byId("loading").remove();
+byId("export").disabled=false;
