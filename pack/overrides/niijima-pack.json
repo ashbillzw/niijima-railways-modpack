@@ -1,0 +1,147 @@
+{
+  "token": 114514,
+  "migration": {
+    "files": [
+      {
+        "path": "options.txt",
+        "mode": "mergeChangedKeys",
+        "defaults": [
+          {
+            "fromPackIds": [
+              "2",
+              "3",
+              "4",
+              "5",
+              "6",
+              "7",
+              "8",
+              "9",
+              "10",
+              "11",
+              "13",
+              "18",
+              "19",
+              "20",
+              "21",
+              "22",
+              "23",
+              "24",
+              "25",
+              "26",
+              "27",
+              "28",
+              "29",
+              "30",
+              "31",
+              "32",
+              "33",
+              "34",
+              "35",
+              "36",
+              "37",
+              "38",
+              "39",
+              "40",
+              "41",
+              "42",
+              "43",
+              "44",
+              "45",
+              "46",
+              "47",
+              "48",
+              "49",
+              "50",
+              "51",
+              "52",
+              "53",
+              "54",
+              "55"
+            ],
+            "file": "migration/defaults/options.txt.defaults.2"
+          },
+          {
+            "fromLegacyVersion": "1.5.1",
+            "file": "migration/defaults/options.txt.defaults.1.5.1"
+          },
+          {
+            "fromLegacyVersion": "1.5.1.a",
+            "file": "migration/defaults/options.txt.defaults.1.5.1"
+          },
+          {
+            "fromLegacyVersion": "1.5.1.ab",
+            "file": "migration/defaults/options.txt.defaults.1.5.1.ab"
+          },
+          {
+            "fromLegacyVersion": "1.5.1.f",
+            "file": "migration/defaults/options.txt.defaults.1.5.1"
+          },
+          {
+            "fromLegacyVersion": "1.5.1.m",
+            "file": "migration/defaults/options.txt.defaults.1.5.1"
+          },
+          {
+            "fromLegacyVersion": "1.5.0",
+            "file": "migration/defaults/options.txt.defaults.1.5.0"
+          },
+          {
+            "fromLegacyVersion": "1.5.0.a",
+            "file": "migration/defaults/options.txt.defaults.1.5.0"
+          },
+          {
+            "fromLegacyVersion": "1.5.0.ab",
+            "file": "migration/defaults/options.txt.defaults.1.5.0.ab"
+          },
+          {
+            "fromLegacyVersion": "1.5.0（FCL）",
+            "file": "migration/defaults/options.txt.defaults.1.5.0（FCL）"
+          },
+          {
+            "fromLegacyVersion": "1.5.0.m",
+            "file": "migration/defaults/options.txt.defaults.1.5.0"
+          },
+          {
+            "fromLegacyVersion": "1.4.4",
+            "file": "migration/defaults/options.txt.defaults.1.5.0"
+          },
+          {
+            "fromLegacyVersion": "1.4.4.a",
+            "file": "migration/defaults/options.txt.defaults.1.5.0"
+          },
+          {
+            "fromLegacyVersion": "1.4.4.ab",
+            "file": "migration/defaults/options.txt.defaults.1.4.4.ab"
+          },
+          {
+            "fromLegacyVersion": "1.4.4.f",
+            "file": "migration/defaults/options.txt.defaults.1.5.0（FCL）"
+          },
+          {
+            "fromLegacyVersion": "1.4.4.m",
+            "file": "migration/defaults/options.txt.defaults.1.5.0"
+          },
+          {
+            "fromLegacyVersion": "1.4.3",
+            "file": "migration/defaults/options.txt.defaults.1.5.0"
+          },
+          {
+            "fromLegacyVersion": "1.4.3.a",
+            "file": "migration/defaults/options.txt.defaults.1.5.0"
+          },
+          {
+            "fromLegacyVersion": "1.4.3.ab",
+            "file": "migration/defaults/options.txt.defaults.1.4.4.ab"
+          },
+          {
+            "fromLegacyVersion": "1.4.3.f",
+            "file": "migration/defaults/options.txt.defaults.1.5.0（FCL）"
+          },
+          {
+            "fromLegacyVersion": "1.4.2",
+            "file": "migration/defaults/options.txt.defaults.1.4.2"
+          }
+        ]
+      }
+    ]
+  }
+}

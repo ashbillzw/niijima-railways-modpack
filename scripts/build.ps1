@@ -161,11 +161,13 @@ function Build-Pack($Branch, $Suffix, $Label, [string]$Kind) {
             Copy-Item -LiteralPath (Join-Path $Repo 'pack') -Destination $pack -Recurse
         }
         $index = Read-Index $pack
-        if ($Branch) {
-            $version = [string]$index.versionId
-            if ($Suffix -and -not $version.EndsWith($Suffix)) { $version += $Suffix }
+        $version = [string]$index.versionId -replace '^(\d+\.\d+)\.0(?=\.|$)', '$1'
+        if ($Suffix -and -not $version.EndsWith($Suffix)) { $version += $Suffix }
+        if ($Branch -or $version -ne $index.versionId) {
             $index.versionId = $version
             $index.name = "新岛铁道 v$version$Label"
+        }
+        if ($Branch) {
             $extension = if ($Kind -eq 'modrinth') { 'mrpack' } else { 'zip' }
             $name = "$($index.name).$extension"
             if ($name.IndexOfAny([IO.Path]::GetInvalidFileNameChars()) -ge 0) { throw "Invalid output name: $name" }
