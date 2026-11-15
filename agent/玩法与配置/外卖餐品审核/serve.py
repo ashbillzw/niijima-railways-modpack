@@ -62,12 +62,21 @@ def main():
     root=Path(__file__).resolve().parent/"public"
     raw=(args.catalog or root/"catalog.json").read_bytes()
     revision='"'+sha256(raw).hexdigest()+'"'
-    foods=json.loads(raw)["foods"]
+    catalog=json.loads(raw)
+    foods=catalog["foods"]
+    # Old tabs may submit edits when only display names changed. All recipe and review fields must still match.
+    comparable={key:value for key,value in catalog.items() if key not in {"labels","draftKey","legacyDraftKeys"}}
+    comparable["foods"]={id:{k:v for k,v in food.items() if k!="name"} for id,food in foods.items()}
+    signature=sha256(json.dumps(comparable,sort_keys=True,ensure_ascii=False,separators=(",",":")).encode()).hexdigest()
     args.exports.mkdir(parents=True,exist_ok=True)
     database=args.exports/"progress.sqlite3"
     with closing(sqlite3.connect(database)) as db, db:
         db.execute("CREATE TABLE IF NOT EXISTS progress (revision TEXT PRIMARY KEY, edits TEXT NOT NULL)")
+        db.execute("CREATE TABLE IF NOT EXISTS catalog_versions (revision TEXT PRIMARY KEY, signature TEXT NOT NULL)")
+        db.execute("INSERT OR REPLACE INTO catalog_versions VALUES (?,?)",(revision,signature))
+        compatible={row[0] for row in db.execute("SELECT revision FROM catalog_versions WHERE signature=?",(signature,))}
         if not db.execute("SELECT 1 FROM progress WHERE revision=?", (revision,)).fetchone():
+            previous=db.execute("SELECT p.edits FROM progress p JOIN catalog_versions v USING (revision) WHERE v.signature=? ORDER BY v.rowid DESC LIMIT 1",(signature,)).fetchone()
             record=json.loads((root/"review-progress.json").read_bytes())
             for path in args.exports.glob("餐品修改-*.json"):
                 candidate=json.loads(path.read_bytes())
@@ -81,7 +90,7 @@ def main():
                     patch={k:v["after"] for k,v in entry["changes"].items()
                            if foods[id].get(k, {"preferred":False,"tasteMultiplier":1}.get(k))==v["before"]}
                     if patch:seed[id]=patch
-            db.execute("INSERT OR IGNORE INTO progress VALUES (?,?)",(revision,json.dumps(seed)))
+            db.execute("INSERT OR IGNORE INTO progress VALUES (?,?)",(revision,previous[0] if previous else json.dumps(seed)))
 
     def read_progress(db):
         return db.execute("SELECT edits FROM progress WHERE revision=?", (revision,)).fetchone()[0]
@@ -117,6 +126,8 @@ def main():
                 if not 0<size<=2_000_000 or self.headers.get_content_type()!="application/json":
                     raise ValueError("导出数据格式或大小无效")
                 data=json.loads(self.rfile.read(size))
+                if data.get("revision") in compatible:
+                    data["revision"]=revision
                 if self.path=="/progress":
                     with closing(sqlite3.connect(database)) as db, db:
                         db.execute("BEGIN IMMEDIATE")

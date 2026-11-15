@@ -37,11 +37,13 @@ def sheets(path):
 def catalogue(repo):
     docs = repo / "agent/玩法与配置"
     review = {(mod, r["B"]): r for mod, rows in sheets(docs / "美团食品审核表.xlsx") for r in rows if r.get("B") and r.get("C")}
-    pool = json.loads((repo/"pack/overrides/config/trainresync.json").read_bytes())["meituan"]["foods"]
+    pool = json.loads((repo/"pack/overrides/config/trainresync/meituan.json").read_bytes())["foods"]
     foods = {}
     for mod, rows in sheets(docs/"美团配送成品食品价表.xlsx"):
         for r in rows:
             id = r.get("C", "")
+            if id == "farmersdelight:melon_juice":  # Both recipes now supply the Tavern bottle.
+                continue
             if id.startswith("yuushya:") or not re.fullmatch(r"[\w.]+:[\w./-]+", id):
                 continue
             v = review[mod, r["B"]]
@@ -150,6 +152,14 @@ def main():
     kjs = overrides/"kubejs"
     for p in sorted(kjs.rglob("*.json")):
         resource(p.relative_to(kjs).as_posix(),lambda n:(kjs/n).read_bytes())
+    for p in (kjs/"assets").glob("*/lang/zh_cn.json"):
+        namespace=p.parent.parent.name
+        for key,name in json.loads(p.read_bytes()).items():
+            prefix=f"item.{namespace}."
+            if key.startswith(prefix):
+                item=namespace+":"+key[len(prefix):]
+                if item in foods:
+                    foods[item]["name"]=name
     for p in (kjs/"server_scripts").glob("*.js"):
         src = p.read_text(encoding="utf-8-sig")
         for block in re.findall(r"event\.remove\((.*?)\);",src,re.S):
@@ -169,7 +179,11 @@ def main():
         return out
     for tag in sorted(tags):
         for item in expand(tag) & foods.keys(): foods[item]["tags"].append(tag)
+    peculiars_config=tomllib.loads((overrides/"config/peculiars-common.toml").read_text(encoding="utf-8"))["atmospheric"]
     def present(c):
+        if c.get("type")=="peculiars:config":
+            if c["value"]=="disable_sorbet":return peculiars_config["DisableSorbet"]
+            if c["value"]=="enable_atmospheric_food":return peculiars_config["EnableAtmosphericFood"]
         typ=c.get("type","").split(":")[-1]
         if typ=="mod_loaded":return c["modid"] in mods
         if typ=="not":return not present(c["value"])
@@ -191,6 +205,13 @@ def main():
         if not isinstance(d,dict) or not all(map(present,d.get("conditions",[]))): continue
         if d.get("type")=="forge:conditional":
             d=next((r["recipe"] for r in d.get("recipes",[]) if all(map(present,r["conditions"]))),{})
+        # Mirror the pack's two Central Kitchen vessel substitutions when these recipes exist.
+        if rid == "create_central_kitchen:filling/melon_juice":
+            d["ingredients"][0]["item"] = "kaleidoscope_tavern:empty_bottle"
+            d["results"][0]["item"] = "kaleidoscope_tavern:watermelon_juice"
+        elif rid == "create_central_kitchen:emptying/melon_juice":
+            d["ingredients"][0]["item"] = "kaleidoscope_tavern:watermelon_juice"
+            d["results"][0]["item"] = "kaleidoscope_tavern:empty_bottle"
         outputs=d.get("result",d.get("results",d.get("output",[])))
         if not outputs:continue
         output_list=outputs if isinstance(outputs,list) else [outputs]
@@ -199,6 +220,8 @@ def main():
             and x["item"].endswith("_milkshake") for x in output_list
         ):continue
         available[rid]=d
+        if d.get("type") == "kaleidoscope_cookery:teapot":
+            d["result"]["count"] = 12
         for v in outputs if isinstance(outputs,list) else [outputs]:
             id=v if isinstance(v,str) else v.get("item") if isinstance(v,dict) else None
             id=replacements.get(id,id)

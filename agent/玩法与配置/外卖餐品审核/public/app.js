@@ -125,9 +125,15 @@ function updateEnabledCount() {
   byId("total").textContent = "已启用 " + count + " 种";
 }
 const groupOf = food => food.category === "搞怪（整蛊）" ? food.category : food.mod;
+function isDrink(id, food) {
+  // The workbook groups the three bottled smoothies with desserts and tea eggs with tea.
+  return (food.category === "饮品" && id !== "kaleidoscope_cookery:tea_egg") ||
+    id.endsWith("_smoothie") || food.tags.includes("fruitsdelight:juice") || food.tags.includes("farmersdelight:drinks");
+}
 function renderGrid() {
   const q=byId("search").value.trim().toLowerCase(), mod=byId("mod").value, filter=byId("rotation").value;
-  visible=all.filter(id=>(!mod || groupOf(foods[id])===mod) && (!filter || state(id,"enabled")===(filter==="on")) &&
+  const drinksOnly=byId("drinks").checked;
+  visible=all.filter(id=>(!drinksOnly || isDrink(id,foods[id])) && (!mod || groupOf(foods[id])===mod) && (!filter || state(id,"enabled")===(filter==="on")) &&
     (!q || [id,foods[id].name,foods[id].mod,...foods[id].tags].some(s=>s.toLowerCase().includes(q))));
   const groups=new Map(), fragment=document.createDocumentFragment();tiles.clear();
   for (const id of visible) {
@@ -149,7 +155,7 @@ function renderGrid() {
   updateEnabledCount();
 }
 for (const group of new Set(all.map(id=>groupOf(foods[id])))) byId("mod").add(new Option(group,group));
-for(const id of ["search","mod","rotation"]) byId(id).oninput=()=>{renderGrid();select(new Set([...selection].filter(id=>tiles.has(id))));};
+for(const id of ["search","mod","rotation","drinks"]) byId(id).oninput=()=>{renderGrid();select(new Set([...selection].filter(id=>tiles.has(id))));};
 function select(next,active) {
   const old=selection;selection=next;
   if (!selection.has(inspect) || active) {inspect=active && selection.has(active)?active:[...next][0];recipeIndex=0;}

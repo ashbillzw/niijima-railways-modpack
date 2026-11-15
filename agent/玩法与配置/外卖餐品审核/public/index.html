@@ -2,7 +2,7 @@
 <html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>外卖餐品审核</title><link rel="stylesheet" href="style.css">
 <header><div class="brand"><span aria-hidden="true">▦</span><h1>外卖餐品审核</h1></div><div class="status"><output id="receipt"></output> <output id="save-status"></output></div><button id="export" disabled>提交改动 ↗</button></header>
-<main><section class="catalog"><nav><h2>餐品 <small id="total"></small> <small id="visible-count"></small></h2><input id="search" type="search" placeholder="搜索餐品、ID、标签" aria-label="搜索餐品"><select id="mod" aria-label="模组"><option value="">全部模组</option></select><select id="rotation" aria-label="轮换筛选"><option value="">全部餐品</option><option value="on">已加入轮换</option><option value="off">未加入轮换</option></select></nav>
+<main><section class="catalog"><nav><h2>餐品 <small id="total"></small> <small id="visible-count"></small></h2><input id="search" type="search" placeholder="搜索餐品、ID、标签" aria-label="搜索餐品"><select id="mod" aria-label="模组"><option value="">全部模组</option></select><select id="rotation" aria-label="轮换筛选"><option value="">全部餐品</option><option value="on">已加入轮换</option><option value="off">未加入轮换</option></select><label><input id="drinks" type="checkbox">饮料</label></nav>
 <div id="loading"><label for="load-progress" id="load-label">正在加载餐品…</label><progress id="load-progress" max="100"></progress></div>
 <div id="grid" role="listbox" aria-label="餐品" aria-multiselectable="true" tabindex="0"></div></section>
 <aside id="details"></aside></main><div id="marquee" hidden></div>

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "baseline": "5a66bce6b688b6af01a4aab5858fcb1acd7d249d21187ef7b0780644d999ba5f",
+  "baseline": "fd65068b6aa089acd957daa4dd2b6f57a6b503439dda73696911cab5c6853242",
   "exportedAt": "2026-11-15T17:41:52.960398+08:00",
   "changes": [
     {
@@ -142,7 +142,7 @@
     },
     {
       "id": "farmersdelight:melon_popsicle",
-      "name": "西瓜冰棍",
+      "name": "西瓜棒冰",
       "mod": "农夫乐事",
       "category": "甜点／零食",
       "tags": [
