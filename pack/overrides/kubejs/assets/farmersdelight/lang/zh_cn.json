@@ -55,5 +55,6 @@
   "tag.block.farmersdelight.tray_heat_sources": "带托盘的热源",
   "tooltip.farmersdelight.horse_feed.when_feeding": "喂给已驯服的坐骑时：",
   "advancements.farmersdelight.harvest_straw.description": "使用刀收割草、小麦或水稻，获取草秆",
-  "advancements.farmersdelight.get_ham.description": "使用刀从猪或疣猪身上获取火腿"
+  "advancements.farmersdelight.get_ham.description": "使用刀从猪或疣猪身上获取火腿",
+  "item.farmersdelight.melon_popsicle": "西瓜棒冰"
 }

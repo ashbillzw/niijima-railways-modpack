@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "fruitsdelight:hamimelon_slice"
+    },
+    {
+      "item": "fruitsdelight:hamimelon_slice"
+    },
+    {
+      "item": "neapolitan:ice_cubes"
+    },
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "minecraft:glass_bottle"
+    }
+  ],
+  "result": {
+    "item": "fruitsdelight:hamimelon_shaved_ice"
+  }
+}
