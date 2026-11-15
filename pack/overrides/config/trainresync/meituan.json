@@ -1,0 +1,167 @@
+{
+  "enabled": true,
+  "nearRadius": 500,
+  "farStart": 500,
+  "farEnd": 1000,
+  "prankItemChance": 0.001,
+  "preferredPoolChance": 0.5,
+  "farProbability": 0.25,
+  "basePriceMultiplier": 1.5,
+  "eventActive": false,
+  "deliveryBaseRate": 0,
+  "playerMultiplier": 1.5,
+  "farMultiplier": 1.5,
+  "hotProbability": 0.1,
+  "hotMinHundredths": 150,
+  "hotMaxHundredths": 250,
+  "deliveryRadius": 10,
+  "deliveryTimeoutSeconds": 12000,
+  "animalMinSeconds": 300,
+  "animalMaxSeconds": 1800,
+  "animals": [
+    "美西螈",
+    "骆驼",
+    "猫",
+    "鸡",
+    "牛",
+    "苦力怕",
+    "驴",
+    "末影人",
+    "狐狸",
+    "山羊",
+    "守卫者",
+    "马",
+    "铁傀儡",
+    "羊驼",
+    "哞菇",
+    "骡",
+    "豹猫",
+    "熊猫",
+    "鹦鹉",
+    "猪",
+    "北极熊",
+    "兔子",
+    "绵羊",
+    "嗅探兽",
+    "雪傀儡",
+    "监守者",
+    "狼"
+  ],
+  "foods": {
+    "minecraft:piston": {
+      "整蛊": true,
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "minecraft:observer": {
+      "整蛊": true,
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "minecraft:repeater": {
+      "整蛊": true,
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "minecraft:comparator": {
+      "整蛊": true,
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "minecraft:lever": {
+      "整蛊": true,
+      "价格": 0.5,
+      "数量乘数": 1
+    },
+    "minecraft:tripwire_hook": {
+      "整蛊": true,
+      "价格": 0.75,
+      "数量乘数": 1
+    },
+    "minecraft:lightning_rod": {
+      "整蛊": true,
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "minecraft:rail": {
+      "整蛊": true,
+      "价格": 0.5,
+      "数量乘数": 1
+    },
+    "create:shaft": {
+      "整蛊": true,
+      "价格": 0.5,
+      "数量乘数": 1
+    },
+    "create:cogwheel": {
+      "整蛊": true,
+      "价格": 1,
+      "数量乘数": 1
+    },
+    "create:large_cogwheel": {
+      "整蛊": true,
+      "价格": 1.5,
+      "数量乘数": 1
+    },
+    "create:gearbox": {
+      "整蛊": true,
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "create:electron_tube": {
+      "整蛊": true,
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "create:railway_casing": {
+      "整蛊": true,
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "minecraft:beacon": {
+      "整蛊": true,
+      "价格": 512,
+      "数量乘数": 1
+    },
+    "minecraft:conduit": {
+      "整蛊": true,
+      "价格": 192,
+      "数量乘数": 1
+    },
+    "minecraft:netherite_block": {
+      "整蛊": true,
+      "价格": 2048,
+      "数量乘数": 1
+    },
+    "minecraft:end_crystal": {
+      "整蛊": true,
+      "价格": 24,
+      "数量乘数": 1
+    },
+    "minecraft:lodestone": {
+      "整蛊": true,
+      "价格": 160,
+      "数量乘数": 1
+    },
+    "minecraft:wither_skeleton_skull": {
+      "整蛊": true,
+      "价格": 128,
+      "数量乘数": 1
+    },
+    "farmersdelight:apple_pie": {
+      "价格": 8,
+      "数量乘数": 1,
+      "加成": {}
+    },
+    "farmersdelight:sweet_berry_cheesecake": {
+      "价格": 10,
+      "数量乘数": 1,
+      "加成": {}
+    },
+    "farmersdelight:chocolate_pie": {
+      "价格": 12,
+      "数量乘数": 1,
+      "加成": {}
+    }
+  }
+}
