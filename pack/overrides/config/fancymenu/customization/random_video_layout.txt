@@ -157,12 +157,54 @@ element {
 }
 
 element {
+  source = [source:local]/config/fancymenu/assets/press-anywhere-label.png
+  repeat_texture = false
+  nine_slice_texture = false
+  nine_slice_texture_border_x = 5
+  nine_slice_texture_border_y = 5
+  image_tint = #FFFFFF
+  restart_animated_on_menu_load = false
+  element_type = image
+  instance_identifier = 1fb3c569-2364-46b6-8671-867a1f046888
+  custom_element_layer_name = 开屏提示
+  appearance_delay = no_delay
+  appearance_delay_seconds = 1.0
+  fade_in_v2 = no_fading
+  fade_in_speed = 1.0
+  fade_out = no_fading
+  fade_out_speed = 1.0
+  base_opacity = 1.0
+  auto_sizing = false
+  auto_sizing_base_screen_width = 3840
+  auto_sizing_base_screen_height = 2160
+  sticky_anchor = true
+  anchor_point = bottom-centered
+  x = 0
+  y = -85
+  width = 143
+  height = 15
+  stretch_x = false
+  stretch_y = false
+  stay_on_screen = true
+  element_loading_requirement_container_identifier = 5d972930-2cdd-49d8-943e-a1999b5b625a
+  [loading_requirement_container_meta:5d972930-2cdd-49d8-943e-a1999b5b625a] = [groups:][instances:]
+  enable_parallax = false
+  parallax_intensity_v2 = 0.5
+  invert_parallax = false
+  animated_offset_x = 0
+  animated_offset_y = 0
+  load_once_per_session = false
+  in_editor_color = #FFC800FF
+  layer_hidden_in_editor = false
+}
+
+element {
   button_element_executable_block_identifier = 1a5c334a-0b8e-40cf-9362-e07113e9747f-1757399073110
-  [executable_action_instance:75c4d2c0-8dfb-4c33-86d9-7dc7b7db2b7e-1758602939763][action_type:opengui] = join_multiplayer_screen
+  [executable_action_instance:75c4d2c0-8dfb-4c33-86d9-7dc7b7db2b7e-1758602939763][action_type:opengui] = niijima_game_select
   [executable_block:1a5c334a-0b8e-40cf-9362-e07113e9747f-1757399073110][type:generic] = [executables:75c4d2c0-8dfb-4c33-86d9-7dc7b7db2b7e-1758602939763;]
-  backgroundnormal = [source:local]/config/fancymenu/assets/press-anywhere.png
-  backgroundhovered = [source:local]/config/fancymenu/assets/press-anywhere.png
-  background_texture_inactive = [source:local]/config/fancymenu/assets/press-anywhere.png
+  backgroundnormal = [source:local]/config/fancymenu/assets/transparent-hit.png
+  backgroundhovered = [source:local]/config/fancymenu/assets/transparent-hit.png
+  background_texture_inactive = [source:local]/config/fancymenu/assets/transparent-hit.png
   restartbackgroundanimations = true
   nine_slice_custom_background = false
   nine_slice_border_x = 5
@@ -185,7 +227,7 @@ element {
   nine_slice_slider_handle_border_y = 5
   element_type = custom_button
   instance_identifier = 224c0d8f-c6be-4045-8f3a-da544af6c8f1-1758614412210
-  custom_element_layer_name = 多人游戏按钮（全屏判定）
+  custom_element_layer_name = 进入游戏选择页（全屏判定）
   appearance_delay = no_delay
   appearance_delay_seconds = 1.0
   fade_in_v2 = no_fading

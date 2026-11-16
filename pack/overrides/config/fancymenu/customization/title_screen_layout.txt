@@ -236,7 +236,8 @@ element {
   stretch_y = false
   stay_on_screen = true
   element_loading_requirement_container_identifier = 0ba37a99-3eb0-47bb-8592-a07fce7e1321-1757402823727
-  [loading_requirement_container_meta:0ba37a99-3eb0-47bb-8592-a07fce7e1321-1757402823727] = [groups:][instances:]
+  [loading_requirement_container_meta:0ba37a99-3eb0-47bb-8592-a07fce7e1321-1757402823727] = [groups:][instances:93179fdf-7480-44f2-aca3-20c908437f1b;]
+  [loading_requirement:is_mcef_loaded][requirement_mode:if][req_id:93179fdf-7480-44f2-aca3-20c908437f1b] =
   enable_parallax = false
   parallax_intensity_v2 = 0.5
   invert_parallax = false
