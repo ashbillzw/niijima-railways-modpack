@@ -38,7 +38,7 @@
       if (width !== reservedWidth) reservedHeight = 0;
       reservedWidth = width;
       // Keep the page background stable when a shorter tab hides its attachment field.
-      reservedHeight = Math.max(reservedHeight, container.getBoundingClientRect().bottom - slot.getBoundingClientRect().top);
+      reservedHeight = Math.max(reservedHeight, container.offsetHeight + parseFloat(getComputedStyle(container).marginTop));
       slot.style.minHeight = `${Math.ceil(reservedHeight)}px`;
     }
   });

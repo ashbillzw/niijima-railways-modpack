@@ -1,15 +1,16 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="zh-CN" class="home-page">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>新島鉃道</title>
   <!--# set var="v3_home" value="1" -->
   <!--# include virtual="/v3/_includes/head.html" -->
-  <script src="/v3/assets/home.js?v=2e27ee6" defer></script>
+  <script src="/v3/assets/home.js?v=20261117" defer></script>
 </head>
 <body class="console">
   <!--# include virtual="/v3/_includes/header.html" -->
+  <div class="cabinet-viewport">
   <main class="home">
     <aside class="console-side side-left">
       <div class="map-switcher control-bay panel" role="group" aria-label="地图">
@@ -19,8 +20,10 @@
         <button class="console-key" type="button" data-server="create-cn" data-map-key="create-cn-rail-map" data-map="/create-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>主服铁道图</span></button>
         <button class="console-key" type="button" data-server="train-cn" data-map-key="train-cn-rail-map" data-map="/train-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>测试服铁道图</span></button>
       </div>
-      <div class="instrument meter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="meter-case"><!--# include virtual="/v3/assets/mspt-meter.svg" --></div></div>
-      <div class="vent" aria-hidden="true"></div>
+      <div class="instrument-slot">
+        <div class="instrument meter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="meter-case"><!--# include virtual="/v3/assets/mspt-meter.svg" --></div></div>
+      </div>
+      <div class="side-filler" aria-hidden="true"><div class="vent"></div><div class="filler-strip"></div></div>
     </aside>
     <section class="map-section" aria-label="地图">
       <span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span>
@@ -35,10 +38,19 @@
     </section>
     <aside class="console-side side-right">
       <div class="event-banners control-bay panel" id="event-banners"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><button class="console-key blank-key" disabled aria-hidden="true" tabindex="-1"></button><button class="console-key blank-key" disabled aria-hidden="true" tabindex="-1"></button><button class="console-key blank-key" disabled aria-hidden="true" tabindex="-1"></button></div>
-      <div class="instrument counter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="counter"><div class="metal-label">在线人数</div><div class="counter-window"><svg class="seven-segment" id="online-players" role="img"></svg></div></div><div class="counter"><div class="metal-label">总登录次数</div><div class="counter-window"><svg class="seven-segment" id="total-logins" role="img"></svg></div></div></div>
-      <div class="vent" aria-hidden="true"></div>
+      <div class="instrument-slot">
+        <div class="instrument counter-panel panel">
+          <span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span>
+          <div class="counter-assembly">
+            <div class="counter"><div class="metal-label">在线人数</div><div class="counter-window"><svg class="seven-segment" id="online-players" role="img"></svg></div></div>
+            <div class="counter"><div class="metal-label">总登录次数</div><div class="counter-window"><svg class="seven-segment" id="total-logins" role="img"></svg></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="side-filler" aria-hidden="true"><div class="vent"></div><div class="filler-strip"></div></div>
     </aside>
   </main>
+  </div>
   <template id="screen-feedback-v1.6">
     <img src="/v3/assets/feedback-button-c3-884.png" srcset="/v3/assets/feedback-button-c3-221.png 221w, /v3/assets/feedback-button-c3-884.png 884w" sizes="(max-width: 1279px) 221px, 320px" alt="Bug反馈，奖励发放中！" width="884" height="324">
   </template>

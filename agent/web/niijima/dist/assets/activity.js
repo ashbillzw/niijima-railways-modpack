@@ -8,7 +8,10 @@
       throw new Error('Invalid activity destination');
     if (target.origin === entry.origin && target.pathname.replace(/index\.html$/, '') === entry.pathname.replace(/index\.html$/, ''))
       throw new Error('Activity redirect loop');
-    if (entry.searchParams.get('in_game') === '1') target.searchParams.set('in_game', '1');
+    if (entry.searchParams.get('in_game') === '1') {
+      if (target.origin !== entry.origin) throw new Error('External activity destination');
+      target.searchParams.set('in_game', '1');
+    }
     return target;
   }
   const controller = new AbortController();

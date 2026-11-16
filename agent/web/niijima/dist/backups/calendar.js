@@ -20,7 +20,8 @@ function balanceSourceRows() {
     - parseFloat(panelStyle.paddingLeft) - parseFloat(panelStyle.paddingRight)
     - parseFloat(panelStyle.borderLeftWidth) - parseFloat(panelStyle.borderRightWidth);
   const gap = parseFloat(getComputedStyle(sourceBar).columnGap);
-  const widths = barItems.map(item => item.getBoundingClientRect().width);
+  const scale = Number(document.documentElement.style.getPropertyValue('--page-scale')) || 1;
+  const widths = barItems.map(item => item.getBoundingClientRect().width / scale);
   for (let rows = 1; rows <= widths.length; rows++) {
     const starts = [];
     let longest = 0;
@@ -34,7 +35,7 @@ function balanceSourceRows() {
       index += count;
     }
     if (index === widths.length) {
-      sourceBar.style.width = longest + "px";
+      sourceBar.style.width = Math.ceil(longest + 1) + "px";
       rowBreaks.forEach((br,i) => { br.hidden = !starts.includes(i+1); });
       return;
     }
@@ -97,10 +98,16 @@ function fileCell(record, day) {
     label.textContent = "已移除";
   } else {
     link.className += record.playerData ? " day-link player-data" : " day-link";
-    link.href = new URL(record.path, dlOrigin).href;
-    link.download = record.path.split("/").pop();
-    link.title = link.download;
-    link.setAttribute("aria-label", record.date + " " + link.download);
+    const filename = record.path.split("/").pop();
+    if (document.documentElement.classList.contains("in-game")) {
+      link.href = "#";
+      link.dataset.browserDownload = "";
+    } else {
+      link.href = new URL(record.path, dlOrigin).href;
+      link.download = filename;
+    }
+    link.title = filename;
+    link.setAttribute("aria-label", record.date + " " + filename);
     label.textContent = record.playerData ? "玩家信息" : capacity(record.bytes);
   }
   if (day !== undefined) link.append(String(day));

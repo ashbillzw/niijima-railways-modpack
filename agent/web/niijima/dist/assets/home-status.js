@@ -16,6 +16,8 @@ const pageQuery = new URLSearchParams(location.search);
 const mapKey = pageQuery.get('map');
 const mapDate = mapKey === 'rail-network' && pageQuery.get('mapdate');
 const frame = document.getElementById('map');
+if (frame && pageQuery.get('in_game') === '1')
+  frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-pointer-lock');
 const message = document.querySelector('.map-outage');
 const sign = document.querySelector('.room-signals');
 const needle = document.querySelector('#needle path');
@@ -36,6 +38,7 @@ function updateFrame(now) {
   const canLoad = !live || (mapErrors.get(selected) === null && interrupted(servers.get(selected.dataset.server), now) === null);
   let src = canLoad ? url : 'about:blank';
   if (mapDate && selected.dataset.mapKey === 'rail-network') src += '?mapdate=' + encodeURIComponent(mapDate);
+  if (canLoad && pageQuery.get('in_game') === '1') src += (src.includes('?') ? '&' : '?') + 'in_game=1';
   if (frame.getAttribute('src') !== src || (canLoad && frameErrors.has(selected) && now - navigatedAt >= 15_000)) {
     navigatedAt = now;
     frame.classList.remove('ready');

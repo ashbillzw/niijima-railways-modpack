@@ -19,7 +19,7 @@ http {
     server {
         listen 127.0.0.1:$Port;
         location = / { return 302 /v3/; }
-        location = /synology-root/minecraft/assets/rail-network/2026-11-14-plan.svg {
+        location = /synology-root/minecraft/niijima-website-v3/assets/rail-network/2026-11-14-plan.svg {
             alias "$dist/../deploy/rail-network/2026-11-14-plan.svg";
         }
         location /v3/ {

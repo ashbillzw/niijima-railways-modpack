@@ -1,3 +1,11 @@
+/* Breakpoints and viewport lengths use the same coordinates as the page contents. */
+html {
+  container: site-viewport / size;
+  height: 100%;
+  zoom: var(--page-scale, 1);
+  --page-vw: calc(1vw / var(--page-scale, 1));
+  --page-vh: calc(1dvh / var(--page-scale, 1));
+}
 :root {
   color-scheme: light;
   --nav-paper: #fffdf6;
@@ -24,24 +32,15 @@
 .more-links a { display: block; white-space: nowrap; }
 .menu-toggle { display: none; background: transparent; border: 1px solid var(--nav-line); color: inherit; font: inherit; cursor: pointer; }
 .shared-footer { padding: 18px 24px; border-top: 1px solid var(--nav-line); }
-.footer-links { display: flex; justify-content: center; flex-wrap: wrap; column-gap: 28px; row-gap: 12px; font-size: 13px; }
+.footer-links { display: flex; justify-content: center; white-space: nowrap; column-gap: 28px; font-size: 13px; }
 .footer-links a { display: inline-flex; align-items: center; gap: 7px; position: relative; }
 .footer-links a + a::before { content: ''; position: absolute; left: -14px; height: 14px; border-left: 1px solid #b7c0b3; }
 .footer-links a:hover { color: #a76200; }
 .footer-links img { object-fit: contain; }
-@media (max-width: 640px) {
-  .navigation-shell { width: calc(100% - 32px); flex-wrap: wrap; gap: 0; padding: 14px 0; min-height: 68px; }
-  .home-logo { width: 30px; height: 30px; }
-  .home-wordmark { width: 100px; }
 
-  .site-navigation { display: flex; width: auto; flex-wrap: nowrap; gap: 6px; padding: 0; }
-  .menu-toggle[aria-expanded="true"] + .site-navigation { display: flex; }
-  .site-navigation > a, .more-menu summary { padding: 8px 14px; }
-  .more-links { right: 0; }
-  .footer-links { flex-direction: column; align-items: center; }
-  .footer-links a + a::before { display: none; }
-}
-
+html:not(.embedded, .hide-nav) body { -webkit-user-select: none; user-select: none; }
+.shared-footer .footer-links, input, textarea, [contenteditable="true"], [contenteditable="plaintext-only"] { -webkit-user-select: text; user-select: text; }
+.shared-footer .footer-links img { -webkit-user-select: none; user-select: none; }
 .footer-links img { width: 18px; height: 18px; image-rendering: auto; }
 
 .v3-chrome { font: 15px/1.5 "Noto Sans SC", "Niijima Meow"; flex-shrink: 0; }
@@ -49,18 +48,16 @@
 .v3-chrome a { color: inherit; text-decoration: none; }
 .chrome-header { position: relative; z-index: 5; }
 .feedback-shell { margin-top: 25px; }
-.embedded .v3-chrome, .hide-nav .v3-chrome, .in-game .chrome-footer,
-.in-game .v3-chrome .site-navigation, .in-game .v3-chrome .room-signals { display: none; }
+.embedded .v3-chrome, .hide-nav .v3-chrome { display: none; }
 .embedded .feedback-shell, .hide-nav .feedback-shell { margin-top: 0; }
 
-@media (min-width: 761px) and (min-height: 560px) {
-  html:not(.embedded, .hide-nav, .in-game) > body:has(> .page-scroll) {
+@media (min-aspect-ratio: 6/5) {
+  html:not(.embedded, .hide-nav) > body:has(> .page-scroll) {
     display: grid;
     grid-template-rows: auto minmax(0, 1fr) auto;
-    height: 100vh;
-    height: 100dvh;
+    height: calc(100 * var(--page-vh));
   }
-  html:not(.embedded, .hide-nav, .in-game) > body > .page-scroll {
+  html:not(.embedded, .hide-nav) > body > .page-scroll {
     min-width: 0;
     overflow: auto;
   }
