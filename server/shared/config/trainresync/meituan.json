@@ -1,5 +1,4 @@
 {
-  "enabled": true,
   "nearRadius": 500,
   "farStart": 500,
   "farEnd": 1000,

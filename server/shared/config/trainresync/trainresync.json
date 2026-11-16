@@ -1,4 +1,5 @@
 {
   "railwayDataProtection": true,
-  "playerSponsorship": false
+  "playerSponsorship": true,
+  "meituan": true
 }
