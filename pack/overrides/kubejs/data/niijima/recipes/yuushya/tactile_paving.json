@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "yuushya:facility_blueprint"
+  },
+  "result": "yuushya:tactile_paving",
+  "count": 4
+}
