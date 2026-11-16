@@ -33,3 +33,11 @@ JAR 的 `data/yuushya/register/texture.json` 将下列七个方块的 `auto_gene
 create-cn 与 train-cn 分别写入 7 个文件，两套内容逐字节与本地配方一致。通过同一条内网 SSH 在两服各自的 Minecraft 控制台执行一次 reload。两服 KubeJS 的 Found 均从 15069 增至 15076，既有失败数均维持 4，未见指向此次配方 ID 的错误。两服随后均加载 6706 项进度，服务状态为 active。此为服务端文件和重载日志验证，未在玩家端打开 JEI 或实际操作切石机。
 
 线上补查发现，共用的 Yuushya、KubeJS、TrainResync JAR 在两服分别同哈希。与既有共用配置约定有出入的线上值（主服／创造服）为 WorldEdit 导航工具基岩／指南针、女仆区块加载半径 0／8、东方女仆四项原版模型／贴图替换 true／false。另有 OEI 的 Clear_Food_Properties 为 true／false，重写模式与目录规则也有配置差异，缺字段的运行时默认未核实。上述差异此轮只读核对；TrainResync 铁路恢复目录按服名分开属预期。
+
+### 2026-11-16 22:09 双服配置跟进（线上 1.5.1）
+
+创造服已将女仆区块加载半径从 8 调至 0、WorldEdit 导航工具从指南针调至基岩；OEI common.json 已完整采用主服文件并逐字节回读。主服三项原已符合要求。创造服 WorldEdit 独立重载返回 Configuration reloaded!。服务器未重启；女仆加载行为在类初始化时缓存半径，创造服下次正常重启后按新半径运行。OEI 仅验证配置落盘，未验证当前进程是否热读。原文件位于主机 /home/ashbill/niijima-config-backups/train-cn-20261116T140941270831Z。
+
+东方女仆四项外观替换现场仍为主服 true、创造服 false，本轮仅核实。1.4.0 的客户端 EntityYukkuriSlimeRender.render 读取 ReplaceSlimeModel，关闭时调用原版 SlimeRenderer。包内客户端默认关闭，玩家报告在主服看到原版史莱姆，与此吻合。
+
+22:27 后续：按 AshBill 要求关闭主服上述四项外观替换。两服线上配置已回读为全部 false，与开发分支内玩家包及两服更新器一致。主服备份在 /home/ashbill/niijima-config-backups/create-cn-20261116T142736575459Z/config/touhou_little_maid-common.toml。

@@ -488,3 +488,30 @@ TrainResync 当前切到 diag/railway-memory-20261104，在原线上 p-diag 基�
 此前的“服务器原件未删”记录为归档完成时的状态。经用户授权，在两服日志目录逐份复核 28 份 JFR 的 SHA-256 后按清单删除，再查清单剩余 0 份。系统盘可用空间由 92,288,589,824 增至 99,492,397,056 字节，本机保留已校验原件。
 
 Create 0.5.0g 的 [#4225](https://github.com/Creators-of-Create/Create/issues/4225) 与本次抽样指向同一个搜索方法。报告者在强加载下界抽无限岩浆时复现，堆分析中待搜索列表 frontier 保留超过 326 MB（[原始记录](https://github.com/Creators-of-Create/Create/issues/4225#issuecomment-1365854584)）。上游提交 [f07574b](https://github.com/Creators-of-Create/Create/commit/f07574bff18424e83471c8aa7e8b8297e1ad2445) 针对搜到未加载区块的路径补清集合，作者注明可能缓解。本地包的 0.5.1.j JAR 反汇编已确认包含两处清理。该 issue 仍开放，本服缺少确定持有者的引用链。另一项 [#9751](https://github.com/Creators-of-Create/Create/issues/9751) 讨论 6.0.8 搜索队列从 ArrayList 头部移除带来的 CPU 成本。检索未见针对本服这一堆保留现象的确认修复。
+
+
+### 2026-11-17　主服一次残留铁路临时文件的日志核查
+
+以下均为北京时间。2026-11-16 22:47:03，systemd 开始停止 mc-create-cn-r2。22:47:11 游戏记录 Stopping server、Saving players 和 Saving worlds。22:47:13 systemd 记录 Deactivated successfully、Stopped，并于同秒重新启动该服务。所查时间窗无内核 OOM 击杀记录，服务日志未报停止超时。22:47:33 游戏记录 RailwayDataGuard 将残留临时文件归档到 `/synology/MCShare/csjwp/minecraft/railway-recovery/create-cn/create_tracks-20261116-144713048Z-3493637133233327332.dat.tmp`，随后加载正式 create_tracks.dat。归档名时间来自临时文件的 UTC 修改时间。服务为 Type=forking，ExecStop 通过 screen 输入 stop。systemd 的成功状态不能单独证明每项存档都写完，现有日志未明确指出最后一次临时写入中断的直接原因。
+
+#### 追查同一次中断（11 月 17 日，只读）
+
+重启来自当天为启用 RCON 执行的维护脚本。它先发 `save-all flush`，等到游戏确认，再执行 `systemctl restart mc-create-cn-r2.service`。主服 `logs/debug-2.log.gz` 显示，北京时间 22:46:59.724 铁路 DAT 已提交（耗时 1633 ms），22:47:02.852 游戏确认 `Saved the game`。随后关服流程又写了一次铁路数据。
+
+NAS 归档为 3,478,717 字节。只读解压得到 31,634,215 字节，gzip 流提前结束。按 NBT 标签解析，已完整读过 RailGraphs、SignalBlocks 和 DimensionPalette，Trains 列表声明 156 项，前 67 项完整，第 68 项中途断开。这是临时文件的写入位置，不能据此推算正式存档少了哪些车。TrainResync 原子写入先生成临时文件，写完后才替换正式 DAT。下次启动验证并使用了正式文件。日志没有给出两次保存之间具体有哪些状态变化。
+
+两服服务的 ExecStop 通过 screen 输入 stop；主服的该命令不等待 Java 退出。两服均采用 control-group，重启退出信号为 SIGTERM，停止超时 180 秒。按 systemd.kill 的定义，ExecStop 返回后即可向仍运行的进程组发送终止信号，随后发送 SIGCONT。22:47:03.056 Java 的 SIGCONT handler 已有日志，22:47:12.000 游戏才开始保存主世界区块。服务流程确有提前发信号的窗口，现有日志不能锁定约十秒后结束 JVM 的直接原因。未发现 OOM、停止超时或最终强杀记录。若调整停服方式，关键是发 stop 后等待本轮 Java 进程完成退出，再让 ExecStop 返回。此次未改线上配置或数据。
+
+#### 2026-11-17　同机用户级 systemd／screen 隔离复现
+
+以 ashbill 普通用户运行临时服务和模拟游戏控制台，复用了生产机的 systemd、GNU screen 和相同的旧参数写法。参数探针发现，`$'stop\n'` 作为 unit 命令参数在执行时整项消失。复现 ExecStop 时，透传给真实 screen 的实参只有 `-S <临时会话> -X stuff`。screen 返回 0，假游戏未收到控制台命令，随后收到 TERM。这比只看 systemctl show 更能解释风险；11 月 16 日当时没有逐参数跟踪，不能据此断言具体哪个信号终结了 JVM。
+
+候选脚本直接传递包含回车的 stop，并在 ExecStop 内等待该服务控制组里的原有游戏相关进程退出（排除脚本自身）。两种模拟保存均等待 1.77 秒，确认保存完成且没有提前 TERM；第二种确认 screen 已先退出。故意卡死时，测试 TimeoutStopSec=4s，8.39 秒后 Result=timeout，控制组已清空。超时可分为等待 ExecStop 和后续终止阶段，不能将单个超时值当作总时长硬上限。
+
+前后两服均 active，各自的 InvocationID、启动时间、screen／bash／Java PID 均相同。测试单元、screen 会话与专属临时目录已清理。此次未安装候选脚本或修改两服 unit；真实 Minecraft 停服尚需独立维护验证。
+
+#### 2026-11-17　两服部署及实际停服验证
+
+按北京时间，约 06:58 起逐服维护。两服实时 list 均为 0/20，各服收到 save-all flush 的确认后在重启前再查零人。两服均使用 root 所有的 `/usr/local/libexec/niijima-stop-screen-service.py`（SHA-256 `a03e21734d01e41755ae501b2e54a2c6f4c8ac81e7c60c376b67f42a4bdc4121`），单元覆盖文件分别位于 `/etc/systemd/system/mc-{train,create}-cn-r2.service.d/50-niijima-graceful-stop.conf`。覆盖项清空旧 ExecStop，再调用 `/usr/bin/python3 /usr/local/libexec/niijima-stop-screen-service.py %n mc-<服务器名>`（两个 screen 名实际为 mc-train-cn 和 mc-create-cn）；保留 control-group 和 180 秒超时。基础 unit 未改。需要恢复旧定义时，撤掉对应的 50-niijima-graceful-stop.conf 再 daemon-reload 即可，不涉及游戏数据。
+
+创造服 06:58:30 铁路提交成功，所有维度保存完成，systemd 约 5 秒内正常停止并重启。主服 06:59:28.862 铁路提交成功，06:59:29.010 所有维度保存完成；06:59:29.023 RCON Listener 已停，随后 Server thread 等待一个 WAITING 的 RconClient 退出，警告持续到 179 秒。07:02:19 systemd 达到停止超时并发 TERM，07:02:29 记录上一个服务结果为 timeout，重新启动。未确定该 RCON 客户端的身份。两服本次新进程均到达 Done，游戏端口监听，list 返回 0，未新增铁路恢复归档，两服新服务状态均为 active/running。主服这次验证通过了实际存档和重新启动，但旧进程未自行干净退出。
