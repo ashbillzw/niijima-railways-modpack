@@ -515,3 +515,17 @@ NAS 归档为 3,478,717 字节。只读解压得到 31,634,215 字节，gzip 流
 按北京时间，约 06:58 起逐服维护。两服实时 list 均为 0/20，各服收到 save-all flush 的确认后在重启前再查零人。两服均使用 root 所有的 `/usr/local/libexec/niijima-stop-screen-service.py`（SHA-256 `a03e21734d01e41755ae501b2e54a2c6f4c8ac81e7c60c376b67f42a4bdc4121`），单元覆盖文件分别位于 `/etc/systemd/system/mc-{train,create}-cn-r2.service.d/50-niijima-graceful-stop.conf`。覆盖项清空旧 ExecStop，再调用 `/usr/bin/python3 /usr/local/libexec/niijima-stop-screen-service.py %n mc-<服务器名>`（两个 screen 名实际为 mc-train-cn 和 mc-create-cn）；保留 control-group 和 180 秒超时。基础 unit 未改。需要恢复旧定义时，撤掉对应的 50-niijima-graceful-stop.conf 再 daemon-reload 即可，不涉及游戏数据。
 
 创造服 06:58:30 铁路提交成功，所有维度保存完成，systemd 约 5 秒内正常停止并重启。主服 06:59:28.862 铁路提交成功，06:59:29.010 所有维度保存完成；06:59:29.023 RCON Listener 已停，随后 Server thread 等待一个 WAITING 的 RconClient 退出，警告持续到 179 秒。07:02:19 systemd 达到停止超时并发 TERM，07:02:29 记录上一个服务结果为 timeout，重新启动。未确定该 RCON 客户端的身份。两服本次新进程均到达 Done，游戏端口监听，list 返回 0，未新增铁路恢复归档，两服新服务状态均为 active/running。主服这次验证通过了实际存档和重新启动，但旧进程未自行干净退出。
+
+#### 2026-11-18　主服 RCON 停服互等调查
+
+11 月 17 日主服已保存所有维度，RCON Listener 也已退出。随后告警里的 WAITING 是 RconClient 工作线程的状态，附带的异常栈却是调用 stop 的 Server thread 的栈，不能从这段栈直接读出工作线程在等哪条命令。
+
+在本机用 Minecraft 1.20.1 的 RconClient、GenericThread 和 BlockableEventLoop 做了回环协议测试（本地 Forge 47.2.0，线上 47.4.6）。已认证的空闲连接在 stop 关闭 socket 后正常退出；另一连接发送 list，待命令进入主线程队列后关闭客户端、保持主线程暂停消费，再执行 stop，复现 RconClient (WAITING) 和相同的 stop 告警。工作线程栈在 CompletableFuture.join → executeBlocking 等待命令完成。恢复执行这一项，两条线程都退出。这解释了线上观察到的互等：主线程等 RCON 工作线程退出，工作线程在等主线程执行命令。延长 systemd 停服超时或在命令已排队后断开客户端，均不能解除这个等待。线上未取得工作线程自身的线程转储，未能确认具体命令。
+
+当时两服 1.5.1 未注册 niijima-chat，聊天监听器的本地日志记录了命令不可用、超时和连接被拒。工具遇错后等 3 秒重试，未知命令也需要进入主线程才能被判定为未知，因此监听器是可能的请求方。监听器日志不含逐次请求的时间和连接端口，停服告警的对象标识也不包含客户端信息，不能确认归属。运维上可在停服前暂停所有 RCON 轮询，等在途查询结束后经 screen 发 stop；服务端的根治方向是让关闭流程拒绝新命令并解除在途 RCON 等待。本次只调查与本地复现。复现源码在独立工作目录 railway-exit-20261117/rcon-standalone/RconStopProbe.java。
+
+2026-11-18 运维处理：计划停服前，在监听器所在 Windows 用户下从 TrainResync 仓运行 `python tools/rcon_chat.py pause <服务器名>`，确认输出 paused and drained 且成功退出，其他 RCON 工具也暂停后，再走现有 screen / ExecStop。新进程 Done 后运行 `python tools/rcon_chat.py resume <服务器名> --after-restart`。失败处理见 TrainResync 仓库 `agent/RCON玩家聊天.md`。用 Windows 多进程与回环 RCON 验证了等待在途回包、暂停期间拦截后续请求、两服隔离和异常断线／进程退出时保留未确认标记。尚未经生产重启验证。
+
+2026-11-18 后续：TrainResync 1.6.0.bg 从专服 onServerExit 释放仍在等待主线程的 RCON 命令，测试版 test0070 / master pack-id 67，包与两服 shared 已同步。核查两服自动重启配置及 2.0.2 模组字节码：其定时重启调用 MinecraftServer.halt(false)，故正常退出经过本修复，触发方无须协调 Windows 监听器。已用 1.20.1 原版 RconClient 和编译后的修复重现「连接保持、命令在途、主线程回收」并正常退出。以上是本地实测；生产状态以部署记录为准。
+
+线上部署：2026-11-18 北京时间，零人逐服保存并更换为 trainresync-1.6.0.bg-all.jar（SHA-256 2d88865d2880de1d7f4027e773416e5df17656d18d1d059326f634fed16c1f6f）；创造服 00:43:28、主服 00:46:06 启动完成，均已验证 systemd active、RCON list 和聊天命令返回。两服 AutoRestart 2.0.2 的实机哈希均与已审查的快照一致。服务端配置、systemd 停服脚本均沿用原值。本次验证了新版启动与命令执行，自动停服竞态已在本机复现并通过修复验证；尚未观察两服新版第一次定时退出。
