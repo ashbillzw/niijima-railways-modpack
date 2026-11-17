@@ -69,7 +69,7 @@ function arrangeNavigation() {
   // Both modes use the four-switch breakpoint, even when More is hidden in game.
   const slotWidth = navigation.querySelector('.download-link').offsetWidth + parseFloat(getComputedStyle(navigation).columnGap);
   const extraWidth = compactLinks.length * slotWidth;
-  const expandedWidth = headerWidth + (folded ? extraWidth : inGame ? slotWidth : 0);
+  const expandedWidth = headerWidth + (folded ? extraWidth : inGame && !document.documentElement.classList.contains("game-home") ? slotWidth : 0);
   const compact = available < expandedWidth;
   document.documentElement.classList.toggle('compact-navigation', compact);
   if (compact !== folded) {

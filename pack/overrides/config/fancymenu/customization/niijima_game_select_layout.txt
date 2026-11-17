@@ -43,7 +43,7 @@ layout_action_executable_blocks {
 }
 
 element {
-  url = https://mc1.ashbill.com:25572/v3/?in_game=1
+  url = file:///{"placeholder":"absolute_path","values":{"short_path":"config/fancymenu/assets/niijima/base.html"}}
   interactable = true
   hide_video_controls = false
   loop_videos = false

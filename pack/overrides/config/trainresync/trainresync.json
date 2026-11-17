@@ -1,4 +1,9 @@
 {
   "playerSponsorship": false,
-  "meituan": true
+  "meituan": true,
+  "gameMenu": {
+    "probeIntervalMs": 1000,
+    "probeTimeoutMs": 5000,
+    "inactiveTimeoutMs": 2500
+  }
 }

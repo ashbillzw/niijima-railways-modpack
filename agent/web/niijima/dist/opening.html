@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>新島鉃道</title>
+  <link rel="icon" type="image/jpeg" href="/v3/assets/niijima-logo.jpg">
+  <style>
+    html, body { height: 100%; margin: 0; overflow: hidden; }
+    body { background: #000 url('/assets/bg-loading.gif') center / cover no-repeat; }
+    video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; opacity: 0; }
+    video.playing { opacity: 1; }
+  </style>
+</head>
+<body>
+  <video autoplay playsinline></video>
+  <script>
+    const video = document.querySelector('video');
+    const album = '/bg-video-album/';
+    const historyKey = 'ashbill_bg_video_history_v1';
+    let history = [];
+    try {
+      const saved = JSON.parse(localStorage.getItem(historyKey));
+      if (Array.isArray(saved)) history = saved;
+    } catch { /* Embedded browsers can disable storage. */ }
+
+    video.addEventListener('playing', () => {
+      video.classList.add('playing');
+      if (window.parent !== window) window.parent.postMessage('niijima:opening-ready', '*');
+    });
+    async function playAlbum() {
+      const response = await fetch(album);
+      if (!response.ok) throw new Error('视频列表 HTTP ' + response.status);
+      const listing = new DOMParser().parseFromString(await response.text(), 'text/html');
+      const links = [...new Set(Array.from(listing.querySelectorAll('a[href]'), a => a.getAttribute('href'))
+        .filter(name => /^[^/?#]+\.mp4$/i.test(name)))];
+      if (!links.length) return;
+      const limit = Math.floor(links.length / 2);
+      history = limit ? history.filter(name => links.includes(name)).slice(-limit) : [];
+      function next() {
+        const candidates = links.filter(name => !history.includes(name));
+        const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+        history = limit ? [...history, chosen].slice(-limit) : [];
+        try { localStorage.setItem(historyKey, JSON.stringify(history)); } catch { /* Use session memory. */ }
+        video.classList.remove('playing');
+        video.src = album + chosen;
+        video.play().catch(error => {
+          if (error.name === 'NotAllowedError') {
+            // Standalone browsers may require the user to start playback.
+            video.controls = true;
+            video.classList.add('playing');
+          } else { console.error(error); }
+        });
+      }
+      video.addEventListener('ended', next);
+      next();
+    }
+    playAlbum().catch(console.error);
+  </script>
+</body>
+</html>
