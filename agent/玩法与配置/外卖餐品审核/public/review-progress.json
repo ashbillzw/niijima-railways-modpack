@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "baseline": "fd65068b6aa089acd957daa4dd2b6f57a6b503439dda73696911cab5c6853242",
-  "exportedAt": "2026-11-15T17:41:52.960398+08:00",
+  "exportedAt": "2026-11-18T15:57:28.022301+08:00",
   "changes": [
     {
       "id": "farmersdelight:cake_slice",
@@ -102,10 +102,10 @@
         },
         "tasteMultiplier": {
           "before": 1,
-          "after": 2
+          "after": 4
         }
       },
-      "adjustedUnitPrice": 1.5
+      "adjustedUnitPrice": 3.0
     },
     {
       "id": "farmersdelight:apple_cider",
@@ -129,16 +129,16 @@
           "before": false,
           "after": true
         },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        },
         "preferred": {
           "before": false,
           "after": true
-        },
-        "tasteMultiplier": {
-          "before": 1,
-          "after": 2
         }
       },
-      "adjustedUnitPrice": 3.0
+      "adjustedUnitPrice": 6.0
     },
     {
       "id": "farmersdelight:melon_popsicle",
@@ -502,10 +502,10 @@
         },
         "tasteMultiplier": {
           "before": 1,
-          "after": 2
+          "after": 4
         }
       },
-      "adjustedUnitPrice": 4.0
+      "adjustedUnitPrice": 8.0
     },
     {
       "id": "farmersdelight:apple_pie",
@@ -1105,6 +1105,10 @@
           "after": true
         },
         "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "needsDiscussion": {
           "before": false,
           "after": true
         }
@@ -2529,6 +2533,10 @@
         "enabled": {
           "before": false,
           "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
         }
       }
     },
@@ -2544,6 +2552,10 @@
         "enabled": {
           "before": false,
           "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
         }
       }
     },
@@ -2557,6 +2569,10 @@
       ],
       "changes": {
         "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
           "before": false,
           "after": true
         }
@@ -2800,8 +2816,13 @@
         "enabled": {
           "before": false,
           "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
         }
-      }
+      },
+      "adjustedUnitPrice": 20.0
     },
     {
       "id": "kaleidoscope_cookery:sakura_fubuki",
@@ -3032,8 +3053,17 @@
         "enabled": {
           "before": false,
           "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
         }
-      }
+      },
+      "adjustedUnitPrice": 22.0
     },
     {
       "id": "kaleidoscope_cookery:fish_flavored_shredded_pork",
@@ -3343,82 +3373,6 @@
       }
     },
     {
-      "id": "kaleidoscope_cookery:dumpling",
-      "name": "饺子",
-      "mod": "森罗物语·厨房",
-      "category": "主食／菜肴",
-      "tags": [
-        "kaleidoscope_cookery:cookery_mod_items",
-        "kaleidoscope_cookery:meals"
-      ],
-      "changes": {
-        "needsDiscussion": {
-          "before": false,
-          "after": true
-        }
-      }
-    },
-    {
-      "id": "kaleidoscope_cookery:sticky_candy",
-      "name": "牛皮糖",
-      "mod": "森罗物语·厨房",
-      "category": "甜点／零食",
-      "tags": [
-        "kaleidoscope_cookery:cookery_mod_items",
-        "kaleidoscope_cookery:meals"
-      ],
-      "changes": {
-        "sideDish": {
-          "before": false,
-          "after": true
-        },
-        "enabled": {
-          "before": false,
-          "after": true
-        }
-      }
-    },
-    {
-      "id": "kaleidoscope_cookery:sticky_rice_cake",
-      "name": "糍粑",
-      "mod": "森罗物语·厨房",
-      "category": "主食／菜肴",
-      "tags": [
-        "kaleidoscope_cookery:cookery_mod_items",
-        "kaleidoscope_cookery:meals"
-      ],
-      "changes": {
-        "sideDish": {
-          "before": false,
-          "after": true
-        },
-        "enabled": {
-          "before": false,
-          "after": true
-        }
-      }
-    },
-    {
-      "id": "kaleidoscope_cookery:zongzi",
-      "name": "熟粽子",
-      "mod": "森罗物语·厨房",
-      "category": "主食／菜肴",
-      "tags": [
-        "kaleidoscope_cookery:cookery_mod_items",
-        "kaleidoscope_cookery:meals"
-      ],
-      "changes": {
-        "sideDish": {
-          "before": false,
-          "after": true
-        },
-        "enabled": {
-          "before": false,
-          "after": true
-        }
-      }
-    },
-    {
       "id": "kaleidoscope_cookery:beef_noodle",
       "name": "牛肉面",
       "mod": "森罗物语·厨房",
@@ -3501,6 +3455,3594 @@
         "kaleidoscope_cookery:meals"
       ],
       "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:mantou",
+      "name": "馒头",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_cookery:meat_pie",
+      "name": "馅饼",
+      "mod": "森罗物语·厨房",
+      "category": "主食／菜肴",
+      "tags": [
+        "kaleidoscope_cookery:cookery_mod_items",
+        "kaleidoscope_cookery:meals"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:apple_jello",
+      "name": "苹果果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:bayberry_jello",
+      "name": "杨梅果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:blueberry_jello",
+      "name": "蓝莓果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:chorus_jello",
+      "name": "紫颂果果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:cranberry_jello",
+      "name": "蔓越莓果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:durian_jello",
+      "name": "榴莲果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:lychee_jello",
+      "name": "荔枝果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:lemon_jello",
+      "name": "柠檬果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:kiwi_jello",
+      "name": "猕猴桃果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:hawberry_jello",
+      "name": "山楂果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:hamimelon_jello",
+      "name": "哈密瓜果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:glowberry_jello",
+      "name": "发光浆果果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:fig_jello",
+      "name": "无花果果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:mango_jello",
+      "name": "芒果果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:mangosteen_jello",
+      "name": "山竹果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:melon_jello",
+      "name": "西瓜果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:orange_jello",
+      "name": "橘子果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 18.0
+    },
+    {
+      "id": "fruitsdelight:peach_jello",
+      "name": "水蜜桃果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 18.0
+    },
+    {
+      "id": "fruitsdelight:pear_jello",
+      "name": "梨子果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:persimmon_jello",
+      "name": "柿子果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:pineapple_jello",
+      "name": "菠萝果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 18.0
+    },
+    {
+      "id": "fruitsdelight:sweetberry_jello",
+      "name": "浆果果冻",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars",
+        "fruitsdelight:jello"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:bayberry_cookie",
+      "name": "杨梅曲奇",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:bayberry_soup",
+      "name": "杨梅汁",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 8.0
+    },
+    {
+      "id": "fruitsdelight:bellini_cocktail",
+      "name": "贝里尼鸡尾酒",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:blueberry_custard",
+      "name": "蓝莓蛋奶沙司",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:blueberry_muffin",
+      "name": "蓝莓玛芬",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:grains",
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:bowl_of_pineapple_fried_rice",
+      "name": "碗装菠萝饭",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits",
+        "diet:grains",
+        "diet:vegetables"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:cranberry_cookie",
+      "name": "蔓越莓饼干",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:cranberry_muffin",
+      "name": "蔓越莓玛芬",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:grains",
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:durian_pie",
+      "name": "榴莲酥",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:grains",
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "fruitsdelight:fig_chicken_stew",
+      "name": "无花果炖鸡",
+      "mod": "水果乐事",
+      "category": "汤羹／炖菜",
+      "tags": [
+        "diet:fruits",
+        "diet:proteins"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:fig_pudding",
+      "name": "无花果布丁",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:fig_tart",
+      "name": "无花果挞",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:grains",
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:hamimelon_juice",
+      "name": "哈密瓜汁",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:hamimelon_popsicle",
+      "name": "哈密瓜棒冰",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 8.0
+    },
+    {
+      "id": "fruitsdelight:hamimelon_shaved_ice",
+      "name": "蜜瓜冰沙",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:hawberry_tea",
+      "name": "山楂茶",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:kiwi_juice",
+      "name": "猕猴桃饮",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:lemon_juice",
+      "name": "柠檬水",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:lychee_cherry_tea",
+      "name": "荔枝樱花饮",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 12.0
+    },
+    {
+      "id": "fruitsdelight:mango_milkshake",
+      "name": "芒果鲜奶",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 12.0
+    },
+    {
+      "id": "fruitsdelight:mango_tea",
+      "name": "芒果茶",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:mangosteen_tea",
+      "name": "山竹清茶",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:orange_juice",
+      "name": "橘子汁",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:peach_tea",
+      "name": "白桃乌龙茶",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "fruitsdelight:pear_juice",
+      "name": "梨汁",
+      "mod": "水果乐事",
+      "category": "饮品",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:juice"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "kaleidoscope_tavern:wine",
+      "name": "葡萄酒",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_light_purple"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 16.0
+    },
+    {
+      "id": "kaleidoscope_tavern:champagne",
+      "name": "香槟",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_light_purple"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:vodka",
+      "name": "伏特加",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_white",
+        "kaleidoscope_tavern:holder_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:brandy",
+      "name": "白兰地",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:bar_cabinet_irregular",
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_light_purple",
+        "kaleidoscope_tavern:holder_blocklist",
+        "kaleidoscope_tavern:tilted_rack_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:carignan",
+      "name": "佳丽私酿",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:bar_cabinet_irregular",
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_light_purple",
+        "kaleidoscope_tavern:holder_blocklist",
+        "kaleidoscope_tavern:tilted_rack_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:sakura_wine",
+      "name": "樱花葡萄酒",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_light_purple"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:plum_wine",
+      "name": "梅酒",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_red"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:whiskey",
+      "name": "威士忌",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_white"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:ice_wine",
+      "name": "冰葡萄酒",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_blue"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 16.0
+    },
+    {
+      "id": "kaleidoscope_tavern:polaris_sweet_white",
+      "name": "北极星甜白",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_blue"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:honey_wine",
+      "name": "蜂蜜葡萄酒",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_gold"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:red_queen",
+      "name": "红皇后",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_red"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:miners_star",
+      "name": "矿工之星",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_gold",
+        "kaleidoscope_tavern:holder_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:white_lady",
+      "name": "白色佳人",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 96.0
+    },
+    {
+      "id": "kaleidoscope_tavern:signature_cocktail",
+      "name": "特调鸡尾酒",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 80.0
+    },
+    {
+      "id": "kaleidoscope_tavern:sauvignon_blanc_dry_white",
+      "name": "长相思干白",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_green"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:glowflower_brew",
+      "name": "萤花酿",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_yellow"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 28.0
+    },
+    {
+      "id": "kaleidoscope_tavern:luminous_bride",
+      "name": "夜光新娘",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_yellow"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 28.0
+    },
+    {
+      "id": "kaleidoscope_tavern:mother_snow",
+      "name": "雪婆婆",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_blue",
+        "kaleidoscope_tavern:holder_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:sherry",
+      "name": "雪莉",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_blue"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 28.0
+    },
+    {
+      "id": "kaleidoscope_tavern:sweet_berry_wine",
+      "name": "甜浆果酒",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_red",
+        "kaleidoscope_tavern:holder_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:madame_shexiang",
+      "name": "奢香夫人",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_gold",
+        "kaleidoscope_tavern:holder_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:sunset_glow",
+      "name": "落日余晖",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_gold",
+        "kaleidoscope_tavern:holder_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 28.0
+    },
+    {
+      "id": "kaleidoscope_tavern:riesling_dry_white",
+      "name": "雷司令干白",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_green",
+        "kaleidoscope_tavern:holder_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:rum",
+      "name": "朗姆酒",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [
+        "kaleidoscope_tavern:cellar_cabinet_blocklist",
+        "kaleidoscope_tavern:cocktail_ingredient",
+        "kaleidoscope_tavern:cocktail_ingredient_white",
+        "kaleidoscope_tavern:holder_blocklist"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "kaleidoscope_tavern:emerald",
+      "name": "翡翠",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 64.0
+    },
+    {
+      "id": "kaleidoscope_tavern:brass_heart",
+      "name": "黄铜心脏",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 64.0
+    },
+    {
+      "id": "kaleidoscope_tavern:godfather",
+      "name": "教父",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 80.0
+    },
+    {
+      "id": "kaleidoscope_tavern:grasshopper",
+      "name": "绿色蚱蜢",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 80.0
+    },
+    {
+      "id": "kaleidoscope_tavern:screwdriver",
+      "name": "螺丝起子",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 80.0
+    },
+    {
+      "id": "kaleidoscope_tavern:mojito",
+      "name": "莫吉托",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 80.0
+    },
+    {
+      "id": "kaleidoscope_tavern:allium_garden",
+      "name": "绒球葱花园",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 64.0
+    },
+    {
+      "id": "kaleidoscope_tavern:depth_charge",
+      "name": "深水炸弹",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 96.0
+    },
+    {
+      "id": "kaleidoscope_tavern:nether_special",
+      "name": "下界特调",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 96.0
+    },
+    {
+      "id": "kaleidoscope_tavern:bloody_mary",
+      "name": "血腥玛丽",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 64.0
+    },
+    {
+      "id": "kaleidoscope_tavern:sculk_special",
+      "name": "幽匿特调",
+      "mod": "森罗酒馆",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 8
+        }
+      },
+      "adjustedUnitPrice": 80.0
+    },
+    {
+      "id": "neapolitan:adzuki_milkshake",
+      "name": "红豆味奶昔",
+      "mod": "Neapolitan",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 5.0
+    },
+    {
+      "id": "neapolitan:banana_milkshake",
+      "name": "香蕉味奶昔",
+      "mod": "Neapolitan",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 4.5
+    },
+    {
+      "id": "neapolitan:chocolate_milkshake",
+      "name": "巧克力味奶昔",
+      "mod": "Neapolitan",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 5.0
+    },
+    {
+      "id": "neapolitan:mint_milkshake",
+      "name": "薄荷味奶昔",
+      "mod": "Neapolitan",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 4.5
+    },
+    {
+      "id": "neapolitan:strawberry_milkshake",
+      "name": "草莓味奶昔",
+      "mod": "Neapolitan",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 4.5
+    },
+    {
+      "id": "neapolitan:vanilla_milkshake",
+      "name": "香草奶昔",
+      "mod": "Neapolitan",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 5.0
+    },
+    {
+      "id": "neapolitan:strawberry_banana_smoothie",
+      "name": "草莓香蕉冰沙",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:passion_fruit_milkshake",
+      "name": "百香果奶昔",
+      "mod": "Peculiars",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 5.0
+    },
+    {
+      "id": "peculiars:aloe_berry_smoothie",
+      "name": "芦荟浆果冰沙",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:aloe_milkshake",
+      "name": "芦荟奶昔",
+      "mod": "Peculiars",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 5.0
+    },
+    {
+      "id": "peculiars:yucca_milkshake",
+      "name": "丝兰奶昔",
+      "mod": "Peculiars",
+      "category": "饮品",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 5.0
+    },
+    {
+      "id": "create:builders_tea",
+      "name": "建筑工茶饮",
+      "mod": "机械动力",
+      "category": "饮品",
+      "tags": [
+        "create:upright_on_belt"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:kiwi_popsicle",
+      "name": "猕猴桃棒冰",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 8.0
+    },
+    {
+      "id": "fruitsdelight:pear_with_rock_sugar",
+      "name": "冰糖雪梨",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:sugars"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 10.0
+    },
+    {
+      "id": "neapolitan:adzuki_ice_cream",
+      "name": "红豆味冰淇淋",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:banana_ice_cream",
+      "name": "香蕉味冰淇淋",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:chocolate_ice_cream",
+      "name": "巧克力味冰淇淋",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:mint_ice_cream",
+      "name": "薄荷味冰淇淋",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:strawberry_ice_cream",
+      "name": "草莓味冰淇淋",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:vanilla_ice_cream",
+      "name": "香草冰淇淋",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 12.0
+    },
+    {
+      "id": "neapolitan:neapolitan_ice_cream",
+      "name": "那不勒斯风味冰淇淋",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "peculiars:passion_fruit_ice_cream",
+      "name": "百香果冰淇淋",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:aloe_ice_cream",
+      "name": "芦荟冰淇淋",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:yucca_ice_cream",
+      "name": "丝兰冰淇淋",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [
+        "neapolitan:ice_cream"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:hawberry_roll",
+      "name": "果丹卷",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits",
+        "diet:sugars",
+        "fruitsdelight:allow_jelly"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:hawberry_stick",
+      "name": "山楂串",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:jelly_bread",
+      "name": "果酱面包",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:grains",
+        "diet:sugars",
+        "fruitsdelight:allow_jelly"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:lemon_cookie",
+      "name": "柠檬饼干",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:lemon_tart",
+      "name": "柠檬蛋挞",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:grains",
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:lychee_chicken",
+      "name": "荔枝鸡球",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits",
+        "diet:proteins"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:mango_salad",
+      "name": "生拌芒果",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits",
+        "fruitsdelight:allow_jelly"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:tropical_salad",
+      "name": "热带沙拉",
+      "mod": "Peculiars",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "minecraft:cookie",
+      "name": "曲奇",
+      "mod": "原版食品",
+      "category": "甜点／零食",
+      "tags": [
+        "farmersdelight:sweets",
+        "supplementaries:cookies"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:orange_chicken",
+      "name": "橘子鸡",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits",
+        "diet:proteins"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:orange_marinated_pork",
+      "name": "橘子酿肉",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits",
+        "diet:proteins"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:persimmon_cookie",
+      "name": "柿饼干",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:sugars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "fruitsdelight:pineapple_marinated_pork",
+      "name": "菠萝咕噜肉",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits",
+        "diet:proteins"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "fruitsdelight:pineapple_pie",
+      "name": "菠萝派",
+      "mod": "水果乐事",
+      "category": "甜点／零食",
+      "tags": [
+        "diet:fruits",
+        "diet:grains",
+        "diet:sugars"
+      ],
+      "changes": {
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 20.0
+    },
+    {
+      "id": "fruitsdelight:mangosteen_cake",
+      "name": "山竹糕",
+      "mod": "水果乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "diet:fruits",
+        "diet:grains"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:adzuki_cake",
+      "name": "红豆味蛋糕",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:banana_cake",
+      "name": "香蕉味蛋糕",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:mint_cake",
+      "name": "薄荷味蛋糕",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:strawberry_cake",
+      "name": "草莓味蛋糕",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:vanilla_cake",
+      "name": "香草蛋糕",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:adzuki_bun",
+      "name": "豆沙包",
+      "mod": "Neapolitan",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:adzuki_curry",
+      "name": "红豆咖喱",
+      "mod": "Neapolitan",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:adzuki_stew",
+      "name": "红豆煲",
+      "mod": "Neapolitan",
+      "category": "汤羹／炖菜",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:banana_bread",
+      "name": "香蕉面包",
+      "mod": "Neapolitan",
+      "category": "主食／菜肴",
+      "tags": [
+        "neapolitan:chimpanzee_snacks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:chocolate_spider_eye",
+      "name": "巧克力味蜘蛛眼",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:chocolate_strawberries",
+      "name": "巧克力草莓",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:cooked_mint_chops",
+      "name": "熟薄荷肉排",
+      "mod": "Neapolitan",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:mint_candies",
+      "name": "薄荷糖",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:mint_chocolate",
+      "name": "薄荷味巧克力",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:strawberry_bean_bonbons",
+      "name": "草莓红豆夹心糖",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:strawberry_scones",
+      "name": "草莓司康饼",
+      "mod": "Neapolitan",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:vanilla_chocolate_fingers",
+      "name": "香草巧克力条",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:vanilla_fudge",
+      "name": "香草软糖",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "neapolitan:vanilla_pudding",
+      "name": "香草布丁",
+      "mod": "Neapolitan",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_beef_skewer",
+      "name": "烤牛肉串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_chicken_skewer",
+      "name": "烤鸡肉串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_cod_skewer",
+      "name": "烤鳕鱼肉串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_lamb_skewer",
+      "name": "烤羊肉串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_mushroom_skewer",
+      "name": "烤蘑菇串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_pork_sausage_skewer",
+      "name": "烤猪肉香肠",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_potato_skewer",
+      "name": "烤土豆串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_rabbit_skewer",
+      "name": "烤兔肉串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_salmon_skewer",
+      "name": "烤鲑鱼肉串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:grilled_vegetable_skewer",
+      "name": "烤果蔬串",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [
+        "barbequesdelight:grilled_skewers"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:bibimbap",
+      "name": "烤肉盖饭",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:kebab_sandwich",
+      "name": "烧烤三明治",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "barbequesdelight:kebab_wrap",
+      "name": "烧烤卷饼",
+      "mod": "烧烤乐事",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:yucca_fudge",
+      "name": "丝兰软糖",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:aloe_jelly_slice",
+      "name": "芦荟果冻片",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:yucca_cake",
+      "name": "丝兰蛋糕",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:aloe_cake",
+      "name": "芦荟蛋糕",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "peculiars:passion_fruit_cake",
+      "name": "百香果蛋糕",
+      "mod": "Peculiars",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "atmospheric:candied_orange_slices",
+      "name": "糖渍橙子片",
+      "mod": "Atmospheric",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "atmospheric:currant_muffin",
+      "name": "醋栗杯状松糕",
+      "mod": "Atmospheric",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "atmospheric:orange_pudding",
+      "name": "橙子布丁",
+      "mod": "Atmospheric",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "atmospheric:orange_sorbet",
+      "name": "橙子雪芭",
+      "mod": "Atmospheric",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "atmospheric:passion_fruit_sorbet",
+      "name": "百香果雪芭",
+      "mod": "Atmospheric",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "atmospheric:passion_fruit_tart",
+      "name": "百香果馅饼",
+      "mod": "Atmospheric",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "create:bar_of_chocolate",
+      "name": "巧克力棒",
+      "mod": "机械动力",
+      "category": "甜点／零食",
+      "tags": [
+        "forge:bars/chocolate",
+        "supplementaries:chocolate_bars"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "create:chocolate_glazed_berries",
+      "name": "巧克力包层浆果",
+      "mod": "机械动力",
+      "category": "甜点／零食",
+      "tags": [
+        "supplementaries:cookies"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "create:honeyed_apple",
+      "name": "蜜渍苹果",
+      "mod": "机械动力",
+      "category": "甜点／零食",
+      "tags": [
+        "supplementaries:cookies"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "create:sweet_roll",
+      "name": "甜甜卷",
+      "mod": "机械动力",
+      "category": "甜点／零食",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "natures_spirit:cheese_bucket",
+      "name": "奶酪桶",
+      "mod": "Nature’s Spirit",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "natures_spirit:whole_pizza",
+      "name": "披萨",
+      "mod": "Nature’s Spirit",
+      "category": "主食／菜肴",
+      "tags": [],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "createaddition:chocolate_cake",
+      "name": "巧克力蛋糕",
+      "mod": "机械动力·工艺与增材",
+      "category": "甜点／零食",
+      "tags": [
+        "create:upright_on_belt"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "createaddition:honey_cake",
+      "name": "蜂蜜蛋糕",
+      "mod": "机械动力·工艺与增材",
+      "category": "甜点／零食",
+      "tags": [
+        "create:upright_on_belt"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "supplementaries:pancake",
+      "name": "松饼",
+      "mod": "锦致装饰",
+      "category": "甜点／零食",
+      "tags": [
+        "minecraft:music_discs"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        }
+      }
+    },
+    {
+      "id": "supplementaries:candy",
+      "name": "糖果",
+      "mod": "锦致装饰",
+      "category": "甜点／零食",
+      "tags": [
+        "supplementaries:cookies"
+      ],
+      "changes": {
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
         "enabled": {
           "before": false,
           "after": true
