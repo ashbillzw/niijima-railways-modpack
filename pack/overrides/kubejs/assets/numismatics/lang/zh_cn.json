@@ -59,7 +59,7 @@
   "item.numismatics.id_card.tooltip.bound": "已绑定自己",
   "item.numismatics.id_card.tooltip.cleared": "已清除",
   "item.numismatics.id_card.tooltip.summary": "_右击_绑定，_潜行点击_清除绑定。放入货币模组方块的_授权菜单_，即可允许绑定的玩家使用该方块。",
-  "itemGroup.numismatics": "机械动力：货币",
+  "itemGroup.numismatics": "机械动力：金融学",
   "numismatics.andesite_depositor.price": "价格",
   "numismatics.trust_list.configure": "设置授权名单",
   "block.numismatics.andesite_depositor.tooltip": "安山投币器",
