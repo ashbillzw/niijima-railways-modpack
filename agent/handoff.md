@@ -1,5 +1,9 @@
 # Agent 交接与通用维护要求
 
+2026-11-18 换机续做：[服务器教程目录与两服担保资格审计](玩法与配置/教程目录与担保资格审计交接-20261118.md)。教程首篇和 bm 测试包已就绪，完整目录和线上账号名单尚未产出。
+
+2026-11-18，D 盘本机已从 PrismLauncher `develop` 的 `f38943cd4` 重编 Release，并更新 `D:/mydata/Repositories/PrismLauncher/install-niijima/niijima-launcher.exe`。该 EXE 与 Release 产物 SHA-256 一致（`8bb4fb883a623700ad432fccc8460370b9218cf485ccc8d4f0067a93dc6a939c`）。已安装包识别、首页弹窗、版本索引和本地测试配置四项 CTest 通过。构建日志在独立工作目录 `工具/prism-build/launcher-20261118-1035/`。
+
 ## 2026-11-15 · 游戏内协作构想：Astra 的末影人化身
 
 现阶段沿用游戏内聊天与 Astra 对话。AshBill 提出的后续构想是让 Astra 在世界里控制一个玩家看得见的末影人：Astra 指定目的地，末影人自行寻路到目标方块旁。交互时可以让它面向方块并做出动作，由协作工具同步模拟这次操作，让玩家看起来是末影人在动手。末影人本身无需具备方块交互能力。本条仅留作设计构想。
