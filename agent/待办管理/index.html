@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>整合包待办</title><link rel="stylesheet" href="/style.css"><script defer src="/app.js"></script></head>
+<body><header><span class="board-icon" aria-hidden="true">☷</span><h1>整合包待办</h1></header>
+<main><nav id="groups" aria-label="待办分类"></nav>
+<section id="pane" aria-labelledby="category"><div class="section-title"><span class="dot"></span><h2 id="category"></h2></div>
+<p role="alert" class="error" id="error"></p><ul id="cards" aria-label="分类待办"></ul></section></main>
+<dialog id="edit"><form><h2>编辑待办</h2><label>表述<textarea id="wording" required rows="8"></textarea></label>
+<label>类别<select id="destination"></select></label><p role="alert" class="error"></p>
+<footer><button type="button" id="cancel">取消</button><button class="save">保存</button></footer>
+</form></dialog></body></html>
