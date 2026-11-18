@@ -39,18 +39,19 @@ def asset(relative):
             import posixpath
             asset(posixpath.normpath(str(Path(relative).parent).replace('\\','/')+'/'+url))
     if relative == 'assets/game-entry.js':
+        asset('assets/game-entry-map.jpg')
         text = text.replace("'/v3/assets/press-anywhere-label.png'", "'assets/press-anywhere-label.png'")
     dest.write_text(text, encoding='utf8')
 
 text = expand((site / 'index.html').read_text(encoding='utf8'))
 text = text.replace('class="home-page"', 'class="home-page local-home"')
 text = re.sub(r'<script[^>]+src="/v3/assets/(?:home-status|download-selection)\.js[^>]*></script>', '', text)
+text = re.sub(r'<template\b.*?</template>', '', text, flags=re.S)
+# Keep the offline controls in their usual positions. Network destinations are unavailable.
+text = re.sub(r'(<a\b[^>]*?) href="[^"]+"', r'\1 aria-disabled="true"', text)
+text = text.replace('type="button" data-', 'type="button" disabled data-')
 for url in re.findall(r'(?:src|href)="(/v3/assets/[^"]+)"', text):
     asset(url[4:])
     text = text.replace(url, url[4:])
-# Remove hidden meter artwork and dynamic counter content; mounting plates retain their layout.
-text = re.sub(r'<div class="meter-case">.*?</svg></div>', '<div class="meter-case"></div>', text, flags=re.S)
-text = re.sub(r'<template\b.*?</template>', '', text, flags=re.S)
-text = text.replace('<div class="map-outage" hidden>', '<div class="map-outage" hidden style="display:none">')
-(target / 'local.html').write_text(text, encoding='utf8')
+(target / 'local.html').write_text(re.sub(r'(?m)^[ \t]+$', '', text), encoding='utf8')
 print(f'Offline shell: {len(seen)} shared assets, {sum((target/p).stat().st_size for p in seen):,} bytes')

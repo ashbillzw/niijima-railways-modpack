@@ -16,7 +16,7 @@
   }
   classes.toggle('embedded', query.get('embed') === '1' || (window.self !== window.top && query.get('hosted') !== '1'));
   classes.toggle('hide-nav', query.get('nav') === '0');
-  if (query.get('in_game') === '1') {
+  if (classes.contains('local-home') || query.get('in_game') === '1') {
     classes.add('in-game');
     const policy = document.createElement('meta');
     policy.httpEquiv = 'Content-Security-Policy';

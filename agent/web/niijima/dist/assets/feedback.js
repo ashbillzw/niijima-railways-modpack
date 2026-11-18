@@ -1,4 +1,4 @@
-import { attachmentsTooLarge, validateFeedback, uploadEndpoint, packageFeedback, uploadFeedback } from './feedback-core.js?v=20261117';
+import { attachmentsTooLarge, validateFeedback, uploadEndpoint, packageFeedback, uploadFeedback } from './feedback-core.js';
 
 const query = new URLSearchParams(location.search);
 const embedded = query.get('embed') === '1';
