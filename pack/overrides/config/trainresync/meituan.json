@@ -5,7 +5,7 @@
   "prankItemChance": 0.001,
   "preferredPoolChance": 0.5,
   "farProbability": 0.25,
-  "basePriceMultiplier": 1.5,
+  "basePriceMultiplier": 1.0,
   "eventActive": false,
   "deliveryBaseRate": 0,
   "playerMultiplier": 1.5,
