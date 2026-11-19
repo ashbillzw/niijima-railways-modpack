@@ -1,5 +1,6 @@
 {
   "uploadUrl": "/feedback-upload/",
+  "journalUploadUrl": "/journal-upload/",
   "limits": {
     "maxAttachmentBytes": 10485760,
     "maxArchiveBytes": 11534336
@@ -14,6 +15,10 @@
     "required_playerId": "请填写游戏内ID",
     "required_title": "请填写标题",
     "required_details": "请填写详情",
+    "byline": "请填写署名",
+    "short": "正文至少 100 字",
+    "illustration": "请至少添加一张配图",
+    "imageType": "请选择图片文件",
     "required_logs": "请添加错误报告"
   }
 }

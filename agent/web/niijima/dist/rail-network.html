@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>新島鉃道</title>
+  <link rel="stylesheet" href="/v3/assets/edition-picker.css">
   <style>
     body { margin: 0; background: #e8e8e5; }
     .network-page { height: calc(100 * var(--page-vh)); display: flex; flex-direction: column; }
@@ -22,21 +23,6 @@
     main.dragging { cursor: grabbing; }
     .editions { align-self: start; z-index: 1; padding: 8px 10px 0; display: flex; align-items: flex-start; gap: 8px; pointer-events: none; color: #444; font: 13px/1.4 "Noto Sans SC", "Niijima Meow"; }
     .credit { background: #e8e8e5f2; color: inherit; font-size: .5em; padding: 2px 5px; }
-    .edition-picker { position: relative; margin-left: auto; pointer-events: auto; }
-    .edition-picker summary, .edition-list button {
-      font: 350 9.5px/18px "Noto Sans SC", "Niijima Meow"; color: #62645f; cursor: pointer; }
-    .edition-picker .featured { font-weight: 700; font-size: 13px; color: #333630; }
-    .edition-picker summary {
-      list-style: none; padding: 2px 11px 2px 0; text-align: right;
-      background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6 4'%3E%3Cpath fill='%23444' d='M0 0h6L3 4z'/%3E%3C/svg%3E") right center / 6px 4px no-repeat;
-    }
-    .edition-picker summary::-webkit-details-marker { display: none; }
-    .edition-list {
-      position: absolute; z-index: 1; right: 0; top: 100%; width: max-content;
-      max-height: min(calc(60 * var(--page-vh)), 24rem); overflow-y: auto; padding: 3px;
-      background: #f2f2ef; border: 1px solid #bcbdb7; border-radius: 3px; }
-    .edition-list button { display: block; width: 100%; border: 0; padding: 3px 9px; text-align: right; background: transparent; }
-    .edition-list button:is(:hover, :focus-visible, [aria-pressed="true"]) { background: #ddded8; }
     .credit { min-width: 0; overflow-wrap: anywhere; }
     .network-view:has(> .map-loading:not([hidden])) > .editions {
       .credit { visibility: hidden; }

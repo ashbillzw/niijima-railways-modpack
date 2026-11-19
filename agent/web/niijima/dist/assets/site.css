@@ -47,3 +47,5 @@
 .feedback-result::backdrop { background:#17251ddb; }
 .feedback-result p { margin:0 0 18px; font-weight:700; }
 .feedback-result .primary-button { margin:auto; }
+
+.feedback-shell .tabs { flex-wrap: wrap; }

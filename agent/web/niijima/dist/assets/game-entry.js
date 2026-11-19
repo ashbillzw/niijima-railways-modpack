@@ -143,10 +143,10 @@ function selectTab(game) {
   document.querySelector('#map').hidden = game;
   screen.classList.toggle('game-active',game);
   power.setAttribute('aria-pressed',String(game));
-  if(game)document.querySelectorAll('[data-map]').forEach(b=>b.setAttribute('aria-pressed','false'));
+  if(game)document.querySelectorAll('.map-switcher .console-key').forEach(b=>b.setAttribute('aria-pressed','false'));
 }
 power.onclick = () => selectTab(true);
-document.querySelectorAll('[data-map]').forEach(b=>b.addEventListener('click',()=>selectTab(false)));
+document.querySelectorAll('.map-switcher .console-key').forEach(b=>b.addEventListener('click',()=>selectTab(false)));
 selectTab(true);
 function execute(name) {
   if(hosted) { post({type:'niijima:action',name});return; }

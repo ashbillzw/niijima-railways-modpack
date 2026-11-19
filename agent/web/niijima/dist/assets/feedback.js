@@ -14,7 +14,14 @@ const inputs = { playerId: document.getElementById('player-id'), title: document
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 let type = 'bug';
 let settings = { messages: {} };
+const configURL = new URL('../config/site.json', import.meta.url);
 let endpoint = null;
+const drafts = {};
+function updateEndpoint() {
+  endpoint = uploadEndpoint(type === 'journal' ? settings.journalUploadUrl : settings.uploadUrl, configURL);
+  availability.textContent = endpoint ? '' : message('unavailable');
+  submit.disabled = !endpoint || busy || submitted;
+}
 let busy = false;
 let submitted = false;
 let prepared = null;
@@ -45,13 +52,33 @@ function dirty() {
 }
 function selectTab(index) {
   if (busy || type === tabs[index].dataset.kind) return;
-  type = tabs[index].dataset.kind;
+  const nextType = tabs[index].dataset.kind;
+  const journal = nextType === 'journal';
+  if (journal !== (type === 'journal')) {
+    const from = journal ? 'feedback' : 'journal';
+    const to = journal ? 'journal' : 'feedback';
+    drafts[from] = { playerId: inputs.playerId.value, title: inputs.title.value, details: inputs.details.value, files: logs.files };
+    for (const key of ['playerId', 'title', 'details']) inputs[key].value = drafts[to]?.[key] ?? '';
+    if (drafts[to]?.files) logs.files = drafts[to].files;
+    else logs.value = '';
+  }
+  type = nextType;
   tabs.forEach((tab, i) => { tab.setAttribute('aria-selected', String(i === index)); tab.tabIndex = i === index ? 0 : -1; });
   document.getElementById('feedback-panel').setAttribute('aria-labelledby', tabs[index].id);
-  logs.required = type === 'bug';
-  document.getElementById('attachment-section').hidden = type !== 'bug';
-  document.getElementById('logs-optional').hidden = logs.required;
-  inputs.details.placeholder = type === 'bug' ? '复现步骤、预期和实际情况' : '建议及用途';
+  logs.required = type !== 'suggestion';
+  document.getElementById('attachment-section').hidden = !logs.required;
+  logs.accept = journal ? 'image/*' : '';
+  inputs.playerId.labels[0].textContent = journal ? '署名' : '游戏内ID';
+  inputs.playerId.autocomplete = journal ? 'nickname' : 'username';
+  inputs.details.labels[0].textContent = journal ? '正文' : '详情';
+  inputs.details.placeholder = journal ? '正文至少 100 字' : type === 'bug' ? '复现步骤、预期和实际情况' : '建议及用途';
+  logs.labels[0].textContent = journal ? '配图' : '错误报告';
+  document.getElementById('logs-hint').hidden = journal;
+  document.querySelector('.form-heading').textContent = journal ? '投稿「新岛通讯」' : 'Bug反馈 / 功能建议';
+  submitLabel.textContent = journal ? '提交投稿' : '提交反馈';
+  updateEndpoint();
+  updateIdWarning();
+  renderFiles();
   dirty();
 }
 tabs.forEach((tab, index) => {
@@ -59,19 +86,18 @@ tabs.forEach((tab, index) => {
   tab.addEventListener('keydown', event => {
     if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
     event.preventDefault();
-    const next = event.key === 'Home' ? 0 : event.key === 'End' ? 1 : 1 - index;
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabs.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + tabs.length) % tabs.length;
     selectTab(next);
     tabs[next].focus();
   });
 });
 form.addEventListener('input', dirty);
 function updateIdWarning() {
-  document.getElementById('player-id-warning').hidden = !/[^A-Za-z0-9_]/.test(inputs.playerId.value.trim());
+  document.getElementById('player-id-warning').hidden = type === 'journal' || !/[^A-Za-z0-9_]/.test(inputs.playerId.value.trim());
 }
 inputs.playerId.addEventListener('input', updateIdWarning);
 window.addEventListener('pageshow', updateIdWarning);
-logs.addEventListener('change', () => {
-  dirty();
+function renderFiles() {
   const list = document.getElementById('file-list');
   list.replaceChildren();
   list.hidden = true;
@@ -87,14 +113,15 @@ logs.addEventListener('change', () => {
     list.append(li);
   }
   list.hidden = !logs.files.length;
-});
+}
+logs.addEventListener('change', () => { dirty(); renderFiles(); });
 
 function setBusy(value) {
   busy = value;
   fields.disabled = value;
   tabs.forEach(tab => { tab.disabled = value; });
   submit.disabled = value || !endpoint || submitted;
-  submitLabel.textContent = value ? message('uploading') : '提交反馈';
+  submitLabel.textContent = value ? message('uploading') : type === 'journal' ? '提交投稿' : '提交反馈';
   form.setAttribute('aria-busy', String(value));
 }
 
@@ -112,14 +139,14 @@ form.addEventListener('submit', async event => {
   event.preventDefault();
   if (!endpoint || busy || submitted) return;
   const values = { type, playerId: inputs.playerId.value, title: inputs.title.value, details: inputs.details.value, event: (query.get('event') || '').slice(0, 80) };
-  const files = type === 'bug' ? [...logs.files] : [];
+  const files = type === 'suggestion' ? [] : [...logs.files];
   const errors = validateFeedback(values, files, settings.limits);
   clearErrors();
   for (const [key, problem] of Object.entries(errors)) {
     const input = inputs[key];
     if (!input) continue;
     input.setAttribute('aria-invalid', 'true');
-    document.getElementById(`${input.id}-error`).textContent = message(problem === 'size' ? 'tooLarge' : `required_${key}`);
+    document.getElementById(`${input.id}-error`).textContent = message(problem === 'size' ? 'tooLarge' : problem === 'required' ? `required_${key}` : problem);
   }
   if (Object.keys(errors).length) { inputs[Object.keys(errors)[0]]?.focus(); return; }
   status.textContent = '';
@@ -138,7 +165,7 @@ form.addEventListener('submit', async event => {
   showResult(submitted);
 });
 
-const configURL = new URL('../config/site.json', import.meta.url);
+if (query.get('tab') === 'journal') selectTab(tabs.findIndex(tab => tab.dataset.kind === 'journal'));
 const configController = new AbortController();
 const configTimeout = setTimeout(() => configController.abort(), 8000);
 try {
@@ -147,8 +174,7 @@ try {
   settings = await response.json();
   if (!settings.messages || ![settings.limits?.maxAttachmentBytes, settings.limits?.maxArchiveBytes].every(n => Number.isSafeInteger(n) && n > 0)) throw new Error('Invalid site configuration');
   logs.disabled = false;
-  endpoint = uploadEndpoint(settings.uploadUrl, configURL);
-  submit.disabled = !endpoint;
+  updateEndpoint();
 } catch {
   endpoint = null;
   submit.disabled = true;

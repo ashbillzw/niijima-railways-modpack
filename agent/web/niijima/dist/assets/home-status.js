@@ -12,6 +12,9 @@ const freshness = 15_000;
 const stopThreshold = 15 * 60_000;
 const servers = new Map((document.getElementById('map') ? ['create-cn', 'train-cn'] : ['create-cn']).map(id => [id, { data: null, missingSince: null }]));
 const mapButtons = [...document.querySelectorAll('[data-map]')];
+const railKey = document.getElementById('live-rail-key');
+const railPicker = document.querySelector('.live-rail-picker');
+let railSource = railPicker?.querySelector('[aria-pressed="true"]');
 const pageQuery = new URLSearchParams(location.search);
 const mapKey = pageQuery.get('map');
 const mapDate = mapKey === 'rail-network' && pageQuery.get('mapdate');
@@ -30,7 +33,7 @@ const pilot = document.getElementById('mspt-pilot');
 const mapErrors = new Map();
 const frameErrors = new Map();
 let navigatedAt = 0;
-let selected = mapButtons.find(button => button.getAttribute('aria-pressed') === 'true');
+let selected = mapButtons.find(button => button.matches('.console-key[aria-pressed="true"]'));
 
 function updateFrame(now) {
   const live = !!selected.dataset.server;
@@ -131,6 +134,7 @@ function renderStatus() {
     button.classList.toggle('unavailable', start != null);
     if (button === selected) selectedSince = start;
   }
+  if (railKey) railKey.classList.toggle('unavailable', railSource.classList.contains('unavailable'));
   message.hidden = selectedSince == null;
   if (!message.hidden) {
     const elapsed = Math.max(0, now - selectedSince);
@@ -142,10 +146,30 @@ function renderStatus() {
 
 function selectMap(button) {
   selected = button;
-  for (const item of mapButtons) item.setAttribute('aria-pressed', String(item === button));
-  frame.title = button.textContent.trim();
+  const liveRail = railPicker?.contains(button);
+  if (liveRail) {
+    railSource = button;
+    railPicker.querySelector('summary').textContent = button.textContent;
+  }
+  if (railKey) {
+    railKey.setAttribute('aria-pressed', String(liveRail));
+    railPicker.hidden = !liveRail;
+    railPicker.open = false;
+  }
+  for (const item of mapButtons) {
+    const active = railPicker?.contains(item) ? item === railSource : item === button;
+    item.setAttribute('aria-pressed', String(active));
+  }
+  frame.title = liveRail ? button.textContent.trim() + '轨道实况' : button.textContent.trim();
   renderStatus();
 }
+railKey?.addEventListener('click', () => selectMap(railSource));
+railPicker?.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    railPicker.open = false;
+    railPicker.querySelector('summary').focus();
+  }
+});
 for (const button of mapButtons) button.addEventListener('click', () => selectMap(button));
 const mapBodyObserver = new MutationObserver(() => renderStatus());
 frame?.addEventListener('load', () => {
@@ -154,6 +178,16 @@ frame?.addEventListener('load', () => {
   mapBodyObserver.disconnect();
   try { path = frame.contentWindow.location.pathname; } catch { renderStatus(); return; }
   const button = mapButtons.find(item => item.dataset.map === path);
+  if (button?.dataset.mapKey === 'journal' && pageQuery.get('in_game') === '1') {
+    frame.contentDocument.addEventListener('click', event => {
+      const link = event.target.closest('a[href]');
+      if (!link || link.origin !== location.origin || !link.pathname.startsWith('/v3/')) return;
+      event.preventDefault();
+      const destination = new URL(link.href);
+      destination.searchParams.set('in_game', '1');
+      location.assign(destination);
+    });
+  }
   if (button && button !== selected && frame.classList.contains('ready')) selectMap(button);
   if (button && path.startsWith('/bluemap/') && frame.contentDocument?.body)
     mapBodyObserver.observe(frame.contentDocument.body, { childList: true });

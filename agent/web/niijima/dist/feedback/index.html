@@ -20,6 +20,7 @@
       <div class="tabs" role="tablist" aria-label="反馈类型">
         <button class="tab" id="bug-tab" role="tab" type="button" aria-selected="true" aria-controls="feedback-panel" data-kind="bug"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7L6 4M16 7L18 4M5 12H2M22 12H19M5 17L3 19M19 17L21 19M8 8H16V15C16 20 8 20 8 15ZM12 8V20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>Bug反馈</button>
         <button class="tab" id="suggestion-tab" role="tab" type="button" aria-selected="false" aria-controls="feedback-panel" tabindex="-1" data-kind="suggestion"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18H15M10 21H14M8 14C2 8 8 2 12 3C19 3 21 9 16 14L15 16H9Z" stroke="currentColor" stroke-width="1.7" fill="none" stroke-linecap="round"/></svg>功能建议</button>
+        <button class="tab" id="journal-tab" role="tab" type="button" aria-selected="false" aria-controls="feedback-panel" tabindex="-1" data-kind="journal">投稿「新岛通讯」</button>
       </div>
       <form id="feedback-form" novalidate>
         <fieldset id="form-fields" style="border:0;padding:0;margin:0;min-width:0">
@@ -38,7 +39,7 @@
               <svg class="attachment-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 12L14 6C18 2 23 7 19 11L10 20C4 26-3 18 3 12L12 3" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
               <div class="attachment-body">
                 <div class="attachment-copy">
-                  <label for="logs">错误报告<span class="optional" id="logs-optional" hidden>选填</span></label>
+                  <label for="logs">错误报告</label>
                   <div id="logs-hint" class="form-note">请上传错误报告或截图、录屏等材料。</div>
                 </div>
                 <input id="logs" name="logs" type="file" multiple required disabled aria-describedby="logs-hint logs-error">

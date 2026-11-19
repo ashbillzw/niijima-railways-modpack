@@ -5,8 +5,14 @@ export function attachmentsTooLarge(files, maxBytes) {
 export function validateFeedback(values, files, limits) {
   const errors = {};
   for (const key of ['playerId', 'title', 'details']) if (!values[key]?.trim()) errors[key] = 'required';
-  if (!['bug', 'suggestion'].includes(values.type)) errors.type = 'invalid';
+  if (!['bug', 'suggestion', 'journal'].includes(values.type)) errors.type = 'invalid';
   if (values.type === 'bug' && !files.length) errors.logs = 'required';
+  if (values.type === 'journal') {
+    if (!values.playerId?.trim()) errors.playerId = 'byline';
+    if ([...(values.details || '').replace(/\s/gu, '')].length < 100) errors.details = 'short';
+    if (!files.length) errors.logs = 'illustration';
+    else if (files.some(file => !file.type.startsWith('image/'))) errors.logs = 'imageType';
+  }
   if (attachmentsTooLarge(files, limits.maxAttachmentBytes)) errors.logs = 'size';
   return errors;
 }
@@ -31,11 +37,12 @@ export async function packageFeedback(JSZip, values, files, limits, feedbackId, 
     zip.file(path, file);
     return { name: file.name, path, bytes: file.size };
   });
-  const report = { schemaVersion: 1, feedbackId, createdAt, type: values.type, playerId: values.playerId.trim(), title: values.title.trim(), details: values.details.trim(), event: values.event || null, attachments };
-  zip.file('feedback.json', JSON.stringify(report, null, 2));
+  const report = { schemaVersion: 1, feedbackId, createdAt, type: values.type, ...(values.type === 'journal' ? { byline: values.playerId.trim() } : { playerId: values.playerId.trim() }), title: values.title.trim(), details: values.details.trim(), event: values.event || null, attachments };
+  const prefix = values.type === 'journal' ? 'journal' : 'feedback';
+  zip.file(prefix + '.json', JSON.stringify(report, null, 2));
   const bytes = await zip.generateAsync({ type: 'uint8array', compression: 'STORE' });
   if (bytes.byteLength > limits.maxArchiveBytes) throw new Error('archive-size');
-  return { bytes, report, filename: `feedback-${feedbackId}.zip` };
+  return { bytes, report, filename: `${prefix}-${feedbackId}.zip` };
 }
 
 export function isUploadReceipt(receipt, size) {
