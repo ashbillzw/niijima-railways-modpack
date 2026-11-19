@@ -30,12 +30,12 @@
     }
   },
   "map_view": {
-    "initial_dimension": "minecraft:the_nether",
+    "initial_dimension": "minecraft:overworld",
     "initial_position": {
-      "x": -90,
-      "z": -90
+      "x": 73,
+      "z": -1221
     },
-    "initial_zoom": 2,
+    "initial_zoom": 1,
     "min_zoom": -3,
     "max_zoom": 4,
     "zoom_controls": false,
