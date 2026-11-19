@@ -138,6 +138,7 @@ let syncedMore = false;
 const post = message => parent.postMessage(message, '*');
 const addresses = Object.fromEntries(endpoints.map(e=>[e.id,e.id+'.ashbill.com:'+e.port]));
 function selectTab(game) {
+  if (game && !gameTab) document.querySelector('#map').dispatchEvent(new Event('leave-map'));
   gameTab = game;
   container.hidden = !game;
   document.querySelector('#map').hidden = game;

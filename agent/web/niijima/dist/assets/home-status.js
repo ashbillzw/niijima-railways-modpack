@@ -14,10 +14,11 @@ const servers = new Map((document.getElementById('map') ? ['create-cn', 'train-c
 const mapButtons = [...document.querySelectorAll('[data-map]')];
 const railKey = document.getElementById('live-rail-key');
 const railPicker = document.querySelector('.live-rail-picker');
-let railSource = railPicker?.querySelector('[aria-pressed="true"]');
+const mainRail = railPicker?.querySelector('[data-server="create-cn"]');
+let railSource = mainRail;
 const pageQuery = new URLSearchParams(location.search);
 const mapKey = pageQuery.get('map');
-const mapDate = mapKey === 'rail-network' && pageQuery.get('mapdate');
+let mapDate = mapKey === 'rail-network' && pageQuery.get('mapdate');
 const frame = document.getElementById('map');
 if (frame && pageQuery.get('in_game') === '1')
   frame.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-pointer-lock');
@@ -125,7 +126,7 @@ function renderStatus() {
     ? both.reduce((sum, s) => sum + (interrupted(s, now) === null ? s.data.onlinePlayers : 0), 0) : null);
   digits('total-logins', both.every(s => s.data) ? both.reduce((sum, s) => sum + s.data.totalLogins, 0) : null);
 
-  updateFrame(now);
+  if (selected) updateFrame(now);
   let selectedSince = null;
   for (const button of mapButtons) {
     const serverSince = interrupted(servers.get(button.dataset.server), now);
@@ -145,13 +146,12 @@ function renderStatus() {
 }
 
 function selectMap(button) {
+  if (selected?.dataset.mapKey === 'rail-network' && selected !== button) mapDate = null;
   selected = button;
-  const liveRail = railPicker?.contains(button);
-  if (liveRail) {
-    railSource = button;
-    railPicker.querySelector('summary').textContent = button.textContent;
-  }
+  const liveRail = railPicker?.contains(button) ?? false;
   if (railKey) {
+    railSource = liveRail ? button : mainRail;
+    railPicker.querySelector('summary').textContent = railSource.textContent;
     railKey.setAttribute('aria-pressed', String(liveRail));
     railPicker.hidden = !liveRail;
     railPicker.open = false;
@@ -160,9 +160,14 @@ function selectMap(button) {
     const active = railPicker?.contains(item) ? item === railSource : item === button;
     item.setAttribute('aria-pressed', String(active));
   }
-  frame.title = liveRail ? button.textContent.trim() + '轨道实况' : button.textContent.trim();
+  if (button) frame.title = liveRail ? button.textContent.trim() + '轨道实况' : button.textContent.trim();
+  else {
+    frame.classList.remove('ready');
+    frame.src = 'about:blank';
+  }
   renderStatus();
 }
+frame?.addEventListener('leave-map', () => selectMap(null));
 railKey?.addEventListener('click', () => selectMap(railSource));
 railPicker?.addEventListener('keydown', event => {
   if (event.key === 'Escape') {
