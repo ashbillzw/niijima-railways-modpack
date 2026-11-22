@@ -1,6 +1,15 @@
 const navigation = document.querySelector('.site-navigation');
 const inGame = document.documentElement.classList.contains('in-game');
 if (inGame) {
+  window.niijimaClick = () => {
+    if (parent !== window) parent.postMessage({type:'niijima:click'}, '*');
+    else window.niijimaServerStatus?.({request:'click', onSuccess:()=>{}, onFailure:()=>{}});
+  };
+  document.addEventListener('click', event => {
+    const control = event.target.closest('button, a[href], summary, [role="button"]');
+    if (control && !control.matches(':disabled, [aria-disabled="true"]')) window.niijimaClick();
+  }, true);
+
   for (const link of document.querySelectorAll('a[href], .downloads a.action')) {
     if (link.matches('.downloads a.action')) {
       link.href = '#';

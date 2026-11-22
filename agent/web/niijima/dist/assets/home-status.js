@@ -65,7 +65,7 @@ function interrupted(server, now) {
   if (!server) return null;
   const { data, missingSince } = server;
   if (!data) return missingSince;
-  return !data.running || now - data.sampledAt > freshness ? data.sampledAt : null;
+  return !data.running || now - server.sampledLocallyAt > freshness ? server.sampledLocallyAt : null;
 }
 
 function digits(id, number) {
@@ -113,7 +113,8 @@ function updateNeedle(mspt) {
 }
 
 function renderStatus() {
-  const now = Date.now();
+  if (document.hidden || resuming) return;
+  const now = performance.now();
   const main = servers.get('create-cn');
   const since = interrupted(main, now);
   sign.dataset.active = since !== null ? (now - since > stopThreshold ? 'down' : 'restart') : main.data ? 'up' : '';
@@ -207,37 +208,57 @@ async function readSnapshot(id, server) {
     const data = await response.json();
     if (!(Number.isSafeInteger(data.sampledAt) && data.sampledAt > 0 && typeof data.running === 'boolean'
       && Number.isFinite(data.mspt) && data.mspt >= 0 && [data.onlinePlayers, data.totalLogins].every(n => Number.isSafeInteger(n) && n >= 0))) throw Error();
+    // HTTP Date and sampledAt share the server clock; the player's clock need not.
+    const received = performance.now();
+    const serverNow = Date.parse(response.headers.get('Date'));
+    if (Number.isFinite(serverNow)) {
+      server.sampledLocallyAt = received - Math.max(0, serverNow + 1000 - data.sampledAt);
+    } else if (!server.data) {
+      server.sampledLocallyAt = received;
+    } else if (data.sampledAt !== server.data.sampledAt) {
+      server.sampledLocallyAt = Math.min(received, server.sampledLocallyAt + Math.max(0, data.sampledAt - server.data.sampledAt));
+    }
     server.data = data;
     server.missingSince = null;
   } catch {
-    server.missingSince ??= Date.now();
+    server.missingSince ??= performance.now();
   }
 }
 
 async function probeMap(button) {
-  if (interrupted(servers.get(button.dataset.server), Date.now()) !== null) return;
+  if (interrupted(servers.get(button.dataset.server), performance.now()) !== null) return;
   try {
     const response = await request(button.dataset.map);
     const marker = button.dataset.map.startsWith('/bluemap/') ? '<title>BlueMap</title>' : 'create-track-map.js';
     if (!response.ok || !(await response.text()).includes(marker)) throw Error();
     mapErrors.set(button, null);
   } catch {
-    if (mapErrors.get(button) == null) mapErrors.set(button, Date.now());
+    if (mapErrors.get(button) == null) mapErrors.set(button, performance.now());
   }
 }
 
+let pollTimer, polling = false, resuming = false;
 async function poll() {
+  clearTimeout(pollTimer);
+  if (document.hidden || polling) return;
+  polling = true;
   const start = performance.now();
   await Promise.all([...servers].map(([id, server]) => readSnapshot(id, server)));
+  resuming = false;
   renderStatus();
   await Promise.all(mapButtons.filter(button => button.dataset.server).map(probeMap));
   renderStatus();
-  setTimeout(poll, Math.max(0, 5000 - (performance.now() - start)));
+  polling = false;
+  if (!document.hidden) pollTimer = setTimeout(poll, Math.max(0, 5000 - (performance.now() - start)));
 }
 if (frame || (sign && sign.getClientRects().length)) {
   const initialMap = frame && mapButtons.find(button => button.dataset.mapKey === mapKey);
   if (initialMap) selectMap(initialMap);
   else renderStatus();
+  document.addEventListener('visibilitychange', () => {
+    clearTimeout(pollTimer);
+    if (!document.hidden) { resuming = true; poll(); }
+  });
   poll();
   setInterval(renderStatus, 1000);
 }

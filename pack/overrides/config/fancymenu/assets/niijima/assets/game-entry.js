@@ -138,15 +138,16 @@ let syncedMore = false;
 const post = message => parent.postMessage(message, '*');
 const addresses = Object.fromEntries(endpoints.map(e=>[e.id,e.id+'.ashbill.com:'+e.port]));
 function selectTab(game) {
+  if (game && !gameTab) document.querySelector('#map').dispatchEvent(new Event('leave-map'));
   gameTab = game;
   container.hidden = !game;
   document.querySelector('#map').hidden = game;
   screen.classList.toggle('game-active',game);
   power.setAttribute('aria-pressed',String(game));
-  if(game)document.querySelectorAll('[data-map]').forEach(b=>b.setAttribute('aria-pressed','false'));
+  if(game)document.querySelectorAll('.map-switcher .console-key').forEach(b=>b.setAttribute('aria-pressed','false'));
 }
 power.onclick = () => selectTab(true);
-document.querySelectorAll('[data-map]').forEach(b=>b.addEventListener('click',()=>selectTab(false)));
+document.querySelectorAll('.map-switcher .console-key').forEach(b=>b.addEventListener('click',()=>selectTab(false)));
 selectTab(true);
 function execute(name) {
   if(hosted) { post({type:'niijima:action',name});return; }
@@ -163,6 +164,7 @@ function changed() {
 more.addEventListener('toggle',()=>{if(more.open!==syncedMore){syncedMore=more.open;changed()}});
 function skip() {
   skipped = true;
+  document.documentElement.classList.remove('opening-pending');
   cover?.remove();
   cover = null;
   videoFrame = null;
@@ -185,8 +187,13 @@ function opening() {
   cover.append(label);
   cover.onclick=()=>{skip();if(hosted)post({type:'niijima:skip'})};
   document.body.append(cover);
+  document.documentElement.classList.remove('opening-pending');
 }
 window.addEventListener('message',e=>{
+  if(e.source===document.querySelector('#map').contentWindow && e.origin===location.origin && e.data?.type==='niijima:click'){
+    window.niijimaClick?.();
+    return;
+  }
   if(videoFrame && e.source===videoFrame.contentWindow && e.origin===location.origin && e.data==='niijima:opening-ready'){
     if(hosted)post({type:'niijima:playing'});
     return;
@@ -227,7 +234,7 @@ async function read() {
 }
 async function poll(){await read();setTimeout(poll,cadence)}
 poll();
-if(hosted){post({type:'niijima:hello'})}
+if(hosted){opening();post({type:'niijima:hello'})}
 else {
   try{skipped=sessionStorage.getItem('niijima-opening-skipped')==='1'}catch{}
   if(!skipped)opening();
