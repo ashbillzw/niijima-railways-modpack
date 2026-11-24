@@ -30,12 +30,17 @@
     const m=event.data;
     if(!m || typeof m!=='object')return;
     if(m.type==='niijima:hello'){frames.add(f);broadcast();return}
+    if(f===local && m.type==='niijima:ready' && foreground===local){local.inert=false;local.removeAttribute('aria-hidden');return}
     if(f===live){
       if(m.type==='niijima:ready'){ready=true;reveal();return}
       if(m.type==='niijima:home-ready'){homeReady=true;reveal();return}
       if(m.type==='niijima:playing'){playing=true;reveal();return}
     }
     if(f!==foreground)return;
+    if(m.type==='niijima:click'){
+      window.niijimaServerStatus?.({request:'click',onSuccess:()=>{},onFailure:()=>{}});
+      return;
+    }
     if(m.type==='niijima:skip'){
       state.skipped=true;
       try{sessionStorage.setItem('niijima-opening-skipped','1')}catch{}

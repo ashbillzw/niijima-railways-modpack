@@ -23,6 +23,8 @@
 
 收尾时最新包为并行任务的1.6.0.x／test0026，已定向核对保留完全相同的美团实现及启用配置。
 
+2026-11-22（1.6.0.bp）：美团启用时，权限等级 2 及以上可用 `/美团 debug resetCooldown <在线玩家>` 重置一名玩家的动物单额度。游戏内重置自己可填 `@s`；控制台可填玩家名。重新查看接单列表即可。当前配送和用于点餐广播的送达记录均保留，之后每次成功送达继续计入滚动 24 小时额度。拼音和英文根命令也支持相同的 debug 子命令。
+
 2026-11-19 更新（1.6.0.bo）：各维度均可查单、接单和取消待接点餐。点餐和送达仅限主世界，其他维度执行这两项时提示`【美团】只能在主世界送餐！`。选单排除自己的单；无有效预览或编号无效时重新显示选单。
 
 | 命令 | 用途 | 首版行为 |
@@ -109,3 +111,7 @@
 | `/trainresyncdebug` | 开启客户端刷新计时、检查队列长度及提示状态的持续显示 | 只把调试标志设为开启；当前没有配套关闭命令，也不是 `/trainresync debug` 的别名 |
 
 源码：`ClientInit.onClientCommandRegister`、`resyncAllCarriages`、`silentMode`、`verboseMode`、`debugMode`、`showMessage`。原有简表位于 TrainResync 仓库 `README.md`。
+
+## 时间命令（本地 1.6.0.bt）
+
+沿用原版 `/time` 的权限等级 2。`/time set day|noon|night|midnight` 分别向前推进到下一次 1000、6000、13000、18000 tick；恰好在目标时刻时推进一个整日。`/time set <数值>` 返回警告并终止。`/time force-set <整数tick>` 直接设置绝对昼夜时间，按长整数解析。操作范围沿用原版设时的各维度，回显以 `【AshBill】` 开头。`/time query` 和 `/time add` 沿用原版。源码：`time/WorldTimeCommands.java`。

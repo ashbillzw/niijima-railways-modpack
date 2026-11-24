@@ -32,6 +32,16 @@
   classes.toggle('hide-nav', query.get('nav') === '0');
   if (classes.contains('local-home') || query.get('in_game') === '1') {
     classes.add('in-game');
+    if (classes.contains('home-page')) {
+      let skipped = false;
+      try { skipped = sessionStorage.getItem('niijima-opening-skipped') === '1'; } catch {}
+      if (query.get('hosted') === '1' || !skipped) {
+        classes.add('opening-pending');
+        const curtain = document.createElement('style');
+        curtain.textContent = 'html.opening-pending::after{content:"";position:fixed;inset:0;background:#000;z-index:2147483647}';
+        document.head.append(curtain);
+      }
+    }
     const policy = document.createElement('meta');
     policy.httpEquiv = 'Content-Security-Policy';
     policy.content = "frame-src 'self'; form-action 'self'";
@@ -52,6 +62,7 @@
 
   <script src="assets/home.js" defer></script>
   <link rel="stylesheet" href="assets/game-entry.css">
+  <link rel="stylesheet" href="assets/edition-picker.css">
   <script src="assets/game-status.js" defer></script>
   <script src="assets/game-entry.js" defer></script>
 </head>
@@ -84,12 +95,12 @@
   <div class="cabinet-viewport">
   <main class="home">
     <aside class="console-side side-left">
-      <div class="map-switcher control-bay panel" role="group" aria-label="地图">
+      <div class="map-switcher control-bay panel" role="group" aria-label="新岛通讯、乘换案内、三维地图、轨道实况">
         <span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span>
-        <button class="console-key" type="button" disabled data-server="create-cn" data-map-key="bluemap" data-map="/bluemap/web/" aria-pressed="true"><span class="pilot" aria-hidden="true"></span><span>三维地图</span></button>
+        <button class="console-key" type="button" disabled data-map-key="journal" data-map="/v3/journal/" aria-pressed="true"><span class="pilot" aria-hidden="true"></span><span>新岛通讯</span></button>
         <button class="console-key" type="button" disabled data-map-key="rail-network" data-map="/v3/rail-network.html" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>乘换案内</span></button>
-        <button class="console-key" type="button" disabled data-server="create-cn" data-map-key="create-cn-rail-map" data-map="/create-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>主服轨道实况</span></button>
-        <button class="console-key" type="button" disabled data-server="train-cn" data-map-key="train-cn-rail-map" data-map="/train-cn-rail-map/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>测试服轨道实况</span></button>
+        <button class="console-key" type="button" disabled data-server="create-cn" data-map-key="bluemap" data-map="/bluemap/web/" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>三维地图</span></button>
+        <button class="console-key" type="button" id="live-rail-key" aria-pressed="false"><span class="pilot" aria-hidden="true"></span><span>轨道实况</span></button>
       </div>
       <div class="instrument-slot">
         <div class="instrument meter-panel panel"><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><div class="meter-case"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 316 215" font-family="Helvetica, Niijima Meow" text-anchor="middle" dominant-baseline="middle" fill="#22231f" role="img" aria-label="MSPT / TPS">
@@ -204,10 +215,17 @@
       </div>
       <div class="side-filler" aria-hidden="true"><div class="vent"></div><div class="filler-strip"></div></div>
     </aside>
-    <section class="map-section" aria-label="地图">
+    <section class="map-section" aria-label="新岛通讯、乘换案内、三维地图、轨道实况">
       <span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span><span class="fastener" aria-hidden="true"></span>
       <div class="screen">
-        <iframe id="map" title="三维地图" allow="fullscreen"></iframe>
+        <iframe id="map" title="新岛通讯" allow="fullscreen"></iframe>
+        <details class="edition-picker live-rail-picker" hidden>
+          <summary class="featured">主服</summary>
+          <div class="edition-list">
+            <button type="button" disabled data-map-key="create-cn-rail-map" data-server="create-cn" data-map="/create-cn-rail-map/" aria-pressed="true">主服</button>
+            <button type="button" disabled data-map-key="train-cn-rail-map" data-server="train-cn" data-map="/train-cn-rail-map/" aria-pressed="false">测试服</button>
+          </div>
+        </details>
         <div class="map-outage" hidden>
           <div></div><div></div><div></div>
           <div><img src="assets/falco-outage.bmp" width="160" height="251" alt="" loading="lazy"></div>

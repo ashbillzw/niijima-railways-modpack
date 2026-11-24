@@ -134,3 +134,9 @@ body { height: calc(100 * var(--page-vh)); }
   @container filler (min-height: 22px) { .filler-strip { display: block; } }
   @container filler (min-height: 89px) { .side-filler .vent { display: block; } .filler-strip { margin-top: 14px; } }
 }
+
+.screen > .live-rail-picker {
+  position: absolute; top: 8px; right: 10px; z-index: 1;
+  background: #f2f2ef; border-radius: 3px; padding-inline: 6px;
+}
+.screen.game-active > .live-rail-picker { display: none; }
