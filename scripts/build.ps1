@@ -188,6 +188,7 @@ function Build-Pack($Branch, $Suffix, $Label, [string]$Kind) {
         if ($Kind -eq 'test') {
             Set-TestOptions $pack
             Set-TestWorldRules $pack
+            Copy-Item -LiteralPath (Join-Path $Repo 'helper-mods/niijima-test/dist/niijima-client-test.jar') -Destination (Join-Path $pack 'overrides/mods')
             $minescript = Join-Path $Build 'local-test-mods/minescript-forge-1.20.1-4.0.jar'
             if (Test-Path -LiteralPath $minescript -PathType Leaf) {
                 Copy-Item -LiteralPath $minescript -Destination (Join-Path $pack 'overrides/mods')

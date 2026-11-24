@@ -1,0 +1,30 @@
+{
+  "gamemode": "creative",
+  "steps": [
+    {"op":"command","command":"fill $x-3 199 -4 $x+8 199 4 stone"},
+    {"op":"command","command":"tp @s $x+0.5 200 -0.5 -90 20"},
+    {"op":"waitWorld"},
+    {"op":"command","command":"setblock ~3 ~ ~ cauldron"},
+    {"op":"command","command":"item replace entity @s weapon.mainhand with potion{CustomPotionEffects:[{Id:1b,Duration:2400},{Id:3b,Duration:2400},{Id:5b,Duration:2400},{Id:8b,Duration:2400},{Id:11b,Duration:2400},{Id:12b,Duration:2400},{Id:16b,Duration:2400}]}"},
+    {"op":"waitScreen","screen":"hud","stableMs":700},
+    {"op":"rightClick"},
+    {"op":"expectBlock","dx":3,"dy":0,"dz":0,"block":"amendments:liquid_cauldron","timeout":10},
+    {"op":"command","command":"execute align xz run summon item ~3.5 ~1.1 ~0.5 {PickupDelay:30s,Item:{id:\"minecraft:glow_ink_sac\",Count:1b}}"},
+    {"op":"waitScreen","screen":"hud","stableMs":1200},
+    {"op":"command","command":"data get block ~3 ~ ~"},
+    {"op":"command","command":"setblock ~3 ~-1 ~ campfire[lit=true]"},
+    {"op":"waitScreen","screen":"hud","stableMs":1200},
+    {"op":"command","command":"data get block ~3 ~ ~"},
+    {"op":"command","command":"item replace entity @s weapon.mainhand with potion{Potion:\"minecraft:water_breathing\"}"},
+    {"op":"waitScreen","screen":"hud","stableMs":450},
+    {"op":"rightClick"},
+    {"op":"waitScreen","screen":"hud","stableMs":220},
+    {"op":"screenshot"},
+    {"op":"waitScreen","screen":"hud","stableMs":650},
+    {"op":"screenshot"},
+    {"op":"waitScreen","screen":"hud","stableMs":900},
+    {"op":"screenshot"},
+    {"op":"command","command":"data get block ~3 ~ ~"},
+    {"op":"expectBlock","dx":3,"dy":0,"dz":0,"block":"amendments:liquid_cauldron","timeout":4}
+  ]
+}

@@ -1,0 +1,11 @@
+[
+  {"op":"waitScreen", "screen":"random_video", "stableMs":12000},
+  {"op":"clickScreen", "x":0.5, "y":0.5},
+  {"op":"waitScreen", "screen":"random_video", "stableMs":4000},
+  {"op":"screenshot"},
+  {"op":"createWorld", "seed":42},
+  {"op":"waitWorld"},
+  {"op":"command", "command":"setblock ~2 ~ ~ minecraft:gold_block"},
+  {"op":"expectBlock", "dx":2, "dy":0, "dz":0, "block":"minecraft:gold_block"},
+  {"op":"screenshot"}
+]
