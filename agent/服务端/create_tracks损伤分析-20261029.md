@@ -531,3 +531,48 @@ NAS 归档为 3,478,717 字节。只读解压得到 31,634,215 字节，gzip 流
 2026-11-18 后续：TrainResync 1.6.0.bg 从专服 onServerExit 释放仍在等待主线程的 RCON 命令，测试版 test0070 / master pack-id 67，包与两服 shared 已同步。核查两服自动重启配置及 2.0.2 模组字节码：其定时重启调用 MinecraftServer.halt(false)，故正常退出经过本修复，触发方无须协调 Windows 监听器。已用 1.20.1 原版 RconClient 和编译后的修复重现「连接保持、命令在途、主线程回收」并正常退出。以上是本地实测；生产状态以部署记录为准。
 
 线上部署：2026-11-18 北京时间，零人逐服保存并更换为 trainresync-1.6.0.bg-all.jar（SHA-256 2d88865d2880de1d7f4027e773416e5df17656d18d1d059326f634fed16c1f6f）；创造服 00:43:28、主服 00:46:06 启动完成，均已验证 systemd active、RCON list 和聊天命令返回。两服 AutoRestart 2.0.2 的实机哈希均与已审查的快照一致。服务端配置、systemd 停服脚本均沿用原值。本次验证了新版启动与命令执行，自动停服竞态已在本机复现并通过修复验证；尚未观察两服新版第一次定时退出。
+
+### 2026-11-25 主服铁路保存期间再次发生 tick 超时
+
+北京时间 01:00:06 的主服崩溃报告记录单 tick 耗时 60.80 秒。看门狗采样时，主线程在 TrainResync 的 AtomicRailwayFile.write 调用内压缩铁路 NBT，栈顶为 Deflater.deflateBytesBytes。这与 11 月 21 日报告的保存路径一致。单次栈采样不能确定压缩占用了多少时间，也不能据此判定磁盘或 NAS 在故障时的状态。主服 01:05:49 再次完成启动。
+
+01:22:44 经远程共享终端从宿主机查询，两服游戏协议均有响应，均为零在线。主服 16.53 MSPT，测试服 13.45 MSPT，采样分别距查询 0.7、1.5 秒。两服最近的 NAS 备份文件头可读，看门狗服务 active。未取得本次内核与看门狗的完整 journal。
+
+#### 11 月 25 日故障分钟的 CPU、磁盘和 Java 堆
+
+两份主服报告的采样栈一致：11 月 24 日 02:10（北京时间）单 tick 60.32 秒，空闲堆 80 MiB，零玩家；11 月 25 日 01:00 单 tick 60.80 秒，空闲堆 63 MiB，一名玩家。两次都已经提交满 16 GiB 堆，主线程均在 AtomicRailwayFile.write 的写入回调内执行 Deflater.deflateBytesBytes。按保存实现的顺序，此次采样尚未进入 force 或文件替换。现场运行 TrainResync 1.6.0.bg。主世界数据位于本地 ext4，备份目录位于 NFS。当晚最后一次自动备份于前一天 12:18 完成。
+
+故障前六条追赶 tick 告警分别落后 13.6、12.0、15.2、13.5、19.5、32.7 秒，约每五分钟一次；这些是服务器累计落后量。北京时间 00:59:57 看门狗触发，01:00:06 写出报告。Netdata 以 5 秒为桶，取触发前 61 秒内的 12 个桶；同机基线为 00:49:07–00:51:27 的 28 个桶。以下为各桶均值。
+
+| 指标 | 基线 | 故障窗口 |
+|---|---:|---:|
+| 主服 systemd 组用户态 CPU（100% 为一个逻辑核） | 331% | 931% |
+| 宿主机 CPU iowait | 0.37% | 0.10% |
+| 本地 NVMe 忙碌时间占比 | 7.02% | 2.77% |
+| 宿主机可用内存 | 16,796 MiB | 16,786 MiB |
+
+故障窗口内未见 swap 写出。Netdata 查询的 UTC 终点为 2026-11-24 16:59:57，主要图表为 systemd_mc-create-cn-r2.cpu、system.cpu、disk_util.nvme0n1、mem.available、mem.swapio。证据最支持主服堆接近上限时，周期性世界保存遇到严重 JVM 内存回收压力；服务平均超过九核的用户态开销也无法由单个主线程压缩独自解释。现有指标无法按线程拆出 GC 用时。11 月 13 日归档的故障期 JFR 曾检出频繁 Full GC、回收后仍约 15.16 GiB 存活，以及 Create 软管抽液的长寿命样本；本次未取得故障窗口的 GC/safepoint 日志、JFR 或堆引用链。软管搜索是值得优先验证的对象来源，尚不能据此认定具体装置或内存泄漏。
+
+最低成本的下一步是在主服保留滚动 GC/safepoint 日志，与保存和看门狗时间对齐。若确认回收后占用长期不降，再采集带 GC roots 的老对象样本或有计划地分析堆转储。本轮仅作只读检查。
+
+#### 11 月 25 日 JFR 状态与 Create 软管源码复核
+
+01:35 左右，经主服服务的 cgroup 找到 Java 子进程，读取全部 190 个线程名，未见 JFR Recorder 或 JFR Periodic Tasks。进程参数及 Forge 实际传入的两份参数文件均未见 StartFlightRecording；日志、debug 和常规临时目录未见本次录制。两晚的崩溃线程转储也未见 JFR 线程。结合 11 月 13 日停用自动录制的记录，当前没有活动录制迹象，本次没有可回放文件。宿主机常用目录未找到 jcmd，未取得 JFR.check 的直接枚举结果。
+
+复核 Create 1.20.1 0.5.1.j，本机与线上 JAR 的 SHA-256 均为 a18763be04f6a7921d2e3bc5e9150b0bb5bc89b5ef45a607e93939972021f932。对照同版本源码和 JAR 的 javap 字节码，集合由单个软管方块实体的 drainer 持有。以下是静态路径，不能代替事故 JVM 的对象引用链。
+
+- 首次识别无限源时，搜索回调已向 validationSet 加入液体坐标。continueSearch 清空 frontier、visited 和优先队列，仅重新入队一个有效点；validationSet 继续保留。无限抽取会提前返回，不走有限源逐格出队时的 validationSet.contains 校验。一次实际抽取触发下一轮复验时，只清两份复验工作集，不清这份原集合。reset 或切换上下文时会清理。[首次搜索](https://github.com/Creators-of-Create/Create/blob/d39f89983a6c36dcacda6635c2094c826703ed49/src/main/java/com/simibubi/create/content/fluids/transfer/FluidDrainingBehaviour.java#L269)
+- 已判无限的源复验再次超阈值，continueValidation 清空 validationFrontier 并提前返回，仍持有 validationVisited 和 newValidationSet。下次 revalidate 启动或 reset 才会清理；停止抽取而装置继续加载时，工作集可能长期驻留。异常中止复验也会清 frontier 和 visited，但可留下部分 newValidationSet。[复验入口与提前返回](https://github.com/Creators-of-Create/Create/blob/d39f89983a6c36dcacda6635c2094c826703ed49/src/main/java/com/simibubi/create/content/fluids/transfer/FluidDrainingBehaviour.java#L301)
+- 主服范围 128、阈值 10000、无限源模式 ALLOW_ALL。搜索以已访问点数判阈值，在已确定液体的情况下超过 10000 就停止继续扩展；多个集合可同时各持有约万条记录，其中可能引用相同坐标对象。下次复验会清理工作集，没有证据表明每次复验又永久多留一整套。另一项成本来自邻居先入队、出队后去重以及 ArrayList.remove(0)，属于分配和 CPU 线索。[搜索循环](https://github.com/Creators-of-Create/Create/blob/d39f89983a6c36dcacda6635c2094c826703ed49/src/main/java/com/simibubi/create/content/fluids/transfer/FluidManipulationBehaviour.java#L145)
+
+下一次若要检验因果，记录 GC 后存活堆、Full GC 和 old-object 样本；受控采集时保留到 GC roots 的引用路径，并区分 validationSet、validationVisited 与 newValidationSet 的持有者。样本比例无法给出所有软管的总保留字节；需要结合活跃软管数量、集合大小，必要时以堆转储的支配树定量。此次只读，未开启新录制或修改玩法。
+
+### 2026-11-25 主服恢复 JVM 滚动 JFR
+
+主服 `create-cn/user_jvm_args.txt` 追加了以下启动参数。原文件备份在同目录的 `user_jvm_args.txt.before-jfr-20261124-180553`。每次启动自动录制，正常退出时 JDK 21 在已有的 `logs/` 目录生成独立文件名。若 JVM 遭强杀，完整退出归档可能缺失，可检查本轮 JVM 的磁盘分块。256 MiB 是单轮滚动上限；按流量，实际保留窗口可能短于两小时。
+
+```
+-XX:StartFlightRecording=name=railway,settings=profile,disk=true,maxage=2h,maxsize=256m,dumponexit=true,filename=logs/
+```
+
+北京时间 02:08:33，主服 RCON 再查为零人后重启。02:09:04 游戏记录 Done，02:09:45 从宿主机查询游戏端口 25591，收到 Minecraft 1.20.1、协议 763、0/20，RCON 也返回 0/20。新 JVM PID 82201 有 JFR 录制与采样线程，并持有非空的磁盘录制分块。仅操作主服。
