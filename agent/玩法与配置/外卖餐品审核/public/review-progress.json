@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "baseline": "fd65068b6aa089acd957daa4dd2b6f57a6b503439dda73696911cab5c6853242",
-  "exportedAt": "2026-11-18T15:57:28.022301+08:00",
+  "exportedAt": "2026-11-26T04:30:42.245461+08:00",
   "changes": [
     {
       "id": "farmersdelight:cake_slice",
@@ -88,18 +88,6 @@
         "farmersdelight:drinks"
       ],
       "changes": {
-        "enabled": {
-          "before": false,
-          "after": true
-        },
-        "sideDish": {
-          "before": false,
-          "after": true
-        },
-        "preferred": {
-          "before": false,
-          "after": true
-        },
         "tasteMultiplier": {
           "before": 1,
           "after": 4
@@ -1111,8 +1099,17 @@
         "needsDiscussion": {
           "before": false,
           "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
         }
-      }
+      },
+      "adjustedUnitPrice": 3.0
     },
     {
       "id": "minecraft:piston",

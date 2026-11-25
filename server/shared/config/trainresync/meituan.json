@@ -47,120 +47,1651 @@
     "狼"
   ],
   "foods": {
-    "minecraft:piston": {
-      "整蛊": true,
-      "价格": 2,
-      "数量乘数": 1
-    },
-    "minecraft:observer": {
-      "整蛊": true,
-      "价格": 3,
-      "数量乘数": 1
-    },
-    "minecraft:repeater": {
-      "整蛊": true,
-      "价格": 2,
-      "数量乘数": 1
-    },
-    "minecraft:comparator": {
-      "整蛊": true,
-      "价格": 3,
-      "数量乘数": 1
-    },
-    "minecraft:lever": {
-      "整蛊": true,
-      "价格": 0.5,
-      "数量乘数": 1
-    },
-    "minecraft:tripwire_hook": {
-      "整蛊": true,
-      "价格": 0.75,
-      "数量乘数": 1
-    },
-    "minecraft:lightning_rod": {
-      "整蛊": true,
-      "价格": 2,
-      "数量乘数": 1
-    },
-    "minecraft:rail": {
-      "整蛊": true,
-      "价格": 0.5,
-      "数量乘数": 1
-    },
-    "create:shaft": {
-      "整蛊": true,
-      "价格": 0.5,
-      "数量乘数": 1
-    },
-    "create:cogwheel": {
-      "整蛊": true,
-      "价格": 1,
-      "数量乘数": 1
-    },
-    "create:large_cogwheel": {
-      "整蛊": true,
-      "价格": 1.5,
-      "数量乘数": 1
-    },
-    "create:gearbox": {
-      "整蛊": true,
-      "价格": 3,
-      "数量乘数": 1
-    },
-    "create:electron_tube": {
-      "整蛊": true,
-      "价格": 3,
-      "数量乘数": 1
-    },
-    "create:railway_casing": {
-      "整蛊": true,
-      "价格": 4,
-      "数量乘数": 1
-    },
-    "minecraft:beacon": {
-      "整蛊": true,
-      "价格": 512,
-      "数量乘数": 1
-    },
-    "minecraft:conduit": {
-      "整蛊": true,
-      "价格": 192,
-      "数量乘数": 1
-    },
-    "minecraft:netherite_block": {
-      "整蛊": true,
-      "价格": 2048,
-      "数量乘数": 1
-    },
-    "minecraft:end_crystal": {
-      "整蛊": true,
-      "价格": 24,
-      "数量乘数": 1
-    },
-    "minecraft:lodestone": {
-      "整蛊": true,
-      "价格": 160,
-      "数量乘数": 1
-    },
-    "minecraft:wither_skeleton_skull": {
-      "整蛊": true,
-      "价格": 128,
-      "数量乘数": 1
-    },
     "farmersdelight:apple_pie": {
       "价格": 8,
       "数量乘数": 1,
-      "加成": {}
+      "好": true
     },
     "farmersdelight:sweet_berry_cheesecake": {
       "价格": 10,
       "数量乘数": 1,
-      "加成": {}
+      "好": true
     },
     "farmersdelight:chocolate_pie": {
       "价格": 12,
       "数量乘数": 1,
-      "加成": {}
+      "好": true
+    },
+    "farmersdelight:milk_bottle": {
+      "价格": 0.25,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "farmersdelight:hot_cocoa": {
+      "价格": 8,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "farmersdelight:apple_cider": {
+      "价格": 6,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "farmersdelight:cooked_cod_slice": {
+      "价格": 0.25,
+      "数量乘数": 1
+    },
+    "farmersdelight:cooked_salmon_slice": {
+      "价格": 0.25,
+      "数量乘数": 1
+    },
+    "farmersdelight:smoked_ham": {
+      "价格": 0.75,
+      "数量乘数": 1
+    },
+    "farmersdelight:fruit_salad": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "farmersdelight:sweet_berry_cookie": {
+      "价格": 0.125,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "farmersdelight:honey_cookie": {
+      "价格": 0.1875,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "farmersdelight:melon_popsicle": {
+      "价格": 5,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "farmersdelight:glow_berry_custard": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "farmersdelight:egg_sandwich": {
+      "价格": 1.5,
+      "数量乘数": 1
+    },
+    "farmersdelight:chicken_sandwich": {
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "farmersdelight:hamburger": {
+      "价格": 8,
+      "数量乘数": 1,
+      "好": true
+    },
+    "farmersdelight:bacon_sandwich": {
+      "价格": 2.5,
+      "数量乘数": 1
+    },
+    "farmersdelight:mutton_wrap": {
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "farmersdelight:salmon_roll": {
+      "价格": 5,
+      "数量乘数": 4,
+      "好": true
+    },
+    "farmersdelight:cod_roll": {
+      "价格": 5,
+      "数量乘数": 4,
+      "好": true
+    },
+    "farmersdelight:kelp_roll": {
+      "价格": 12,
+      "数量乘数": 1,
+      "好": true
+    },
+    "farmersdelight:mixed_salad": {
+      "价格": 5,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "farmersdelight:nether_salad": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "farmersdelight:beef_stew": {
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "farmersdelight:chicken_soup": {
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "farmersdelight:vegetable_soup": {
+      "价格": 1.75,
+      "数量乘数": 1
+    },
+    "farmersdelight:fish_stew": {
+      "价格": 2.5,
+      "数量乘数": 1
+    },
+    "farmersdelight:pumpkin_soup": {
+      "价格": 2.5,
+      "数量乘数": 1
+    },
+    "farmersdelight:baked_cod_stew": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "farmersdelight:onion_soup": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "farmersdelight:bone_broth": {
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "farmersdelight:bacon_and_eggs": {
+      "价格": 2.5,
+      "数量乘数": 1
+    },
+    "farmersdelight:pasta_with_meatballs": {
+      "价格": 16,
+      "数量乘数": 1,
+      "好": true
+    },
+    "farmersdelight:pasta_with_mutton_chop": {
+      "价格": 14,
+      "数量乘数": 1,
+      "好": true
+    },
+    "farmersdelight:roasted_mutton_chops": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "farmersdelight:steak_and_potatoes": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "farmersdelight:vegetable_noodles": {
+      "价格": 5,
+      "数量乘数": 1
+    },
+    "farmersdelight:ratatouille": {
+      "价格": 2.5,
+      "数量乘数": 1
+    },
+    "farmersdelight:squid_ink_pasta": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "farmersdelight:grilled_salmon": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "farmersdelight:mushroom_rice": {
+      "价格": 2.5,
+      "数量乘数": 1
+    },
+    "farmersdelight:roast_chicken": {
+      "价格": 2.5,
+      "数量乘数": 4
+    },
+    "farmersdelight:stuffed_pumpkin": {
+      "价格": 2,
+      "数量乘数": 4
+    },
+    "farmersdelight:honey_glazed_ham": {
+      "价格": 3,
+      "数量乘数": 4
+    },
+    "farmersdelight:shepherds_pie": {
+      "价格": 2.5,
+      "数量乘数": 4
+    },
+    "farmersdelight:gleaming_salad": {
+      "价格": 2,
+      "数量乘数": 4
+    },
+    "farmersdelight:rice_roll_medley_block": {
+      "价格": 40,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:slime_ball_meal": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:fondant_pie": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:dongpo_pork": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:fondant_spider_eye": {
+      "价格": 5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:chorus_fried_egg": {
+      "价格": 5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:golden_salad": {
+      "价格": 12,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:spicy_chicken": {
+      "价格": 18,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:crystal_lamb_chop": {
+      "价格": 5.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:nether_style_sashimi": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:pan_seared_knight_steak": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:stargazy_pie": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:sweet_and_sour_ender_pearls": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:blaze_lamb_chop": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:frost_lamb_chop": {
+      "价格": 8,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:braised_pork_ribs": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:buddha_jumps_over_the_wall": {
+      "价格": 8,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:brown_mushroom_pot_soup": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:candied_potato": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:bamboo_tube_rice": {
+      "价格": 16,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:crimson_fungus_pot_soup": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:dough_drop_soup": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:four_joy_meatball_soup": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:fried_caterpillar": {
+      "价格": 5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:fried_spring_roll": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:numbing_spicy_chicken": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:oil_splashed_fish": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:red_mushroom_pot_soup": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:spicy_blood_stew": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:spicy_rabbit_head": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:stuffed_tiger_skin_pepper": {
+      "价格": 24,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:warped_fungus_pot_soup": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:end_style_sashimi": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:desert_style_sashimi": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:tundra_style_sashimi": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:cold_style_sashimi": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:shengjian_mantou_plate": {
+      "价格": 20.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:baozi_plate": {
+      "价格": 20.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:qingtuan_plate": {
+      "价格": 8.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:sticky_candy_plate": {
+      "价格": 16.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:sticky_rice_cake_plate": {
+      "价格": 15.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:zongzi_plate": {
+      "价格": 16.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:berry_platter": {
+      "价格": 1,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:apple_platter": {
+      "价格": 3,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:tomato_platter": {
+      "价格": 0.75,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:watermelon_platter": {
+      "价格": 2,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:chorus_fruit_platter": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:flower_tea": {
+      "价格": 2,
+      "数量乘数": 12,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:tieguanyin": {
+      "价格": 10,
+      "数量乘数": 12,
+      "好": true,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:barley_tea": {
+      "价格": 10,
+      "数量乘数": 12,
+      "好": true,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:biluochun": {
+      "价格": 3,
+      "数量乘数": 12,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:oolong": {
+      "价格": 20,
+      "数量乘数": 12,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:sakura_fubuki": {
+      "价格": 3,
+      "数量乘数": 12,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:butter_tea": {
+      "价格": 3.5,
+      "数量乘数": 12,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:clay_pot_milk_tea": {
+      "价格": 4,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:tea_egg": {
+      "价格": 2,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:scramble_egg_with_tomatoes": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:scramble_egg_with_tomatoes_rice_bowl": {
+      "价格": 16,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:braised_beef": {
+      "价格": 4.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:braised_beef_rice_bowl": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:stir_fried_pork_with_peppers": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:stir_fried_pork_with_peppers_rice_bowl": {
+      "价格": 18,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:sweet_and_sour_pork": {
+      "价格": 5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:sweet_and_sour_pork_rice_bowl": {
+      "价格": 22,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:fish_flavored_shredded_pork": {
+      "价格": 5.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:fish_flavored_shredded_pork_rice_bowl": {
+      "价格": 24,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:egg_fried_rice": {
+      "价格": 14,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:pork_bone_soup": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:seafood_miso_soup": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:fearsome_thick_soup": {
+      "价格": 8,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:lamb_and_radish_soup": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:braised_beef_with_potatoes": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:wild_mushroom_rabbit_soup": {
+      "价格": 4.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:pufferfish_soup": {
+      "价格": 8,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:borscht": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:beef_meatball_soup": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:chicken_and_mushroom_stew": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:laba_congee": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:sashimi": {
+      "价格": 4,
+      "数量乘数": 6,
+      "好": true
+    },
+    "kaleidoscope_cookery:cooked_cow_offal": {
+      "价格": 0.75,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:cooked_meatball": {
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:donkey_burger": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:mantou": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:meat_pie": {
+      "价格": 5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_cookery:beef_noodle": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:hui_noodle": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "kaleidoscope_cookery:udon_noodle": {
+      "价格": 24,
+      "数量乘数": 1,
+      "好": true
+    },
+    "kaleidoscope_cookery:hot_dry_noodles": {
+      "价格": 6,
+      "数量乘数": 1
+    },
+    "fruitsdelight:apple_jello": {
+      "价格": 3.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:bayberry_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:blueberry_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:chorus_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:cranberry_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:durian_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:fig_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:glowberry_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:hamimelon_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:hawberry_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:kiwi_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:lemon_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:lychee_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:mango_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:mangosteen_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:melon_jello": {
+      "价格": 3.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:orange_jello": {
+      "价格": 18,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:peach_jello": {
+      "价格": 18,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:pear_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:persimmon_jello": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:pineapple_jello": {
+      "价格": 18,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:sweetberry_jello": {
+      "价格": 3.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:bayberry_cookie": {
+      "价格": 0.25,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "fruitsdelight:bayberry_soup": {
+      "价格": 8,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:bellini_cocktail": {
+      "价格": 3.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:blueberry_custard": {
+      "价格": 4,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:blueberry_muffin": {
+      "价格": 1.25,
+      "数量乘数": 2,
+      "副餐品": true
+    },
+    "fruitsdelight:bowl_of_pineapple_fried_rice": {
+      "价格": 2,
+      "数量乘数": 4
+    },
+    "fruitsdelight:cranberry_cookie": {
+      "价格": 0.25,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "fruitsdelight:cranberry_muffin": {
+      "价格": 1.25,
+      "数量乘数": 2,
+      "副餐品": true
+    },
+    "fruitsdelight:durian_pie": {
+      "价格": 20,
+      "数量乘数": 2,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:fig_chicken_stew": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "fruitsdelight:fig_tart": {
+      "价格": 5.5,
+      "数量乘数": 2,
+      "副餐品": true
+    },
+    "fruitsdelight:hamimelon_juice": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:hamimelon_popsicle": {
+      "价格": 8,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:hamimelon_shaved_ice": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:hawberry_roll": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:hawberry_stick": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:hawberry_tea": {
+      "价格": 5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:jelly_bread": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "fruitsdelight:kiwi_juice": {
+      "价格": 2,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:kiwi_popsicle": {
+      "价格": 8,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:lemon_cookie": {
+      "价格": 0.25,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "fruitsdelight:lemon_juice": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:lemon_tart": {
+      "价格": 4.5,
+      "数量乘数": 2,
+      "副餐品": true
+    },
+    "fruitsdelight:lychee_cherry_tea": {
+      "价格": 12,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:lychee_chicken": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "fruitsdelight:mango_milkshake": {
+      "价格": 12,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:mango_salad": {
+      "价格": 4,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:mango_tea": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:mangosteen_tea": {
+      "价格": 4.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:orange_chicken": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "fruitsdelight:orange_juice": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:orange_marinated_pork": {
+      "价格": 4,
+      "数量乘数": 1
+    },
+    "fruitsdelight:peach_tea": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:pear_juice": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:pear_with_rock_sugar": {
+      "价格": 10,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:persimmon_cookie": {
+      "价格": 0.25,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "fruitsdelight:pineapple_marinated_pork": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true
+    },
+    "fruitsdelight:pineapple_pie": {
+      "价格": 20,
+      "数量乘数": 2,
+      "好": true,
+      "副餐品": true
+    },
+    "fruitsdelight:fig_pudding": {
+      "价格": 8,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "fruitsdelight:mangosteen_cake": {
+      "价格": 5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:wine": {
+      "价格": 16,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:champagne": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:vodka": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:brandy": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:carignan": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:sakura_wine": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:plum_wine": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:whiskey": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:ice_wine": {
+      "价格": 16,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:polaris_sweet_white": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:honey_wine": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:red_queen": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:miners_star": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:rum": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:riesling_dry_white": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:sunset_glow": {
+      "价格": 28,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:madame_shexiang": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:sweet_berry_wine": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:sherry": {
+      "价格": 28,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:mother_snow": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:luminous_bride": {
+      "价格": 28,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:glowflower_brew": {
+      "价格": 28,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:sauvignon_blanc_dry_white": {
+      "价格": 20,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:signature_cocktail": {
+      "价格": 80,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:white_lady": {
+      "价格": 96,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:emerald": {
+      "价格": 64,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:brass_heart": {
+      "价格": 64,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:godfather": {
+      "价格": 80,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:grasshopper": {
+      "价格": 80,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:screwdriver": {
+      "价格": 80,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:mojito": {
+      "价格": 80,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:allium_garden": {
+      "价格": 64,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:depth_charge": {
+      "价格": 96,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:nether_special": {
+      "价格": 96,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:bloody_mary": {
+      "价格": 64,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:sculk_special": {
+      "价格": 80,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "kaleidoscope_tavern:watermelon_juice": {
+      "价格": 3,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "neapolitan:adzuki_cake": {
+      "价格": 10.5,
+      "数量乘数": 1
+    },
+    "neapolitan:adzuki_ice_cream": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:adzuki_milkshake": {
+      "价格": 5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "neapolitan:banana_cake": {
+      "价格": 8.75,
+      "数量乘数": 1
+    },
+    "neapolitan:banana_ice_cream": {
+      "价格": 2.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:banana_milkshake": {
+      "价格": 4.5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "neapolitan:chocolate_ice_cream": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:chocolate_milkshake": {
+      "价格": 5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "neapolitan:mint_cake": {
+      "价格": 8.75,
+      "数量乘数": 1
+    },
+    "neapolitan:mint_ice_cream": {
+      "价格": 2.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:mint_milkshake": {
+      "价格": 4.5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "neapolitan:strawberry_cake": {
+      "价格": 8.75,
+      "数量乘数": 1
+    },
+    "neapolitan:strawberry_ice_cream": {
+      "价格": 2.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:strawberry_milkshake": {
+      "价格": 4.5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "neapolitan:vanilla_cake": {
+      "价格": 10.5,
+      "数量乘数": 1
+    },
+    "neapolitan:vanilla_ice_cream": {
+      "价格": 12,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "neapolitan:vanilla_milkshake": {
+      "价格": 5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "neapolitan:neapolitan_ice_cream": {
+      "价格": 20,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "neapolitan:adzuki_bun": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:adzuki_curry": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "neapolitan:adzuki_stew": {
+      "价格": 2.5,
+      "数量乘数": 1
+    },
+    "neapolitan:banana_bread": {
+      "价格": 2,
+      "数量乘数": 1
+    },
+    "neapolitan:chocolate_spider_eye": {
+      "价格": 1.25,
+      "数量乘数": 2,
+      "副餐品": true
+    },
+    "neapolitan:chocolate_strawberries": {
+      "价格": 2,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:cooked_mint_chops": {
+      "价格": 0.5,
+      "数量乘数": 1
+    },
+    "neapolitan:mint_candies": {
+      "价格": 2,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:mint_chocolate": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:strawberry_banana_smoothie": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:strawberry_bean_bonbons": {
+      "价格": 3.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:strawberry_scones": {
+      "价格": 1.25,
+      "数量乘数": 2,
+      "副餐品": true
+    },
+    "neapolitan:vanilla_chocolate_fingers": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "neapolitan:vanilla_fudge": {
+      "价格": 0.75,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "neapolitan:vanilla_pudding": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "barbequesdelight:grilled_beef_skewer": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_chicken_skewer": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_cod_skewer": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_lamb_skewer": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_mushroom_skewer": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_pork_sausage_skewer": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_potato_skewer": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_rabbit_skewer": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_salmon_skewer": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "barbequesdelight:grilled_vegetable_skewer": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "barbequesdelight:bibimbap": {
+      "价格": 10,
+      "数量乘数": 1
+    },
+    "barbequesdelight:kebab_sandwich": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "barbequesdelight:kebab_wrap": {
+      "价格": 3.5,
+      "数量乘数": 1
+    },
+    "peculiars:yucca_ice_cream": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "peculiars:yucca_milkshake": {
+      "价格": 5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "peculiars:yucca_fudge": {
+      "价格": 2.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "peculiars:aloe_ice_cream": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "peculiars:aloe_milkshake": {
+      "价格": 5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "peculiars:aloe_jelly_slice": {
+      "价格": 2.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "peculiars:aloe_berry_smoothie": {
+      "价格": 3.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "peculiars:passion_fruit_ice_cream": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "peculiars:passion_fruit_milkshake": {
+      "价格": 5,
+      "数量乘数": 4,
+      "副餐品": true
+    },
+    "peculiars:tropical_salad": {
+      "价格": 3.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "peculiars:yucca_cake": {
+      "价格": 10.5,
+      "数量乘数": 1
+    },
+    "peculiars:aloe_cake": {
+      "价格": 10.5,
+      "数量乘数": 1
+    },
+    "peculiars:passion_fruit_cake": {
+      "价格": 10.5,
+      "数量乘数": 1
+    },
+    "atmospheric:candied_orange_slices": {
+      "价格": 1.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "atmospheric:currant_muffin": {
+      "价格": 2.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "atmospheric:orange_pudding": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "atmospheric:orange_sorbet": {
+      "价格": 2.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "atmospheric:passion_fruit_sorbet": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "atmospheric:passion_fruit_tart": {
+      "价格": 0.375,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "create:bar_of_chocolate": {
+      "价格": 1.25,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "create:builders_tea": {
+      "价格": 2.5,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "create:chocolate_glazed_berries": {
+      "价格": 1.75,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "create:honeyed_apple": {
+      "价格": 1.25,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "create:sweet_roll": {
+      "价格": 3,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "natures_spirit:whole_pizza": {
+      "价格": 10,
+      "数量乘数": 1
+    },
+    "natures_spirit:cheese_bucket": {
+      "价格": 6,
+      "数量乘数": 1,
+      "好": true,
+      "副餐品": true
+    },
+    "createaddition:chocolate_cake": {
+      "价格": 14,
+      "数量乘数": 1
+    },
+    "createaddition:honey_cake": {
+      "价格": 14,
+      "数量乘数": 1
+    },
+    "supplementaries:pancake": {
+      "价格": 1,
+      "数量乘数": 3
+    },
+    "supplementaries:candy": {
+      "价格": 0.25,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "minecraft:cookie": {
+      "价格": 0.03125,
+      "数量乘数": 8,
+      "副餐品": true
+    },
+    "minecraft:pumpkin_pie": {
+      "价格": 1,
+      "数量乘数": 1
+    },
+    "minecraft:cake": {
+      "价格": 7,
+      "数量乘数": 1
+    },
+    "minecraft:mushroom_stew": {
+      "价格": 0.75,
+      "数量乘数": 1
+    },
+    "minecraft:rabbit_stew": {
+      "价格": 3,
+      "数量乘数": 1
+    },
+    "minecraft:beetroot_soup": {
+      "价格": 0.625,
+      "数量乘数": 1
+    },
+    "minecraft:honey_bottle": {
+      "价格": 0.25,
+      "数量乘数": 1,
+      "副餐品": true
+    },
+    "minecraft:observer": {
+      "价格": 192,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:lightning_rod": {
+      "价格": 128,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "create:electron_tube": {
+      "价格": 192,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "create:railway_casing": {
+      "价格": 256,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:beacon": {
+      "价格": 1024,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:conduit": {
+      "价格": 384,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:netherite_block": {
+      "价格": 2048,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:end_crystal": {
+      "价格": 384,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:lodestone": {
+      "价格": 320,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:wither_skeleton_skull": {
+      "价格": 512,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:dragon_head": {
+      "价格": 768,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:piglin_head": {
+      "价格": 768,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:creeper_head": {
+      "价格": 640,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:deepslate_emerald_ore": {
+      "价格": 1024,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:ancient_debris": {
+      "价格": 192,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:diamond_block": {
+      "价格": 144,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "create:crushing_wheel": {
+      "价格": 192,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "create:mechanical_arm": {
+      "价格": 256,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:deepslate_coal_ore": {
+      "价格": 768,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:zombie_head": {
+      "价格": 640,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:skeleton_skull": {
+      "价格": 384,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "supplementaries:enderman_head": {
+      "价格": 768,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "neapolitan:chimpanzee_head": {
+      "价格": 640,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "create:mechanical_saw": {
+      "价格": 192,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "create:deployer": {
+      "价格": 160,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "create:mechanical_roller": {
+      "价格": 192,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "createbigcannons:ap_shot": {
+      "价格": 384,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "createbigcannons:ap_shell": {
+      "价格": 512,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "createbigcannons:he_shell": {
+      "价格": 512,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "createbigcannons:machine_gun_round": {
+      "价格": 256,
+      "数量乘数": 1,
+      "整蛊": true
+    },
+    "minecraft:end_rod": {
+      "价格": 128,
+      "数量乘数": 1,
+      "整蛊": true
     }
   }
 }
