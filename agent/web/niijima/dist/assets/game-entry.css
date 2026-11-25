@@ -6,13 +6,23 @@
 }
 .entry-art { display:block; width:100%; height:100%; }
 .entry-art [role=button] { cursor:pointer; }
+@media (prefers-reduced-motion: no-preference) {
+  .connecting-dot { animation:entry-dot 1.2s step-end infinite; }
+  .connecting-dot.third { animation-name:entry-third-dot; }
+  @keyframes entry-dot { 0% { opacity:0; } 33.33% { opacity:1; } }
+  @keyframes entry-third-dot { 0% { opacity:0; } 66.67% { opacity:1; } }
+}
 .entry-art .route[aria-pressed=true] circle { fill:currentColor; }
 .entry-art .route[aria-pressed=true] rect { fill:#e3f2bb18; }
 .entry-art .route:hover rect { fill:#fff6dc55; }
 .entry-art .automatic:hover, .entry-art .native-single:hover { filter:brightness(1.13); }
 .game-home:not(.compact-navigation) .site-navigation .more-menu { display: block; }
-.more-links .native-multi { width:100%; padding:8px 18px; border:0; background:transparent; color:inherit; text-align:left; font:inherit; font-weight:600; white-space:nowrap; cursor:pointer; }
-.more-links .native-multi:hover { background:#c4cbbb; }
+.opening-replay { position:fixed; inset:0; width:100%; height:100%; max-width:none; max-height:none; box-sizing:border-box; margin:0; border:0; padding:0; background:#000; }
+.opening-replay::backdrop { background:#000; }
+.opening-replay iframe { display:block; width:100%; height:100%; border:0; }
+.opening-replay > button { position:absolute; right:10px; top:8px; width:40px; height:40px; border:0; border-radius:50%; background:#161815bf; color:white; cursor:pointer; font-size:24px; }
+.more-links :is(.native-multi, .opening-link) { width:100%; padding:8px 18px; border:0; background:transparent; color:inherit; text-align:left; font:inherit; font-weight:600; white-space:nowrap; cursor:pointer; }
+.more-links :is(.native-multi, .opening-link):hover { background:#c4cbbb; }
 .game-home .screen { position:relative; }
 .game-home .screen.game-active .map-outage { visibility:hidden; }
 .game-home .home .map-section { padding-bottom:0; }

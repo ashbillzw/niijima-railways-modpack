@@ -1,7 +1,7 @@
 (() => {
   const local = document.querySelector('#local'), live = document.querySelector('#live');
   const online = 'https://mc1.ashbill.com:25572';
-  const state = {type:'niijima:state',skipped:false,choices:{},more:false,readings:{}};
+  const state = {type:'niijima:state',openingActions:true,skipped:false,choices:{},more:false,readings:{}};
   try {state.skipped=sessionStorage.getItem('niijima-opening-skipped')==='1'} catch {}
   const frames = new Set();
   const addresses = {mc1:'mc1.ashbill.com:25591',mc5:'mc5.ashbill.com:25591',mc2:'mc2.ashbill.com:25590',mc6:'mc6.ashbill.com:25590'};
@@ -21,7 +21,7 @@
       const result=await window.readNiijimaStatus();
       if(!result)return;
       state.readings=result.nodes;state.gameMenu=result.gameMenu;
-    } catch(error){state.readings={};console.debug('Game server status',error)}
+    } catch(error){state.readings=null;console.debug('Game server status',error)}
     broadcast();
   }
   window.addEventListener('message',event=>{
@@ -57,9 +57,13 @@
     if(m.type==='niijima:action'){
       const api=window.fancymenu?.actions || window.fancymenu;
       if(m.name==='single'||m.name==='multi')api?.execute('opengui',m.name==='single'?'select_world_screen':'join_multiplayer_screen');
+      else if (!state.skipped && (m.name === 'settings' || m.name === 'quit')) {
+        const button = m.name === 'settings' ? 'mc_titlescreen_options_button' : 'mc_titlescreen_quit_button';
+        api?.execute('mimicbutton', 'title_screen:' + button);
+      }
       else if(Object.hasOwn(addresses,m.name))api?.execute('joinserver',addresses[m.name]);
     }
   });
-  local.src='local.html?in_game=1&hosted=1';
-  live.src=online+'/v3/?in_game=1&hosted=1';
+  local.src='local.html?in_game=1';
+  live.src=online+'/v3/?in_game=1';
 })();

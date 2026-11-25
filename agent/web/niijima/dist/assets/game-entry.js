@@ -1,4 +1,43 @@
 (function(){
+const menu = document.querySelector('.more-menu');
+const replay = document.createElement('button');
+replay.type = 'button';
+replay.className = 'opening-link';
+replay.textContent = 'nsy';
+menu.querySelector('.more-links').prepend(replay);
+replay.onclick = () => {
+  menu.open = false;
+  const dialog = document.createElement('dialog');
+  dialog.className = 'opening-replay';
+  dialog.setAttribute('aria-label', 'nsy');
+  const frame = document.createElement('iframe');
+  frame.title = 'nsy';
+  frame.allow = 'autoplay';
+  frame.dataset.openingControls = 'web';
+  frame.src = '/v3/opening.html';
+  // Keep an exit available even while the player document is loading.
+  const exit = document.createElement('button');
+  exit.type = 'button';
+  exit.setAttribute('aria-label', '关闭');
+  exit.textContent = '×';
+  exit.onclick = () => dialog.close();
+  function onControl(event) {
+    if (event.source !== frame.contentWindow || event.origin !== location.origin ||
+        event.data?.type !== 'niijima:opening-control') return;
+    if (event.data.action === 'ready') exit.hidden = true;
+    if (event.data.action === 'skip') dialog.close();
+  }
+  window.addEventListener('message', onControl);
+  dialog.addEventListener('close', () => {
+    window.removeEventListener('message', onControl);
+    dialog.remove();
+    menu.querySelector('summary').focus();
+  }, {once:true});
+  dialog.append(frame, exit);
+  document.body.append(dialog);
+  dialog.showModal();
+};
+
 if (!document.documentElement.classList.contains('in-game')) return;
 document.documentElement.classList.add('game-home');
 const screen = document.querySelector('.screen');
@@ -7,8 +46,8 @@ container.className = 'in-screen';
 container.innerHTML = '<div id="screen-slot"></div>';
 screen.append(container);
 const endpoints = [
-  {id:'mc1',carrier:'电信节点',server:'主服',port:25591}, {id:'mc5',carrier:'联通节点',server:'主服',port:25591},
-  {id:'mc2',carrier:'电信节点',server:'测试服',port:25590}, {id:'mc6',carrier:'联通节点',server:'测试服',port:25590}
+  {id:'mc1',carrier:'电信节点',server:'主服'}, {id:'mc5',carrier:'联通节点',server:'主服'},
+  {id:'mc2',carrier:'电信节点',server:'测试服'}, {id:'mc6',carrier:'联通节点',server:'测试服'}
 ];
 const panel = container.querySelector('#screen-slot');
 const mapImage = new URL('game-entry-map.jpg', document.currentScript.src).href;
@@ -77,17 +116,27 @@ function layout() {
   render();
 }
 
+function showReading(field, value, pending) {
+  if (value == null && pending) {
+    if (!field.firstElementChild) field.innerHTML = '连接中.<tspan class="connecting-dot second">.</tspan><tspan class="connecting-dot third">.</tspan>';
+  } else {
+    field.textContent = value ?? '—';
+  }
+}
+
 function render() {
   for (const card of panel.querySelectorAll('.server-half')) {
     const server = card.dataset.server;
-    const sample = endpoints.filter(e => e.server === server).map(e => readings[e.id]).find(s => Number.isFinite(s?.players));
+    const samples = endpoints.filter(e => e.server === server).map(e => readings?.[e.id]);
+    const sample = samples.find(s => Number.isFinite(s?.players));
     const names = (sample?.names || []).slice(0, Math.min(3, sample?.players || 0));
-    card.querySelector('.players').textContent = !sample ? '—' : names.length ? names.join(', ') + (sample.players > names.length ? ' +' + (sample.players - names.length) : '') : String(sample.players);
+    const players = names.length ? names.join(', ') + (sample.players > names.length ? ' +' + (sample.players - names.length) : '') : sample?.players;
+    showReading(card.querySelector('.players'), players, readings != null && samples.some(s => !s?.sampledAt));
     card.querySelector('.automatic text').textContent = choices[server] ? '进入 ' + choices[server] : '自动选择节点';
     for (const row of card.querySelectorAll('.route')) {
-      const id = row.dataset.node, ms = readings[id]?.ms;
+      const id = row.dataset.node, ms = readings?.[id]?.ms;
       row.setAttribute('aria-pressed', String(choices[server] === id));
-      row.querySelector('.reading').textContent = Number.isFinite(ms) ? ms + ' ms' : '—';
+      showReading(row.querySelector('.reading'), Number.isFinite(ms) ? ms + ' ms' : null, readings != null && !readings[id]?.sampledAt);
     }
   }
 }
@@ -114,8 +163,7 @@ panel.addEventListener('click', event => {
     execute(choices[server] || (best || routes[0]).id);
   }
 });
-const query = new URLSearchParams(location.search);
-const hosted = query.get('hosted') === '1' && parent !== window;
+const inGameFrame = parent !== window && !document.documentElement.classList.contains('embedded');
 const local = document.documentElement.classList.contains('local-home');
 const more = document.querySelector('.more-menu');
 const multi = document.createElement('button');
@@ -135,8 +183,9 @@ foot.append(power);
 let gameTab = true, skipped = false, cover, videoFrame, applying = false;
 let active = true, ready = false, busy = false, cadence = 1000;
 let syncedMore = false;
-const post = message => parent.postMessage(message, '*');
-const addresses = Object.fromEntries(endpoints.map(e=>[e.id,e.id+'.ashbill.com:'+e.port]));
+const post = message => {
+  if (parent !== window) parent.postMessage(message, '*');
+};
 function selectTab(game) {
   if (game && !gameTab) document.querySelector('#map').dispatchEvent(new Event('leave-map'));
   gameTab = game;
@@ -150,19 +199,26 @@ power.onclick = () => selectTab(true);
 document.querySelectorAll('.map-switcher .console-key').forEach(b=>b.addEventListener('click',()=>selectTab(false)));
 selectTab(true);
 function execute(name) {
-  if(hosted) { post({type:'niijima:action',name});return; }
-  const api = window.fancymenu?.actions || window.fancymenu;
-  if(!api?.execute) return;
-  if(name === 'single' || name === 'multi') api.execute('opengui',name === 'single'?'select_world_screen':'join_multiplayer_screen');
-  else if(addresses[name]) api.execute('joinserver',addresses[name]);
+  post({type:'niijima:action',name});
 }
 multi.onclick = () => execute('multi');
 document.addEventListener('enter-node',e=>execute(e.detail));
 function changed() {
-  if(hosted && !applying)post({type:'niijima:selection',choices,more:more.open});
+  if(inGameFrame && !applying)post({type:'niijima:selection',choices,more:more.open});
 }
 more.addEventListener('toggle',()=>{if(more.open!==syncedMore){syncedMore=more.open;changed()}});
+function syncOpeningSound() {
+  if (!videoFrame) return;
+  videoFrame.dataset.silent = String(!active);
+  const media = videoFrame.contentDocument?.querySelector('video');
+  if (media) media.muted = !active;
+}
 function skip() {
+  const media = videoFrame?.contentDocument?.querySelector('video');
+  if (media) {
+    media.muted = true;
+    media.pause();
+  }
   skipped = true;
   document.documentElement.classList.remove('opening-pending');
   cover?.remove();
@@ -170,14 +226,26 @@ function skip() {
   videoFrame = null;
   try { sessionStorage.setItem('niijima-opening-skipped','1'); } catch {}
 }
+let nativeOpeningActions = false;
+function enterHome() {
+  skip();
+  if (inGameFrame) post({type:'niijima:skip'});
+}
 function opening() {
   if(skipped || cover) return;
-  cover=document.createElement('button');
+  cover=document.createElement('div');
   cover.id='game-opening';
-  cover.setAttribute('aria-label','单击任意位置开始');
+  const start = document.createElement('button');
+  start.type = 'button';
+  start.setAttribute('aria-label','单击任意位置开始');
+  start.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer';
+  start.onclick = enterHome;
+  cover.append(start);
   if(!local){
     videoFrame=document.createElement('iframe');
+    videoFrame.dataset.silent=String(!active);
     videoFrame.src='/v3/opening.html';
+    videoFrame.dataset.openingControls = inGameFrame ? (nativeOpeningActions ? 'native' : 'legacy') : 'web';
     videoFrame.tabIndex=-1;
     cover.append(videoFrame);
   }
@@ -185,7 +253,6 @@ function opening() {
   label.src='/v3/assets/press-anywhere-label.png';
   label.alt='';
   cover.append(label);
-  cover.onclick=()=>{skip();if(hosted)post({type:'niijima:skip'})};
   document.body.append(cover);
   document.documentElement.classList.remove('opening-pending');
 }
@@ -194,20 +261,33 @@ window.addEventListener('message',e=>{
     window.niijimaClick?.();
     return;
   }
-  if(videoFrame && e.source===videoFrame.contentWindow && e.origin===location.origin && e.data==='niijima:opening-ready'){
-    if(hosted)post({type:'niijima:playing'});
+  if (videoFrame && e.source === videoFrame.contentWindow && e.origin === location.origin && e.data?.type === 'niijima:opening-control') {
+    const action = e.data.action;
+    if (action === 'ready') {
+      videoFrame.style.pointerEvents = 'auto';
+      videoFrame.tabIndex = 0;
+    } else if (active && action === 'skip') {
+      enterHome();
+    } else if (active && nativeOpeningActions && (action === 'settings' || action === 'quit')) {
+      execute(action);
+    }
     return;
   }
-  if(!hosted || e.source!==parent || !['null','file://'].includes(e.origin))return;
+  if(videoFrame && e.source===videoFrame.contentWindow && e.origin===location.origin && e.data==='niijima:opening-ready'){
+    if(inGameFrame)post({type:'niijima:playing'});
+    return;
+  }
+  if(!inGameFrame || e.source!==parent || !['null','file://'].includes(e.origin))return;
   const m=e.data;
   if(m?.type!=='niijima:state')return;
   applying=true;
   choices=m.choices;
   syncedMore=Boolean(m.more);
   more.open=syncedMore;
+  nativeOpeningActions = m.openingActions === true;
   active=m.active;
-  if(m.skipped)skip();else opening();
-  if(m.readings)readings=m.readings;
+  if(m.skipped)skip();else {opening();syncOpeningSound()}
+  if('readings' in m)readings=m.readings;
   if(m.gameMenu)cadence=Math.max(50,Math.min(m.gameMenu.probeIntervalMs,m.gameMenu.inactiveTimeoutMs/2));
   render();
   applying=false;
@@ -220,7 +300,7 @@ window.addEventListener('message',e=>{
 });
 async function read() {
   if(!active || !skipped || !gameTab || document.hidden || busy)return;
-  if(hosted){post({type:'niijima:read'});return}
+  if(inGameFrame){post({type:'niijima:read'});return}
   if(typeof window.niijimaServerStatus!=='function')return;
   busy=true;
   try{
@@ -229,12 +309,12 @@ async function read() {
     readings=result.nodes;
     cadence=Math.max(50,Math.min(result.gameMenu.probeIntervalMs,result.gameMenu.inactiveTimeoutMs/2));
     render();
-  }catch(error){readings={};render();console.debug('Game server status',error)}
+  }catch(error){readings=null;render();console.debug('Game server status',error)}
   finally{busy=false}
 }
 async function poll(){await read();setTimeout(poll,cadence)}
 poll();
-if(hosted){opening();post({type:'niijima:hello'})}
+if(inGameFrame)post({type:'niijima:hello'});
 else {
   try{skipped=sessionStorage.getItem('niijima-opening-skipped')==='1'}catch{}
   if(!skipped)opening();

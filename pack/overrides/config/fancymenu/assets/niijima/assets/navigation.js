@@ -3,7 +3,6 @@ const inGame = document.documentElement.classList.contains('in-game');
 if (inGame) {
   window.niijimaClick = () => {
     if (parent !== window) parent.postMessage({type:'niijima:click'}, '*');
-    else window.niijimaServerStatus?.({request:'click', onSuccess:()=>{}, onFailure:()=>{}});
   };
   document.addEventListener('click', event => {
     const control = event.target.closest('button, a[href], summary, [role="button"]');
@@ -82,7 +81,12 @@ function arrangeNavigation() {
   const compact = available < expandedWidth;
   document.documentElement.classList.toggle('compact-navigation', compact);
   if (compact !== folded) {
-    if (compact) moreMenu.querySelector('.more-links').prepend(...compactLinks);
+    if (compact) {
+      const links = moreMenu.querySelector('.more-links');
+      const replay = links.querySelector('.opening-link');
+      if (replay) replay.after(...compactLinks);
+      else links.prepend(...compactLinks);
+    }
     else {
       moreMenu.open = false;
       for (const link of compactLinks) navigation.insertBefore(link, moreMenu);

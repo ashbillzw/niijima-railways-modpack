@@ -5,57 +5,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>新島鉃道</title>
   <link rel="icon" type="image/jpeg" href="/v3/assets/niijima-logo.jpg">
+  <link rel="stylesheet" href="/v3/assets/fonts/fonts.css">
   <style>
     html, body { height: 100%; margin: 0; overflow: hidden; }
     body { background: #000 url('/assets/bg-loading.gif') center / cover no-repeat; }
     video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; opacity: 0; }
     video.playing { opacity: 1; }
+    .opening-tools { position: fixed; top: max(8px, env(safe-area-inset-top)); right: max(10px, env(safe-area-inset-right)); display: flex; align-items: center; gap: 6px; }
+    .opening-tools[hidden] { display: none; }
+    .opening-tools button {
+      box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; padding: 0; border: 1px solid transparent; border-radius: 99px;
+      background: rgba(22, 24, 21, .76); color: #fff9e9; cursor: pointer;
+      font: 650 17px/1 "Noto Sans SC"; backdrop-filter: blur(3px);
+    }
+    .opening-tools #change-disc { width: auto; min-width: 98px; padding-inline: 14px; gap: 7px; border-color: currentColor; }
+    .opening-tools button:hover:enabled, .opening-tools button:focus-visible { background: #292c26; color: white; }
+    .opening-tools button:focus-visible { outline: 2px solid #ffbe50; outline-offset: 2px; }
+    .opening-tools button:disabled { opacity: .55; cursor: default; }
+    .opening-tools svg { width: 21px; height: 21px; }
   </style>
 </head>
 <body>
   <video autoplay playsinline></video>
+  <div class="opening-tools" hidden>
+    <button type="button" id="change-disc" disabled><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M12 1a11 11 0 1 0 0 22 11 11 0 0 0 0-22Zm0 2a9 9 0 0 1 8.1 5.1l-5.7 2.4a2.85 2.85 0 0 0-5 2.7l-5.5 3A9 9 0 0 1 12 3Zm0 7.8a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>换碟</button>
+    <button type="button" id="settings" aria-label="设置"><svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="m9.8 2-.5 2.3-1.5.9-2.3-.7-2.2 3.8L5 10v1.9l-1.7 1.7 2.2 3.8 2.3-.7 1.5.9.5 2.4h4.4l.5-2.4 1.5-.9 2.3.7 2.2-3.8-1.7-1.7V10l1.7-1.7-2.2-3.8-2.3.7-1.5-.9-.5-2.3ZM12 7.7a3.4 3.4 0 1 1 0 6.8 3.4 3.4 0 0 1 0-6.8Z"/></svg></button>
+    <button type="button" id="close" aria-label="关闭"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><path d="m5 5 14 14M19 5 5 19"/></svg></button>
+  </div>
   <script>
     const video = document.querySelector('video');
+    const toolbar = document.querySelector('.opening-tools');
+    const change = document.querySelector('#change-disc');
+    const settings = document.querySelector('#settings');
+    const close = document.querySelector('#close');
+    const owner = window.frameElement?.dataset.openingControls;
+    const embedded = parent !== window;
+    const native = owner === 'native';
+    const notify = action => parent.postMessage({type: 'niijima:opening-control', action}, location.origin);
+    toolbar.hidden = embedded && !owner;
+    settings.disabled = close.disabled = owner === 'legacy';
+    if (native) close.setAttribute('aria-label', '退出游戏');
+    settings.onclick = () => {
+      if (native) notify('settings');
+      else {
+        video.controls = !video.controls;
+        settings.setAttribute('aria-pressed', String(video.controls));
+      }
+    };
+    close.onclick = () => {
+      if (embedded) notify(native ? 'quit' : 'skip');
+      else { video.pause(); location.replace('/v3/'); }
+    };
+    if (owner) {
+      document.addEventListener('click', event => {
+        if (!event.target.closest('.opening-tools') && !(event.target === video && video.controls)) notify('skip');
+      });
+      notify('ready');
+    }
+    if (typeof window.niijimaOpeningFrame === 'function' && typeof video.requestVideoFrameCallback === 'function') {
+      video.requestVideoFrameCallback(() => window.niijimaOpeningFrame({request: 'presented'}));
+    }
+    // The game shell prepares its live iframe behind the local home.
+    // Start silently until the shell actually shows it.
+    video.muted = window.frameElement?.dataset.silent === 'true';
     const album = '/bg-video-album/';
     const historyKey = 'ashbill_bg_video_history_v1';
     let history = [];
     try {
       const saved = JSON.parse(localStorage.getItem(historyKey));
-      if (Array.isArray(saved)) history = saved;
+      if (Array.isArray(saved)) history = [...new Set(saved.filter(name => typeof name === 'string'))];
     } catch { /* Embedded browsers can disable storage. */ }
 
     video.addEventListener('playing', () => {
       video.classList.add('playing');
       if (window.parent !== window) window.parent.postMessage('niijima:opening-ready', '*');
     });
-    async function playAlbum() {
-      const response = await fetch(album);
-      if (!response.ok) throw new Error('视频列表 HTTP ' + response.status);
-      const listing = new DOMParser().parseFromString(await response.text(), 'text/html');
-      const links = [...new Set(Array.from(listing.querySelectorAll('a[href]'), a => a.getAttribute('href'))
-        .filter(name => /^[^/?#]+\.mp4$/i.test(name)))];
+    const playlistKey = 'niijima_bg_video_playlist_v1';
+    function mediaNames(names) {
+      if (!Array.isArray(names)) return [];
+      return [...new Set(names.filter(name => typeof name === 'string' && /^[^/?#\\]+\.mp4$/i.test(name)))];
+    }
+    let links = [];
+    try { links = mediaNames(JSON.parse(localStorage.getItem(playlistKey))); } catch {}
+
+    function next() {
       if (!links.length) return;
       const limit = Math.floor(links.length / 2);
       history = limit ? history.filter(name => links.includes(name)).slice(-limit) : [];
-      function next() {
-        const candidates = links.filter(name => !history.includes(name));
-        const chosen = candidates[Math.floor(Math.random() * candidates.length)];
-        history = limit ? [...history, chosen].slice(-limit) : [];
-        try { localStorage.setItem(historyKey, JSON.stringify(history)); } catch { /* Use session memory. */ }
-        video.classList.remove('playing');
-        video.src = album + chosen;
-        video.play().catch(error => {
-          if (error.name === 'NotAllowedError') {
-            // Standalone browsers may require the user to start playback.
-            video.controls = true;
-            video.classList.add('playing');
-          } else { console.error(error); }
-        });
-      }
-      video.addEventListener('ended', next);
+      const candidates = links.filter(name => !history.includes(name));
+      const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+      history = limit ? [...history, chosen].slice(-limit) : [];
+      try { localStorage.setItem(historyKey, JSON.stringify(history)); } catch { /* Use session memory. */ }
+      video.classList.remove('playing');
+      video.src = album + chosen;
+      video.play().catch(error => {
+        if (error.name === 'NotAllowedError') {
+          video.controls = true;
+          video.classList.add('playing');
+        } else { console.error(error); }
+      });
+    }
+
+    async function refreshAndPlay() {
+      change.disabled = true;
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 4000);
+      try {
+        const response = await fetch(album, {cache: 'no-store', signal: controller.signal});
+        if (!response.ok) throw new Error('视频列表 HTTP ' + response.status);
+        const listing = new DOMParser().parseFromString(await response.text(), 'text/html');
+        const fresh = mediaNames(Array.from(listing.querySelectorAll('a[href]'), a => a.getAttribute('href')));
+        if (fresh.length) {
+          links = fresh;
+          try { localStorage.setItem(playlistKey, JSON.stringify(links)); } catch {}
+        }
+      } catch (error) { console.warn('视频列表', error); }
+      finally { clearTimeout(timeout); change.disabled = false; }
       next();
     }
-    playAlbum().catch(console.error);
+    video.addEventListener('ended', () => { if (!change.disabled) next(); });
+    change.onclick = refreshAndPlay;
+    refreshAndPlay();
   </script>
 </body>
 </html>

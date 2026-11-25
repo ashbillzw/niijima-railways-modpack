@@ -41,7 +41,8 @@ function updateFrame(now) {
   const url = selected.dataset.map;
   const canLoad = !live || (mapErrors.get(selected) === null && interrupted(servers.get(selected.dataset.server), now) === null);
   let src = canLoad ? url : 'about:blank';
-  if (mapDate && selected.dataset.mapKey === 'rail-network') src += '?mapdate=' + encodeURIComponent(mapDate);
+  if (canLoad && url.startsWith('/v3/')) src += '?embed=1';
+  if (mapDate && selected.dataset.mapKey === 'rail-network') src += (src.includes('?') ? '&' : '?') + 'mapdate=' + encodeURIComponent(mapDate);
   if (canLoad && pageQuery.get('in_game') === '1') src += (src.includes('?') ? '&' : '?') + 'in_game=1';
   if (frame.getAttribute('src') !== src || (canLoad && frameErrors.has(selected) && now - navigatedAt >= 15_000)) {
     navigatedAt = now;

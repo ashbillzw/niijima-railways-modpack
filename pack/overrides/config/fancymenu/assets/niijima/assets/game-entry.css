@@ -6,6 +6,12 @@
 }
 .entry-art { display:block; width:100%; height:100%; }
 .entry-art [role=button] { cursor:pointer; }
+@media (prefers-reduced-motion: no-preference) {
+  .connecting-dot { animation:entry-dot 1.2s step-end infinite; }
+  .connecting-dot.third { animation-name:entry-third-dot; }
+  @keyframes entry-dot { 0% { opacity:0; } 33.33% { opacity:1; } }
+  @keyframes entry-third-dot { 0% { opacity:0; } 66.67% { opacity:1; } }
+}
 .entry-art .route[aria-pressed=true] circle { fill:currentColor; }
 .entry-art .route[aria-pressed=true] rect { fill:#e3f2bb18; }
 .entry-art .route:hover rect { fill:#fff6dc55; }
