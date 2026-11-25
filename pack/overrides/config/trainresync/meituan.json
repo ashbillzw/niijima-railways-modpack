@@ -6,7 +6,7 @@
   "preferredPoolChance": 0.5,
   "farProbability": 0.25,
   "basePriceMultiplier": 1.0,
-  "eventActive": false,
+  "eventActive": true,
   "deliveryBaseRate": 0,
   "playerMultiplier": 1.5,
   "farMultiplier": 1.5,
