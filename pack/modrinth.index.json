@@ -724,17 +724,17 @@
       "fileSize": 1003271
     },
     {
-      "path": "mods/moonlight-1.20-2.16.15-forge.jar",
+      "path": "mods/moonlight-1.20-2.16.35-forge.jar",
       "hashes": {
-        "sha1": "5b87fafe107c93754765b0490fbf0250df520b6e",
-        "sha512": "9eba41fa2bef4558bfe7a3a31b0b3ae2484eba87a2f6feda6d4e0c18d9074b08bb0a5637446a9df2a87171a27bb84af703a716cfc0f49fab2882da4ffdf2a76c"
+        "sha1": "a7885d318f5a6810b0ef543cd1cce7d4308f10e6",
+        "sha512": "e7b5824f91c0dcdf24f40c4d32966e6ed95f658a5266e221e24689a9a2c39fb35af73a39a6e3bb04445bd7c9a9e552c905b59a6adc7f1b8891b6836a81a4b8fd"
       },
       "downloads": [
-        "https://cdn.modrinth.com/data/twkfQtEc/versions/q6pVkPDR/moonlight-1.20-2.16.15-forge.jar",
-        "https://mediafilez.forgecdn.net/files/7119/907/moonlight-1.20-2.16.15-forge.jar",
-        "https://edge.forgecdn.net/files/7119/907/moonlight-1.20-2.16.15-forge.jar"
+        "https://cdn.modrinth.com/data/twkfQtEc/versions/W0ZWjZib/moonlight-1.20-2.16.35-forge.jar",
+        "https://mediafilez.forgecdn.net/files/8820/589/moonlight-1.20-2.16.35-forge.jar",
+        "https://edge.forgecdn.net/files/8820/589/moonlight-1.20-2.16.35-forge.jar"
       ],
-      "fileSize": 1333278
+      "fileSize": 1425229
     },
     {
       "path": "mods/MoreMobGriefingOptions-1.20.1-2.0.4.jar",
