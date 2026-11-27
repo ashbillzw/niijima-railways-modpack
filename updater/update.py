@@ -5,6 +5,7 @@ import argparse
 from http.client import HTTPException
 import json
 from pathlib import Path
+import re
 import shutil
 import tempfile
 import time
@@ -163,12 +164,49 @@ def expand(layer, stage, github, relative=""):
             copy_node(child, destination)
 
 
+def local_rcon_password(path):
+    # Keep the Java properties value escaped, including escaped spaces, colons and Unicode.
+    def unescape_key(match):
+        if match[1]:
+            return chr(int(match[1], 16))
+        return {"t": "\t", "r": "\r", "n": "\n", "f": "\f"}.get(match[2], match[2])
+
+    password = b""
+    lines = iter(re.split(rb"\r\n|\r|\n", path.read_bytes()))
+    for line in lines:
+        line = line.lstrip(b" \t\f")
+        if line.startswith((b"#", b"!")):
+            continue
+        while (len(line) - len(line.rstrip(b"\\"))) % 2:
+            line = line[:-1] + next(lines, b"").lstrip(b" \t\f")
+        key, value = re.fullmatch(rb"((?:\\.|[^\\ \t\f=:])*)[ \t\f]*[=:]?[ \t\f]*(.*)", line).groups()
+        if re.sub(r"\\(?:u([0-9a-fA-F]{4})|(.))", unescape_key, key.decode("latin-1")) == "rcon.password":
+            password = value
+    return password
+
+
+def preserve_rcon_password(target, staged):
+    settings = staged.read_bytes()
+    if settings.splitlines().count(b"rcon.password=") != 1:
+        raise ValueError(f"{target.name}：分发模板须保留一行空的 rcon.password=")
+    current = checked(target, "server.properties")
+    password = local_rcon_password(current) if current.is_file() else b""
+    if not password and b"enable-rcon=true" in settings.splitlines():
+        raise ValueError(f"{target.name}：请先在实例的 server.properties 中设置 rcon.password，再更新")
+    if password:
+        settings = re.sub(rb"(?m)^rcon\.password=(?=\r?$)", lambda m: m[0] + password, settings)
+        staged.write_bytes(settings)
+
+
 def prepare(github, rules, server, stage):
     target = checked(ROOT, server)
     deletions = [checked(target, p) for p in rules["shared"] + rules[server]]
     for layer in ("shared", server):
         folder = github.fetch("server/" + layer)
         expand(folder, stage, github)
+    properties = stage / "server.properties"
+    if properties.is_file():
+        preserve_rcon_password(target, properties)
     items = sorted(stage.rglob("*"))
     for item in items:
         dest = checked(target, item.relative_to(stage).as_posix())
