@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_industrial_iron_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "createdeco:industrial_iron_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_industrial_iron_ingot"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "kubejs:industrial_iron_block_from_industrial_iron_ingot_stonecutting"
+    ]
+  }
+}

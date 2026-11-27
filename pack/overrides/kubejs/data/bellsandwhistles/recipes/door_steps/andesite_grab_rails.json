@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "misc",
+  "pattern": [
+    "#I#"
+  ],
+  "key": {
+    "#": {
+      "item": "create:andesite_alloy"
+    },
+    "I": {
+      "tag": "forge:nuggets/andesite_alloy"
+    }
+  },
+  "result": {
+    "item": "bellsandwhistles:andesite_door_step",
+    "count": 8
+  }
+}

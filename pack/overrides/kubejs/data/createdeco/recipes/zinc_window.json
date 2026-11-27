@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "#": {
+      "tag": "forge:nuggets/zinc"
+    },
+    "X": {
+      "tag": "createdeco:internal/colorless_glass"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#X#",
+    " # "
+  ],
+  "result": {
+    "count": 2,
+    "item": "createdeco:zinc_window"
+  },
+  "show_notification": true
+}

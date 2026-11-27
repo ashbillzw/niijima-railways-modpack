@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "misc",
+  "pattern": [
+    "I I",
+    "# #",
+    "III"
+  ],
+  "key": {
+    "#": {
+      "item": "create:andesite_alloy"
+    },
+    "I": {
+      "tag": "forge:nuggets/andesite_alloy"
+    }
+  },
+  "result": {
+    "item": "bellsandwhistles:andesite_bogie_steps",
+    "count": 6
+  }
+}
