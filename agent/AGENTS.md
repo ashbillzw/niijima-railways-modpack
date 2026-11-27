@@ -140,6 +140,7 @@
 - 本机仓库：`D:\mydata\Repositories\niijima-railways-modpack`；独立工作目录：`D:\mydata\Agents\Minecraft相关`。换机器后定位实际 checkout 和工作目录，不假定这些路径存在。
 - 先读仓库 `agent/AGENTS.md`、`agent/handoff.md`、`agent/todo-list.md`，再按任务读专题文档。维护说明和任务记录统一放 `agent/`；大体积素材、临时日志、测试实例及备份放仓库外工作目录，除非用户明确指定入库。
 - 本文件保存规则，handoff 保存接手方法与关键交接，todo 保存当前任务状态，专题保存技术细节。与用户探讨形成的整合包制作流程应落盘，避免只存在于对话。
+- 中文专题记录采用“主题-YYYYMMDD.md”；长期维护的总表、流程和交接入口使用稳定名称。代码、部署目录及发布 URL 沿用各自的既有约定。（2026-11-27）
 
 ### 模组和索引维护
 

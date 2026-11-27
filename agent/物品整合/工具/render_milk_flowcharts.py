@@ -1,7 +1,7 @@
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 import math
-OUT=Path(__file__).parent/'delivery'; OUT.mkdir(exist_ok=True)
+OUT=Path(__file__).resolve().parents[1]/'delivery'; OUT.mkdir(exist_ok=True)
 W,H=2800,2470
 C={'fd':('#fff0ce','#bd963d'),'neo':('#eee4fa','#9270b5'),'ns':('#e8f1db','#8aa564'),'am':('#dfebfc','#5e89bd'),'create':('#e0f2ed','#3f8976'),'base':('#edf0f4','#8995a5'),'food':('#f5e5ee','#aa7995')}
 def f(n,b=False):return ImageFont.truetype('C:/Windows/Fonts/msyhbd.ttc' if b else 'C:/Windows/Fonts/msyh.ttc',n)
