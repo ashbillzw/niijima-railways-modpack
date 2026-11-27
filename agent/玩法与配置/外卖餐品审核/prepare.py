@@ -59,9 +59,34 @@ def catalogue(repo):
                          category="搞怪（整蛊）", note="", reviewNote="", needsDiscussion=False,
                          preferred=cfg.get("好",False), sideDish=cfg.get("副餐品",False), method=entry.get("method", ""), enabled=id in pool,
                          price=entry["price"], qty=cfg.get("数量乘数",1), bonuses=cfg.get("加成",{}), tags=[], recipes=[])
+    for group in json.loads(Path(__file__).with_name("addon-foods.json").read_bytes()):
+        for path, name in group["items"].items():
+            id = group["namespace"] + ":" + path
+            cfg = pool.get(id, {})
+            foods[id] = dict(name=name, mod=group["mod"], category=group["category"], note="", reviewNote="",
+                             needsDiscussion=False, sideDish=cfg.get("副餐品", False), preferred=cfg.get("好", False),
+                             method="", enabled=id in pool, price=None, qty=cfg.get("数量乘数", 1),
+                             bonuses=cfg.get("加成", {}), tags=[], recipes=[])
+    # The priced cocoa row in the original workbook now uses Confectionery's bottle.
+    old_cocoa = foods.pop("farmersdelight:hot_cocoa")
+    cocoa = foods["create_confectionery:hot_chocolate_bottle"]
+    cocoa["price"] = old_cocoa["price"]
+    cocoa["needsDiscussion"] = old_cocoa["needsDiscussion"]
     if pool.keys() - foods.keys():
         raise ValueError(f"订单池中有未收录餐品 {pool.keys()-foods.keys()}")
     return foods
+
+
+def group_foods(catalog, groups):
+    """Index every physical recipe first, then expose one review row per delivery group."""
+    foods = catalog["foods"]
+    for representative, variants in groups.items():
+        row = foods[representative]
+        row["variants"] = list(variants)
+        for item in variants:
+            variant = foods.pop(item)
+            for field in ("recipes", "usages", "tags"):
+                row[field].extend(value for value in variant[field] if value not in row[field])
 
 
 def exchange_input(recipe):
@@ -177,6 +202,12 @@ def main():
             else:out.add(v if ":" in v else "minecraft:"+v)
         cache[tag]=out
         return out
+    # Match the concrete tag memberships used by the game's fruit compatibility script.
+    for left, right in json.loads((kjs/"config/fruit_tag_aliases.json").read_bytes()):
+        left_items, right_items = expand(left), expand(right)
+        tags[left].extend(sorted(right_items - left_items))
+        tags[right].extend(sorted(left_items - right_items))
+    cache.clear()
     for tag in sorted(tags):
         for item in expand(tag) & foods.keys(): foods[item]["tags"].append(tag)
     peculiars_config=tomllib.loads((overrides/"config/peculiars-common.toml").read_text(encoding="utf-8"))["atmospheric"]
@@ -212,6 +243,10 @@ def main():
         elif rid == "create_central_kitchen:emptying/melon_juice":
             d["ingredients"][0]["item"] = "kaleidoscope_tavern:watermelon_juice"
             d["results"][0]["item"] = "kaleidoscope_tavern:empty_bottle"
+        elif rid == "create_central_kitchen:mixing/hot_cocoa":
+            d["results"][0]["fluid"] = "create_confectionery:hot_chocolate"
+        elif rid == "create_central_kitchen:filling/hot_cocoa":
+            d["results"][0]["item"] = "create_confectionery:hot_chocolate_bottle"
         outputs=d.get("result",d.get("results",d.get("output",[])))
         if not outputs:continue
         output_list=outputs if isinstance(outputs,list) else [outputs]
@@ -443,6 +478,8 @@ def main():
                     fluid_icons[("#" if key=="fluidTag" else "")+value]=token
                     break
     result["fluidIcons"]=fluid_icons
+    config = json.loads((overrides/"config/trainresync/meituan.json").read_bytes())
+    group_foods(result, config.get("foodGroups", {}))
     def review_key(rows):
         fields={id:[f[k] for k in ("enabled","qty","price","bonuses")] for id,f in rows.items()}
         return hashlib.sha256(json.dumps(fields,sort_keys=True).encode()).hexdigest()

@@ -19,7 +19,10 @@ PUBLIC = (HERE / "public").relative_to(ROOT)
 CONFIG = ROOT / "server/shared/config/trainresync/meituan.json"
 # 分组顺序为普通、好、整蛊三池，各池再分主餐与副餐。
 REGULAR, PREFERRED, PRANK = 0, 2, 4
-QUANTITIES = range(3, 8)
+QUANTITY_PROBABILITIES = {
+    n: math.sqrt(n / 7) - math.sqrt((n - 1) / 7) for n in range(1, 8)
+}
+MEAN_QUANTITY = sum(n * probability for n, probability in QUANTITY_PROBABILITIES.items())
 
 
 def read_groups(ref, base_multiplier):
@@ -117,14 +120,14 @@ def order_multipliers(config, event):
 
 
 def group_spectrum(prices, scale, modulus):
-    # 第 k 行按金额余数累计从本组选 k 种不同餐品的方式数（每种另选 3–7 件）。
+    # 第 k 行按金额余数累计从本组选 k 种不同餐品的加权方式数（每种独立按曲线 2.0 选 1–7 件）。
     ways = np.zeros((min(3, len(prices)) + 1, modulus))
     ways[0, 0] = 1
     for used, price in enumerate(prices, 1):
         unit = int(price * scale)
         for count in range(min(used, 3), 0, -1):
-            for quantity in QUANTITIES:
-                ways[count] += np.roll(ways[count - 1], quantity * unit)
+            for quantity, probability in QUANTITY_PROBABILITIES.items():
+                ways[count] += probability * np.roll(ways[count - 1], quantity * unit)
     ways /= ways.sum(axis=1, keepdims=True)
     return np.fft.rfft(ways, axis=1)
 
@@ -141,7 +144,7 @@ def expected_quote(groups, delivery_rate, multipliers):
         step = int(multiplier * modulus / scale) % modulus
         loss += (residues * step % modulus) * (float(chance) / modulus)
     spectra = [group_spectrum(group, scale, modulus) for group in groups]
-    mean_lines = [5 * sum(group) / len(group) if group else 0 for group in groups]
+    mean_lines = [MEAN_QUANTITY * sum(group) / len(group) if group else 0 for group in groups]
     mean_multiplier = sum(m * p for m, p in multipliers.items())
 
     @cache

@@ -5,7 +5,7 @@
   "prankItemChance": 0.001,
   "preferredPoolChance": 0.5,
   "farProbability": 0.25,
-  "basePriceMultiplier": 1.0,
+  "basePriceMultiplier": 2,
   "eventActive": true,
   "deliveryBaseRate": 0,
   "playerMultiplier": 1.5,
@@ -46,6 +46,28 @@
     "监守者",
     "狼"
   ],
+  "foodGroups": {
+    "create_confectionery:chocolate_candy": [
+      "create_confectionery:chocolate_candy_1",
+      "create_confectionery:chocolate_candy_2",
+      "create_confectionery:chocolate_candy_3"
+    ],
+    "create_confectionery:black_chocolate_candy": [
+      "create_confectionery:black_chocolate_candy_1",
+      "create_confectionery:black_chocolate_candy_2",
+      "create_confectionery:black_chocolate_candy_3"
+    ],
+    "create_confectionery:white_chocolate_candy": [
+      "create_confectionery:white_chocolate_candy_1",
+      "create_confectionery:white_chocolate_candy_2",
+      "create_confectionery:white_chocolate_candy_3"
+    ],
+    "create_confectionery:ruby_chocolate_candy": [
+      "create_confectionery:ruby_chocolate_candy_1",
+      "create_confectionery:ruby_chocolate_candy_2",
+      "create_confectionery:ruby_chocolate_candy_3"
+    ]
+  },
   "foods": {
     "farmersdelight:apple_pie": {
       "价格": 8,
@@ -67,7 +89,7 @@
       "数量乘数": 1,
       "副餐品": true
     },
-    "farmersdelight:hot_cocoa": {
+    "create_confectionery:hot_chocolate_bottle": {
       "价格": 8,
       "数量乘数": 1,
       "好": true,

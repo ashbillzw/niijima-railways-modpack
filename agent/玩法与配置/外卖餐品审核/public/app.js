@@ -23,7 +23,20 @@ const catalog = await new Promise((resolve,reject)=>{
 loadLabel.textContent="正在读取审核进度…";
 loadBar.removeAttribute("value");
 const {foods, recipes, icons, labels, tagIcons, fluidIcons = {}, ingredientRoutes = {}, ingredientTags = {}} = catalog.response;
-const all = Object.keys(foods), fields = ["enabled","price","tasteMultiplier","qty","bonuses","reviewNote","needsDiscussion","sideDish","preferred"];
+const groupOf = food => food.category === "搞怪（整蛊）" ? food.category : food.mod;
+// Keep Shift selection and the filter menu in the same order as the displayed groups.
+const regularGroups = new Map(), pranks = [];
+for (const [id, food] of Object.entries(foods)) {
+  const group = groupOf(food);
+  if (group === "搞怪（整蛊）") {
+    pranks.push(id);
+  } else {
+    if (!regularGroups.has(group)) regularGroups.set(group, []);
+    regularGroups.get(group).push(id);
+  }
+}
+const all = [...regularGroups.values()].flat().concat(pranks);
+const fields = ["enabled","price","tasteMultiplier","qty","bonuses","reviewNote","needsDiscussion","sideDish","preferred"];
 for (const food of Object.values(foods)) {
   food.tasteMultiplier ??= 1;
   food.preferred ??= false;
@@ -124,7 +137,6 @@ function updateEnabledCount() {
   const count = all.reduce((sum,id) => sum + Number(state(id,"enabled")), 0);
   byId("total").textContent = "已启用 " + count + " 种";
 }
-const groupOf = food => food.category === "搞怪（整蛊）" ? food.category : food.mod;
 function isDrink(id, food) {
   // The workbook groups the three bottled smoothies with desserts and tea eggs with tea.
   return (food.category === "饮品" && id !== "kaleidoscope_cookery:tea_egg") ||
@@ -134,7 +146,7 @@ function renderGrid() {
   const q=byId("search").value.trim().toLowerCase(), mod=byId("mod").value, filter=byId("rotation").value;
   const drinksOnly=byId("drinks").checked;
   visible=all.filter(id=>(!drinksOnly || isDrink(id,foods[id])) && (!mod || groupOf(foods[id])===mod) && (!filter || state(id,"enabled")===(filter==="on")) &&
-    (!q || [id,foods[id].name,foods[id].mod,...foods[id].tags].some(s=>s.toLowerCase().includes(q))));
+    (!q || [id,...(foods[id].variants||[]),foods[id].name,foods[id].mod,...foods[id].tags].some(s=>s.toLowerCase().includes(q))));
   const groups=new Map(), fragment=document.createDocumentFragment();tiles.clear();
   for (const id of visible) {
     const food=foods[id];

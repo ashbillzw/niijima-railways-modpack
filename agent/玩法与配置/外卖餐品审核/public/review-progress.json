@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "baseline": "fd65068b6aa089acd957daa4dd2b6f57a6b503439dda73696911cab5c6853242",
-  "exportedAt": "2026-11-26T04:30:42.245461+08:00",
+  "baseline": "8110bde6a4c114d7728970d4fe162416804c458538030026b2effe9a919a5374",
+  "exportedAt": "2026-11-28T00:09:30.011128+08:00",
   "changes": [
     {
       "id": "farmersdelight:cake_slice",
@@ -465,35 +465,6 @@
         }
       },
       "adjustedUnitPrice": 18.0
-    },
-    {
-      "id": "farmersdelight:hot_cocoa",
-      "name": "热可可",
-      "mod": "农夫乐事",
-      "category": "饮品",
-      "tags": [
-        "create:upright_on_belt",
-        "farmersdelight:drinks"
-      ],
-      "changes": {
-        "enabled": {
-          "before": false,
-          "after": true
-        },
-        "sideDish": {
-          "before": false,
-          "after": true
-        },
-        "preferred": {
-          "before": false,
-          "after": true
-        },
-        "tasteMultiplier": {
-          "before": 1,
-          "after": 4
-        }
-      },
-      "adjustedUnitPrice": 8.0
     },
     {
       "id": "farmersdelight:apple_pie",
@@ -7045,6 +7016,35 @@
           "after": true
         }
       }
+    },
+    {
+      "id": "create_confectionery:hot_chocolate_bottle",
+      "name": "热可可",
+      "mod": "机械动力：甜食",
+      "category": "饮品",
+      "tags": [
+        "create:upright_on_belt",
+        "farmersdelight:drinks"
+      ],
+      "changes": {
+        "enabled": {
+          "before": false,
+          "after": true
+        },
+        "sideDish": {
+          "before": false,
+          "after": true
+        },
+        "preferred": {
+          "before": false,
+          "after": true
+        },
+        "tasteMultiplier": {
+          "before": 1,
+          "after": 4
+        }
+      },
+      "adjustedUnitPrice": 8.0
     }
   ]
 }
