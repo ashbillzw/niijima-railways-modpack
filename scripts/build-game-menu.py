@@ -40,7 +40,8 @@ def asset(relative):
             asset(posixpath.normpath(str(Path(relative).parent).replace('\\','/')+'/'+url))
     if relative == 'assets/game-entry.js':
         asset('assets/game-entry-map.jpg')
-        text = text.replace("'/v3/assets/press-anywhere-label.png'", "'assets/press-anywhere-label.png'")
+        asset('assets/game-entry-glass-wide.jpg')
+        asset('assets/game-entry-glass-tall.jpg')
     dest.write_text(text, encoding='utf8')
 
 text = expand((site / 'index.html').read_text(encoding='utf8'))

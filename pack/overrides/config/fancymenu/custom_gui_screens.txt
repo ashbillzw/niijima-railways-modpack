@@ -11,21 +11,3 @@ custom_gui {
   transparent_world_background_overlay = false
   pause_game = true
 }
-
-custom_gui {
-  identifier = niijima_game_select
-  title =
-  allow_esc = true
-  transparent_world_background = false
-  transparent_world_background_overlay = false
-  pause_game = true
-}
-
-custom_gui {
-  identifier = bluemap
-  title = 
-  allow_esc = true
-  transparent_world_background = false
-  transparent_world_background_overlay = false
-  pause_game = true
-}

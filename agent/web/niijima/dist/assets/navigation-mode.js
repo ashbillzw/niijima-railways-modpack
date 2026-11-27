@@ -6,17 +6,6 @@
   const inFrame = window !== window.top;
   // The game shell gives its main page the full viewport. Maps and forms inherit its scale.
   const embedded = query.get('embed') === '1' || (inFrame && (!inGame || window.parent !== window.top));
-  if (!inFrame || !embedded) {
-    function sizePage() {
-      const designWidth = innerWidth >= innerHeight ? 1440 : 420;
-      const scale = classes.contains('home-page')
-        ? Math.min(innerHeight / 1080, innerWidth / 420)
-        : innerWidth / designWidth;
-      root.style.setProperty('--page-scale', scale);
-    }
-    sizePage();
-    window.addEventListener('resize', sizePage);
-  }
   classes.toggle('embedded', embedded);
   classes.toggle('hide-nav', query.get('nav') === '0');
   if (inGame) {

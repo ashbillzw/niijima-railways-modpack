@@ -2,6 +2,12 @@
 
 首页可用 `?map=bluemap`、`?map=rail-network`、`?map=create-cn-rail-map` 或 `?map=train-cn-rail-map` 指定初始显示器。省略、留空、无效或指定 `?map=journal` 时显示最新一期「新岛通讯」。手动切图保留地址栏原样，刷新会重新读取原参数。
 
+## 2026-11-28 进入游戏的三色磨砂玻璃
+
+v3 首页与包内 base 使用相同的玻璃图层。主服橙色和测试服浅绿透出 15%–39% 的底图，左下深绿透出 10%–26%。细高光在色块内侧，节点和按钮单独绘制。
+
+更换地图时，从 `dist/assets/game-entry-map.jpg` 居中裁出宽屏 983×690 和窄屏 710×830 两张底图。当前素材使用 Sharp 的 cover 缩放，随后应用 3.4 像素高斯模糊、0.82 饱和度，以质量 88 导出为 `game-entry-glass-wide.jpg` 与 `game-entry-glass-tall.jpg`。离线冻结脚本 `scripts/build-game-menu.py` 会随页面收录两张图。
+
 ## 2026-11-19 通讯、投稿与轨道实况（本地实现）
 
 主服「轨道实况」已选定[三岛全景](design/20261119-mishima/track-map.png)。主服分发配置 `server/create-cn/config/create-track-map.json` 的 `map_view` 采用主世界、中心 X 73 / Z −1221、Zoom 1。参考图的显示器为 1145 × 814，约覆盖 X −213 至 360、Z −1425 至 −1018。网页读取模组的默认视角。

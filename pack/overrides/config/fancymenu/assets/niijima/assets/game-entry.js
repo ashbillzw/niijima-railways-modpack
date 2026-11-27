@@ -44,6 +44,25 @@ function cardArtwork(server, position) {
   </g>`;
 }
 
+// Both viewports use a pre-blurred crop of the map so the glass needs no live filter.
+function glassPanel(id, outline, colors, opacity) {
+  return `<defs>
+      <path id="entry-${id}" d="${outline}"/>
+      <clipPath id="clip-${id}"><use href="#entry-${id}"/></clipPath>
+      <linearGradient id="glass-${id}" x2=".8" y2="1">
+        <stop stop-color="${colors[0]}" stop-opacity="${opacity[0]}"/>
+        <stop offset=".38" stop-color="${colors[1]}" stop-opacity="${opacity[1]}"/>
+        <stop offset="1" stop-color="${colors[2]}" stop-opacity="${opacity[2]}"/>
+      </linearGradient>
+    </defs>
+    <g clip-path="url(#clip-${id})">
+      <use href="#entry-frosted-map"/>
+      <use href="#entry-${id}" fill="url(#glass-${id})"/>
+      <use href="#entry-${id}" fill="none" stroke="#23352e" stroke-opacity=".18" stroke-width="4"/>
+      <use href="#entry-${id}" fill="none" stroke="url(#entry-rim)" stroke-width="1.6"/>
+    </g>`;
+}
+
 function layout() {
   // Fit whichever approved canvas occupies more of the actual monitor.
   if (!panel.clientWidth || !panel.clientHeight) return;
@@ -63,9 +82,20 @@ function layout() {
     <image x="15" y="15" width="${w-30}" height="${h-30}" preserveAspectRatio="xMidYMid slice" href="${mapImage}"/>
     <rect x="15" y="15" width="${w-30}" height="${h-30}" fill="url(#entry-tint)"/>
     <svg x="15" y="15" width="${w-30}" height="${h-30}" viewBox="0 0 746 718" preserveAspectRatio="none">
-      <path fill="#ffac23" d="M0 0H244C222 23 224 48 251 54C302 65 366 25 410 0H542C475 57 440 89 411 149C386 189 394 219 367 257C349 295 326 328 280 351C236 372 194 379 151 378C85 377 38 400 0 444Z"/>
-      <path fill="#05281e" d="M0 600C73 554 172 578 270 650L220 718H0Z"/>
-      <path fill="#ddf385" d="M746 290C704 326 660 332 595 335C460 335 416 365 378 448C347 512 355 555 317 602C286 642 226 681 170 718H216C273 691 318 695 361 718H746Z"/>
+      <defs>
+        <image id="entry-frosted-map" width="746" height="718" preserveAspectRatio="none" href="${new URL(portrait ? 'game-entry-glass-tall.jpg' : 'game-entry-glass-wide.jpg', mapImage)}"/>
+        <linearGradient id="entry-rim" x2=".8" y2="1">
+          <stop stop-color="#fff9e8" stop-opacity=".86"/>
+          <stop offset=".54" stop-color="#fff9e8" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#f0fff2" stop-opacity=".68"/>
+        </linearGradient>
+      </defs>
+      ${glassPanel('amber', 'M0 0H244C222 23 224 48 251 54C302 65 366 25 410 0H542C475 57 440 89 411 149C386 189 394 219 367 257C349 295 326 328 280 351C236 372 194 379 151 378C85 377 38 400 0 444Z',
+        ['#ffe2a4', '#ffad26', '#e7961f'], [.85, .77, .61])}
+      ${glassPanel('forest', 'M0 600C73 554 172 578 270 650L220 718H0Z',
+        ['#54816f', '#133e33', '#092d25'], [.90, .85, .74])}
+      ${glassPanel('lime', 'M746 290C704 326 660 332 595 335C460 335 416 365 378 448C347 512 355 555 317 602C286 642 226 681 170 718H216C273 691 318 695 361 718H746Z',
+        ['#f1ffc0', '#d8ee89', '#bdd968'], [.85, .77, .61])}
     </svg>
     <g class="native-single" transform="translate(${w-133} 36)" role="button" tabindex="0">
       <rect width="96" height="30" rx="15" fill="#163a31b0" stroke="#c6d4bb" stroke-opacity=".55"/>
@@ -198,7 +228,7 @@ function opening() {
   cover.id='game-opening';
   const start = document.createElement('button');
   start.type = 'button';
-  start.setAttribute('aria-label','单击任意位置开始');
+  start.setAttribute('aria-labelledby', 'opening-start-label');
   start.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;border:0;padding:0;background:transparent;cursor:pointer';
   start.onclick = enterHome;
   cover.append(start);
@@ -210,9 +240,9 @@ function opening() {
     videoFrame.tabIndex=-1;
     cover.append(videoFrame);
   }
-  const label=document.createElement('img');
-  label.src='assets/press-anywhere-label.png';
-  label.alt='';
+  const label = document.createElement('span');
+  label.id = 'opening-start-label';
+  label.textContent = '单击任意位置开始';
   cover.append(label);
   document.body.append(cover);
   document.documentElement.classList.remove('opening-pending');
