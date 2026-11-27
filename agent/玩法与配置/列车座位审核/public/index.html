@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>列车座位审核</title><link rel="stylesheet" href="style.css">
+<script defer src="catalog.js"></script><script defer src="app.js"></script></head>
+<body>
+<header><h1>列车座位审核</h1><span id="stats"></span><output id="receipt" aria-live="polite"></output><button id="export">导出</button></header>
+<main>
+<section id="catalog"><nav><input id="search" type="search" aria-label="搜索" placeholder="搜索方块、ID、标签"><select id="mod" aria-label="模组"><option value="">全部模组</option></select><select id="filter" aria-label="审核状态"><option value="">全部</option><option value="pending">待审</option><option value="on">已选</option><option value="off">排除</option><option value="native">原生座椅</option></select><span id="count"></span></nav><div id="grid" tabindex="0" role="listbox" aria-label="方块" aria-multiselectable="true"></div></section>
+<aside id="details"><div id="preview"></div><h2 id="name"></h2><div id="ids"></div>
+<div class="controls" role="group" aria-label="审核状态"><button data-set="on">已选</button><button data-set="pending">待审</button><button data-set="off">排除</button></div>
+<section><h3>入选依据</h3><div id="reasons"></div></section>
+<section><h3>现有标签</h3><div id="tags"></div></section>
+<section><label for="note">备注</label><textarea id="note" rows="3"></textarea></section>
+</aside></main></body></html>

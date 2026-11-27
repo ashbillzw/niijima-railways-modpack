@@ -1,0 +1,2536 @@
+{
+  "schema": 1,
+  "pack": "1.6.test0119",
+  "rows": [
+    {
+      "id": "create:black_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:blue_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:brown_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:cyan_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:gray_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:green_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:light_blue_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:light_gray_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:lime_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:magenta_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:orange_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:pink_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:purple_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:red_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:white_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "create:yellow_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "farmersdelight:full_tatami_mat",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "farmersdelight:half_tatami_mat",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "farmersdelight:tatami",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "interiors:black_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:black_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:blue_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:blue_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:brown_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:brown_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:cyan_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:cyan_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:gray_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:gray_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:green_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:green_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:kelp_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:kelp_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:kelp_seat",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:light_blue_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:light_blue_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:light_gray_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:light_gray_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:lime_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:lime_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:magenta_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:magenta_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:orange_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:orange_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:pink_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:pink_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:purple_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:purple_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:red_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:red_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:white_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:white_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:yellow_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "interiors:yellow_floor_chair",
+      "status": "native",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_acacia",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_bamboo",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_birch",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_cherry",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_crimson",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_dark_oak",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_jungle",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_mangrove",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_oak",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_spruce",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:chair_warped",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_acacia",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_bamboo",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_birch",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_cherry",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_crimson",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_dark_oak",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_jungle",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_mangrove",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_oak",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_spruce",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:cook_stool_warped",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:long_bench",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_cookery:trash_can",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:black_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:black_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:blue_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:blue_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:brown_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:brown_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:cyan_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:cyan_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:gray_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:gray_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:green_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:green_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:light_blue_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:light_blue_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:light_gray_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:light_gray_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:lime_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:lime_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:magenta_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:magenta_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:orange_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:orange_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:pink_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:pink_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:purple_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:purple_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:red_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:red_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:white_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:white_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:yellow_bar_stool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "kaleidoscope_tavern:yellow_sofa",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:black_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:blue_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:brown_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:cyan_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:end_rod",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:gray_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:green_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:light_blue_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:light_gray_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:lime_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:magenta_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:orange_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:pink_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:purple_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:red_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:white_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "minecraft:yellow_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "touhou_little_maid:bookshelf",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "touhou_little_maid:cchess",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "touhou_little_maid:computer",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "touhou_little_maid:gomoku",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "touhou_little_maid:keyboard",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "touhou_little_maid:maid_bed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "touhou_little_maid:picnic_mat",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "touhou_little_maid:wchess",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_acacia_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_bamboo",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_birch_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_cherry_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_crimson_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_dark_oak_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_jungle_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_mangrove_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_oak_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_spruce_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bar_stool_raw_warped_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bed_frame_0",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bed_frame_1",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bed_frame_2",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bed_frame_3",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_acacia_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_bamboo",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_birch_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_cherry_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_crimson_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_dark_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_jungle_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_mangrove_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_spruce_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bench_raw_warped_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_black_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_black_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_blue_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_blue_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_brown_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_brown_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_cyan_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_cyan_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_gray_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_gray_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_green_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_green_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_light_blue_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_light_blue_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_light_gray_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_light_gray_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_lime_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_lime_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_magenta_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_magenta_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_orange_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_orange_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_pink_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_pink_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_purple_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_purple_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_acacia_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_bamboo",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_birch_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_cherry_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_crimson_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_dark_oak_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_jungle_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_mangrove_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_oak_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_spruce_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_raw_warped_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_red_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_red_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_stop",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_white_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_white_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_yellow_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:bicycle_yellow_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_black_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_blue_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_brown_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_cyan_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_gray_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_green_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_light_blue_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_light_gray_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_lime_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_magenta_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_orange_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_pink_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_purple_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_acacia_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_bamboo",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_birch_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_cherry_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_crimson_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_dark_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_jungle_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_mangrove_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_spruce_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_raw_warped_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_red_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_white_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:chair_yellow_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:classroom_chair",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_black_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_brown_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_cyan_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_black_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_brown_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_cyan_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_green_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_light_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_light_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_lime_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_magenta_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_orange_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_pink_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_purple_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_red_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_white_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_decorative_yellow_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_green_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_light_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_light_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_lime_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_magenta_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_market_block_blue",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_market_block_brown",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_market_block_green",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_market_block_light_gray",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_market_block_mixed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_market_block_purple",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_market_block_red",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_orange_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_pink_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_purple_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_acacia_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_bamboo",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_birch_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_cherry_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_crimson_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_dark_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_jungle_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_mangrove_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_spruce_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_raw_warped_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_red_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_white_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:couch_yellow_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_black_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_brown_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_cyan_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_black_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_brown_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_cyan_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_green_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_light_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_light_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_lime_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_magenta_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_orange_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_pink_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_purple_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_red_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_white_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_decorative_yellow_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_green_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_light_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_light_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_lime_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_magenta_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_market_block_blue",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_market_block_brown",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_market_block_green",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_market_block_light_gray",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_market_block_mixed",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_market_block_purple",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_market_block_red",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_orange_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_pink_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_purple_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_red_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_white_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:cushion_armchair_yellow_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:gaming_chair",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_0",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_1",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_10",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_11",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_12",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_13",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_14",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_15",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_16",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_17",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_18",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_19",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_2",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_20",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_3",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_4",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_5",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_6",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_7",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_8",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:inner_bed_9",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:monobloc",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_black_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_black_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_blue_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_blue_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_brown_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_brown_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_cyan_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_cyan_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_black_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_blue_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_brown_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_cyan_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_gray_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_green_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_light_blue_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_light_gray_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_lime_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_magenta_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_orange_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_pink_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_purple_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_red_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_white_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_decorative_yellow_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_gray_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_gray_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_green_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_green_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_light_blue_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_light_blue_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_light_gray_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_light_gray_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_lime_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_lime_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_magenta_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_magenta_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_market_block_blue",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_market_block_brown",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_market_block_green",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_market_block_light_gray",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_market_block_mixed",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_market_block_purple",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_market_block_red",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_orange_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_orange_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_pink_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_pink_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_purple_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_purple_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_acacia_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_bamboo",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_birch_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_cherry_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_crimson_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_dark_oak_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_jungle_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_mangrove_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_oak_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_spruce_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_raw_warped_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_red_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_red_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_white_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_white_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_yellow_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:office_chair_yellow_wool",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_acacia_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_bamboo",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_birch_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_cherry_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_crimson_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_dark_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_jungle_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_mangrove_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_spruce_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_no_handrail_raw_warped_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_acacia_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_bamboo",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_birch_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_cherry_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_crimson_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_dark_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_jungle_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_mangrove_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_spruce_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_bench_raw_warped_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_black_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_blue_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_brown_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_cyan_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_gray_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_green_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_light_blue_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_light_gray_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_lime_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_magenta_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_orange_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_pink_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_purple_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_acacia_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_bamboo",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_birch_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_cherry_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_crimson_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_dark_oak_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_jungle_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_mangrove_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_oak_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_spruce_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_raw_warped_wood",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_red_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_white_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:park_stool_yellow_concrete",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_black_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_black_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_blue_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_brown_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_brown_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_cyan_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_cyan_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_gray_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_green_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_green_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_light_blue_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_light_blue_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_light_gray_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_light_gray_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_lime_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_lime_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_magenta_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_magenta_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_orange_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_orange_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_pink_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_pink_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_purple_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_purple_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_acacia_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_bamboo",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_birch_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_cherry_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_crimson_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_dark_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_jungle_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_mangrove_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_oak_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_spruce_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_raw_warped_wood",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_red_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_red_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_white_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_white_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_yellow_concrete",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:seat_yellow_wool",
+      "status": "on",
+      "note": ""
+    },
+    {
+      "id": "yuushya:tatami",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:tatami_rotated",
+      "status": "pending",
+      "note": ""
+    },
+    {
+      "id": "yuushya:toilet",
+      "status": "on",
+      "note": ""
+    }
+  ]
+}
