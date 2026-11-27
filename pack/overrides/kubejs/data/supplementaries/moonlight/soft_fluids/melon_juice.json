@@ -1,0 +1,18 @@
+{
+  "color": "#E24334",
+  "containers": [
+    {
+      "filled": ["kaleidoscope_tavern:watermelon_juice"],
+      "empty": "kaleidoscope_tavern:empty_bottle",
+      "capacity": 1
+    }
+  ],
+  "flowing_texture": "minecraft:block/water_flow",
+  "food": {
+    "divider": 1,
+    "item": "kaleidoscope_tavern:watermelon_juice"
+  },
+  "from_mod": "farmersdelight",
+  "still_texture": "minecraft:block/water_still",
+  "translation_key": "block.kaleidoscope_tavern.watermelon_juice"
+}

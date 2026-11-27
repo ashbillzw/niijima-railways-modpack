@@ -1,0 +1,13 @@
+[
+  {
+    "matchItems": [
+      "create:wheat_flour"
+    ],
+    "resultItems": "kaleidoscope_cookery:flour",
+    "rules": {
+      "data": {
+        "recipes": "replace"
+      }
+    }
+  }
+]

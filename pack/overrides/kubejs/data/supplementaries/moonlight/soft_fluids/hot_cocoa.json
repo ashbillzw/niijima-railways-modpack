@@ -1,0 +1,20 @@
+{
+  "color": "#8f563b",
+  "containers": [
+    {
+      "filled": [
+        "create_confectionery:hot_chocolate_bottle"
+      ],
+      "empty": "minecraft:glass_bottle",
+      "capacity": 1
+    }
+  ],
+  "flowing_texture": "moonlight:block/soft_fluids/milk_liquid",
+  "food": {
+    "divider": 1,
+    "item": "create_confectionery:hot_chocolate_bottle"
+  },
+  "from_mod": "farmersdelight",
+  "still_texture": "moonlight:block/soft_fluids/milk_liquid",
+  "translation_key": "item.create_confectionery.hot_chocolate_bottle"
+}

@@ -1,0 +1,8 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    { "item": "createcafe:iced_coffee" },
+    { "fluid": "create_confectionery:caramel", "amount": 250 }
+  ],
+  "results": [{ "item": "createcafe:caramel_iced_coffee" }]
+}

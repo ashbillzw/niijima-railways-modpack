@@ -1,0 +1,26 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1,
+  "ingredients": [
+    {
+      "tag": "forge:milk"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "create_confectionery:cocoa_powder"
+    },
+    {
+      "item": "create_confectionery:cocoa_powder"
+    }
+  ],
+  "recipe_book_tab": "drinks",
+  "container": {
+    "item": "minecraft:glass_bottle"
+  },
+  "result": {
+    "item": "create_confectionery:hot_chocolate_bottle"
+  }
+}

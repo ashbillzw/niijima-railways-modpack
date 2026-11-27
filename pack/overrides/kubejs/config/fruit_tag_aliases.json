@@ -1,0 +1,18 @@
+[
+  [
+    "forge:fruits/grape",
+    "forge:fruits/grapes"
+  ],
+  [
+    "forge:fruits/currant",
+    "forge:fruits/gooseberry"
+  ],
+  [
+    "forge:fruits/dragon_fruit",
+    "forge:fruits/dragonfruit"
+  ],
+  [
+    "forge:fruits/passion_fruit",
+    "forge:fruits/passionfruit"
+  ]
+]

@@ -1,0 +1,31 @@
+{
+  "type": "farmersdelight:cooking",
+  "cookingtime": 200,
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "tag": "forge:crops/carrot"
+    },
+    {
+      "tag": "forge:mushrooms"
+    },
+    [
+      {
+        "tag": "forge:pasta"
+      },
+      {
+        "item": "kaleidoscope_cookery:raw_noodles"
+      }
+    ],
+    {
+      "tag": "forge:salad_ingredients"
+    },
+    {
+      "tag": "forge:vegetables"
+    }
+  ],
+  "recipe_book_tab": "meals",
+  "result": {
+    "item": "farmersdelight:vegetable_noodles"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "farmersdelight:cutting",
+  "conditions": [
+    { "type": "forge:item_exists", "item": "peculiars:passion_fruit_cake" },
+    { "type": "forge:item_exists", "item": "create_central_kitchen:passionfruit_cake_slice" }
+  ],
+  "ingredients": [{ "item": "peculiars:passion_fruit_cake" }],
+  "tool": { "tag": "forge:tools/knives" },
+  "result": [{ "item": "create_central_kitchen:passionfruit_cake_slice", "count": 7 }]
+}

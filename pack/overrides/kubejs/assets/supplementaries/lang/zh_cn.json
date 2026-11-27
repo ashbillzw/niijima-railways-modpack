@@ -1,4 +1,6 @@
 {
+  "item.supplementaries.wrench": "转向扳手",
+  "advancements.husbandry.wrench.description": "使用转向扳手旋转一个方块",
   "block.supplementaries.rope": "麻绳",
   "message.supplementaries.cannon": "可以发射任何事物",
   "message.supplementaries.blackboard": "已涂蜡",
