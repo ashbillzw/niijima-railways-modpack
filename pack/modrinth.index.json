@@ -1330,6 +1330,17 @@
       "fileSize": 107532
     },
     {
+      "path": "mods/vvvf_simulator_lib-forge-1.0.6.jar",
+      "hashes": {
+        "sha1": "7909d2df1503a833fadb5297a69fa2407cd96bb9",
+        "sha512": "83af912db334e41a6811cc234473909738ecd219901c8c6c9ab758c4660a88e7935561b0f16374ff026d30972d03e4d231a2f264aba3e7c06d7a788f1f2437b9"
+      },
+      "downloads": [
+        "https://edge.forgecdn.net/files/8642/542/vvvf_simulator_lib-forge-1.0.6.jar"
+      ],
+      "fileSize": 23988423
+    },
+    {
       "path": "mods/worldedit-mod-7.2.15.jar",
       "hashes": {
         "sha1": "9c52765ca56f917ef8cbafc20e9a4f45c346508f",

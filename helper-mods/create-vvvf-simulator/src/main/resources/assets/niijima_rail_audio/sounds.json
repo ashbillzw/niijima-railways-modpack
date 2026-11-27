@@ -1,0 +1,26 @@
+{
+  "rail_joint_1": {
+    "sounds": [
+      {
+        "name": "niijima_rail_audio:rail_joint_1",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "rail_joint_2": {
+    "sounds": [
+      {
+        "name": "niijima_rail_audio:rail_joint_2",
+        "attenuation_distance": 32
+      }
+    ]
+  },
+  "rail_joint_3": {
+    "sounds": [
+      {
+        "name": "niijima_rail_audio:rail_joint_3",
+        "attenuation_distance": 32
+      }
+    ]
+  }
+}

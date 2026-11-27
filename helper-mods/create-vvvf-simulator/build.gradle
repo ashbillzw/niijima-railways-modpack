@@ -1,0 +1,48 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '6.0.54'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+minecraft.mappings channel: 'official', version: '1.20.1'
+
+// Compile the Forge-only changes against the pack's Create API. The upstream release
+// already contains its relocated audio libraries and remapped, unchanged classes.
+def upstream = file(property('upstream'))
+def original = file(property('original'))
+def versionName = '1.2.1-niijima.10'
+def changedJava = file('forge.patch').readLines('UTF-8')
+    .findAll { it.startsWith('+++ b/src/') && it.endsWith('.java') }
+    .collect { it.split('/java/', 2)[1] }
+
+sourceSets.main.java {
+    srcDirs = [new File(upstream, 'src/main/java'), new File(upstream, 'src/forge/java')]
+    include changedJava
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.20.1-47.2.0'
+    compileOnly files(original, file(property('vvvfLibrary')), file(property('mappedCreate')))
+}
+
+tasks.withType(JavaCompile).configureEach {
+    // The compile classpath also contains the unpatched versions of these classes.
+    options.incremental = false
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-proc:none']
+}
+
+tasks.register('assembleForge', Zip) {
+    dependsOn 'reobfJar'
+    archiveFileName = "create_vvvf_simulator-forge-${versionName}.jar"
+    destinationDirectory = layout.buildDirectory.dir('dist')
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from(zipTree(tasks.jar.archiveFile)) { exclude 'META-INF/MANIFEST.MF' }
+    from(new File(upstream, 'src/main/resources/create_vvvf_simulator.mixins.json'))
+    from(zipTree(original)) {
+        exclude 'META-INF/mods.toml'
+    }
+    from(zipTree(original)) {
+        include 'META-INF/mods.toml'
+        filter { line -> line == 'version="1.2.1"' ? "version=\"${versionName}\"" : line }
+    }
+}

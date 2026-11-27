@@ -1,0 +1,1259 @@
+diff --git a/gradle.properties b/gradle.properties
+index c2aa5a6..52572c8 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -6,7 +6,7 @@ version_neoforge=1.21.1
+ mod_id=create_vvvf_simulator
+ mod_name=Create VVVF Simulator
+ mod_license=GPL-3.0
+-mod_version=1.2.1
++mod_version=1.2.1-niijima.10
+ mod_group_id=createvvvfsim
+ mod_authors=Deiloproxide
+-mod_description=Simulates VVVF on Minecraft Create Train
+\ No newline at end of file
++mod_description=Simulates VVVF on Minecraft Create Train
+diff --git a/src/forge/java/createvvvfsim/ClientEvents.java b/src/forge/java/createvvvfsim/ClientEvents.java
+index 46cb588..59a9c01 100644
+--- a/src/forge/java/createvvvfsim/ClientEvents.java
++++ b/src/forge/java/createvvvfsim/ClientEvents.java
+@@ -1,33 +1,19 @@
+ package createvvvfsim;
+-import com.mojang.brigadier.arguments.StringArgumentType;
+-import com.mojang.brigadier.builder.LiteralArgumentBuilder;
+-import com.mojang.brigadier.builder.RequiredArgumentBuilder;
+-import com.mojang.brigadier.context.CommandContext;
+ import genengine.BaseSoundGen;
+ import genengine.SoundEngine;
+ import genengine.VVVFSoundGen;
+ import genengine.WindSoundGen;
+-import loader.AutoLoad;
+ import loader.IRLoader;
+-import loader.YamlLoader;
+ import net.minecraft.client.Minecraft;
+-import net.minecraft.client.resources.language.I18n;
+-import net.minecraft.commands.CommandSourceStack;
+-import net.minecraft.commands.Commands;
+-import net.minecraft.network.chat.Component;
+-import net.minecraft.world.entity.player.Player;
+ import net.minecraftforge.api.distmarker.Dist;
+ import net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggingIn;
+ import net.minecraftforge.client.event.ClientPlayerNetworkEvent.LoggingOut;
+-import net.minecraftforge.client.event.RegisterClientCommandsEvent;
+ import net.minecraftforge.client.event.sound.SoundEngineLoadEvent;
+ import net.minecraftforge.event.TickEvent.Phase;
+ import net.minecraftforge.event.TickEvent.ClientTickEvent;
+ import net.minecraftforge.eventbus.api.SubscribeEvent;
+ import net.minecraftforge.fml.common.Mod;
+ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+-import org.joml.Vector3f;
+-import utils.DimensionName;
+ import utils.Reloadable;
+ import vvvfsimulator.vvvf.modulation.CustomPwm;
+ /**client class*/
+@@ -43,18 +29,6 @@ public class ClientEvents implements Reloadable{
+         CustomPwm.CustomPwmPresets.preload();
+     }
+     @SubscribeEvent
+-    public static void registerCommand(RegisterClientCommandsEvent event){
+-        LiteralArgumentBuilder<CommandSourceStack> vvvf=Commands.literal(Configs.command_vvvf);
+-        LiteralArgumentBuilder<CommandSourceStack> loadyaml=Commands.literal(Configs.command_loadyaml);
+-        LiteralArgumentBuilder<CommandSourceStack> loadir=Commands.literal(Configs.command_loadir);
+-        LiteralArgumentBuilder<CommandSourceStack> reload=Commands.literal(Configs.command_reload);
+-        RequiredArgumentBuilder<CommandSourceStack,String> path=Commands.argument(Configs.command_path,
+-                StringArgumentType.greedyString());
+-        event.getDispatcher().register(vvvf.then(loadyaml.then(path.executes(ClientEvents::onLoadYaml))));
+-        event.getDispatcher().register(vvvf.then(loadir.then(path.executes(ClientEvents::onLoadIR))));
+-        event.getDispatcher().register(vvvf.then(reload.executes(ClientEvents::onReload)));
+-    }
+-    @SubscribeEvent
+     public static void onSoundInit(SoundEngineLoadEvent event){
+         if(is_ready) SoundEngine.load();
+     }
+@@ -63,7 +37,6 @@ public class ClientEvents implements Reloadable{
+         reloadables=new Reloadable[]{
+                 new BaseSoundGen(),new VVVFSoundGen(),new WindSoundGen(),new SoundEngine(),
+                 TrainData.mixer,new ClientEvents(),new FSmoother(),new TrainStatus()};
+-        YamlLoader.loadYaml(Configs.default_yaml);
+         for(Reloadable reloadable:reloadables) reloadable.reload();
+         is_ready=true;
+     }
+@@ -71,49 +44,13 @@ public class ClientEvents implements Reloadable{
+     public static void onJoin(LoggingIn event){
+         SoundEngine.load();
+         is_single=mc.isSingleplayer();
+-        FSmoother.reloadCreate();
+-        Component msg=Component.literal(AutoLoad.load(mc));
++        IRLoader.loadIR(Configs.default_ir);
+         VVVFSoundGen.reloadData();
+-        AutoLoad.save(mc);
+-        Player player=event.getPlayer();
+-        player.sendSystemMessage(msg);
+     }
+     @SubscribeEvent
+     public static void onExit(LoggingOut event){
+         TrainStatus.clearDataCache();
+     }
+-    public static void onGetTrainEvent(String name,String event,String dim_mod,String dim_name,Vector3f pos){
+-        int x=Math.round(pos.x),y=Math.round(pos.y),z=Math.round(pos.z);
+-        String dimension_lang=DimensionName.get(dim_mod,dim_name);
+-        String msg=I18n.get(Configs.event_path+event,name,dimension_lang,x,y,z);
+-        Player player=mc.player;
+-        if(player!=null) player.sendSystemMessage(Component.literal(msg));
+-    }
+-    public static int onLoadYaml(CommandContext<CommandSourceStack> context){
+-        String path=StringArgumentType.getString(context,Configs.command_path);
+-        Component msg=Component.literal(YamlLoader.loadYaml(path));
+-        VVVFSoundGen.reloadData();
+-        AutoLoad.save(mc);
+-        context.getSource().sendSuccess(()->msg,false);
+-        return 1;
+-    }
+-    public static int onLoadIR(CommandContext<CommandSourceStack> context){
+-        String path=StringArgumentType.getString(context,Configs.command_path);
+-        Component msg=Component.literal(IRLoader.loadIR(path));
+-        VVVFSoundGen.reloadData();
+-        AutoLoad.save(mc);
+-        context.getSource().sendSuccess(()->msg,false);
+-        return 1;
+-    }
+-    public static int onReload(CommandContext<CommandSourceStack> context){
+-        Component msg=Component.translatable(Configs.reload_ok);
+-        for(Reloadable reloadable:reloadables) reloadable.reload();
+-        FSmoother.reloadCreate();
+-        TrainStatus.reloadSpeed();
+-        SoundEngine.load();
+-        context.getSource().sendSuccess(()->msg,false);
+-        return 1;
+-    }
+     @SubscribeEvent
+     public static void tick(ClientTickEvent event){
+         if(event.phase!=Phase.END) return;
+diff --git a/src/forge/java/createvvvfsim/CommonEvents.java b/src/forge/java/createvvvfsim/CommonEvents.java
+index efe97cb..00e1ba2 100644
+--- a/src/forge/java/createvvvfsim/CommonEvents.java
++++ b/src/forge/java/createvvvfsim/CommonEvents.java
+@@ -7,10 +7,10 @@ import net.minecraftforge.network.simple.SimpleChannel;
+ public class CommonEvents{
+     public static final SimpleChannel channel=NetworkRegistry.newSimpleChannel(
+             ResourceLocation.tryBuild(Configs.mod_id,Configs.group_id),
+-            ()->Configs.version,CommonEvents::check,CommonEvents::check);
++            ()->"1.2.1-niijima.1",CommonEvents::check,CommonEvents::check);
+     public static int id=0;
+     private static boolean check(String version){
+-        return Configs.version.equals(version) || NetworkRegistry.ABSENT.version().equals(version);
++        return "1.2.1-niijima.1".equals(version) || NetworkRegistry.ABSENT.version().equals(version);
+     }
+     public static void registerModel(){
+         channel.messageBuilder(TrainSyncModel.class,id++,NetworkDirection.PLAY_TO_CLIENT)
+diff --git a/src/forge/java/createvvvfsim/ServerEvents.java b/src/forge/java/createvvvfsim/ServerEvents.java
+index aeab75c..3a3bf11 100644
+--- a/src/forge/java/createvvvfsim/ServerEvents.java
++++ b/src/forge/java/createvvvfsim/ServerEvents.java
+@@ -80,7 +80,8 @@ public class ServerEvents implements Reloadable{
+                 players=new ArrayList<>(all_players);
+             }
+             for(Train train:Create.RAILWAYS.trains.values()){
+-                TrainSyncModel model=new TrainSyncModel(train.id,Math.abs(train.speed)*20.0);
++                TrainSyncModel model=new TrainSyncModel(train.id,Math.abs(train.speed)*20.0,
++                        ((TrainTone) train).niijima$getTone(), train.fuelTicks > 0, ((TrainTone) train).niijima$getVolume());
+                 for(ServerPlayer player:players)
+                     CommonEvents.channel.send(PacketDistributor.PLAYER.with(()->player),model);
+             }
+diff --git a/src/forge/java/createvvvfsim/TrainEventModel.java b/src/forge/java/createvvvfsim/TrainEventModel.java
+index d41cf14..e833f02 100644
+--- a/src/forge/java/createvvvfsim/TrainEventModel.java
++++ b/src/forge/java/createvvvfsim/TrainEventModel.java
+@@ -24,7 +24,6 @@ public record TrainEventModel(UUID train_id,String name,String event,String dim_
+     public void handle(Supplier<Context> context){
+         Context ctx=context.get();
+         ctx.enqueueWork(()->{
+-            ClientEvents.onGetTrainEvent(name(),event(),dim_mod(),dim_name(),pos());
+             TrainStatus.getServerEvent(train_id());
+         });
+         ctx.setPacketHandled(true);
+diff --git a/src/forge/java/createvvvfsim/TrainSyncModel.java b/src/forge/java/createvvvfsim/TrainSyncModel.java
+index 5a7d4be..c6bd074 100644
+--- a/src/forge/java/createvvvfsim/TrainSyncModel.java
++++ b/src/forge/java/createvvvfsim/TrainSyncModel.java
+@@ -4,17 +4,24 @@ import java.util.function.Supplier;
+ import net.minecraft.network.FriendlyByteBuf;
+ import net.minecraftforge.network.NetworkEvent.Context;
+ /**common class*/
+-public record TrainSyncModel(UUID train_id,double speed){
++public record TrainSyncModel(UUID train_id,double speed,int tone,boolean powered,int volume){
+     public static void encode(TrainSyncModel model,FriendlyByteBuf buf){
+         buf.writeUUID(model.train_id);
+         buf.writeDouble(model.speed);
++        buf.writeByte(model.tone | (model.powered ? 128 : 0));
++        if (model.volume != 100) buf.writeByte(model.volume);
+     }
+     public static TrainSyncModel decode(FriendlyByteBuf buf){
+-        return new TrainSyncModel(buf.readUUID(),buf.readDouble());
++        UUID train = buf.readUUID();
++        double speed = buf.readDouble();
++        int flags = buf.readUnsignedByte();
++        int tone = flags & 127;
++        return new TrainSyncModel(train, speed, tone < TrainTone.PRESETS.size() ? tone : 0, (flags & 128) != 0,
++                buf.isReadable() ? Math.min(200, buf.readUnsignedByte()) : 100);
+     }
+     public void handle(Supplier<Context> context){
+         Context ctx=context.get();
+-        ctx.enqueueWork(()->TrainStatus.getServerSpeed(train_id(),speed()));
++        ctx.enqueueWork(()->TrainStatus.updateTrain(train_id, speed, tone, powered, volume));
+         ctx.setPacketHandled(true);
+     }
+ }
+\ No newline at end of file
+diff --git a/src/main/java/createvvvfsim/Configs.java b/src/main/java/createvvvfsim/Configs.java
+index e42e8e5..398bf1d 100644
+--- a/src/main/java/createvvvfsim/Configs.java
++++ b/src/main/java/createvvvfsim/Configs.java
+@@ -44,6 +44,10 @@ public class Configs{
+     public static final IntValue speeds_length;
+     public static final IntValue first_gear;
+     public static final IntValue second_gear;
++    public static final DoubleValue rail_joint_spacing;
++    public static final DoubleValue rail_axle_spacing;
++    public static final DoubleValue rail_bogey_spacing;
++    public static final DoubleValue rail_coupler_bogey_spacing;
+     public static final DoubleValue max_acc_ratio;
+     public static final DoubleValue main_amp;
+     public static final DoubleValue gas_amp;
+@@ -102,6 +106,12 @@ public class Configs{
+         table_size=client_builder.defineInRange("table_size",1<<17,1<<12,1<<20);
+         tail_size=client_builder.defineInRange("tail_size",1<<18,1<<16,1<<20);
+         client_builder.pop();
++        client_builder.push("rail_joints");
++        rail_joint_spacing=client_builder.defineInRange("joint_spacing_blocks",25.0,4.0,256.0);
++        rail_axle_spacing=client_builder.defineInRange("axle_spacing_blocks",2.0,0.25,16.0);
++        rail_bogey_spacing=client_builder.defineInRange("bogey_spacing_blocks",14.0,1.0,64.0);
++        rail_coupler_bogey_spacing=client_builder.defineInRange("coupler_bogey_spacing_blocks",4.0,1.0,32.0);
++        client_builder.pop();
+         client_builder.push("speed_smoother");
+         speeds_length=client_builder.defineInRange("speeds_length",5,1,20);
+         max_acc_ratio=client_builder.defineInRange("max_acc_ratio",1.05,1.0,1.2);
+diff --git a/src/main/java/createvvvfsim/FSmoother.java b/src/main/java/createvvvfsim/FSmoother.java
+index 5a6ba97..388335a 100644
+--- a/src/main/java/createvvvfsim/FSmoother.java
++++ b/src/main/java/createvvvfsim/FSmoother.java
+@@ -1,17 +1,15 @@
+ package createvvvfsim;
+ import com.simibubi.create.infrastructure.config.AllConfigs;
+ import com.simibubi.create.infrastructure.config.CTrains;
+-import java.lang.reflect.Method;
+ import java.util.Arrays;
+-import utils.Instance;
+ import utils.Reloadable;
+ /**client class*/
+ public class FSmoother implements Reloadable{
+     private static final CTrains train_config=AllConfigs.server().trains;
+     private static final int speeds_length=Configs.speeds_length.get();
+-    private static volatile double max_speed;
++    private double max_speed;
+     private static volatile double max_acc_ratio;
+-    private static volatile double max_acc;
++    private double max_acc;
+     private int speeds_index=0;
+     private final double[] speed_samples=new double[speeds_length];
+     private double last_speed=0.0;
+@@ -25,21 +23,34 @@ public class FSmoother implements Reloadable{
+         last_speed+=delta;
+         return Math.min(Math.max(last_speed/max_speed,0.0),1.0);
+     }
++    private double filteredTraction;
++
+     public void reloadF(double speed){
+         Arrays.fill(speed_samples,Math.min(speed,max_speed));
+-        last_speed=speed;
++        last_speed=Math.min(speed,max_speed);
++        filteredTraction=tractionFraction(last_speed/max_speed);
+     }
+-    public static void reloadCreate(){
+-        try{
+-            Instance ctrains=new Instance(train_config);
+-            Instance top_speed=ctrains.get("trainTopSpeed");
+-            Instance acc=ctrains.get("trainAcceleration");
+-            Method get_speed=top_speed.getMethod("getF");
+-            Method get_acc=acc.getMethod("getF");
+-            max_speed=top_speed.invoke(Float.class,get_speed);
+-            max_acc=acc.invoke(Float.class,get_acc)*max_acc_ratio/20.0;
+-        }
+-        catch(Exception ignored){}
++    // Both Create 0.5.1.j acceleration defaults are 3 blocks/s².
++    private static final double REFERENCE_ACCELERATION = 3.0;
++    private double tractionGain = 1.0;
++
++    public void setDrive(boolean powered){
++        max_speed = Math.max(0.001, powered ? train_config.poweredTrainTopSpeed.getF() : train_config.trainTopSpeed.getF());
++        double acceleration = powered ? train_config.poweredTrainAcceleration.getF() : train_config.trainAcceleration.getF();
++        max_acc = acceleration * max_acc_ratio / 20.0;
++        tractionGain = acceleration > 0.0 ? REFERENCE_ACCELERATION / acceleration : 1.0;
++    }
++
++    public double tractionFraction(double speedFraction){
++        return Math.min(1.0, speedFraction * tractionGain);
++    }
++    public double tractionTarget(double speedFraction, boolean remote){
++        double target = tractionFraction(speedFraction);
++        // At 20 ticks/s, a half-life of about 0.33 s suppresses packet jitter.
++        if (remote) filteredTraction += 0.1 * (target - filteredTraction);
++        else filteredTraction = target;
++        if (Math.abs(target - filteredTraction) < 0.0001) filteredTraction = target;
++        return filteredTraction;
+     }
+     @Override
+     public void reload(){
+diff --git a/src/main/java/createvvvfsim/TrainData.java b/src/main/java/createvvvfsim/TrainData.java
+index 7301ec1..be6d907 100644
+--- a/src/main/java/createvvvfsim/TrainData.java
++++ b/src/main/java/createvvvfsim/TrainData.java
+@@ -1,6 +1,8 @@
+ package createvvvfsim;
+ import com.simibubi.create.content.trains.entity.Train;
+ import genengine.BaseSoundGen;
++import net.minecraft.client.Minecraft;
++import vvvfsimulator.data.vvvf.Struct;
+ import genengine.VVVFSoundGen;
+ import genengine.WindSoundGen;
+ import java.util.Arrays;
+@@ -20,25 +22,35 @@ public class TrainData{
+     public final EnvData current_env=new EnvData();
+     public final EnvData env_step=new EnvData();
+     public final Lowpass[] filters=new Lowpass[5];
+-    public boolean use_server=false,server_reloaded=false;
++    public double volumeGain = 1.0;
++    private final double motorTrim;
++    public double syncedSpeed;
+     public boolean is_last_valid=false,is_last_move=false;
+     public boolean is_mute=true;
+-    public int reload_timer=0;
+     static{
+         if(RemasteredMixer.register()) mixer=new RemasteredMixer();
+         else if(PerfectedMixer.register()) mixer=new PerfectedMixer();
+         else mixer=new Mixer();
+     }
+-    public TrainData(Train train){
++    public TrainData(Train train, Struct preset, int tone){
++        vvvf_gen.setPreset(preset);
++        // Motor-only trims for the -23 LUFS-I short run, on top of the existing train gain.
++        motorTrim = switch (TrainTone.PRESETS.get(tone)) {
++            case "siemens" -> 1.184404;
++            case "alstom" -> 1.279381;
++            case "tn27" -> 1.185769;
++            case "toyodenki" -> 1.119438;
++            default -> 1.0;
++        };
+         Arrays.setAll(filters,i->new Lowpass());
+         this.train=train;
+     }
+     public void set(double speed,double near_factor,double far_factor,boolean valid,boolean move){
+         double smoothed=f_smoother.smoothF(speed);
+         base_gen.setAmp(near_factor);
+-        vvvf_gen.setAmp(near_factor);
++        vvvf_gen.setAmp(near_factor * motorTrim);
+         wind_gen.setAmp(far_factor);
+-        vvvf_gen.setF(smoothed);
++        vvvf_gen.setF(f_smoother.tractionTarget(smoothed, !Minecraft.getInstance().hasSingleplayerServer()));
+         wind_gen.setF(smoothed);
+         is_last_valid=valid;
+         is_last_move=move;
+@@ -75,4 +87,4 @@ public class TrainData{
+             current_env.cutoffs[i]=target_env.cutoffs[i];
+         }
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/createvvvfsim/TrainStatus.java b/src/main/java/createvvvfsim/TrainStatus.java
+index e896d46..0b4019f 100644
+--- a/src/main/java/createvvvfsim/TrainStatus.java
++++ b/src/main/java/createvvvfsim/TrainStatus.java
+@@ -1,11 +1,16 @@
+ package createvvvfsim;
++import com.simibubi.create.CreateClient;
++import vvvfsimulator.data.vvvf.Manager;
++import vvvfsimulator.data.vvvf.Struct;
++import vvvfsimulator.loader.LoadException;
++import java.io.InputStream;
++import java.io.IOException;
++import com.mojang.logging.LogUtils;
+ import com.simibubi.create.content.trains.entity.Carriage;
+ import com.simibubi.create.content.trains.entity.Carriage.DimensionalCarriageEntity;
+ import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
+ import com.simibubi.create.content.trains.entity.Train;
+-import com.simibubi.create.foundation.utility.ServerSpeedProvider;
+ import java.util.*;
+-import mixin.ISyncAccessor;
+ import net.minecraft.sounds.SoundEvents;
+ import net.minecraft.sounds.SoundSource;
+ import net.minecraft.world.entity.player.Player;
+@@ -20,66 +25,92 @@ public class TrainStatus implements Reloadable{
+     private static volatile double main_amp;
+     private static volatile double gas_amp;
+     private static volatile double switch_amp;
+-    public static final Object speed_lock=new Object();
+-    public static final Object event_lock=new Object();
+-    public static final Object train_lock=new Object();
+-    public static final Map<UUID,Double> cached_speeds=new HashMap<>();
+-    public static final List<UUID> cached_events=new ArrayList<>();
+-    private static final List<TrainData> all_trains=new ArrayList<>();
++    private static final Object train_lock = new Object();
+     private static List<TrainData> eval_trains=new ArrayList<>();
+-    public static void addTrain(Train train){
+-        synchronized(train_lock){
+-            all_trains.add(new TrainData(train));
++    private static final Map<Integer, Struct> presets = new HashMap<>();
++    private static final Map<UUID, TrainData> active = new HashMap<>();
++
++    private static Struct preset(int tone) {
++        if (!presets.containsKey(tone)) {
++            String file = TrainTone.PRESETS.get(tone) + ".yaml";
++            Struct preset = null;
++            try (InputStream stream = TrainStatus.class.getResourceAsStream("/assets/createvvvfsim/strategy/" + file)) {
++                if (stream != null && Manager.load(file, stream).exception == LoadException.normal)
++                    preset = Manager.deepClone(Manager.loadData);
++            } catch (IOException e) {
++                LogUtils.getLogger().warn("Failed to read traction preset {}", file, e);
++            }
++            if (preset == null) LogUtils.getLogger().warn("Unavailable traction preset {}", file);
++            presets.put(tone, preset);
+         }
++        return presets.get(tone);
+     }
+-    public static void removeTrain(UUID id){
+-        synchronized(train_lock){
+-            all_trains.removeIf(data->data.train.id.equals(id));
+-        }
+-        synchronized(speed_lock){
+-            cached_speeds.remove(id);
++
++    public static void updateTrain(UUID id, double speed, int tone, boolean powered, int volume) {
++        Train train = CreateClient.RAILWAYS.trains.get(id);
++        if (train == null) return;
++        RailJointSound.sync(train, speed, tone, volume);
++        TrainTone selected = (TrainTone) train;
++        Struct config = tone == 0 ? null : preset(tone);
++        if (config == null) tone = 0;
++        synchronized (train_lock) {
++            TrainData data = active.get(id);
++            if (selected.niijima$getTone() != tone || (tone != 0 && (data == null || data.train != train))) {
++                removeTrain(id);
++                data = null;
++                selected.niijima$setTone(tone);
++                if (tone != 0) {
++                    for (Carriage carriage : train.carriages)
++                        carriage.forEachPresentEntity(entity -> {
++                            if (entity.sounds != null) {
++                                entity.sounds.stop();
++                                entity.sounds = null;
++                            }
++                        });
++                    data = new TrainData(train, config, tone);
++                    active.put(id, data);
++                    data.f_smoother.setDrive(powered);
++                    data.f_smoother.reloadF(speed);
++                }
++            }
++            if (data == null) return;
++            data.f_smoother.setDrive(powered);
++            data.syncedSpeed = speed;
++            data.volumeGain = TrainTone.playbackGain(tone, volume);
+         }
+     }
+-    public static void getServerSpeed(UUID id,double speed){
+-        synchronized(speed_lock){
+-            cached_speeds.put(id,speed);
+-        }
++
++    public static void removeTrain(UUID id){
++        synchronized (train_lock) { active.remove(id); }
+     }
++
+     public static void getServerEvent(UUID id){
+-        synchronized(speed_lock){
+-            cached_speeds.put(id,0.0);
+-        }
+-        synchronized(event_lock){
+-            cached_events.add(id);
++        synchronized (train_lock) {
++            TrainData data = active.get(id);
++            if (data != null) {
++                data.syncedSpeed = 0;
++                data.f_smoother.reloadF(0);
++            }
+         }
+     }
++
+     public static void clearDataCache(){
+-        synchronized(train_lock){
+-            all_trains.clear();
+-        }
+-        synchronized(speed_lock){
+-            cached_speeds.clear();
+-        }
+-        synchronized(event_lock){
+-            cached_events.clear();
+-        }
++        synchronized (train_lock) { active.clear(); }
++        eval_trains = new ArrayList<>();
+     }
++
+     public static List<TrainData> getTrainData(){
+-        List<TrainData> train_datas;
+-        synchronized(train_lock){
+-            train_datas=new ArrayList<>(all_trains);
+-        }
+-        return train_datas;
++        synchronized (train_lock) { return new ArrayList<>(active.values()); }
+     }
+     public static void tick(Level level,Player player){
+         if(level==null) return;
+         Vec3 player_pos=player.position();
+         synchronized(train_lock){
+-            all_trains.removeIf(data->data.train.invalid);
++            active.values().removeIf(data -> data.train.invalid);
+         }
+         List<TrainData> train_datas=getTrainData();
+         for(TrainData train_data:train_datas){
+-            double near_factor=0.0,far_factor=0.0,avg_speed=0.0;
++            double near_factor=0.0,far_factor=0.0;
+             int carriage_count=0;
+             for(Carriage carriage:train_data.train.carriages){
+                 DimensionalCarriageEntity dce=carriage.getDimensionalIfPresent(level.dimension());
+@@ -91,58 +122,12 @@ public class TrainStatus implements Reloadable{
+                 double distance=train_pos.distanceTo(player_pos);
+                 near_factor+=Math.max(0.0,1.0-distance/near_distance);
+                 far_factor+=Math.max(0.0,1.0-distance/far_distance);
+-                ISyncAccessor sync=(ISyncAccessor)(entity.getCarriageData());
+-                float[] wheel_distances=sync.pointDistanceSnapshot();
+-                double avg_distance=0.0;
+-                for(int i=0;i<Math.min(wheel_distances.length,2);i++)
+-                    avg_distance+=Math.abs(wheel_distances[i]);
+-                if(wheel_distances.length==0) continue;
+-                else avg_distance/=2;
+-                int sync_period=entity.getType().updateInterval();
+-                double sync_f=1.0/sync_period;
+-                int ticks_since=sync.ticksSince();
+-                if(ticks_since>=sync_period*2) sync_f/=ticks_since-sync_period*2+1;
+-                sync_f*=ServerSpeedProvider.get();
+-                avg_speed+=avg_distance*sync_f*20.0;
+                 carriage_count++;
+             }
+-            if(!train_data.use_server)
+-                synchronized(speed_lock){
+-                    if(cached_speeds.containsKey(train_data.train.id)) train_data.use_server=true;
+-                }
+-            double speed;
++            near_factor *= train_data.volumeGain;
++            far_factor *= train_data.volumeGain;
+             boolean is_valid=carriage_count!=0;
+-            if(train_data.use_server){
+-                UUID id=train_data.train.id;
+-                synchronized(speed_lock){
+-                    speed=cached_speeds.get(id);
+-                }
+-                if(!train_data.server_reloaded){
+-                    train_data.f_smoother.reloadF(speed);
+-                    train_data.server_reloaded=true;
+-                }
+-                synchronized(event_lock){
+-                    if(cached_events.contains(id)){
+-                        speed=0.0;
+-                        train_data.f_smoother.reloadF(0.0);
+-                        cached_events.remove(id);
+-                    }
+-                }
+-
+-            }
+-            else{
+-                speed=is_valid?avg_speed/carriage_count:0.0;
+-                if(!is_valid && train_data.is_last_valid) train_data.f_smoother.reloadF(0.0);
+-                if(is_valid && !train_data.is_last_valid)train_data.reload_timer=10;
+-                if(train_data.reload_timer>0){
+-                    train_data.reload_timer--;
+-                    if(train_data.reload_timer==0) train_data.f_smoother.reloadF(speed);
+-                }
+-                if(train_data.train.derailed){
+-                    speed=0.0;
+-                    train_data.f_smoother.reloadF(0.0);
+-                }
+-            }
++            double speed=train_data.syncedSpeed;
+             boolean is_move=speed>1e-2;
+             if(is_move && !train_data.is_last_move && near_factor>1e-2){
+                 double x=player_pos.x,y=player_pos.y,z=player_pos.z;
+@@ -173,13 +158,6 @@ public class TrainStatus implements Reloadable{
+             train_data.target_env=EnvData.avg(envs);
+         }
+     }
+-    public static void reloadSpeed(){
+-        List<TrainData> train_datas=getTrainData();
+-        for(TrainData train_data:train_datas){
+-            train_data.server_reloaded=false;
+-            train_data.reload_timer=1;
+-        }
+-    }
+     @Override
+     public void reload(){
+         near_distance=Configs.near_distance.get();
+@@ -188,4 +166,4 @@ public class TrainStatus implements Reloadable{
+         gas_amp=Configs.gas_amp.get();
+         switch_amp=Configs.switch_amp.get();
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/genengine/VVVFSoundGen.java b/src/main/java/genengine/VVVFSoundGen.java
+index 514d194..cf0a5f8 100644
+--- a/src/main/java/genengine/VVVFSoundGen.java
++++ b/src/main/java/genengine/VVVFSoundGen.java
+@@ -1,7 +1,7 @@
+ package genengine;
+ import createvvvfsim.Configs;
+ import vvvfsimulator.data.vvvf.Analyze;
+-import vvvfsimulator.data.vvvf.Manager;
++
+ import vvvfsimulator.data.vvvf.Struct;
+ import vvvfsimulator.generation.audio.trainsound.Audio;
+ import vvvfsimulator.generation.audio.trainsound.AudioFilter.CppConvolutionFilter;
+@@ -21,7 +21,8 @@ public class VVVFSoundGen extends SoundGen{
+     private static volatile double gear_harmonic_db;
+     private static volatile double dry_wet_ratio;
+     private static volatile double line_train_ratio;
+-    private static volatile Struct vvvf_config;
++    private Struct vvvf_config;
++    public void setPreset(Struct preset){ vvvf_config=preset; }
+     private static final vvvfsimulator.data.trainaudio.Struct train_config;
+     private final Domain domain=new Domain(train_config.motorSpec);
+     private final CppConvolutionFilter conv_filter;
+@@ -72,7 +73,6 @@ public class VVVFSoundGen extends SoundGen{
+         }
+     }
+     public static void reloadData(){
+-        vvvf_config=Manager.deepClone(Manager.loadData);
+         train_config.impulseResponse=AudioResourceManager.resampleLinear(sample_rate);
+         CppConvolutionFilter.updateSharedResponse(conv_size,train_config.impulseResponse);
+     }
+diff --git a/src/main/java/mixin/NoCarriageEffects.java b/src/main/java/mixin/NoCarriageEffects.java
+index d71c55f..9073710 100644
+--- a/src/main/java/mixin/NoCarriageEffects.java
++++ b/src/main/java/mixin/NoCarriageEffects.java
+@@ -4,16 +4,31 @@ import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
+ import com.simibubi.create.content.trains.entity.CarriageParticles;
+ import com.simibubi.create.content.trains.entity.CarriageSounds;
+ import createvvvfsim.Configs;
++import createvvvfsim.RailJointSound;
++import createvvvfsim.TrainTone;
++import org.spongepowered.asm.mixin.Unique;
+ import org.spongepowered.asm.mixin.Mixin;
+ import org.spongepowered.asm.mixin.injection.At;
+ import org.spongepowered.asm.mixin.injection.Redirect;
+ /**client class*/
+ @Mixin(value=CarriageContraptionEntity.class,remap=false,priority=Configs.mixin_priority)
+ public class NoCarriageEffects{
++
+     @Redirect(method="tickContraption()V",at=@At(value="INVOKE",
+             target="Lcom/simibubi/create/content/trains/entity/CarriageSounds;tick(Lcom/simibubi/create/content/trains/entity/Carriage$DimensionalCarriageEntity;)V"))
+-    private void noSoundTick(CarriageSounds sounds,DimensionalCarriageEntity dce){}
++    private void noSoundTick(CarriageSounds sounds,DimensionalCarriageEntity dce){
++        if (nativeEffects()) sounds.tick(dce);
++        else RailJointSound.tick((CarriageContraptionEntity)(Object)this, dce.pivot != null);
++    }
+     @Redirect(method="tickContraption()V",at=@At(value="INVOKE",
+             target="Lcom/simibubi/create/content/trains/entity/CarriageParticles;tick(Lcom/simibubi/create/content/trains/entity/Carriage$DimensionalCarriageEntity;)V"))
+-    private void noParticleTick(CarriageParticles particles,DimensionalCarriageEntity dce){}
+-}
+\ No newline at end of file
++    private void noParticleTick(CarriageParticles particles,DimensionalCarriageEntity dce){
++        if (nativeEffects()) particles.tick(dce);
++    }
++
++    @Unique
++    private boolean nativeEffects(){
++        CarriageContraptionEntity entity = (CarriageContraptionEntity) (Object) this;
++        return ((TrainTone) entity.getCarriage().train).niijima$getTone() == 0;
++    }
++}
+diff --git a/src/main/java/mixin/TrainEvents.java b/src/main/java/mixin/TrainEvents.java
+index 13bfc51..063c2ac 100644
+--- a/src/main/java/mixin/TrainEvents.java
++++ b/src/main/java/mixin/TrainEvents.java
+@@ -26,7 +26,7 @@ public class TrainEvents{
+     @Shadow
+     Train train;
+     private void sendEvent(TrainEventType type){
+-        train.speed=0.0;
++        if (((createvvvfsim.TrainTone) train).niijima$getTone() == 0) return;
+         Map<ResourceKey<Level>,BlockPos> dim_pos=new HashMap<>();
+         for(Carriage carriage:train.carriages){
+             Map<ResourceKey<Level>,DimensionalCarriageEntity> entities=((CarriageAccessor) carriage).entities();
+diff --git a/src/main/resources/create_vvvf_simulator.mixins.json b/src/main/resources/create_vvvf_simulator.mixins.json
+index 6c3215b..452d5a9 100644
+--- a/src/main/resources/create_vvvf_simulator.mixins.json
++++ b/src/main/resources/create_vvvf_simulator.mixins.json
+@@ -2,9 +2,9 @@
+   "required":true,
+   "minVersion":"0.8",
+   "package":"mixin",
+-  "mixins":["CarriageAccessor","TrainEvents"],
++  "mixins":["CarriageAccessor","TrainEvents","TrainToneStorage","TrainCabSelection"],
+   "client":["NoCarriageEffects","ISyncAccessor",
+-    "AddTrain","RemoveTrain","ISPRAccessor"],
++    "RemoveTrain","ISPRAccessor"],
+   "injectors":{
+     "defaultRequire":1
+   }
+diff --git a/src/forge/java/createvvvfsim/RailJointSound.java b/src/forge/java/createvvvfsim/RailJointSound.java
+new file mode 100644
+index 0000000..a1bca0b
+--- /dev/null
++++ b/src/forge/java/createvvvfsim/RailJointSound.java
+@@ -0,0 +1,194 @@
++package createvvvfsim;
++
++import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
++import com.simibubi.create.content.trains.entity.Train;
++import genengine.RollingRun;
++import java.util.ArrayList;
++import java.util.Map;
++import java.util.WeakHashMap;
++import net.minecraftforge.client.event.ClientPlayerNetworkEvent;
++import java.util.List;
++import net.minecraft.client.Minecraft;
++import net.minecraft.client.multiplayer.ClientLevel;
++import net.minecraft.commands.Commands;
++import net.minecraft.resources.ResourceLocation;
++import net.minecraft.sounds.SoundEvent;
++import net.minecraft.sounds.SoundSource;
++import net.minecraft.util.Mth;
++import net.minecraft.world.phys.Vec3;
++import net.minecraftforge.api.distmarker.Dist;
++import net.minecraftforge.client.event.RegisterClientCommandsEvent;
++import net.minecraftforge.event.TickEvent;
++import net.minecraftforge.eventbus.api.SubscribeEvent;
++import net.minecraftforge.fml.common.Mod;
++
++@Mod.EventBusSubscriber(modid = Configs.mod_id, value = Dist.CLIENT)
++public class RailJointSound {
++    private static final List<SoundEvent> SAMPLES = List.of(sample(1), sample(2), sample(3));
++    private static final int RUN = -1;
++    private static int selected = RUN;
++    private static volatile RollingRun[] audible = new RollingRun[0];
++    private final RollingRun run = new RollingRun();
++    private double packetSpeed, volume = 1, filteredSpeed;
++    private long packetTick = Long.MIN_VALUE;
++    private record Hit(ClientLevel level, long tick, double fraction, Vec3 pos, float volume, float pitch) {}
++    private static final List<Hit> pending = new ArrayList<>();
++
++    private static final Map<Train, RailJointSound> trains = new WeakHashMap<>();
++    private long lastTick = Long.MIN_VALUE;
++    private double phase;
++    private Vec3 from, to;
++    private double cameraDistance;
++
++    private static SoundEvent sample(int id) {
++        return SoundEvent.createVariableRangeEvent(new ResourceLocation("niijima_rail_audio", "rail_joint_" + id));
++    }
++
++    @SubscribeEvent
++    public static void register(RegisterClientCommandsEvent event) {
++        var root = Commands.literal("railjointdebug");
++        root.then(Commands.literal("run").executes(context -> select(RUN)));
++        for (int i = 0; i <= SAMPLES.size(); i++) {
++            int choice = i;
++            root.then(Commands.literal(i == 0 ? "off" : Integer.toString(i)).executes(context -> select(choice)));
++        }
++        var command = event.getDispatcher().register(root);
++        event.getDispatcher().register(Commands.literal("撞轨音调试").redirect(command));
++    }
++
++    private static int select(int choice) {
++        selected = choice;
++        trains.clear();
++        pending.clear();
++        audible = new RollingRun[0];
++        return 1;
++    }
++
++    public static void sync(Train train, double speed, int tone, int volume) {
++        if (tone == 0) {
++            trains.remove(train);
++            return;
++        }
++        var sound = trains.get(train);
++        var level = Minecraft.getInstance().level;
++        if (sound == null || level == null) return;
++        sound.packetSpeed = Math.abs(speed);
++        sound.packetTick = level.getGameTime();
++        sound.volume = volume / 100.0;
++    }
++
++    public static void mix(double[] left, double[] right) {
++        for (var run : audible) run.mix(left, right);
++    }
++
++    public static void tick(CarriageContraptionEntity car, boolean inPortal) {
++        var mc = Minecraft.getInstance();
++        if (selected == 0 || car.firstPositionUpdate || inPortal || car.getCarriage().train.derailed || mc.level != car.level() || mc.cameraEntity == null)
++            return;
++        Vec3 pos = car.position();
++        double cameraDistance = mc.cameraEntity.distanceToSqr(pos);
++        if (cameraDistance > 32 * 32) return;
++        Vec3 old = new Vec3(car.xo, car.yo, car.zo);
++        if (pos.distanceToSqr(old) > 8 * 8) return;
++        var sound = trains.computeIfAbsent(car.getCarriage().train, key -> new RailJointSound());
++        if (sound.from == null || cameraDistance < sound.cameraDistance) {
++            sound.from = old;
++            sound.to = pos;
++            sound.cameraDistance = cameraDistance;
++        }
++    }
++
++    // One synthetic phrase per train. A nearby carriage supplies only motion and a world-space source.
++    private void advance(ClientLevel level) {
++        if (from == null) return;
++        Vec3 old = from, pos = to;
++        from = to = null;
++        long tick = level.getGameTime();
++        if (tick == lastTick) return;
++        boolean continuous = tick == lastTick + 1;
++        if (!continuous) phase = 0;
++        lastTick = tick;
++        double distance = pos.distanceTo(old);
++        if (selected == RUN) {
++            double speed = packetTick >= tick - 20 && packetTick <= tick ? packetSpeed : distance * 20;
++            filteredSpeed = !continuous ? speed : filteredSpeed + .25 * (speed - filteredSpeed);
++            if (speed == 0 && filteredSpeed < .05) filteredSpeed = 0;
++            double near = Math.max(0, 1 - Math.sqrt(cameraDistance) / 32);
++            run.set(filteredSpeed, near * volume, Configs.sample_rate.get());
++            return;
++        }
++        if (distance < 0.0001) return;
++        double period = Configs.rail_joint_spacing.get();
++        double shortGap = Configs.rail_coupler_bogey_spacing.get();
++        double longGap = Configs.rail_bogey_spacing.get();
++        double secondPair = period * shortGap / (shortGap + longGap);
++        // Leave room between pairs even with extreme user settings.
++        double axleGap = Math.min(Configs.rail_axle_spacing.get(), 0.5 * Math.min(secondPair, period - secondPair));
++        double end = phase + distance;
++        float speed = (float)distance;
++        float volume = 0.65f * Mth.clamp(speed / 1.25f, 0.08f, 1);
++        float pitch = Mth.clamp(speed / 1.25f, 0.75f, 1.5f);
++        // Half-open interval: a beat at the tick boundary is played exactly once.
++        for (int pair = 0; pair < 2; pair++) {
++            for (int axle = 0; axle < 2; axle++) {
++                double beat = pair * secondPair + axle * axleGap;
++                if (beat < phase) beat += period;
++                for (; beat < end; beat += period) {
++                    double fraction = (beat - phase) / distance;
++                    pending.add(new Hit(level, tick, fraction, old.lerp(pos, fraction), volume, pitch));
++                }
++            }
++        }
++        phase = end % period;
++    }
++
++    @SubscribeEvent
++    public static void logout(ClientPlayerNetworkEvent.LoggingOut event) {
++        trains.clear();
++        pending.clear();
++        audible = new RollingRun[0];
++    }
++
++    @SubscribeEvent
++    public static void play(TickEvent.RenderTickEvent event) {
++        if (event.phase == TickEvent.Phase.END) playDue(event.renderTickTime);
++    }
++
++    @SubscribeEvent
++    public static void flush(TickEvent.ClientTickEvent event) {
++        if (event.phase != TickEvent.Phase.END) return;
++        var mc = Minecraft.getInstance();
++        if (mc.level == null) {
++            if (audible.length > 0) audible = new RollingRun[0];
++            return;
++        }
++        if (mc.isPaused()) return;
++        if (selected == RUN) {
++            var nearby = new ArrayList<RollingRun>();
++            for (var sound : trains.values()) {
++                if (sound.from == null) continue;
++                sound.advance(mc.level);
++                nearby.add(sound.run);
++            }
++            audible = nearby.toArray(RollingRun[]::new);
++        } else {
++            for (var sound : trains.values()) sound.advance(mc.level);
++        }
++        playDue(0);
++    }
++
++    private static void playDue(float partialTick) {
++        if (pending.isEmpty()) return;
++        var mc = Minecraft.getInstance();
++        if (mc.isPaused()) return;
++        pending.removeIf(hit -> {
++            if (mc.level != hit.level) return true;
++            long age = mc.level.getGameTime() - hit.tick;
++            if (age < 0 || age > 1) return true;
++            if (age == 0 && partialTick < hit.fraction) return false;
++            mc.level.playLocalSound(hit.pos.x, hit.pos.y, hit.pos.z, SAMPLES.get(selected - 1),
++                    SoundSource.NEUTRAL, hit.volume, hit.pitch, false);
++            return true;
++        });
++    }
++}
+diff --git a/src/forge/java/createvvvfsim/TrainTone.java b/src/forge/java/createvvvfsim/TrainTone.java
+new file mode 100644
+index 0000000..9988481
+--- /dev/null
++++ b/src/forge/java/createvvvfsim/TrainTone.java
+@@ -0,0 +1,25 @@
++package createvvvfsim;
++
++import java.util.List;
++
++public interface TrainTone {
++    // Stable identifiers on the wire, names on disk.
++    List<String> PRESETS = List.of("create", "siemens", "alstom", "tn27", "toyodenki");
++
++    // Complete VVVF mix at -20 LUFS-I over the 48-second near-field reference run.
++    static double playbackGain(int tone, int volume) {
++        double gainAt100 = switch (PRESETS.get(tone)) {
++            case "siemens" -> 1.892344;
++            case "alstom" -> 2.412682;
++            case "tn27" -> 1.792669;
++            case "toyodenki" -> 1.009254;
++            default -> 1.0;
++        };
++        return gainAt100 * volume / 100.0;
++    }
++
++    int niijima$getVolume();
++    void niijima$setVolume(int volume);
++    int niijima$getTone();
++    void niijima$setTone(int tone);
++}
+diff --git a/src/forge/java/createvvvfsim/TrainToneCommand.java b/src/forge/java/createvvvfsim/TrainToneCommand.java
+new file mode 100644
+index 0000000..5de1da0
+--- /dev/null
++++ b/src/forge/java/createvvvfsim/TrainToneCommand.java
+@@ -0,0 +1,81 @@
++package createvvvfsim;
++
++import com.mojang.brigadier.arguments.IntegerArgumentType;
++import com.mojang.brigadier.builder.LiteralArgumentBuilder;
++import com.mojang.brigadier.exceptions.CommandSyntaxException;
++import com.simibubi.create.Create;
++import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
++import com.simibubi.create.content.trains.entity.Train;
++import java.lang.ref.WeakReference;
++import java.util.Map;
++import java.util.WeakHashMap;
++import net.minecraft.commands.CommandSourceStack;
++import net.minecraft.commands.Commands;
++import net.minecraft.network.chat.Component;
++import net.minecraft.server.level.ServerPlayer;
++import net.minecraftforge.event.RegisterCommandsEvent;
++import net.minecraftforge.eventbus.api.SubscribeEvent;
++import net.minecraftforge.fml.common.Mod;
++
++@Mod.EventBusSubscriber(modid = Configs.mod_id)
++public class TrainToneCommand {
++    private static final Map<ServerPlayer, WeakReference<CarriageContraptionEntity>> controls = new WeakHashMap<>();
++
++    public static void tookControls(ServerPlayer player, CarriageContraptionEntity carriage) {
++        controls.put(player, new WeakReference<>(carriage));
++    }
++
++    private static Train selectedTrain(ServerPlayer player) {
++        if (player.getVehicle() instanceof CarriageContraptionEntity seat && seat.getCarriage() != null
++                && seat.getContraption().getSeatOf(player.getUUID()) != null)
++            return seat.getCarriage().train;
++
++        var current = controls.get(player);
++        var cab = current == null ? null : current.get();
++        if (cab != null && cab.level() == player.level() && !cab.isRemoved() && cab.getCarriage() != null
++                && cab.getControllingPlayer().filter(player.getUUID()::equals).isPresent())
++            return cab.getCarriage().train;
++        return null;
++    }
++
++    private static Train editableTrain(CommandSourceStack source, String denied) throws CommandSyntaxException {
++        ServerPlayer player = source.getPlayerOrException();
++        Train train = selectedTrain(player);
++        if (train == null)
++            source.sendFailure(Component.literal("请先点击列车座位或驾驶台"));
++        else if (player.getUUID().equals(train.owner) || player.hasPermissions(2))
++            return train;
++        else
++            source.sendFailure(Component.literal(denied));
++        return null;
++    }
++
++    @SubscribeEvent
++    public static void register(RegisterCommandsEvent event) {
++        LiteralArgumentBuilder<CommandSourceStack> root = Commands.literal("列车音色");
++        for (String preset : TrainTone.PRESETS) {
++            root.then(Commands.literal(preset).executes(ctx -> {
++                Train train = editableTrain(ctx.getSource(), "仅车主或管理员可更改音色");
++                if (train == null) return 0;
++                ((TrainTone) train).niijima$setTone(TrainTone.PRESETS.indexOf(preset));
++                Create.RAILWAYS.markTracksDirty();
++                ctx.getSource().sendSuccess(() -> Component.literal("已将" + train.name.getString() + "的音色设为" + preset), false);
++                return 1;
++            }));
++        }
++        var percent = Commands.argument("percent", IntegerArgumentType.integer(0, 200)).executes(ctx -> {
++            Train train = editableTrain(ctx.getSource(), "仅车主或管理员可更改列车音量");
++            if (train == null) return 0;
++            int volume = IntegerArgumentType.getInteger(ctx, "percent");
++            ((TrainTone) train).niijima$setVolume(volume);
++            Create.RAILWAYS.markTracksDirty();
++            ctx.getSource().sendSuccess(() -> Component.literal("已将" + train.name.getString() + "的列车音量设为" + volume + "%"), false);
++            return 1;
++        }).build();
++        root.then(Commands.literal("音量").then(percent));
++        root.then(Commands.literal("yinliang").then(percent));
++        var command = event.getDispatcher().register(root);
++        event.getDispatcher().register(Commands.literal("liecheyinse").redirect(command));
++        event.getDispatcher().register(Commands.literal("vvvf").redirect(command));
++    }
++}
+diff --git a/src/forge/java/mixin/TrainCabSelection.java b/src/forge/java/mixin/TrainCabSelection.java
+new file mode 100644
+index 0000000..c3832c9
+--- /dev/null
++++ b/src/forge/java/mixin/TrainCabSelection.java
+@@ -0,0 +1,21 @@
++package mixin;
++
++import com.simibubi.create.content.contraptions.AbstractContraptionEntity;
++import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
++import createvvvfsim.TrainToneCommand;
++import java.util.UUID;
++import net.minecraft.server.level.ServerPlayer;
++import org.spongepowered.asm.mixin.Mixin;
++import org.spongepowered.asm.mixin.injection.At;
++import org.spongepowered.asm.mixin.injection.Inject;
++import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
++
++@Mixin(value = AbstractContraptionEntity.class, remap = false)
++public class TrainCabSelection {
++    @Inject(method = "setControllingPlayer", at = @At("RETURN"))
++    private void rememberCab(UUID id, CallbackInfo ci) {
++        if (id != null && (Object) this instanceof CarriageContraptionEntity cab && !cab.level().isClientSide
++                && cab.level().getPlayerByUUID(id) instanceof ServerPlayer player)
++            TrainToneCommand.tookControls(player, cab);
++    }
++}
+diff --git a/src/forge/java/mixin/TrainToneStorage.java b/src/forge/java/mixin/TrainToneStorage.java
+new file mode 100644
+index 0000000..550d9a5
+--- /dev/null
++++ b/src/forge/java/mixin/TrainToneStorage.java
+@@ -0,0 +1,43 @@
++package mixin;
++
++import com.simibubi.create.content.trains.entity.Train;
++import com.simibubi.create.content.trains.graph.DimensionPalette;
++import com.simibubi.create.content.trains.graph.TrackGraph;
++import createvvvfsim.TrainTone;
++import java.util.Map;
++import java.util.UUID;
++import net.minecraft.nbt.CompoundTag;
++import org.spongepowered.asm.mixin.Mixin;
++import org.spongepowered.asm.mixin.Unique;
++import org.spongepowered.asm.mixin.injection.At;
++import org.spongepowered.asm.mixin.injection.Inject;
++import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
++
++@Mixin(value = Train.class, remap = false)
++public class TrainToneStorage implements TrainTone {
++    @Unique private int niijima$tone;
++
++    @Unique private int niijima$volume = 100;
++
++    public int niijima$getVolume() { return niijima$volume; }
++    public void niijima$setVolume(int volume) { niijima$volume = Math.max(0, Math.min(200, volume)); }
++
++    public int niijima$getTone() { return niijima$tone; }
++    public void niijima$setTone(int tone) { niijima$tone = tone; }
++
++    @Inject(method = "write", at = @At("RETURN"))
++    private void saveTone(DimensionPalette dimensions, CallbackInfoReturnable<CompoundTag> result) {
++        if (niijima$volume != 100) result.getReturnValue().putInt("NiijimaTractionVolume", niijima$volume);
++        if (niijima$tone != 0)
++            result.getReturnValue().putString("NiijimaTractionTone", PRESETS.get(niijima$tone));
++    }
++
++    @Inject(method = "read", at = @At("RETURN"))
++    private static void loadTone(CompoundTag tag, Map<UUID, TrackGraph> networks, DimensionPalette dimensions,
++                                 CallbackInfoReturnable<Train> result) {
++        if (tag.contains("NiijimaTractionVolume", 99))
++            ((TrainTone) result.getReturnValue()).niijima$setVolume(tag.getInt("NiijimaTractionVolume"));
++        int tone = PRESETS.indexOf(tag.getString("NiijimaTractionTone"));
++        ((TrainTone) result.getReturnValue()).niijima$setTone(Math.max(0, tone));
++    }
++}
+diff --git a/src/main/java/genengine/SoundEngine.java b/src/main/java/genengine/SoundEngine.java
+index b459f90..5854001 100644
+--- a/src/main/java/genengine/SoundEngine.java
++++ b/src/main/java/genengine/SoundEngine.java
+@@ -2,6 +2,7 @@ package genengine;
+ import createvvvfsim.Configs;
+ import createvvvfsim.TrainData;
+ import createvvvfsim.TrainStatus;
++import createvvvfsim.RailJointSound;
+ import java.nio.ByteBuffer;
+ import java.nio.ByteOrder;
+ import java.util.Arrays;
+@@ -13,6 +14,7 @@ public class SoundEngine implements Reloadable{
+     private static final int buffer_size=Configs.buffer_size.get();
+     private static final int buffer_cnt=Configs.buffer_cnt.get();
+     private static final double[] mix_buffer=new double[buffer_size];
++    private static final double[] railLeft=new double[buffer_size], railRight=new double[buffer_size];
+     private static final ByteBuffer[] out_buffer=new ByteBuffer[buffer_cnt];
+     private static final Thread thread=new Thread(SoundEngine::mixLoop);
+     private static final Object mix_lock=new Object();
+@@ -57,13 +59,15 @@ public class SoundEngine implements Reloadable{
+             out_buffer[head_ptr].clear();
+             List<TrainData> train_datas=TrainStatus.getTrainData();
+             TrainData.mixer.handle(mix_buffer,train_datas);
++            Arrays.fill(railLeft, 0);
++            Arrays.fill(railRight, 0);
++            RailJointSound.mix(railLeft, railRight);
+             double amp_step=(main_amp-current_amp)/buffer_size;
+             for(int i=0;i<buffer_size;i++){
+                 current_amp+=amp_step;
+-                double clipped=Math.min(Math.max(mix_buffer[i],-1.0),1.0)*current_amp;
+-                short sample=(short)(clipped*Short.MAX_VALUE);
+-                out_buffer[head_ptr].putShort(sample);
+-                out_buffer[head_ptr].putShort(sample);
++                double motor=Math.min(Math.max(mix_buffer[i],-1.0),1.0);
++                out_buffer[head_ptr].putShort(toPcm((motor + railLeft[i])*current_amp));
++                out_buffer[head_ptr].putShort(toPcm((motor + railRight[i])*current_amp));
+             }
+             out_buffer[head_ptr].flip();
+             head_ptr++;
+@@ -76,8 +80,11 @@ public class SoundEngine implements Reloadable{
+             }
+         }
+     }
++    private static short toPcm(double value) {
++        return (short)(Math.min(1, Math.max(-1, value))*Short.MAX_VALUE);
++    }
+     @Override
+     public void reload(){
+         main_amp=Configs.main_amp.get();
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/src/main/java/genengine/RollingRun.java b/src/main/java/genengine/RollingRun.java
+new file mode 100644
+index 0000000..1805708
+--- /dev/null
++++ b/src/main/java/genengine/RollingRun.java
+@@ -0,0 +1,99 @@
++package genengine;
++
++import java.io.BufferedInputStream;
++import java.io.IOException;
++import java.nio.ByteBuffer;
++import java.nio.ByteOrder;
++import javax.sound.sampled.AudioSystem;
++import javax.sound.sampled.UnsupportedAudioFileException;
++
++/** One playback cursor per train. The stereo recording and resampling filters are shared. */
++public final class RollingRun {
++    private static final int SOURCE_RATE = 44100;
++    private static final int TAPS = 32, PHASES = 64, CUTOFFS = 32;
++    private static final short[] PCM = loadRecording();
++    private static final float[][] FILTERS = makeFilters();
++    private double cursor, rate, gain;
++    private volatile double targetRate, targetGain;
++
++    public void set(double metresPerSecond, double listenerGain, int outputRate) {
++        double kmh = metresPerSecond * 3.6;
++        double ratio = kmh / 75;
++        if (kmh > 75) {
++            // Match the linear slope at 75 km/h and flatten at 1.5x at 200 km/h.
++            double t = Math.min(1, (kmh - 75) / 125);
++            ratio = 1.5 - 0.5 * (1 - t) * (1 - t) / (1 + (4.0 / 3) * t);
++        }
++        targetRate = ratio * SOURCE_RATE / outputRate;
++        double u = Math.max(0, Math.min(1, (kmh - 10) / 10));
++        double fade = u * u * (3 - 2 * u);
++        targetGain = fade * fade * listenerGain * 0.93972443; // -26 LUFS-I over the reference run.
++    }
++
++    public void mix(double[] left, double[] right) {
++        double nextRate = targetRate, nextGain = targetGain;
++        if (nextGain == 0 && gain == 0) {
++            // Advance the loop through the silent approach with the same rate ramp.
++            cursor = (cursor + (rate + nextRate) * left.length / 2 + (nextRate - rate) / 2) % (PCM.length / 2);
++            rate = nextRate;
++            return;
++        }
++        double rateStep = (nextRate - rate) / left.length;
++        double gainStep = (nextGain - gain) / left.length;
++        int frames = PCM.length / 2;
++        for (int i = 0; i < left.length; i++) {
++            rate += rateStep;
++            gain += gainStep;
++            int centre = (int) cursor;
++            int phase = (int)((cursor - centre) * PHASES);
++            int band = Math.max(1, (int)Math.round(CUTOFFS / Math.max(1, rate)));
++            float[] filter = FILTERS[(band - 1) * PHASES + phase];
++            int frame = centre - TAPS / 2 + 1;
++            if (frame < 0) frame += frames;
++            double l = 0, r = 0;
++            for (float weight : filter) {
++                l += PCM[2 * frame] * weight;
++                r += PCM[2 * frame + 1] * weight;
++                if (++frame == frames) frame = 0;
++            }
++            left[i] += l * gain;
++            right[i] += r * gain;
++            cursor = (cursor + rate) % frames;
++        }
++        rate = nextRate;
++        gain = nextGain;
++    }
++
++    private static short[] loadRecording() {
++        String file = "/assets/niijima_rail_audio/Run_Ballast25m.wav";
++        try (var stream = new BufferedInputStream(RollingRun.class.getResourceAsStream(file));
++             var audio = AudioSystem.getAudioInputStream(stream)) {
++            var data = ByteBuffer.wrap(audio.readAllBytes()).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer();
++            short[] samples = new short[data.remaining()];
++            data.get(samples);
++            return samples;
++        } catch (IOException | UnsupportedAudioFileException e) {
++            throw new IllegalStateException(file, e);
++        }
++    }
++
++    // Windowed sinc; lower the cutoff when playing faster to avoid aliasing.
++    private static float[][] makeFilters() {
++        float[][] bank = new float[CUTOFFS * PHASES][TAPS];
++        for (int b = 1; b <= CUTOFFS; b++) {
++            double cutoff = (double)b / CUTOFFS;
++            for (int p = 0; p < PHASES; p++) {
++                float[] filter = bank[(b - 1) * PHASES + p];
++                double sum = 0;
++                for (int j = 0; j < TAPS; j++) {
++                    double x = j - TAPS / 2 + 1 - (double)p / PHASES;
++                    double sinc = x == 0 ? cutoff : Math.sin(Math.PI * cutoff * x) / (Math.PI * x);
++                    filter[j] = (float)(sinc * (.5 + .5 * Math.cos(2 * Math.PI * x / TAPS)));
++                    sum += filter[j];
++                }
++                for (int j = 0; j < TAPS; j++) filter[j] /= sum * 32768;
++            }
++        }
++        return bank;
++    }
++}
