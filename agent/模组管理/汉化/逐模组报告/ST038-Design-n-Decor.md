@@ -109,7 +109,7 @@
 | `block.design_decor.brass_boiler_large` | Large Brass Boiler | 大型黄铜锅炉 |
 | `block.design_decor.brass_boiler_structure` | Large Brass Boiler | 大型黄铜锅炉 |
 | `block.design_decor.brass_bolt` | Brass Bolt | 黄铜螺栓 |
-| `block.design_decor.brass_catwalk` | Brass Catwalk | 黄铜检修走道 |
+| `block.design_decor.brass_catwalk` | Brass Catwalk | 黄铜格栅走道 |
 | `block.design_decor.brass_floodlight` | Brass Floodlight | 黄铜泛光灯 |
 | `block.design_decor.brass_floor` | Brass Floor | 黄铜地板 |
 | `block.design_decor.brass_lamp` | Brass Lamp | 黄铜贴面灯 |
@@ -157,7 +157,7 @@
 | `block.design_decor.copper_boiler_large` | Large Copper Boiler | 大型铜锅炉 |
 | `block.design_decor.copper_boiler_structure` | Large Copper Boiler | 大型铜锅炉 |
 | `block.design_decor.copper_bolt` | Copper Bolt | 铜螺栓 |
-| `block.design_decor.copper_catwalk` | Copper Catwalk | 铜检修走道 |
+| `block.design_decor.copper_catwalk` | Copper Catwalk | 铜格栅走道 |
 | `block.design_decor.copper_floodlight` | Copper Floodlight | 铜泛光灯 |
 | `block.design_decor.copper_floor` | Copper Floor | 铜地板 |
 | `block.design_decor.copper_gas_tank` | Compact Fluid Tank | 紧凑型流体储罐 |
@@ -275,7 +275,7 @@
 | `block.design_decor.industrial_iron_large_chain` | Large Industrial Iron Chain | 大型工业铁锁链 |
 | `block.design_decor.industrial_plating_block` | Block of Industrial Plating | 工业镀层块 |
 | `block.design_decor.invar_large_chain` | Large Invar Chain | 大型殷钢锁链 |
-| `block.design_decor.iron_catwalk` | Iron Catwalk | 铁检修走道 |
+| `block.design_decor.iron_catwalk` | Iron Catwalk | 铁格栅走道 |
 | `block.design_decor.iron_large_chain` | Large Iron Chain | 大型铁锁链 |
 | `block.design_decor.iron_railing` | Iron Railing | 铁栏杆 |
 | `block.design_decor.j_sign` | J Letter Sign | 字母J标志牌 |
@@ -519,7 +519,7 @@
 | `block.design_decor.zinc_boiler_large` | Large Zinc Boiler | 大型锌锅炉 |
 | `block.design_decor.zinc_boiler_structure` | Large Zinc Boiler | 大型锌锅炉 |
 | `block.design_decor.zinc_bolt` | Zinc Bolt | 锌螺栓 |
-| `block.design_decor.zinc_catwalk` | Zinc Catwalk | 锌检修走道 |
+| `block.design_decor.zinc_catwalk` | Zinc Catwalk | 锌格栅走道 |
 | `block.design_decor.zinc_floor` | Zinc Floor | 锌地板 |
 | `block.design_decor.zinc_lamp` | Zinc Lamp | 锌贴面灯 |
 | `block.design_decor.zinc_large_chain` | Large Zinc Chain | 大型锌锁链 |

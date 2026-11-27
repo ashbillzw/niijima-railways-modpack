@@ -1,0 +1,23 @@
+{
+  "block.create_confectionery.chocolate_bricks": "巧克力砖",
+  "item.create_confectionery.hot_chocolate_bottle": "热可可",
+  "fluid.create_confectionery.hot_chocolate": "热可可",
+  "fluid_type.create_confectionery.hot_chocolate": "热可可",
+  "block.create_confectionery.hot_chocolate": "热可可",
+  "item.create_confectionery.chocolate_candy": "巧克力糖",
+  "item.create_confectionery.chocolate_candy_1": "巧克力糖",
+  "item.create_confectionery.chocolate_candy_2": "巧克力糖",
+  "item.create_confectionery.chocolate_candy_3": "巧克力糖",
+  "item.create_confectionery.black_chocolate_candy": "黑巧克力糖",
+  "item.create_confectionery.black_chocolate_candy_1": "黑巧克力糖",
+  "item.create_confectionery.black_chocolate_candy_2": "黑巧克力糖",
+  "item.create_confectionery.black_chocolate_candy_3": "黑巧克力糖",
+  "item.create_confectionery.white_chocolate_candy": "白巧克力糖",
+  "item.create_confectionery.white_chocolate_candy_1": "白巧克力糖",
+  "item.create_confectionery.white_chocolate_candy_2": "白巧克力糖",
+  "item.create_confectionery.white_chocolate_candy_3": "白巧克力糖",
+  "item.create_confectionery.ruby_chocolate_candy": "红宝石巧克力糖",
+  "item.create_confectionery.ruby_chocolate_candy_1": "红宝石巧克力糖",
+  "item.create_confectionery.ruby_chocolate_candy_2": "红宝石巧克力糖",
+  "item.create_confectionery.ruby_chocolate_candy_3": "红宝石巧克力糖"
+}
