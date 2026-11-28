@@ -1,5 +1,5 @@
 diff --git a/gradle.properties b/gradle.properties
-index c2aa5a6..52572c8 100644
+index c2aa5a6..a2b124a 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -6,7 +6,7 @@ version_neoforge=1.21.1
@@ -7,7 +7,7 @@ index c2aa5a6..52572c8 100644
  mod_name=Create VVVF Simulator
  mod_license=GPL-3.0
 -mod_version=1.2.1
-+mod_version=1.2.1-niijima.10
++mod_version=1.2.1-niijima.11
  mod_group_id=createvvvfsim
  mod_authors=Deiloproxide
 -mod_description=Simulates VVVF on Minecraft Create Train
@@ -305,7 +305,7 @@ index 5a6ba97..388335a 100644
      @Override
      public void reload(){
 diff --git a/src/main/java/createvvvfsim/TrainData.java b/src/main/java/createvvvfsim/TrainData.java
-index 7301ec1..be6d907 100644
+index 7301ec1..7e9c235 100644
 --- a/src/main/java/createvvvfsim/TrainData.java
 +++ b/src/main/java/createvvvfsim/TrainData.java
 @@ -1,6 +1,8 @@
@@ -317,11 +317,13 @@ index 7301ec1..be6d907 100644
  import genengine.VVVFSoundGen;
  import genengine.WindSoundGen;
  import java.util.Arrays;
-@@ -20,25 +22,35 @@ public class TrainData{
+@@ -20,25 +22,37 @@ public class TrainData{
      public final EnvData current_env=new EnvData();
      public final EnvData env_step=new EnvData();
      public final Lowpass[] filters=new Lowpass[5];
 -    public boolean use_server=false,server_reloaded=false;
++    public volatile double targetPan;
++    public double currentPan;
 +    public double volumeGain = 1.0;
 +    private final double motorTrim;
 +    public double syncedSpeed;
@@ -358,7 +360,7 @@ index 7301ec1..be6d907 100644
          wind_gen.setF(smoothed);
          is_last_valid=valid;
          is_last_move=move;
-@@ -75,4 +87,4 @@ public class TrainData{
+@@ -75,4 +89,4 @@ public class TrainData{
              current_env.cutoffs[i]=target_env.cutoffs[i];
          }
      }
@@ -366,10 +368,10 @@ index 7301ec1..be6d907 100644
 \ No newline at end of file
 +}
 diff --git a/src/main/java/createvvvfsim/TrainStatus.java b/src/main/java/createvvvfsim/TrainStatus.java
-index e896d46..0b4019f 100644
+index e896d46..3cda90e 100644
 --- a/src/main/java/createvvvfsim/TrainStatus.java
 +++ b/src/main/java/createvvvfsim/TrainStatus.java
-@@ -1,11 +1,16 @@
+@@ -1,17 +1,19 @@
  package createvvvfsim;
 +import com.simibubi.create.CreateClient;
 +import vvvfsimulator.data.vvvf.Manager;
@@ -379,8 +381,8 @@ index e896d46..0b4019f 100644
 +import java.io.IOException;
 +import com.mojang.logging.LogUtils;
  import com.simibubi.create.content.trains.entity.Carriage;
- import com.simibubi.create.content.trains.entity.Carriage.DimensionalCarriageEntity;
- import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
+-import com.simibubi.create.content.trains.entity.Carriage.DimensionalCarriageEntity;
+-import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
  import com.simibubi.create.content.trains.entity.Train;
 -import com.simibubi.create.foundation.utility.ServerSpeedProvider;
  import java.util.*;
@@ -388,7 +390,13 @@ index e896d46..0b4019f 100644
  import net.minecraft.sounds.SoundEvents;
  import net.minecraft.sounds.SoundSource;
  import net.minecraft.world.entity.player.Player;
-@@ -20,66 +25,92 @@ public class TrainStatus implements Reloadable{
+ import net.minecraft.world.level.Level;
+ import net.minecraft.world.phys.Vec3;
+-import utils.PosHandler;
+ import utils.Reloadable;
+ /**client class*/
+ public class TrainStatus implements Reloadable{
+@@ -20,135 +22,103 @@ public class TrainStatus implements Reloadable{
      private static volatile double main_amp;
      private static volatile double gas_amp;
      private static volatile double switch_amp;
@@ -509,7 +517,7 @@ index e896d46..0b4019f 100644
      }
      public static void tick(Level level,Player player){
          if(level==null) return;
-         Vec3 player_pos=player.position();
+-        Vec3 player_pos=player.position();
          synchronized(train_lock){
 -            all_trains.removeIf(data->data.train.invalid);
 +            active.values().removeIf(data -> data.train.invalid);
@@ -517,14 +525,17 @@ index e896d46..0b4019f 100644
          List<TrainData> train_datas=getTrainData();
          for(TrainData train_data:train_datas){
 -            double near_factor=0.0,far_factor=0.0,avg_speed=0.0;
-+            double near_factor=0.0,far_factor=0.0;
-             int carriage_count=0;
-             for(Carriage carriage:train_data.train.carriages){
-                 DimensionalCarriageEntity dce=carriage.getDimensionalIfPresent(level.dimension());
-@@ -91,58 +122,12 @@ public class TrainStatus implements Reloadable{
-                 double distance=train_pos.distanceTo(player_pos);
-                 near_factor+=Math.max(0.0,1.0-distance/near_distance);
-                 far_factor+=Math.max(0.0,1.0-distance/far_distance);
+-            int carriage_count=0;
+-            for(Carriage carriage:train_data.train.carriages){
+-                DimensionalCarriageEntity dce=carriage.getDimensionalIfPresent(level.dimension());
+-                if(dce==null) continue;
+-                CarriageContraptionEntity entity=dce.entity.get();
+-                if(entity==null) continue;
+-                if(entity.isRemoved()) continue;
+-                Vec3 train_pos=PosHandler.convert(entity.position(),level);
+-                double distance=train_pos.distanceTo(player_pos);
+-                near_factor+=Math.max(0.0,1.0-distance/near_distance);
+-                far_factor+=Math.max(0.0,1.0-distance/far_distance);
 -                ISyncAccessor sync=(ISyncAccessor)(entity.getCarriageData());
 -                float[] wheel_distances=sync.pointDistanceSnapshot();
 -                double avg_distance=0.0;
@@ -538,16 +549,14 @@ index e896d46..0b4019f 100644
 -                if(ticks_since>=sync_period*2) sync_f/=ticks_since-sync_period*2+1;
 -                sync_f*=ServerSpeedProvider.get();
 -                avg_speed+=avg_distance*sync_f*20.0;
-                 carriage_count++;
-             }
+-                carriage_count++;
+-            }
 -            if(!train_data.use_server)
 -                synchronized(speed_lock){
 -                    if(cached_speeds.containsKey(train_data.train.id)) train_data.use_server=true;
 -                }
 -            double speed;
-+            near_factor *= train_data.volumeGain;
-+            far_factor *= train_data.volumeGain;
-             boolean is_valid=carriage_count!=0;
+-            boolean is_valid=carriage_count!=0;
 -            if(train_data.use_server){
 -                UUID id=train_data.train.id;
 -                synchronized(speed_lock){
@@ -579,25 +588,54 @@ index e896d46..0b4019f 100644
 -                    train_data.f_smoother.reloadF(0.0);
 -                }
 -            }
++            var point = TrainSoundPoint.get(train_data.train);
++            double distance = point == null ? Double.POSITIVE_INFINITY : point.distance();
++            double near_factor = Math.max(0, 1 - distance / near_distance) * train_data.volumeGain;
++            double far_factor = Math.max(0, 1 - distance / far_distance) * train_data.volumeGain;
++            train_data.targetPan = point == null ? 0 : point.pan();
++            boolean is_valid = point != null;
 +            double speed=train_data.syncedSpeed;
              boolean is_move=speed>1e-2;
              if(is_move && !train_data.is_last_move && near_factor>1e-2){
-                 double x=player_pos.x,y=player_pos.y,z=player_pos.z;
-@@ -173,13 +158,6 @@ public class TrainStatus implements Reloadable{
-             train_data.target_env=EnvData.avg(envs);
-         }
-     }
+-                double x=player_pos.x,y=player_pos.y,z=player_pos.z;
+-                level.playLocalSound(x,y,z,SoundEvents.LAVA_EXTINGUISH,SoundSource.NEUTRAL,
++                Vec3 source = point.location();
++                level.playLocalSound(source.x,source.y,source.z,SoundEvents.LAVA_EXTINGUISH,SoundSource.NEUTRAL,
+                         (float)(main_amp*gas_amp*near_factor),2f,false);
+-                level.playLocalSound(x,y,z,SoundEvents.WOODEN_TRAPDOOR_CLOSE,SoundSource.NEUTRAL,
++                level.playLocalSound(source.x,source.y,source.z,SoundEvents.WOODEN_TRAPDOOR_CLOSE,SoundSource.NEUTRAL,
+                         (float)(main_amp*switch_amp*near_factor),2f,false);
+             }
+             train_data.set(speed,near_factor,far_factor,is_valid,is_move);
+@@ -159,25 +129,8 @@ public class TrainStatus implements Reloadable{
+         if(period_state==0) eval_trains=getTrainData();
+         for(int i=period_state;i<eval_trains.size();i+=eval_period){
+             TrainData train_data=eval_trains.get(i);
+-            List<Carriage> carriages=train_data.train.carriages;
+-            List<EnvData> envs=new ArrayList<>();
+-            for(Carriage carriage:carriages){
+-                DimensionalCarriageEntity dce=carriage.getDimensionalIfPresent(level.dimension());
+-                if(dce==null) continue;
+-                CarriageContraptionEntity entity=dce.entity.get();
+-                if(entity==null) continue;
+-                if(entity.isRemoved()) continue;
+-                Vec3 train_pos=PosHandler.convert(entity.position(),level);
+-                envs.add(TrainData.mixer.getEnv(level,player,train_pos));
+-            }
+-            train_data.target_env=EnvData.avg(envs);
+-        }
+-    }
 -    public static void reloadSpeed(){
 -        List<TrainData> train_datas=getTrainData();
 -        for(TrainData train_data:train_datas){
 -            train_data.server_reloaded=false;
 -            train_data.reload_timer=1;
--        }
--    }
++            var point = TrainSoundPoint.get(train_data.train);
++            if (point != null) train_data.target_env = TrainData.mixer.getEnv(level, player, point.location());
+         }
+     }
      @Override
-     public void reload(){
-         near_distance=Configs.near_distance.get();
-@@ -188,4 +166,4 @@ public class TrainStatus implements Reloadable{
+@@ -188,4 +141,4 @@ public class TrainStatus implements Reloadable{
          gas_amp=Configs.gas_amp.get();
          switch_amp=Configs.switch_amp.get();
      }
@@ -689,7 +727,7 @@ index 13bfc51..063c2ac 100644
          for(Carriage carriage:train.carriages){
              Map<ResourceKey<Level>,DimensionalCarriageEntity> entities=((CarriageAccessor) carriage).entities();
 diff --git a/src/main/resources/create_vvvf_simulator.mixins.json b/src/main/resources/create_vvvf_simulator.mixins.json
-index 6c3215b..452d5a9 100644
+index 6c3215b..4009c3f 100644
 --- a/src/main/resources/create_vvvf_simulator.mixins.json
 +++ b/src/main/resources/create_vvvf_simulator.mixins.json
 @@ -2,9 +2,9 @@
@@ -697,19 +735,20 @@ index 6c3215b..452d5a9 100644
    "minVersion":"0.8",
    "package":"mixin",
 -  "mixins":["CarriageAccessor","TrainEvents"],
-+  "mixins":["CarriageAccessor","TrainEvents","TrainToneStorage","TrainCabSelection"],
-   "client":["NoCarriageEffects","ISyncAccessor",
+-  "client":["NoCarriageEffects","ISyncAccessor",
 -    "AddTrain","RemoveTrain","ISPRAccessor"],
++  "mixins":["CarriageAccessor","TrainEvents","TrainToneStorage","TrainCabSelection"],
++  "client":["CarriageSoundPosition","NoCarriageEffects","ISyncAccessor",
 +    "RemoveTrain","ISPRAccessor"],
    "injectors":{
      "defaultRequire":1
    }
 diff --git a/src/forge/java/createvvvfsim/RailJointSound.java b/src/forge/java/createvvvfsim/RailJointSound.java
 new file mode 100644
-index 0000000..a1bca0b
+index 0000000..9c562ea
 --- /dev/null
 +++ b/src/forge/java/createvvvfsim/RailJointSound.java
-@@ -0,0 +1,194 @@
+@@ -0,0 +1,197 @@
 +package createvvvfsim;
 +
 +import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
@@ -751,6 +790,7 @@ index 0000000..a1bca0b
 +    private double phase;
 +    private Vec3 from, to;
 +    private double cameraDistance;
++    private TrainSoundPoint source;
 +
 +    private static SoundEvent sample(int id) {
 +        return SoundEvent.createVariableRangeEvent(new ResourceLocation("niijima_rail_audio", "rail_joint_" + id));
@@ -799,11 +839,13 @@ index 0000000..a1bca0b
 +            return;
 +        Vec3 pos = car.position();
 +        double cameraDistance = mc.cameraEntity.distanceToSqr(pos);
-+        if (cameraDistance > 32 * 32) return;
++        var point = TrainSoundPoint.get(car.getCarriage().train);
++        if (point == null || point.distance() >= 32) return;
 +        Vec3 old = new Vec3(car.xo, car.yo, car.zo);
 +        if (pos.distanceToSqr(old) > 8 * 8) return;
 +        var sound = trains.computeIfAbsent(car.getCarriage().train, key -> new RailJointSound());
 +        if (sound.from == null || cameraDistance < sound.cameraDistance) {
++            sound.source = point;
 +            sound.from = old;
 +            sound.to = pos;
 +            sound.cameraDistance = cameraDistance;
@@ -825,8 +867,8 @@ index 0000000..a1bca0b
 +            double speed = packetTick >= tick - 20 && packetTick <= tick ? packetSpeed : distance * 20;
 +            filteredSpeed = !continuous ? speed : filteredSpeed + .25 * (speed - filteredSpeed);
 +            if (speed == 0 && filteredSpeed < .05) filteredSpeed = 0;
-+            double near = Math.max(0, 1 - Math.sqrt(cameraDistance) / 32);
-+            run.set(filteredSpeed, near * volume, Configs.sample_rate.get());
++            double near = Math.max(0, 1 - source.distance() / 32);
++            run.set(filteredSpeed, near * volume, source.pan(), Configs.sample_rate.get());
 +            return;
 +        }
 +        if (distance < 0.0001) return;
@@ -847,7 +889,7 @@ index 0000000..a1bca0b
 +                if (beat < phase) beat += period;
 +                for (; beat < end; beat += period) {
 +                    double fraction = (beat - phase) / distance;
-+                    pending.add(new Hit(level, tick, fraction, old.lerp(pos, fraction), volume, pitch));
++                    pending.add(new Hit(level, tick, fraction, source.location(), volume, pitch));
 +                }
 +            }
 +        }
@@ -1099,7 +1141,7 @@ index 0000000..550d9a5
 +    }
 +}
 diff --git a/src/main/java/genengine/SoundEngine.java b/src/main/java/genengine/SoundEngine.java
-index b459f90..5854001 100644
+index b459f90..edd2ab9 100644
 --- a/src/main/java/genengine/SoundEngine.java
 +++ b/src/main/java/genengine/SoundEngine.java
 @@ -2,6 +2,7 @@ package genengine;
@@ -1110,18 +1152,27 @@ index b459f90..5854001 100644
  import java.nio.ByteBuffer;
  import java.nio.ByteOrder;
  import java.util.Arrays;
-@@ -13,6 +14,7 @@ public class SoundEngine implements Reloadable{
+@@ -12,7 +13,8 @@ import utils.Reloadable;
+ public class SoundEngine implements Reloadable{
      private static final int buffer_size=Configs.buffer_size.get();
      private static final int buffer_cnt=Configs.buffer_cnt.get();
-     private static final double[] mix_buffer=new double[buffer_size];
+-    private static final double[] mix_buffer=new double[buffer_size];
++    private static final double[] motorLeft=new double[buffer_size], motorRight=new double[buffer_size];
 +    private static final double[] railLeft=new double[buffer_size], railRight=new double[buffer_size];
      private static final ByteBuffer[] out_buffer=new ByteBuffer[buffer_cnt];
      private static final Thread thread=new Thread(SoundEngine::mixLoop);
      private static final Object mix_lock=new Object();
-@@ -57,13 +59,15 @@ public class SoundEngine implements Reloadable{
+@@ -53,17 +55,19 @@ public class SoundEngine implements Reloadable{
+     }
+     private static void mixLoop(){
+         while(true){
+-            Arrays.fill(mix_buffer,0.0);
++            Arrays.fill(motorLeft,0.0);
++            Arrays.fill(motorRight,0.0);
              out_buffer[head_ptr].clear();
              List<TrainData> train_datas=TrainStatus.getTrainData();
-             TrainData.mixer.handle(mix_buffer,train_datas);
+-            TrainData.mixer.handle(mix_buffer,train_datas);
++            TrainData.mixer.handle(motorLeft,motorRight,train_datas);
 +            Arrays.fill(railLeft, 0);
 +            Arrays.fill(railRight, 0);
 +            RailJointSound.mix(railLeft, railRight);
@@ -1132,9 +1183,8 @@ index b459f90..5854001 100644
 -                short sample=(short)(clipped*Short.MAX_VALUE);
 -                out_buffer[head_ptr].putShort(sample);
 -                out_buffer[head_ptr].putShort(sample);
-+                double motor=Math.min(Math.max(mix_buffer[i],-1.0),1.0);
-+                out_buffer[head_ptr].putShort(toPcm((motor + railLeft[i])*current_amp));
-+                out_buffer[head_ptr].putShort(toPcm((motor + railRight[i])*current_amp));
++                out_buffer[head_ptr].putShort(toPcm((Math.max(-1,Math.min(1,motorLeft[i])) + railLeft[i])*current_amp));
++                out_buffer[head_ptr].putShort(toPcm((Math.max(-1,Math.min(1,motorRight[i])) + railRight[i])*current_amp));
              }
              out_buffer[head_ptr].flip();
              head_ptr++;
@@ -1154,10 +1204,10 @@ index b459f90..5854001 100644
 +}
 diff --git a/src/main/java/genengine/RollingRun.java b/src/main/java/genengine/RollingRun.java
 new file mode 100644
-index 0000000..1805708
+index 0000000..b1d03ac
 --- /dev/null
 +++ b/src/main/java/genengine/RollingRun.java
-@@ -0,0 +1,99 @@
+@@ -0,0 +1,104 @@
 +package genengine;
 +
 +import java.io.BufferedInputStream;
@@ -1173,10 +1223,11 @@ index 0000000..1805708
 +    private static final int TAPS = 32, PHASES = 64, CUTOFFS = 32;
 +    private static final short[] PCM = loadRecording();
 +    private static final float[][] FILTERS = makeFilters();
-+    private double cursor, rate, gain;
-+    private volatile double targetRate, targetGain;
++    private double cursor, rate, gain, pan;
++    private volatile double targetRate, targetGain, targetPan;
 +
-+    public void set(double metresPerSecond, double listenerGain, int outputRate) {
++    public void set(double metresPerSecond, double listenerGain, double listenerPan, int outputRate) {
++        targetPan = listenerPan;
 +        double kmh = metresPerSecond * 3.6;
 +        double ratio = kmh / 75;
 +        if (kmh > 75) {
@@ -1191,15 +1242,17 @@ index 0000000..1805708
 +    }
 +
 +    public void mix(double[] left, double[] right) {
-+        double nextRate = targetRate, nextGain = targetGain;
++        double nextRate = targetRate, nextGain = targetGain, nextPan = targetPan;
 +        if (nextGain == 0 && gain == 0) {
 +            // Advance the loop through the silent approach with the same rate ramp.
 +            cursor = (cursor + (rate + nextRate) * left.length / 2 + (nextRate - rate) / 2) % (PCM.length / 2);
 +            rate = nextRate;
++            pan = nextPan;
 +            return;
 +        }
 +        double rateStep = (nextRate - rate) / left.length;
 +        double gainStep = (nextGain - gain) / left.length;
++        double panStep = (nextPan - pan) / left.length;
 +        int frames = PCM.length / 2;
 +        for (int i = 0; i < left.length; i++) {
 +            rate += rateStep;
@@ -1216,12 +1269,14 @@ index 0000000..1805708
 +                r += PCM[2 * frame + 1] * weight;
 +                if (++frame == frames) frame = 0;
 +            }
-+            left[i] += l * gain;
-+            right[i] += r * gain;
++            pan += panStep;
++            left[i] += l * gain * (1 - Math.max(0, pan));
++            right[i] += r * gain * (1 + Math.min(0, pan));
 +            cursor = (cursor + rate) % frames;
 +        }
 +        rate = nextRate;
 +        gain = nextGain;
++        pan = nextPan;
 +    }
 +
 +    private static short[] loadRecording() {
@@ -1257,3 +1312,238 @@ index 0000000..1805708
 +        return bank;
 +    }
 +}
+diff --git a/src/forge/java/createvvvfsim/TrainSoundPoint.java b/src/forge/java/createvvvfsim/TrainSoundPoint.java
+new file mode 100644
+index 0000000..621fc77
+--- /dev/null
++++ b/src/forge/java/createvvvfsim/TrainSoundPoint.java
+@@ -0,0 +1,61 @@
++package createvvvfsim;
++
++import com.simibubi.create.content.trains.entity.Carriage;
++import com.simibubi.create.content.trains.entity.Train;
++import java.util.WeakHashMap;
++import net.minecraft.client.Minecraft;
++import net.minecraft.util.Mth;
++import net.minecraft.world.phys.Vec3;
++import utils.PosHandler;
++
++/** The closest audible point on the loaded part of one train, in listener space and world space. */
++public record TrainSoundPoint(long tick, Vec3 location, Vec3 offset, double distance, double pan) {
++    private static final WeakHashMap<Train, TrainSoundPoint> points = new WeakHashMap<>();
++
++    public static TrainSoundPoint get(Train train) {
++        var mc = Minecraft.getInstance();
++        if (mc.level == null || mc.cameraEntity == null) return null;
++        long tick = mc.level.getGameTime();
++        TrainSoundPoint cached = points.get(train);
++        if (cached != null && cached.tick == tick) return cached;
++        Vec3 ear = mc.cameraEntity.getEyePosition();
++        Vec3 best = null, previous = null;
++        for (Carriage car : train.carriages) {
++            var dce = car.getDimensionalIfPresent(mc.level.dimension());
++            var entity = dce == null ? null : dce.entity.get();
++            if (entity == null || entity.isRemoved() || !dce.pointsInitialised || dce.pivot != null) {
++                previous = null;
++                continue;
++            }
++            Vec3 front = dce.leadingAnchor(), rear = dce.trailingAnchor();
++            if (front == null || rear == null) {
++                previous = null;
++                continue;
++            }
++            front = PosHandler.convert(front, mc.level);
++            rear = PosHandler.convert(rear, mc.level);
++            if (previous != null) best = nearer(ear, best, project(ear, previous, front));
++            best = nearer(ear, best, project(ear, front, rear));
++            previous = rear;
++        }
++        if (best == null) return null;
++        Vec3 delta = best.subtract(ear);
++        double distance = delta.length();
++        var left = mc.gameRenderer.getMainCamera().getLeftVector();
++        double pan = -(delta.x * left.x() + delta.y * left.y() + delta.z * left.z()) / Math.max(1, distance);
++        var point = new TrainSoundPoint(tick, best, delta, distance, Mth.clamp(pan, -1, 1));
++        points.put(train, point);
++        return point;
++    }
++
++    static Vec3 project(Vec3 ear, Vec3 a, Vec3 b) {
++        Vec3 axis = b.subtract(a);
++        double length2 = axis.lengthSqr();
++        if (length2 == 0) return a;
++        return a.add(axis.scale(Mth.clamp(ear.subtract(a).dot(axis) / length2, 0, 1)));
++    }
++
++    private static Vec3 nearer(Vec3 ear, Vec3 best, Vec3 candidate) {
++        return best == null || ear.distanceToSqr(candidate) < ear.distanceToSqr(best) ? candidate : best;
++    }
++}
+diff --git a/src/forge/java/mixin/CarriageSoundPosition.java b/src/forge/java/mixin/CarriageSoundPosition.java
+new file mode 100644
+index 0000000..5820803
+--- /dev/null
++++ b/src/forge/java/mixin/CarriageSoundPosition.java
+@@ -0,0 +1,28 @@
++package mixin;
++
++import com.simibubi.create.content.trains.entity.CarriageContraptionEntity;
++import com.simibubi.create.content.trains.entity.CarriageSounds;
++import createvvvfsim.TrainSoundPoint;
++import net.minecraft.world.phys.Vec3;
++import org.spongepowered.asm.mixin.Mixin;
++import org.spongepowered.asm.mixin.Shadow;
++import org.spongepowered.asm.mixin.injection.At;
++import org.spongepowered.asm.mixin.injection.ModifyVariable;
++
++@Mixin(value = CarriageSounds.class, remap = false)
++public class CarriageSoundPosition {
++    @Shadow CarriageContraptionEntity entity;
++
++    // Create 0.5.1.j tick locals after it selects the bogey sound style: toCarriage and distance.
++    @ModifyVariable(method = "tick", at = @At("STORE"), index = 18, require = 1, allow = 1)
++    private Vec3 niijima$direction(Vec3 original) {
++        var point = TrainSoundPoint.get(entity.getCarriage().train);
++        return point == null ? original : point.offset();
++    }
++
++    @ModifyVariable(method = "tick", at = @At("STORE"), index = 19, require = 1, allow = 1)
++    private double niijima$distance(double original) {
++        var point = TrainSoundPoint.get(entity.getCarriage().train);
++        return point == null ? original : point.distance();
++    }
++}
+diff --git a/src/main/java/mixer/Mixer.java b/src/main/java/mixer/Mixer.java
+index a8dfa03..4e014a2 100644
+--- a/src/main/java/mixer/Mixer.java
++++ b/src/main/java/mixer/Mixer.java
+@@ -2,6 +2,8 @@ package mixer;
+ import createvvvfsim.EnvData;
+ import createvvvfsim.TrainData;
+ import java.util.List;
++import java.util.Arrays;
++import createvvvfsim.Configs;
+ import net.minecraft.world.entity.player.Player;
+ import net.minecraft.world.level.Level;
+ import net.minecraft.world.phys.Vec3;
+@@ -11,13 +13,28 @@ public class Mixer implements Reloadable{
+     public EnvData getEnv(Level level,Player player,Vec3 train_pos){
+         return new EnvData();
+     }
+-    public void handle(double[] mix_buffer,List<TrainData> train_datas){
+-        for(TrainData train_data:train_datas){
+-            train_data.base_gen.mixTo(mix_buffer);
+-            train_data.vvvf_gen.mixTo(mix_buffer);
+-            train_data.wind_gen.mixTo(mix_buffer);
++    private final double[] dry = new double[Configs.buffer_size.get()];
++
++    public void handle(double[] left, double[] right, List<TrainData> trains) {
++        for (TrainData train : trains) {
++            Arrays.fill(dry, 0);
++            train.base_gen.mixTo(dry);
++            train.vvvf_gen.mixTo(dry);
++            train.wind_gen.mixTo(dry);
++            panDry(left, right, dry, train);
+         }
+     }
++
++    protected static void panDry(double[] left, double[] right, double[] dry, TrainData train) {
++        double target = train.targetPan, pan = train.currentPan;
++        double step = (target - pan) / left.length;
++        for (int i = 0; i < left.length; i++) {
++            pan += step;
++            left[i] += dry[i] * (1 - Math.max(0, pan));
++            right[i] += dry[i] * (1 + Math.min(0, pan));
++        }
++        train.currentPan = target;
++    }
+     @Override
+     public void reload(){}
+ }
+\ No newline at end of file
+diff --git a/src/main/java/mixer/RemasteredMixer.java b/src/main/java/mixer/RemasteredMixer.java
+index d2bcf04..6d94cfa 100644
+--- a/src/main/java/mixer/RemasteredMixer.java
++++ b/src/main/java/mixer/RemasteredMixer.java
+@@ -143,7 +143,7 @@ public class RemasteredMixer extends Mixer{
+         return env_data;
+     }
+     @Override
+-    public void handle(double[] mix_buffer,List<TrainData> train_datas){
++    public void handle(double[] left,double[] right,List<TrainData> train_datas){
+         for(TrainData train_data:train_datas){
+             Arrays.fill(train_buffer,0.0);
+             train_data.base_gen.mixTo(train_buffer);
+@@ -159,7 +159,7 @@ public class RemasteredMixer extends Mixer{
+                 train_data.addStep();
+                 double[] cutoffs=current_env.cutoffs;
+                 double alpha=Math.min(Math.max(current_env.cutoff,0.02),1.0);
+-                mix_buffer[i]+=train_data.filters[4].process(alpha,train_buffer[i])*current_env.gain;
++                double dry=train_data.filters[4].process(alpha,train_buffer[i])*current_env.gain;
+                 for(int j=0;j<4;j++){
+                     int tail_ptr=head_ptr+i+RemasteredConst.send_delays[j];
+                     if(tail_ptr>=tail_size) tail_ptr-=tail_size;
+@@ -167,7 +167,9 @@ public class RemasteredMixer extends Mixer{
+                     tail_buffers[j][tail_ptr]+=train_data.filters[j].process(alpha,
+                             train_buffer[i]*current_env.gains[j]);
+                 }
++                train_buffer[i]=dry;
+             }
++            panDry(left, right, train_buffer, train_data);
+         }
+         for(int i=0;i<buffer_size;i++){
+             double wet=0.0;
+@@ -180,7 +182,9 @@ public class RemasteredMixer extends Mixer{
+                 if(tail_ptr>=tail_size) tail_ptr-=tail_size;
+                 tail_buffers[j][tail_ptr]+=filtered*RemasteredConst.send_feedbacks[j];
+             }
+-            mix_buffer[i]+=filters[4].process(filter_alpha,wet);
++            double diffuse=filters[4].process(filter_alpha,wet);
++            left[i]+=diffuse;
++            right[i]+=diffuse;
+             head_ptr++;
+             if(head_ptr==tail_size) head_ptr=0;
+         }
+diff --git a/src/main/java/mixer/PerfectedMixer.java b/src/main/java/mixer/PerfectedMixer.java
+index 185cfed..677687d 100644
+--- a/src/main/java/mixer/PerfectedMixer.java
++++ b/src/main/java/mixer/PerfectedMixer.java
+@@ -95,7 +95,7 @@ public class PerfectedMixer extends Mixer{
+         return env_data;
+     }
+     @Override
+-    public void handle(double[] mix_buffer,List<TrainData> train_datas){
++    public void handle(double[] left,double[] right,List<TrainData> train_datas){
+         for(TrainData train_data:train_datas){
+             Arrays.fill(train_buffer,0.0);
+             train_data.base_gen.mixTo(train_buffer);
+@@ -111,7 +111,7 @@ public class PerfectedMixer extends Mixer{
+                 train_data.addStep();
+                 double[] cutoffs=current_env.cutoffs;
+                 double alpha=Math.min(Math.max(current_env.cutoff,0.02),1.0);
+-                mix_buffer[i]+=train_data.filters[4].process(alpha,train_buffer[i])*current_env.gain;
++                double dry=train_data.filters[4].process(alpha,train_buffer[i])*current_env.gain;
+                 for(int j=0;j<4;j++){
+                     int tail_ptr=head_ptr+i+PerfectedConst.send_delays[j];
+                     if(tail_ptr>=tail_size) tail_ptr-=tail_size;
+@@ -119,7 +119,9 @@ public class PerfectedMixer extends Mixer{
+                     tail_buffers[j][tail_ptr]+=train_data.filters[j].process(alpha,
+                             train_buffer[i]*current_env.gains[j]);
+                 }
++                train_buffer[i]=dry;
+             }
++            panDry(left, right, train_buffer, train_data);
+         }
+         for(int i=0;i<buffer_size;i++){
+             double wet=0.0;
+@@ -134,7 +136,9 @@ public class PerfectedMixer extends Mixer{
+                 if(tail_ptr>=tail_size) tail_ptr-=tail_size;
+                 tail_buffers[j][tail_ptr]+=(0.063*wet+0.937*filtered[j])*PerfectedConst.send_feedbacks[j];
+             }
+-            mix_buffer[i]+=filters[4].process(filter_alpha,wet);
++            double diffuse=filters[4].process(filter_alpha,wet);
++            left[i]+=diffuse;
++            right[i]+=diffuse;
+             head_ptr++;
+             if(head_ptr==tail_size) head_ptr=0;
+         }

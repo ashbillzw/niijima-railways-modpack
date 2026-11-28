@@ -1,6 +1,6 @@
 # Create VVVF Simulator · 新岛 Forge 补丁
 
-适用 Minecraft 1.20.1、Create 0.5.1.j、VVVF Simulator Library 1.0.6。上游为 [Deiloproxide/Create-VVVF-Simulator](https://github.com/Deiloproxide/Create-VVVF-Simulator/tree/8b8ff4093d4a075f629db9d196f11f8c81d2c954)，沿用 GPL-3.0。本地派生版为 `1.2.1-niijima.10`（2026-11-28）。
+适用 Minecraft 1.20.1、Create 0.5.1.j、VVVF Simulator Library 1.0.6。上游为 [Deiloproxide/Create-VVVF-Simulator](https://github.com/Deiloproxide/Create-VVVF-Simulator/tree/8b8ff4093d4a075f629db9d196f11f8c81d2c954)，沿用 GPL-3.0。本地派生版为 `1.2.1-niijima.11`（2026-11-28）。
 
 ## 玩法
 
@@ -118,3 +118,11 @@ bogey_spacing_blocks = 14.0
 ### test0134（pack-id 131，1.2.1-niijima.10）
 
 默认车音量 100%，同一段 48 秒短程的整套 VVVF 目标为 −20 LUFS-I（含电机、风声、设备与起步声），轮轨分轨为 −26 LUFS-I。75 km/h 对应原速，10–20 km/h 渐入，200 km/h 封顶 1.5×。选 `create` 的列车由 Create 播放原声；只有选了 VVVF 音色的列车进入轮轨播放路径。服务端命令支持 `/vvvf` 别名。发声位置沿用本次之前的实现，留待后续讨论。
+
+### 转向架连线声源 · 1.2.1-niijima.11（2026-11-28）
+
+客户端按编组顺序连接同一维度内已加载车厢的前后转向架，包括相邻车厢之间的连接段。单转向架按一个点处理，缺失车厢或传送门截断处断开连线。每个客户端按监听者位置求每列车的最近点，每游戏刻复用。Create 默认行驶声和原版手动鸣笛使用该点，鸣笛的起收音和持续音均随之定位。Create 音色和 VVVF 音色沿用 test0134 的播放分工。
+
+VVVF 牵引声按最近距离计算近场和远场增益；各车厢的音量贡献不再相加。左右直达声按监听方向分配，混响尾音保留原有混合方式。阪急走行录音保留立体声，以同一点计算声像和原有的 32 格衰减。车速、节奏取自速度同步或车厢自身位移。旧接头调试采样也从最近点播放。
+
+Forge 成品已重映射。用 Mixin 0.8.5 实际变换 Create 0.5.1.j 的 CarriageSounds，确认方向与距离两处注入均命中；离线测试覆盖长车厢中段、两端外侧、重合锚点、斜坡、车厢间隙、录音左右与居中声道及停车静音。现场听感待游戏内验收。

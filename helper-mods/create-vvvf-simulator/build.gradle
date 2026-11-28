@@ -9,7 +9,7 @@ minecraft.mappings channel: 'official', version: '1.20.1'
 // already contains its relocated audio libraries and remapped, unchanged classes.
 def upstream = file(property('upstream'))
 def original = file(property('original'))
-def versionName = '1.2.1-niijima.10'
+def versionName = '1.2.1-niijima.11'
 def changedJava = file('forge.patch').readLines('UTF-8')
     .findAll { it.startsWith('+++ b/src/') && it.endsWith('.java') }
     .collect { it.split('/java/', 2)[1] }
