@@ -69,6 +69,17 @@
       "fileSize": 1054094
     },
     {
+      "path": "mods/Axiom-6.1.5-for-MC1.20.1.jar.disabled",
+      "hashes": {
+        "sha1": "7e4561092b67fff70fa898c089e0eec24749dabd",
+        "sha512": "e3d43a88db12be87faaa6aa0bc99263c72983d0c379b4d761ceeda51170563b47b0adbf2e9a35d326fcec027c5754316530e23b887495dc760e4f8de8ed659dd"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/N6n5dqoA/versions/rhzVjv9n/Axiom-6.1.5-for-MC1.20.1.jar"
+      ],
+      "fileSize": 47142832
+    },
+    {
       "path": "mods/barbequesdelight-1.0.6.jar",
       "hashes": {
         "sha1": "6aa64c4116acb718880e343fb8ca2884a4e4f52f",
@@ -152,6 +163,17 @@
         "https://edge.forgecdn.net/files/5729/105/cloth-config-11.1.136-forge.jar"
       ],
       "fileSize": 1181413
+    },
+    {
+      "path": "mods/Connector-1.0.0-beta.49+1.20.1.jar",
+      "hashes": {
+        "sha1": "2b167110353c0622939a674b80ae35b1ed6b5625",
+        "sha512": "c6f029b95bbb868a37eb3fe1dc71d696e7016584b10cadec36357b03c710f0f715d57c0bba5c467c0679bc32e6e5d8e366cf4edbb7d7b3edcf47f7794191e626"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/u58R1TMW/versions/1MQDrKN7/Connector-1.0.0-beta.49%2B1.20.1.jar"
+      ],
+      "fileSize": 5046109
     },
     {
       "path": "mods/copycats-2.2.2+mc.1.20.1-forge.jar",
@@ -481,6 +503,17 @@
         "https://cdn.modrinth.com/data/LyOBYG8Q/versions/VEzrohhm/escalated-1.1.0%2Bcreate.0.5.1.j-mc.1.20.1-forge.jar"
       ],
       "fileSize": 517257
+    },
+    {
+      "path": "mods/fabric-api-0.92.6+1.11.15+1.20.1.jar",
+      "hashes": {
+        "sha1": "a37689ff8da8a32f82304ea4a1011873bb4c7eca",
+        "sha512": "da1e59fa754edb24d8a3b6023ef648d6431a8297a9e873d18bfe866aca9384f491af1b438c2c4b75dbf9bd4b9a11daf717a8d1469e9efaed145e5c53f9cbcf37"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/Aqlf1Shp/versions/g0MxcWXy/fabric-api-0.92.6%2B1.11.15%2B1.20.1.jar"
+      ],
+      "fileSize": 3065833
     },
     {
       "path": "mods/fancymenu_forge_3.7.0_MC_1.20.1.jar",
@@ -962,6 +995,17 @@
       "fileSize": 90515
     },
     {
+      "path": "mods/picturesign-fabric-2.0.0-1.20.1.jar",
+      "hashes": {
+        "sha1": "ade5f651a34773208f6d95f2e907df442888032e",
+        "sha512": "94417fb5506e5eb62b15e1080a308a3c0318505def2b7429896ff988b10a7b2ee7bc997b804d650308464c8083c2a6fa238c104591404d7b4e60c02432101f95"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/9WP2dmkk/versions/Q6Vuxi2o/picturesign-fabric-2.0.0-1.20.1.jar"
+      ],
+      "fileSize": 154769
+    },
+    {
       "path": "mods/Platform-forge-1.20.1-1.3.4.jar",
       "hashes": {
         "sha1": "066cc06802107183d6a1028a5e358a2bfd505402",
@@ -1095,6 +1139,17 @@
         "https://cdn.modrinth.com/data/6xwxDTgf/versions/u8YPiN39/VanillaBackport-forge-1.20.1-1.1.7.10.jar"
       ],
       "fileSize": 56051142
+    },
+    {
+      "path": "mods/watermedia-2.0.75.jar",
+      "hashes": {
+        "sha1": "579c41ae9dfc2a44c2164c84e8e5062dba30cc74",
+        "sha512": "5cb2e84e34662fcb930aa99e75669c44671764fff992672d4901107e220e0703b0d3c96dee1467ae2dcc204c66f653047e025d645ab266205cc4c725d4e817a8"
+      },
+      "downloads": [
+        "https://cdn.modrinth.com/data/G922NeHS/versions/YeFu9g4R/watermedia-2.0.75.jar"
+      ],
+      "fileSize": 27600243
     },
     {
       "path": "mods/watut-forge-1.20.1-1.2.3.jar",
