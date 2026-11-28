@@ -2,59 +2,30 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "rolls": 1.0,
-      "entries": [
-        {
-          "type": "minecraft:alternatives",
-          "children": [
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "tag": "forge:shears"
-                  }
-                }
-              ],
-              "name": "farmersdelight:wild_rice"
-            },
-            {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "condition": "minecraft:survives_explosion"
-                }
-              ],
-              "name": "kaleidoscope_cookery:wild_rice"
-            }
-          ]
-        }
-      ],
+      "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:block_state_property",
           "block": "farmersdelight:wild_rice",
+          "condition": "minecraft:block_state_property",
           "properties": {
             "half": "lower"
           }
         },
         {
           "condition": "minecraft:location_check",
+          "offsetY": 1,
           "predicate": {
             "block": {
-              "block": "farmersdelight:wild_rice",
+              "blocks": [
+                "farmersdelight:wild_rice"
+              ],
               "state": {
                 "half": "upper"
               }
             }
-          },
-          "offsetY": 1
+          }
         }
-      ]
-    },
-    {
-      "rolls": 1.0,
+      ],
       "entries": [
         {
           "type": "minecraft:alternatives",
@@ -63,10 +34,8 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "condition": "minecraft:match_tool",
-                  "predicate": {
-                    "tag": "forge:shears"
-                  }
+                  "action": "shears_harvest",
+                  "condition": "forge:can_tool_perform_action"
                 }
               ],
               "name": "farmersdelight:wild_rice"
@@ -83,27 +52,61 @@
           ]
         }
       ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
       "conditions": [
         {
-          "condition": "minecraft:block_state_property",
           "block": "farmersdelight:wild_rice",
+          "condition": "minecraft:block_state_property",
           "properties": {
             "half": "upper"
           }
         },
         {
           "condition": "minecraft:location_check",
+          "offsetY": -1,
           "predicate": {
             "block": {
-              "block": "farmersdelight:wild_rice",
+              "blocks": [
+                "farmersdelight:wild_rice"
+              ],
               "state": {
                 "half": "lower"
               }
             }
-          },
-          "offsetY": -1
+          }
         }
-      ]
+      ],
+      "entries": [
+        {
+          "type": "minecraft:alternatives",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "action": "shears_harvest",
+                  "condition": "forge:can_tool_perform_action"
+                }
+              ],
+              "name": "farmersdelight:wild_rice"
+            },
+            {
+              "type": "minecraft:item",
+              "conditions": [
+                {
+                  "condition": "minecraft:survives_explosion"
+                }
+              ],
+              "name": "kaleidoscope_cookery:wild_rice"
+            }
+          ]
+        }
+      ],
+      "rolls": 1.0
     }
-  ]
+  ],
+  "random_sequence": "farmersdelight:blocks/wild_rice"
 }
