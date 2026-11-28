@@ -56,6 +56,44 @@ if (inGame) {
   document.addEventListener('auxclick', showDownloadNotice);
 }
 const moreMenu = navigation.querySelector('.more-menu');
+const replay = moreMenu.querySelector('.opening-link');
+replay.onclick = () => {
+  moreMenu.open = false;
+  const dialog = document.createElement('dialog');
+  dialog.className = 'opening-replay';
+  dialog.setAttribute('aria-label', 'nsy');
+  const frame = document.createElement('iframe');
+  frame.title = 'nsy';
+  frame.allow = 'autoplay';
+  frame.dataset.openingControls = 'web';
+  frame.src = '/v3/opening.html';
+  // Keep an exit available even while the player document is loading.
+  const exit = document.createElement('button');
+  exit.type = 'button';
+  exit.setAttribute('aria-label', '关闭');
+  exit.textContent = '×';
+  exit.onclick = () => dialog.close();
+  function onControl(event) {
+    if (event.source !== frame.contentWindow || event.origin !== location.origin ||
+        event.data?.type !== 'niijima:opening-control') return;
+    if (event.data.action === 'ready') exit.hidden = true;
+    if (event.data.action === 'skip' && dialog.open) {
+      window.niijimaClick?.();
+      dialog.close();
+    }
+  }
+  window.addEventListener('message', onControl);
+  dialog.addEventListener('close', () => {
+    window.removeEventListener('message', onControl);
+    dialog.remove();
+    moreMenu.querySelector('summary').focus();
+  }, {once:true});
+  dialog.append(frame);
+  if (inGame) dialog.append(exit);
+  document.body.append(dialog);
+  dialog.showModal();
+};
+
 const compactLinks = Array.from(navigation.querySelectorAll('.compact-nav-link'));
 function arrangeNavigation() {
   const header = navigation.closest('.shared-header');
@@ -82,10 +120,7 @@ function arrangeNavigation() {
   document.documentElement.classList.toggle('compact-navigation', compact);
   if (compact !== folded) {
     if (compact) {
-      const links = moreMenu.querySelector('.more-links');
-      const replay = links.querySelector('.opening-link');
-      if (replay) replay.after(...compactLinks);
-      else links.prepend(...compactLinks);
+      replay.after(...compactLinks);
     }
     else {
       moreMenu.open = false;

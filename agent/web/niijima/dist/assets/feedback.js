@@ -138,7 +138,7 @@ function showResult(success) {
 form.addEventListener('submit', async event => {
   event.preventDefault();
   if (!endpoint || busy || submitted) return;
-  const values = { type, playerId: inputs.playerId.value, title: inputs.title.value, details: inputs.details.value, event: (query.get('event') || '').slice(0, 80) };
+  const values = { type, playerId: inputs.playerId.value, title: inputs.title.value, details: inputs.details.value };
   const files = type === 'suggestion' ? [] : [...logs.files];
   const errors = validateFeedback(values, files, settings.limits);
   clearErrors();
@@ -165,7 +165,9 @@ form.addEventListener('submit', async event => {
   showResult(submitted);
 });
 
-if (query.get('tab') === 'journal') selectTab(tabs.findIndex(tab => tab.dataset.kind === 'journal'));
+const requestedTab = query.get('tab');
+const initialTab = tabs.findIndex(tab => tab.dataset.kind === requestedTab);
+if (initialTab >= 0) selectTab(initialTab);
 const configController = new AbortController();
 const configTimeout = setTimeout(() => configController.abort(), 8000);
 try {

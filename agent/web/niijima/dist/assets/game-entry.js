@@ -1,47 +1,4 @@
 (function(){
-const menu = document.querySelector('.more-menu');
-const replay = document.createElement('button');
-replay.type = 'button';
-replay.className = 'opening-link';
-replay.textContent = 'nsy';
-menu.querySelector('.more-links').prepend(replay);
-replay.onclick = () => {
-  menu.open = false;
-  const dialog = document.createElement('dialog');
-  dialog.className = 'opening-replay';
-  dialog.setAttribute('aria-label', 'nsy');
-  const frame = document.createElement('iframe');
-  frame.title = 'nsy';
-  frame.allow = 'autoplay';
-  frame.dataset.openingControls = 'web';
-  frame.src = '/v3/opening.html';
-  // Keep an exit available even while the player document is loading.
-  const exit = document.createElement('button');
-  exit.type = 'button';
-  exit.setAttribute('aria-label', '关闭');
-  exit.textContent = '×';
-  exit.onclick = () => dialog.close();
-  function onControl(event) {
-    if (event.source !== frame.contentWindow || event.origin !== location.origin ||
-        event.data?.type !== 'niijima:opening-control') return;
-    if (event.data.action === 'ready') exit.hidden = true;
-    if (event.data.action === 'skip' && dialog.open) {
-      window.niijimaClick?.();
-      dialog.close();
-    }
-  }
-  window.addEventListener('message', onControl);
-  dialog.addEventListener('close', () => {
-    window.removeEventListener('message', onControl);
-    dialog.remove();
-    menu.querySelector('summary').focus();
-  }, {once:true});
-  dialog.append(frame);
-  if (document.documentElement.classList.contains('in-game')) dialog.append(exit);
-  document.body.append(dialog);
-  dialog.showModal();
-};
-
 if (!document.documentElement.classList.contains('in-game')) return;
 document.documentElement.classList.add('game-home');
 const screen = document.querySelector('.screen');

@@ -7,7 +7,6 @@
   // The game shell gives its main page the full viewport. Maps and forms inherit its scale.
   const embedded = query.get('embed') === '1' || (inFrame && (!inGame || window.parent !== window.top));
   classes.toggle('embedded', embedded);
-  classes.toggle('hide-nav', query.get('nav') === '0');
   if (inGame) {
     classes.add('in-game');
     if (classes.contains('home-page')) {

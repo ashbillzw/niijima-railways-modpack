@@ -17,7 +17,7 @@ const railPicker = document.querySelector('.live-rail-picker');
 const mainRail = railPicker?.querySelector('[data-server="create-cn"]');
 let railSource = mainRail;
 const pageQuery = new URLSearchParams(location.search);
-const mapKey = pageQuery.get('map');
+const mapKey = pageQuery.get('tab');
 let mapDate = mapKey === 'rail-network' && pageQuery.get('mapdate');
 const frame = document.getElementById('map');
 if (frame && pageQuery.get('in_game') === '1')

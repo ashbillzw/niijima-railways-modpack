@@ -1,5 +1,5 @@
 (() => {
-  if (document.documentElement.matches('.embedded, .hide-nav')) return;
+  if (document.documentElement.classList.contains('embedded')) return;
   const contacts = document.querySelector('.footer-links');
   const footer = contacts?.closest('.shared-footer');
   if (!footer) return;

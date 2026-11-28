@@ -37,7 +37,7 @@ export async function packageFeedback(JSZip, values, files, limits, feedbackId, 
     zip.file(path, file);
     return { name: file.name, path, bytes: file.size };
   });
-  const report = { schemaVersion: 1, feedbackId, createdAt, type: values.type, ...(values.type === 'journal' ? { byline: values.playerId.trim() } : { playerId: values.playerId.trim() }), title: values.title.trim(), details: values.details.trim(), event: values.event || null, attachments };
+  const report = { schemaVersion: 1, feedbackId, createdAt, type: values.type, ...(values.type === 'journal' ? { byline: values.playerId.trim() } : { playerId: values.playerId.trim() }), title: values.title.trim(), details: values.details.trim(), attachments };
   const prefix = values.type === 'journal' ? 'journal' : 'feedback';
   zip.file(prefix + '.json', JSON.stringify(report, null, 2));
   const bytes = await zip.generateAsync({ type: 'uint8array', compression: 'STORE' });
